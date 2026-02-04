@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachings | Increasing Faith Ministries</title>
+    <meta name="description" content="Watch powerful Kingdom teachings from Increasing Faith Ministries. Stream live or catch up on past messages.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="ifm-logo-gold.png">
+    <link rel="apple-touch-icon" href="ifm-logo-gold.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="enhancements.css">
+    <style>
+        /* ═══════════════════════════════════════════════════════════════
+           TEACHINGS PAGE SPECIFIC STYLES
+        ═══════════════════════════════════════════════════════════════ */
+
+        /* Section padding */
+        section { padding: 100px 5%; position: relative; z-index: 10; }
+
+        /* Live Stream Section */
+        .live-section { text-align: center; }
+        .live-indicator { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(200, 0, 0, 0.3)); border: 2px solid #ff0000; border-radius: 50px; margin-bottom: 3rem; animation: livePulse 2s ease-in-out infinite; }
+        .live-dot { width: 12px; height: 12px; background: #ff0000; border-radius: 50%; animation: liveDot 1s ease-in-out infinite; }
+        .live-text { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #ff4444; }
+        @keyframes livePulse { 0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); } 50% { box-shadow: 0 0 40px rgba(255, 0, 0, 0.6); } }
+        @keyframes liveDot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        /* Video Container */
+        .video-container { max-width: 1000px; margin: 0 auto 4rem; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 100px rgba(233, 30, 140, 0.2); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .video-container iframe { width: 100%; aspect-ratio: 16/9; display: block; }
+
+        /* Watch Buttons */
+        .watch-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem; }
+        .btn-youtube { background: linear-gradient(135deg, #ff0000, #cc0000); color: var(--white); box-shadow: 0 10px 40px rgba(255, 0, 0, 0.4); }
+        .btn-youtube:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 20px 60px rgba(255, 0, 0, 0.6); }
+
+        /* Content Cards */
+        .content-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .content-card { background: linear-gradient(135deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9)); border-radius: 20px; overflow: hidden; transition: all 0.5s var(--ease-flow); border: 1px solid rgba(255, 255, 255, 0.15); }
+        .content-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(255, 255, 255, 0.15); }
+        .content-card a { text-decoration: none; color: inherit; display: block; }
+        .card-thumbnail { position: relative; overflow: hidden; }
+        .card-thumbnail img { width: 100%; aspect-ratio: 16/9; object-fit: cover; transition: transform 0.5s ease; }
+        .content-card:hover .card-thumbnail img { transform: scale(1.1); }
+        .play-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.4); opacity: 0; transition: opacity 0.3s ease; }
+        .content-card:hover .play-overlay { opacity: 1; }
+        .play-icon { width: 60px; height: 60px; background: rgba(255, 0, 0, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; }
+        .card-content { padding: 1.5rem; }
+        .card-content h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--white); }
+        .card-content p { font-size: 0.9rem; color: var(--off-white); }
+        .card-meta { display: flex; gap: 1rem; margin-top: 1rem; font-size: 0.75rem; color: var(--white); }
+
+        /* Social Links Section */
+        .social-section { text-align: center; background: linear-gradient(135deg, var(--gray-darker), var(--gray-darkest)); }
+        .social-grid { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+        .social-card { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 2.5rem 3rem; background: linear-gradient(135deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9)); border-radius: 20px; text-decoration: none; transition: all 0.5s var(--ease-flow); border: 1px solid rgba(255, 255, 255, 0.15); min-width: 200px; }
+        .social-card:hover { transform: translateY(-10px); }
+        .social-card.youtube { border-color: rgba(255, 0, 0, 0.5); }
+        .social-card.youtube:hover { box-shadow: 0 20px 60px rgba(255, 0, 0, 0.3); }
+        .social-card.instagram { border-color: rgba(225, 48, 108, 0.5); }
+        .social-card.instagram:hover { box-shadow: 0 20px 60px rgba(225, 48, 108, 0.3); }
+        .social-card.facebook { border-color: rgba(24, 119, 242, 0.5); }
+        .social-card.facebook:hover { box-shadow: 0 20px 60px rgba(24, 119, 242, 0.3); }
+        .social-card.tiktok { border-color: rgba(0, 242, 234, 0.5); }
+        .social-card.tiktok:hover { box-shadow: 0 20px 60px rgba(0, 242, 234, 0.3); }
+        .social-icon { font-size: 2.5rem; }
+        .social-card span { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); }
+
+        /* CTA override for teachings page */
+        .cta-section::before { background: radial-gradient(circle, rgba(255, 0, 0, 0.15) 0%, transparent 60%); }
+
+        /* Responsive */
+        @media (max-width: 1024px) { .content-grid { grid-template-columns: 1fr; max-width: 500px; } }
+        @media (max-width: 768px) {
+            .watch-buttons { flex-direction: column; align-items: center; }
+            .social-grid { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body data-barba="wrapper">
+    <div class="preloader"><div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div><img src="ifm-logo-gold.png" alt="IFM" class="preloader-logo"><span class="preloader-text">Advancing the Kingdom</span><div class="preloader-progress"><div class="preloader-progress-bar"></div></div></div>
+    <div class="cursor-dot"></div><div class="cursor-outline"></div>
+    <div class="scroll-progress"></div>
+    <div class="noise-overlay"></div>
+    <div class="page-transition"><div class="page-transition-layer"></div><div class="page-transition-layer"></div><div class="page-transition-layer"></div></div>
+    <button class="theme-toggle" aria-label="Toggle theme"><div class="theme-toggle-icon"><span class="sun">&#9728;</span><span class="moon">&#9790;</span></div></button>
+
+    <main data-barba="container" data-barba-namespace="teachings">
+    <div class="bg-gradient"></div>
+    <div class="particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
+    <div class="floating-images"><img src="ministry-couple-1.jpg" alt="" class="float-img"><img src="ministry-preaching.jpg" alt="" class="float-img"><img src="ministry-couple-2.jpg" alt="" class="float-img"><img src="ministry-teaching.jpg" alt="" class="float-img"><img src="ministry-pastor.jpg" alt="" class="float-img"></div>
+    <div class="lens-flare lens-flare-1"></div><div class="lens-flare lens-flare-2"></div>
+
+    <nav class="nav" id="nav">
+        <a href="index.html" class="logo"><img src="ifm-logo-gold.png" alt="IFM" class="logo-img"><span class="logo-text">Increasing<span>Faith</span></span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="journey.html">Journey</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="teachings.html">Teachings</a></li>
+            <li><a href="prayer.html">Prayer</a></li>
+        </ul>
+        <div class="nav-actions"><a href="teachings.html" class="nav-btn nav-btn-outline">Watch</a><a href="give.html" class="nav-btn nav-btn-glow">Give</a></div>
+        <button class="mobile-toggle" id="mobileToggle">&#9776;</button>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge"><span>Kingdom Teaching</span></div>
+            <h1>Teachings & Media</h1>
+            <p>Watch powerful Kingdom teachings, live streams, and past messages that will transform your understanding of life under God's reign.</p>
+        </div>
+    </section>
+
+    <!-- Live Stream Section -->
+    <section class="live-section">
+        <div class="live-indicator reveal">
+            <span class="live-dot"></span>
+            <span class="live-text">Watch Live on YouTube</span>
+        </div>
+
+        <div class="video-container reveal" style="position: relative; cursor: pointer;" onclick="window.open('https://www.youtube.com/@thehourofpowerextra2883', '_blank')">
+            <div style="width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, rgba(45, 27, 78, 0.9), rgba(26, 10, 46, 0.95)); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;">
+                <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #ff0000, #cc0000); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; box-shadow: 0 10px 40px rgba(255, 0, 0, 0.4); transition: transform 0.3s ease;">&#9658;</div>
+                <h3 style="font-size: 1.5rem; color: white; text-align: center;">Watch on YouTube</h3>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Click to view our latest teachings and live streams</p>
+            </div>
+        </div>
+
+        <div class="watch-buttons reveal">
+            <a href="https://www.youtube.com/@thehourofpowerextra2883" target="_blank" class="btn btn-youtube">
+                <span>&#9658;</span> Watch on YouTube
+            </a>
+            <a href="https://www.youtube.com/@thehourofpowerextra2883?sub_confirmation=1" target="_blank" class="btn btn-secondary">
+                Subscribe to Channel
+            </a>
+        </div>
+    </section>
+
+    <!-- Recent Content -->
+    <section>
+        <div class="section-header reveal">
+            <span class="section-badge">Recent Messages</span>
+            <h2>Latest Kingdom Teachings</h2>
+            <p>Catch up on our most recent teachings and short-form content.</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card reveal">
+                <a href="https://www.youtube.com/@thehourofpowerextra2883/shorts" target="_blank">
+                    <div class="card-thumbnail">
+                        <img src="ministry-preaching.jpg" alt="Hour of Power Shorts">
+                        <div class="play-overlay"><div class="play-icon">&#9658;</div></div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Hour of Power Shorts</h3>
+                        <p>Quick, powerful Kingdom insights in bite-sized videos.</p>
+                        <div class="card-meta"><span>YouTube Shorts</span></div>
+                    </div>
+                </a>
+            </div>
+            <div class="content-card reveal">
+                <a href="https://www.youtube.com/@thehourofpowerextra2883/videos" target="_blank">
+                    <div class="card-thumbnail">
+                        <img src="ministry-teaching.jpg" alt="Full Teachings">
+                        <div class="play-overlay"><div class="play-icon">&#9658;</div></div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Full Teachings</h3>
+                        <p>Complete Kingdom teachings and worship experiences.</p>
+                        <div class="card-meta"><span>Full Length</span></div>
+                    </div>
+                </a>
+            </div>
+            <div class="content-card reveal">
+                <a href="https://www.youtube.com/@thehourofpowerextra2883/streams" target="_blank">
+                    <div class="card-thumbnail">
+                        <img src="ministry-congregation1.jpg" alt="Past Livestreams">
+                        <div class="play-overlay"><div class="play-icon">&#9658;</div></div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Past Livestreams</h3>
+                        <p>Replay our live worship services and special events.</p>
+                        <div class="card-meta"><span>Archives</span></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Platforms -->
+    <section class="social-section">
+        <div class="section-header reveal">
+            <span class="section-badge">Stay Connected</span>
+            <h2>Follow Us Everywhere</h2>
+            <p>Get Kingdom content on your favorite platform.</p>
+        </div>
+
+        <div class="social-grid reveal">
+            <a href="https://www.youtube.com/@thehourofpowerextra2883" target="_blank" class="social-card youtube">
+                <span class="social-icon">&#9658;</span>
+                <span>YouTube</span>
+            </a>
+            <a href="https://www.instagram.com/hourofpowerextra" target="_blank" class="social-card instagram">
+                <span class="social-icon">&#128247;</span>
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.facebook.com/IFMinistry" target="_blank" class="social-card facebook">
+                <span class="social-icon">f</span>
+                <span>Facebook</span>
+            </a>
+            <a href="https://www.tiktok.com/@hourofpower4" target="_blank" class="social-card tiktok">
+                <span class="social-icon">&#9835;</span>
+                <span>TikTok</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-content reveal">
+            <h2>Never Miss a Message</h2>
+            <p>Subscribe to our YouTube channel and turn on notifications to get Kingdom teaching delivered to you.</p>
+            <a href="https://www.youtube.com/@thehourofpowerextra2883?sub_confirmation=1" target="_blank" class="btn btn-youtube">
+                <span>&#9658;</span> Subscribe Now
+            </a>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo"><img src="ifm-logo-gold.png" alt="IFM" class="logo-img"><span class="logo-text">Increasing<span>Faith</span></span></a>
+                <p>Advancing the reign of God in people, communities, and cultures.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/IFMinistry" target="_blank" class="social-fb" title="Facebook">f</a>
+                    <a href="https://www.instagram.com/hourofpowerextra" target="_blank" class="social-ig" title="Instagram">ig</a>
+                    <a href="https://www.youtube.com/@thehourofpowerextra2883" target="_blank" class="social-yt" title="YouTube">&#9658;</a>
+                    <a href="https://www.tiktok.com/@hourofpower4" target="_blank" class="social-tt" title="TikTok">&#9835;</a>
+                    <a href="https://giv.li/129ina" target="_blank" class="social-give" title="Give with Givelify" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);">$</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Watch</h4>
+                <ul>
+                    <li><a href="https://www.youtube.com/@thehourofpowerextra2883/shorts" target="_blank">Shorts</a></li>
+                    <li><a href="https://www.youtube.com/@thehourofpowerextra2883/videos" target="_blank">Teachings</a></li>
+                    <li><a href="https://www.youtube.com/@thehourofpowerextra2883/streams" target="_blank">Livestreams</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="journey.html">Your Journey</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="mailto:increasingfaithministry@gmail.com">Email Us</a></li>
+                    <li><a href="prayer.html">Prayer</a></li>
+                    <li><a href="give.html">Give</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; <span id="currentYear">2025</span> Increasing Faith Ministries. All rights reserved.</p></div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        mobileToggle.addEventListener('click', () => { navLinks.classList.toggle('open'); mobileToggle.innerHTML = navLinks.classList.contains('open') ? '✕' : '☰'; });
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 100); });
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => { revealElements.forEach(el => { const rect = el.getBoundingClientRect(); if (rect.top < window.innerHeight - 100) el.classList.add('visible'); }); };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+        // Set current year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script src="enhancements.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "hero": {
+    "badge": "Prayer",
+    "title": "Prayer Requests",
+    "subtitle": "We believe in the power of prayer. Share your prayer request and let us stand with you in faith."
+  },
+  "intro": "At Increasing Faith Ministries, we believe that prayer is a powerful way to connect with God and experience His presence in our lives. Whether you're facing a challenge, celebrating a victory, or simply need encouragement, we're here to pray with you and for you.",
+  "formEmail": "increasingfaithministry@gmail.com",
+  "confirmationMessage": "Thank you for sharing your prayer request with us. Our ministry team will be praying for you. Remember, God hears every prayer and He is faithful!",
+  "scripture": {
+    "quote": "Therefore I tell you, whatever you ask in prayer, believe that you have received it, and it will be yours.",
+    "reference": "Mark 11:24"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "hero": {
+    "badge": "Our Story",
+    "title": "About Us",
+    "subtitle": "A global, Kingdom-centered teaching ministry restoring Kingdom understanding for over 28 years."
+  },
+  "story": {
+    "title": "Our Ministry",
+    "paragraphs": [
+      "Increasing Faith Ministries (IFM) is a global, Kingdom-centered teaching ministry founded on the conviction that faith increases when believers understand and live according to Kingdom truth. Led by Pastors Curtis Stephens Jr. and Tammy Stephens, IFM has faithfully served for over 28 years, teaching the Word of God with clarity, authority, and compassion.",
+      "At its core, IFM exists to restore Kingdom understanding—moving believers beyond religious tradition into a lifestyle shaped by God's government, order, and intent. Through sound teaching, pastoral care, and prophetic insight, the ministry develops disciplined Kingdom citizens who are equipped to walk out their faith in real life, with wisdom, integrity, and purpose.",
+      "Grounded in Jesus' command to \"seek first the Kingdom of God and His righteousness\" (Matthew 6:33), IFM emphasizes spiritual maturity, renewed identity, and transformed living. The ministry teaches that in Christ, believers are not only forgiven—but made new (2 Corinthians 5:17), empowered to represent Heaven in the earth.",
+      "Increasing Faith Ministries serves a global community of believers who desire more than inspiration—those who are committed to growth, obedience, and Kingdom impact that touches families, communities, and nations."
+    ]
+  },
+  "mission": {
+    "badge": "Our Focus",
+    "title": "What We Do",
+    "description": "Developing disciplined Kingdom citizens equipped to walk out their faith with wisdom, integrity, and purpose.",
+    "cards": [
+      {
+        "icon": "📚",
+        "title": "Sound Teaching",
+        "description": "Teaching the Word of God with clarity, authority, and compassion to restore Kingdom understanding."
+      },
+      {
+        "icon": "🙌",
+        "title": "Pastoral Care",
+        "description": "Shepherding believers with a balanced blend of care and prophetic insight for spiritual growth."
+      },
+      {
+        "icon": "🌍",
+        "title": "Kingdom Impact",
+        "description": "Equipping believers to represent Heaven on earth, impacting families, communities, and nations."
+      }
+    ]
+  },
+  "pastors": {
+    "badge": "Our Pastors",
+    "title": "Meet Pastors Curtis & Tammy",
+    "subtitle": "Over 28 years of faithful Kingdom teaching and pastoral leadership.",
+    "image": "img_0948.jpg",
+    "names": "Pastors Curtis Stephens Jr. & Tammy Stephens",
+    "title_role": "Founders & Senior Pastors",
+    "bio": [
+      "Pastors Curtis Stephens Jr. and Tammy Stephens are seasoned Kingdom teachers with over 28 years of ministry experience. Together, they shepherd God's people with a balanced blend of pastoral care and prophetic insight, carrying a clear mandate to teach Kingdom truth in a way that is both practical and transformational.",
+      "Their ministry is marked by a deep commitment to developing believers who understand their identity in Christ and their responsibility as Kingdom citizens. With humility, wisdom, and unwavering faith, they equip individuals to live disciplined, purpose-driven lives rooted in God's Word—impacting the world with truth, love, and spiritual authority."
+    ]
+  },
+  "beliefs": {
+    "badge": "Our Foundation",
+    "title": "What We Believe",
+    "description": "Core convictions that shape our ministry and teaching.",
+    "items": [
+      {
+        "title": "Kingdom First",
+        "description": "\"Seek first the Kingdom of God and His righteousness\" (Matthew 6:33)—this is our foundation and priority."
+      },
+      {
+        "title": "New Creation Reality",
+        "description": "In Christ, believers are not only forgiven—but made new (2 Corinthians 5:17), empowered to represent Heaven on earth."
+      },
+      {
+        "title": "Spiritual Maturity",
+        "description": "We emphasize growth, obedience, and disciplined living—moving beyond inspiration to transformation."
+      },
+      {
+        "title": "Renewed Identity",
+        "description": "Understanding who we are in Christ and our responsibility as Kingdom citizens changes everything."
+      }
+    ]
+  }
+}

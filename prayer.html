@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer | Increasing Faith Ministries</title>
+    <meta name="description" content="Share your prayer needs with our community. We believe in the power of united prayer and stand with you in faith.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="ifm-logo-gold.png">
+    <link rel="apple-touch-icon" href="ifm-logo-gold.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="enhancements.css">
+    <style>
+        /* ═══════════════════════════════════════════════════════════════
+           PRAYER PAGE SPECIFIC STYLES
+        ═══════════════════════════════════════════════════════════════ */
+
+        /* Hero adjustments for prayer page */
+        .hero { min-height: 50vh; padding: 180px 5% 80px; }
+
+        /* Form Section */
+        .form-section { padding: 80px 5%; position: relative; z-index: 10; }
+        .form-container { max-width: 700px; margin: 0 auto; background: linear-gradient(135deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9)); padding: 4rem; border-radius: 20px; border: 1px solid rgba(233, 30, 140, 0.3); box-shadow: 0 30px 80px rgba(233, 30, 140, 0.2); }
+        .form-intro { text-align: center; margin-bottom: 3rem; }
+        .form-intro h2 { font-size: 2.2rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--white), var(--white)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .form-intro p { color: var(--off-white); }
+
+        /* Form Groups */
+        .form-group { margin-bottom: 2rem; }
+        .form-group label { display: block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.75rem; color: var(--white); }
+        .form-group .optional { font-weight: 400; color: var(--off-white); text-transform: none; letter-spacing: normal; font-size: 0.85rem; }
+        .form-group .private-note { font-size: 0.8rem; color: var(--off-white); font-style: italic; margin-top: 0.5rem; }
+        .form-group input[type="text"], .form-group input[type="email"], .form-group select, .form-group textarea {
+            width: 100%; padding: 1.2rem 1.5rem; background: rgba(26, 10, 46, 0.8); border: 1px solid rgba(233, 30, 140, 0.3); border-radius: 10px; color: var(--white); font-family: inherit; font-size: 1rem; transition: all 0.4s var(--ease-smooth);
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--white); box-shadow: 0 0 20px rgba(233, 30, 140, 0.3); }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: var(--off-white); }
+        .form-group textarea { min-height: 180px; resize: vertical; }
+        .form-group select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1.35rem center; }
+
+        /* Checkbox Group */
+        .checkbox-group { display: flex; align-items: flex-start; gap: 1.25rem; padding: 1.5rem; background: rgba(26, 10, 46, 0.8); border-radius: 10px; margin-top: 2rem; border: 1px solid rgba(233, 30, 140, 0.2); }
+        .checkbox-group input[type="checkbox"] { width: 22px; height: 22px; margin-top: 0.1rem; cursor: pointer; accent-color: var(--white); }
+        .checkbox-group label { font-size: 1rem; font-weight: 600; color: var(--white); cursor: pointer; }
+        .checkbox-group p { font-size: 0.85rem; color: var(--off-white); margin-top: 0.3rem; }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%; padding: 1.4rem; background: linear-gradient(135deg, var(--white), var(--gray-light)); color: var(--gray-darkest); border: none; border-radius: 50px; font-family: inherit; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: all 0.5s var(--ease-bounce); margin-top: 2rem; box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+        }
+        .submit-btn:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 25px 60px rgba(255, 255, 255, 0.3); }
+
+        /* Scripture Section */
+        .scripture { text-align: center; padding: 120px 5%; position: relative; z-index: 10; }
+        .scripture::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 2px; height: 80px; background: linear-gradient(to bottom, transparent, var(--white)); }
+        .scripture blockquote { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-style: italic; max-width: 900px; margin: 0 auto; line-height: 1.9; color: var(--white); text-shadow: 0 0 40px rgba(255, 255, 255, 0.2); }
+        .scripture cite { display: block; margin-top: 2.5rem; font-family: var(--font-body); font-style: normal; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--white); text-shadow: 0 0 20px var(--white-glow); }
+
+        /* Simplified Footer for prayer page */
+        .footer { background: var(--gray-darkest); padding: 60px 5% 30px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.2); position: relative; z-index: 10; }
+        .footer .logo { justify-content: center; margin-bottom: 1.5rem; }
+        .footer p { color: var(--off-white); font-size: 0.85rem; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-container { padding: 2.5rem 1.5rem; }
+        }
+    </style>
+</head>
+<body data-barba="wrapper">
+    <div class="preloader"><div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div><img src="ifm-logo-gold.png" alt="IFM" class="preloader-logo"><span class="preloader-text">Advancing the Kingdom</span><div class="preloader-progress"><div class="preloader-progress-bar"></div></div></div>
+    <div class="cursor-dot"></div><div class="cursor-outline"></div>
+    <div class="scroll-progress"></div>
+    <div class="noise-overlay"></div>
+    <div class="page-transition"><div class="page-transition-layer"></div><div class="page-transition-layer"></div><div class="page-transition-layer"></div></div>
+    <button class="theme-toggle" aria-label="Toggle theme"><div class="theme-toggle-icon"><span class="sun">&#9728;</span><span class="moon">&#9790;</span></div></button>
+    <main data-barba="container" data-barba-namespace="prayer">
+    <div class="bg-gradient"></div>
+    <div class="particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
+    <div class="floating-images"><img src="ministry-couple-1.jpg" alt="" class="float-img"><img src="ministry-preaching.jpg" alt="" class="float-img"><img src="ministry-couple-2.jpg" alt="" class="float-img"><img src="ministry-teaching.jpg" alt="" class="float-img"><img src="ministry-pastor.jpg" alt="" class="float-img"><img src="ministry-congregation1.jpg" alt="" class="float-img"><img src="ministry-congregation2.jpg" alt="" class="float-img"><img src="ministry-congregation3.jpg" alt="" class="float-img"><img src="ministry-congregation4.jpg" alt="" class="float-img"><img src="ministry-congregation5.jpg" alt="" class="float-img"></div>
+    <div class="lens-flare lens-flare-1"></div><div class="lens-flare lens-flare-2"></div><div class="lens-flare lens-flare-3"></div>
+
+    <nav class="nav" id="nav">
+        <a href="index.html" class="logo"><img src="ifm-logo-gold.png" alt="IFM" class="logo-img"><span class="logo-text">Increasing<span>Faith</span></span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="journey.html">Journey</a></li><li><a href="community.html">Community</a></li><li><a href="teachings.html">Teachings</a></li><li><a href="prayer.html">Prayer</a></li>
+        </ul>
+        <div class="nav-actions"><a href="teachings.html" class="nav-btn nav-btn-outline">Watch</a><a href="give.html" class="nav-btn nav-btn-glow">Give</a></div>
+        <button class="mobile-toggle" id="mobileToggle">&#9776;</button>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge"><span>United in Prayer</span></div>
+            <h1>Prayer Requests</h1>
+            <p>Share your prayer needs with our community. We believe in the power of united prayer and stand with you in faith.</p>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="form-container reveal">
+            <div class="form-intro">
+                <h2>Submit Your Request</h2>
+                <p>Let us join you in bringing your needs before the King.</p>
+            </div>
+            <form id="prayerForm" action="https://formspree.io/f/increasingfaithministry@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Prayer Request Submission">
+                <div class="form-group">
+                    <label for="name">Name <span class="optional">(optional)</span></label>
+                    <input type="text" id="name" name="name" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email <span class="optional">(optional)</span></label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com">
+                    <p class="private-note">Your email will be kept private and only used if we need to follow up.</p>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" name="category">
+                        <option value="">Select a category...</option>
+                        <option value="personal">Personal Transformation</option>
+                        <option value="healing">Healing & Wholeness</option>
+                        <option value="family">Family & Relationships</option>
+                        <option value="justice">Justice & Restoration</option>
+                        <option value="community">Community & City</option>
+                        <option value="global">Nations & Global Needs</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="request">Prayer Request <span style="color: var(--magenta);">*</span></label>
+                    <textarea id="request" name="request" placeholder="Share your prayer request here..." required></textarea>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="shareWithOthers" name="shareWithOthers" value="Yes">
+                    <div>
+                        <label for="shareWithOthers">I welcome others to pray with me</label>
+                        <p>If checked, your request may be shared anonymously with our prayer team.</p>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Submit Prayer Request</button>
+                <p class="form-message" id="prayer-form-message" style="display: none; margin-top: 1rem; text-align: center; font-size: 0.95rem;"></p>
+            </form>
+        </div>
+    </section>
+
+    <section class="scripture reveal">
+        <blockquote>"Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus."</blockquote>
+        <cite>Philippians 4:6-7</cite>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="form-section" style="padding-top: 40px;">
+        <div class="form-container reveal">
+            <div class="form-intro">
+                <h2>Contact Us</h2>
+                <p>Have a question or want to connect? Send us a message.</p>
+            </div>
+            <form id="contactForm" action="https://formspree.io/f/increasingfaithministry@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Contact Form Message">
+                <div class="form-group">
+                    <label for="contact-name">Name <span style="color: var(--magenta);">*</span></label>
+                    <input type="text" id="contact-name" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Email <span style="color: var(--magenta);">*</span></label>
+                    <input type="email" id="contact-email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">Message <span style="color: var(--magenta);">*</span></label>
+                    <textarea id="contact-message" name="message" placeholder="How can we help you?" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+                <p class="form-message" id="contact-form-message" style="display: none; margin-top: 1rem; text-align: center; font-size: 0.95rem;"></p>
+            </form>
+        </div>
+    </section>
+
+    </main>
+    <footer class="footer">
+        <a href="index.html" class="logo"><img src="ifm-logo-gold.png" alt="IFM" class="logo-img"><span class="logo-text">Increasing<span>Faith</span></span></a>
+        <p>&copy; <span id="currentYear">2025</span> Increasing Faith Ministries. Advancing the reign of God.</p>
+    </footer>
+
+    <script>
+        // Prayer form handler with Formspree
+        document.getElementById('prayerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const messageEl = document.getElementById('prayer-form-message');
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            // Disable button during submission
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    messageEl.textContent = 'Your prayer request has been received. We are standing with you in faith!';
+                    messageEl.style.color = '#4ade80';
+                    messageEl.style.display = 'block';
+                    form.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                messageEl.textContent = 'Oops! Something went wrong. Please try again or email us directly.';
+                messageEl.style.color = '#f87171';
+                messageEl.style.display = 'block';
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Prayer Request';
+        });
+
+        // Contact form handler with Formspree
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const messageEl = document.getElementById('contact-form-message');
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            // Disable button during submission
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    messageEl.textContent = 'Thank you for reaching out! We\'ll get back to you soon.';
+                    messageEl.style.color = '#4ade80';
+                    messageEl.style.display = 'block';
+                    form.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                messageEl.textContent = 'Oops! Something went wrong. Please try again or email us directly.';
+                messageEl.style.color = '#f87171';
+                messageEl.style.display = 'block';
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+        });
+
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        mobileToggle.addEventListener('click', () => { navLinks.classList.toggle('open'); mobileToggle.innerHTML = navLinks.classList.contains('open') ? '✕' : '☰'; });
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 100); });
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => { revealElements.forEach(el => { const rect = el.getBoundingClientRect(); if (rect.top < window.innerHeight - 100) el.classList.add('visible'); }); };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+        function openConnect() { alert('Connect form coming soon! Email: increasingfaithministry@gmail.com'); }
+        // Set current year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script src="enhancements.js"></script>
+</body>
+</html>

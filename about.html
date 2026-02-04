@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Increasing Faith Ministries</title>
+    <meta name="description" content="Learn about Increasing Faith Ministries - our leadership, history, and mission to advance the reign of God.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="ifm-logo-gold.png">
+    <link rel="apple-touch-icon" href="ifm-logo-gold.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="enhancements.css">
+    <style>
+        /* About Page Specific Styles */
+        .hero { min-height: 60vh; padding: 180px 5% 100px; }
+
+        /* Mission Section */
+        .mission-section { background: linear-gradient(135deg, var(--gray-darker), var(--black)); }
+        .mission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .mission-card { padding: 3rem 2rem; background: linear-gradient(135deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9)); border-radius: 20px; text-align: center; transition: all 0.5s var(--ease-flow); border: 1px solid rgba(233, 30, 140, 0.2); }
+        .mission-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(233, 30, 140, 0.3); border-color: var(--white); }
+        .mission-icon { font-size: 3rem; margin-bottom: 1.5rem; display: block; }
+        .mission-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--white); }
+        .mission-card p { color: var(--white-dim); line-height: 1.8; }
+
+        /* Story Section */
+        .story-section { max-width: 900px; margin: 0 auto; }
+        .story-content { background: linear-gradient(135deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9)); padding: 4rem; border-radius: 20px; border: 1px solid rgba(233, 30, 140, 0.3); }
+        .story-content h2 { font-size: 2.5rem; margin-bottom: 2rem; background: linear-gradient(135deg, var(--white), var(--white)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .story-content p { color: var(--white-dim); line-height: 2; margin-bottom: 1.5rem; font-size: 1.05rem; }
+        .story-content p:last-child { margin-bottom: 0; }
+
+        /* Pastors Feature Section */
+        .pastors-feature { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1100px; margin: 0 auto; align-items: center; }
+        .pastors-image { position: relative; }
+        .pastors-image img { width: 100%; border-radius: 20px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .pastors-image::before { content: ''; position: absolute; top: -20px; left: -20px; right: 20px; bottom: 20px; border: 2px solid var(--white); border-radius: 20px; z-index: -1; opacity: 0.3; }
+        .pastors-bio h3 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--white); text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        .pastors-title { display: inline-block; font-size: 0.8rem; color: var(--white); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; padding: 0.5rem 1rem; background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)); border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .pastors-bio p { color: #ffffff; font-size: 1.1rem; line-height: 2; margin-bottom: 1.5rem; font-weight: 500; text-shadow: 0 2px 15px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.8); }
+        .pastors-bio p:last-child { margin-bottom: 0; }
+
+        /* Values Section - About Page Specific */
+        .value-item { display: flex; gap: 1.5rem; padding: 2rem; background: linear-gradient(135deg, rgba(45, 27, 78, 0.6), rgba(26, 10, 46, 0.8)); border-radius: 15px; border-left: 4px solid var(--white); transition: all 0.5s var(--ease-flow); }
+        .value-item:hover { transform: translateX(10px); box-shadow: 0 15px 40px rgba(233, 30, 140, 0.2); }
+        .value-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--white); line-height: 1; }
+        .value-content h4 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--white); }
+        .value-content p { color: var(--white-dim); font-size: 0.95rem; line-height: 1.7; }
+
+        @media (max-width: 1024px) { .mission-grid { grid-template-columns: 1fr; max-width: 500px; } .pastors-feature { grid-template-columns: 1fr; gap: 2.5rem; max-width: 600px; text-align: center; } .pastors-image::before { display: none; } }
+        @media (max-width: 768px) { .story-content { padding: 2.5rem 1.5rem; } }
+    </style>
+</head>
+<body data-barba="wrapper">
+    <div class="preloader"><div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div><img src="ifm-logo-gold.png" alt="IFM" class="preloader-logo"><span class="preloader-text">Advancing the Kingdom</span><div class="preloader-progress"><div class="preloader-progress-bar"></div></div></div>
+    <div class="cursor-dot"></div><div class="cursor-outline"></div>
+    <div class="scroll-progress"></div>
+    <div class="noise-overlay"></div>
+    <div class="page-transition"><div class="page-transition-layer"></div><div class="page-transition-layer"></div><div class="page-transition-layer"></div></div>
+    <button class="theme-toggle" aria-label="Toggle theme"><div class="theme-toggle-icon"><span class="sun">&#9728;</span><span class="moon">&#9790;</span></div></button>
+    <main data-barba="container" data-barba-namespace="about">
+    <div class="bg-gradient"></div>
+    <div class="particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
+    <div class="floating-images"><img src="ministry-couple-1.jpg" alt="" class="float-img"><img src="ministry-preaching.jpg" alt="" class="float-img"><img src="ministry-teaching.jpg" alt="" class="float-img"></div>
+    <div class="lens-flare lens-flare-1"></div><div class="lens-flare lens-flare-2"></div><div class="lens-flare lens-flare-3"></div>
+
+    <nav class="nav" id="nav">
+        <a href="index.html" class="logo"><img src="ifm-logo-gold.png" alt="IFM" class="logo-img"><span class="logo-text">Increasing<span>Faith</span></span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="journey.html">Journey</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="teachings.html">Teachings</a></li>
+            <li><a href="prayer.html">Prayer</a></li>
+        </ul>
+        <div class="nav-actions"><a href="teachings.html" class="nav-btn nav-btn-outline">Watch</a><a href="give.html" class="nav-btn nav-btn-glow">Give</a></div>
+        <button class="mobile-toggle" id="mobileToggle">&#9776;</button>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge"><span>Our Story</span></div>
+            <h1>About Us</h1>
+            <p>A global, Kingdom-centered teaching ministry restoring Kingdom understanding for over 28 years.</p>
+        </div>
+    </section>
+
+    <!-- Ministry Bio Section -->
+    <section>
+        <div class="story-section reveal">
+            <div class="story-content">
+                <h2>Our Ministry</h2>
+                <p>Increasing Faith Ministries (IFM) is a global, Kingdom-centered teaching ministry founded on the conviction that faith increases when believers understand and live according to Kingdom truth. Led by Pastors Curtis Stephens Jr. and Tammy Stephens, IFM has faithfully served for over 28 years, teaching the Word of God with clarity, authority, and compassion.</p>
+                <p>At its core, IFM exists to restore Kingdom understanding—moving believers beyond religious tradition into a lifestyle shaped by God's government, order, and intent. Through sound teaching, pastoral care, and prophetic insight, the ministry develops disciplined Kingdom citizens who are equipped to walk out their faith in real life, with wisdom, integrity, and purpose.</p>
+                <p>Grounded in Jesus' command to "seek first the Kingdom of God and His righteousness" (Matthew 6:33), IFM emphasizes spiritual maturity, renewed identity, and transformed living. The ministry teaches that in Christ, believers are not only forgiven—but made new (2 Corinthians 5:17), empowered to represent Heaven in the earth.</p>
+                <p>Increasing Faith Ministries serves a global community of believers who desire more than inspiration—those who are committed to growth, obedience, and Kingdom impact that touches families, communities, and nations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="section-header reveal">
+            <span class="section-badge">Our Focus</span>
+            <h2>What We Do</h2>
+            <p>Developing disciplined Kingdom citizens equipped to walk out their faith with wisdom, integrity, and purpose.</p>
+        </div>
+        <div class="mission-grid">
+            <div class="mission-card reveal">
+                <span class="mission-icon">&#128218;</span>
+                <h3>Sound Teaching</h3>
+                <p>Teaching the Word of God with clarity, authority, and compassion to restore Kingdom understanding.</p>
+            </div>
+            <div class="mission-card reveal">
+                <span class="mission-icon">&#128588;</span>
+                <h3>Pastoral Care</h3>
+                <p>Shepherding believers with a balanced blend of care and prophetic insight for spiritual growth.</p>
+            </div>
+            <div class="mission-card reveal">
+                <span class="mission-icon">&#127758;</span>
+                <h3>Kingdom Impact</h3>
+                <p>Equipping believers to represent Heaven on earth, impacting families, communities, and nations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pastors Section -->
+    <section>
+        <div class="section-header reveal">
+            <span class="section-badge">Our Pastors</span>
+            <h2>Meet Pastors Curtis &amp; Tammy</h2>
+            <p>Over 28 years of faithful Kingdom teaching and pastoral leadership.</p>
+        </div>
+        <div class="pastors-feature reveal">
+            <div class="pastors-image">
+                <img src="img_0948.jpg" alt="Pastors Curtis and Tammy Stephens">
+            </div>
+            <div class="pastors-bio">
+                <h3>Pastors Curtis Stephens Jr. &amp; Tammy Stephens</h3>
+                <span class="pastors-title">Founders &amp; Senior Pastors</span>
+                <p>Pastors Curtis Stephens Jr. and Tammy Stephens are seasoned Kingdom teachers with over 28 years of ministry experience. Together, they shepherd God's people with a balanced blend of pastoral care and prophetic insight, carrying a clear mandate to teach Kingdom truth in a way that is both practical and transformational.</p>
+                <p>Their ministry is marked by a deep commitment to developing believers who understand their identity in Christ and their responsibility as Kingdom citizens. With humility, wisdom, and unwavering faith, they equip individuals to live disciplined, purpose-driven lives rooted in God's Word—impacting the world with truth, love, and spiritual authority.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section>
+        <div class="section-header reveal">
+            <span class="section-badge">Our Foundation</span>
+            <h2>What We Believe</h2>
+            <p>Core convictions that shape our ministry and teaching.</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-item reveal">
+                <span class="value-num">01</span>
+                <div class="value-content">
+                    <h4>Kingdom First</h4>
+                    <p>"Seek first the Kingdom of God and His righteousness" (Matthew 6:33)—this is our foundation and priority.</p>
+                </div>
+            </div>
+            <div class="value-item reveal">
+                <span class="value-num">02</span>
+                <div class="value-content">
+                    <h4>New Creation Reality</h4>
+                    <p>In Christ, believers are not only forgiven—but made new (2 Corinthians 5:17), empowered to represent Heaven on earth.</p>
+                </div>
+            </div>
+            <div class="value-item reveal">
+                <span class="value-num">03</span>
+                <div class="value-content">
+                    <h4>Spiritual Maturity</h4>
+                    <p>We emphasize growth, obedience, and disciplined living—moving beyond inspiration to transformation.</p>
+                </div>
+            </div>
+            <div class="value-item reveal">
+                <span class="value-num">04</span>
+                <div class="value-content">
+                    <h4>Renewed Identity</h4>
+                    <p>Understanding who we are in Christ and our responsibility as Kingdom citizens changes everything.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-content reveal">
+            <h2>Join the Movement</h2>
+            <p>Become part of a community committed to living under the reign of Jesus.</p>
+            <a href="community.html" class="btn">Get Connected</a>
+        </div>
+    </section>
+
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo"><img src="ifm-logo-gold.png" alt="IFM" class="logo-img"><span class="logo-text">Increasing<span>Faith</span></span></a>
+                <p>Advancing the reign of God in people, communities, and cultures.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/IFMinistry" target="_blank" class="social-fb" title="Facebook">f</a>
+                    <a href="https://www.instagram.com/hourofpowerextra" target="_blank" class="social-ig" title="Instagram">ig</a>
+                    <a href="https://www.youtube.com/@thehourofpowerextra2883/shorts" target="_blank" class="social-yt" title="YouTube">&#9658;</a>
+                    <a href="https://www.tiktok.com/@hourofpower4" target="_blank" class="social-tt" title="TikTok">&#9835;</a>
+                    <a href="https://giv.li/129ina" target="_blank" class="social-give" title="Give with Givelify" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);">$</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="journey.html">Your Journey</a></li>
+                    <li><a href="community.html">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="mailto:increasingfaithministry@gmail.com">Email Us</a></li>
+                    <li><a href="prayer.html">Prayer</a></li>
+                    <li><a href="give.html">Give</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Follow</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com/IFMinistry" target="_blank">Facebook</a></li>
+                    <li><a href="https://www.youtube.com/@thehourofpowerextra2883/shorts" target="_blank">YouTube</a></li>
+                    <li><a href="https://www.instagram.com/hourofpowerextra" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; <span id="currentYear">2025</span> Increasing Faith Ministries. All rights reserved.</p></div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        mobileToggle.addEventListener('click', () => { navLinks.classList.toggle('open'); mobileToggle.innerHTML = navLinks.classList.contains('open') ? '✕' : '☰'; });
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 100); });
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => { revealElements.forEach(el => { const rect = el.getBoundingClientRect(); if (rect.top < window.innerHeight - 100) el.classList.add('visible'); }); };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+        function openConnect() { alert('Connect form coming soon! Email: increasingfaithministry@gmail.com'); }
+        // Set current year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script src="enhancements.js"></script>
+</body>
+</html>

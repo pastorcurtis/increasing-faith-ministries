@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community | Increasing Faith Ministries</title>
+    <meta name="description" content="Join a global Kingdom movement. Find your place in discipleship cohorts and counter-cultural community.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="ifm-logo-gold.png">
+    <link rel="apple-touch-icon" href="ifm-logo-gold.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="enhancements.css">
+    <style>
+        /* ═══════════════════════════════════════════════════════════════
+           COMMUNITY PAGE SPECIFIC STYLES
+        ═══════════════════════════════════════════════════════════════ */
+
+        /* Pillars Grid */
+        .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1300px; margin: 0 auto; }
+        .pillar-card { background: linear-gradient(135deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9)); border-radius: 20px; overflow: hidden; transition: all 0.5s var(--ease-flow); border: 1px solid rgba(233, 30, 140, 0.3); }
+        .pillar-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(233, 30, 140, 0.3); }
+        .pillar-card::before { content: ''; display: block; height: 4px; background: linear-gradient(90deg, var(--white), var(--silver), var(--white)); }
+        .pillar-header { background: linear-gradient(135deg, var(--gray-darker), var(--gray-dark)); padding: 2.5rem; text-align: center; border-bottom: 1px solid rgba(233, 30, 140, 0.2); }
+        .pillar-header h3 { font-size: 2.5rem; color: var(--white); margin-bottom: 0.5rem; }
+        .pillar-header span { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--off-white); }
+        .pillar-body { padding: 2rem; }
+        .pillar-body p { font-size: 1rem; line-height: 1.9; margin-bottom: 1.5rem; color: var(--off-white); }
+        .pillar-body ul { list-style: none; }
+        .pillar-body li { padding: 0.75rem 0; padding-left: 1.5rem; position: relative; color: var(--white); font-size: 0.95rem; }
+        .pillar-body li::before { content: ""; position: absolute; left: 0; color: var(--white); }
+        .pillar-footer { padding: 1.5rem 2rem; background: linear-gradient(135deg, var(--gray-darker), var(--gray-darkest)); font-family: var(--font-display); font-style: italic; color: var(--off-white); font-size: 0.95rem; }
+
+        /* Cohort Styles */
+        .cohort-intro { max-width: 850px; margin: 0 auto 4rem; text-align: center; }
+        .cohort-highlight { background: linear-gradient(135deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9)); padding: 2rem 3rem; border-radius: 15px; font-family: var(--font-display); font-size: 1.5rem; font-style: italic; color: var(--white); margin: 2rem 0; border-left: 4px solid var(--white); box-shadow: 0 10px 40px rgba(233, 30, 140, 0.2); }
+        .cohort-specs { display: flex; justify-content: center; gap: 5rem; margin: 3rem 0; }
+        .spec-item { text-align: center; }
+        .spec-label { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--off-white); margin-bottom: 0.5rem; }
+        .spec-value { font-family: var(--font-display); font-size: 1.3rem; color: var(--white); }
+
+        /* Commitments Grid */
+        .commitments-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; max-width: 1300px; margin: 0 auto 4rem; }
+        .commitment-card { padding: 2rem; background: linear-gradient(135deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9)); border-left: 3px solid var(--white); border-radius: 10px; transition: all 0.5s var(--ease-flow); }
+        .commitment-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(233, 30, 140, 0.3); }
+        .commitment-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--white); }
+        .commitment-card p { font-size: 0.9rem; color: var(--off-white); }
+
+        /* Flow Steps */
+        .flow-steps { max-width: 900px; margin: 0 auto; }
+        .flow-step { display: flex; gap: 2.5rem; padding: 2rem; background: linear-gradient(135deg, rgba(45, 27, 78, 0.6), rgba(26, 10, 46, 0.8)); border-radius: 15px; margin-bottom: 1.5rem; transition: all 0.5s var(--ease-flow); border: 1px solid rgba(233, 30, 140, 0.2); }
+        .flow-step:hover { transform: translateX(15px); border-color: var(--silver); box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2); }
+        .flow-time { font-family: var(--font-display); font-size: 1.75rem; color: var(--white); min-width: 80px; }
+        .flow-content h4 { font-family: var(--font-body); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--white); }
+        .flow-content p { font-size: 0.95rem; color: var(--off-white); margin-bottom: 0.25rem; }
+        .flow-content .focus { font-style: italic; color: var(--white); font-size: 0.9rem; }
+
+        /* Week Cards */
+        .week-scripture { display: inline-block; background: linear-gradient(135deg, var(--gray-darker), var(--gray-dark)); padding: 0.4rem 0.8rem; font-size: 0.75rem; font-weight: 600; color: var(--white); margin-bottom: 1rem; border-radius: 20px; }
+        .week-row { margin-bottom: 0.75rem; }
+        .week-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); font-weight: 600; }
+        .week-value { color: var(--off-white); font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 1200px) { .pillars-grid { grid-template-columns: 1fr; max-width: 550px; } .commitments-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) {
+            .commitments-grid { grid-template-columns: 1fr; }
+            .cohort-specs { flex-direction: column; gap: 2rem; }
+            .flow-step { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body data-barba="wrapper">
+    <div class="preloader"><div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div><img src="ifm-logo-gold.png" alt="IFM" class="preloader-logo"><span class="preloader-text">Advancing the Kingdom</span><div class="preloader-progress"><div class="preloader-progress-bar"></div></div></div>
+    <div class="cursor-dot"></div><div class="cursor-outline"></div>
+    <div class="scroll-progress"></div>
+    <div class="noise-overlay"></div>
+    <div class="page-transition"><div class="page-transition-layer"></div><div class="page-transition-layer"></div><div class="page-transition-layer"></div></div>
+    <button class="theme-toggle" aria-label="Toggle theme"><div class="theme-toggle-icon"><span class="sun">&#9728;</span><span class="moon">&#9790;</span></div></button>
+    <main data-barba="container" data-barba-namespace="community">
+    <div class="bg-gradient"></div>
+    <div class="particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
+    <div class="floating-images"><img src="ministry-couple-1.jpg" alt="" class="float-img"><img src="ministry-preaching.jpg" alt="" class="float-img"><img src="ministry-couple-2.jpg" alt="" class="float-img"><img src="ministry-teaching.jpg" alt="" class="float-img"><img src="ministry-pastor.jpg" alt="" class="float-img"><img src="ministry-congregation1.jpg" alt="" class="float-img"><img src="ministry-congregation2.jpg" alt="" class="float-img"><img src="ministry-congregation3.jpg" alt="" class="float-img"><img src="ministry-congregation4.jpg" alt="" class="float-img"><img src="ministry-congregation5.jpg" alt="" class="float-img"></div>
+    <div class="lens-flare lens-flare-1"></div><div class="lens-flare lens-flare-2"></div><div class="lens-flare lens-flare-3"></div>
+
+    <nav class="nav" id="nav">
+        <a href="index.html" class="logo"><img src="ifm-logo-gold.png" alt="IFM" class="logo-img"><span class="logo-text">Increasing<span>Faith</span></span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="journey.html">Journey</a></li><li><a href="community.html">Community</a></li><li><a href="teachings.html">Teachings</a></li><li><a href="prayer.html">Prayer</a></li>
+        </ul>
+        <div class="nav-actions"><a href="teachings.html" class="nav-btn nav-btn-outline">Watch</a><a href="give.html" class="nav-btn nav-btn-glow">Give</a></div>
+        <button class="mobile-toggle" id="mobileToggle">&#9776;</button>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge"><span>A Global Movement</span></div>
+            <h1>Kingdom Community</h1>
+            <p>Not an organization you join—a people under a King. Find your place in the global movement.</p>
+        </div>
+    </section>
+
+    <div class="tab-nav">
+        <button class="tab-btn active" data-tab="about">About Community</button>
+        <button class="tab-btn" data-tab="cohorts">Discipleship Cohorts</button>
+        <button class="tab-btn" data-tab="journey">12-Week Journey</button>
+    </div>
+
+    <div id="about" class="tab-content active">
+        <div class="section-header reveal"><span class="section-badge">A Global Movement</span><h2>One Kingdom. Every Nation.</h2><p>Across cultures, ethnicities, and borders, God is forming a family whose shared allegiance is to Jesus, not a denomination, ideology, or nation-state.</p></div>
+        <div class="pillars-grid">
+            <div class="pillar-card reveal">
+                <div class="pillar-header"><h3>Local</h3><span>Rooted Community</span></div>
+                <div class="pillar-body"><p>Kingdom community always has a local expression. It looks like people who:</p><ul><li>Share life, not just services</li><li>Practice hospitality, generosity, confession, and prayer</li><li>Carry one another's burdens and celebrate growth</li></ul></div>
+                <div class="pillar-footer">The kingdom takes root in ordinary places through faithful presence.</div>
+            </div>
+            <div class="pillar-card reveal">
+                <div class="pillar-header"><h3>Global</h3><span>Kingdom Vision</span></div>
+                <div class="pillar-body"><p>Local communities are never isolated. They see themselves as part of a global body advancing the same reign of God.</p><ul><li>Valuing every culture as a bearer of God's image</li><li>Learning from believers across the world</li><li>Aligning with God's purposes beyond comfort</li></ul></div>
+                <div class="pillar-footer">The kingdom expands not by control, but by shared obedience to the same King.</div>
+            </div>
+            <div class="pillar-card reveal">
+                <div class="pillar-header"><h3>Eternal</h3><span>Impact</span></div>
+                <div class="pillar-body"><p>Kingdom community measures success differently. Not attendance. Not buildings. Not budgets.</p><ul><li>Lives restored</li><li>Justice practiced</li><li>Reconciliation embodied</li><li>Faithfulness sustained over time</li></ul></div>
+                <div class="pillar-footer">What is built in love, obedience, and truth outlasts this age.</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cohorts" class="tab-content">
+        <div class="cohort-intro reveal">
+            <span class="section-badge">Small Group Formation</span><h2>Discipleship Cohorts</h2><p>To form disciples who live under the reign of Jesus—together.</p>
+            <div class="cohort-highlight">This is not information transfer. It is life apprenticeship.</div>
+            <div class="cohort-specs"><div class="spec-item"><div class="spec-label">Cohort Size</div><div class="spec-value">5-8 people</div></div><div class="spec-item"><div class="spec-label">Rhythm</div><div class="spec-value">Weekly (90 min)</div></div><div class="spec-item"><div class="spec-label">Posture</div><div class="spec-value">Honest, Scripture-centered</div></div></div>
+        </div>
+        <div class="section-header reveal"><h2>Cohort Commitments</h2><p>Each participant commits to:</p></div>
+        <div class="commitments-grid">
+            <div class="commitment-card reveal"><h4>Presence</h4><p>Show up consistently</p></div>
+            <div class="commitment-card reveal"><h4>Practice</h4><p>Live out what is learned</p></div>
+            <div class="commitment-card reveal"><h4>Participation</h4><p>Speak truth and listen well</p></div>
+            <div class="commitment-card reveal"><h4>Prayer</h4><p>Intercede for one another</p></div>
+            <div class="commitment-card reveal"><h4>Submission</h4><p>Allow the Spirit and community to shape you</p></div>
+        </div>
+        <div class="section-header reveal"><h2>Weekly Gathering Flow</h2><p>90 minutes of intentional formation</p></div>
+        <div class="flow-steps">
+            <div class="flow-step reveal"><div class="flow-time">10 min</div><div class="flow-content"><h4>Recenter</h4><p>Silence, Scripture reading, short prayer</p><p class="focus">"Jesus, we submit again to Your reign."</p></div></div>
+            <div class="flow-step reveal"><div class="flow-time">20 min</div><div class="flow-content"><h4>Shared Life</h4><p>Highs, lows, and faith-in-action from the week</p><p class="focus">Where did you notice the Kingdom? Where did you resist it?</p></div></div>
+            <div class="flow-step reveal"><div class="flow-time">30 min</div><div class="flow-content"><h4>Scripture & Truth</h4><p>Engage Jesus' teaching together</p><p class="focus">What is Jesus revealing about life under God's rule?</p></div></div>
+            <div class="flow-step reveal"><div class="flow-time">20 min</div><div class="flow-content"><h4>Practice & Obedience</h4><p>Discuss concrete responses</p><p class="focus">Decide on one kingdom practice for the week</p></div></div>
+            <div class="flow-step reveal"><div class="flow-time">10 min</div><div class="flow-content"><h4>Prayer & Commissioning</h4><p>Pray with expectation</p><p class="focus">Send one another out as representatives of the Kingdom</p></div></div>
+        </div>
+    </div>
+
+    <div id="journey" class="tab-content">
+        <div class="section-header reveal"><span class="section-badge">Formation Curriculum</span><h2>12-Week Cohort Journey</h2><p>A structured path through the essential teachings of Jesus about Kingdom life.</p></div>
+        <div class="weeks-grid">
+            <div class="week-card reveal"><div class="week-header"><span class="week-num">01</span><span class="week-title">Allegiance and the Gospel</span></div><div class="week-body"><div class="week-scripture">Mark 1:14-15</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Repentance as reorientation</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Identify one area where self-rule needs to yield to Jesus</div></div></div></div>
+            <div class="week-card reveal"><div class="week-header"><span class="week-num">02</span><span class="week-title">Entering the Kingdom</span></div><div class="week-body"><div class="week-scripture">John 3:1-8; Matthew 18:1-4</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Dependence and humility</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Daily prayer of surrender</div></div></div></div>
+            <div class="week-card reveal"><div class="week-header"><span class="week-num">03</span><span class="week-title">Hearing vs. Doing</span></div><div class="week-body"><div class="week-scripture">Matthew 7:24-27</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Obedience as trust</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Act on one difficult teaching of Jesus</div></div></div></div>
+            <div class="week-card reveal"><div class="week-header"><span class="week-num">04</span><span class="week-title">Re-formed Desires</span></div><div class="week-body"><div class="week-scripture">Matthew 5:1-12</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Kingdom values</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Fast from one cultural "status" habit</div></div></div></div>
+            <div class="week-card reveal"><div class="week-header"><span class="week-num">05</span><span class="week-title">Heart-Level Transformation</span></div><div class="week-body"><div class="week-scripture">Matthew 5:21-48</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Inner alignment</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Confession and reconciliation</div></div></div></div>
+            <div class="week-card reveal"><div class="week-header"><span class="week-num">06</span><span class="week-title">Trusting the Father</span></div><div class="week-body"><div class="week-scripture">Matthew 6:9-34</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Freedom from anxiety</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Audit time, money, and attention</div></div></div></div>
+            <div class="week-card reveal"><div class="week-header"><span class="week-num">07</span><span class="week-title">Kingdom Economics</span></div><div class="week-body"><div class="week-scripture">Luke 12:13-34</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Stewardship</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Radical generosity—planned, not spontaneous</div></div></div></div>
+            <div class="week-card reveal"><div class="week-header"><span class="week-num">08</span><span class="week-title">Authority and Power</span></div><div class="week-body"><div class="week-scripture">Luke 10:1-20</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Confidence in Christ's authority</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Pray boldly for healing or restoration</div></div></div></div>
+            <div class="week-card reveal"><div class="week-header"><span class="week-num">09</span><span class="week-title">Kingdom Community</span></div><div class="week-body"><div class="week-scripture">John 13:34-35; Acts 2:42-47</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Shared life</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Intentional hospitality</div></div></div></div>
+            <div class="week-card reveal"><div class="week-header"><span class="week-num">10</span><span class="week-title">Justice, Mercy, and the Least</span></div><div class="week-body"><div class="week-scripture">Luke 10:25-37</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Compassion as allegiance</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Serve someone with no return benefit</div></div></div></div>
+            <div class="week-card reveal"><div class="week-header"><span class="week-num">11</span><span class="week-title">Cost and Perseverance</span></div><div class="week-body"><div class="week-scripture">Luke 9:57-62</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Endurance</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Name and release one false security</div></div></div></div>
+            <div class="week-card reveal"><div class="week-header"><span class="week-num">12</span><span class="week-title">Living for the Coming Kingdom</span></div><div class="week-body"><div class="week-scripture">Matthew 25; Revelation 11:15</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Faithfulness until the King returns</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Write a personal "Kingdom Rule of Life"</div></div></div></div>
+        </div>
+    </div>
+
+    <section class="cta-section">
+        <div class="cta-content reveal"><h2>Ready to Join the Movement?</h2><p>Find your place in a community of disciples committed to the King.</p>
+            <div class="cta-buttons"><a href="mailto:increasingfaithministry@gmail.com?subject=Interested%20in%20Joining%20a%20Cohort" class="btn btn-primary">Join a Cohort</a><a href="give.html" class="btn btn-secondary">Partner With Us</a></div>
+        </div>
+    </section>
+
+    <section class="newsletter reveal">
+        <div class="newsletter-content"><span class="section-badge">Stay Connected</span><h2>Kingdom Updates</h2><p>Receive weekly devotionals, teaching resources, and community updates directly to your inbox.</p>
+            <form class="newsletter-form" id="newsletter-form" action="https://formspree.io/f/increasingfaithministry@gmail.com" method="POST">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <input type="hidden" name="_subject" value="New Newsletter Signup">
+                <button type="submit">Subscribe</button>
+            </form>
+            <p id="newsletter-message" style="display: none; margin-top: 1rem; font-size: 0.9rem;"></p>
+        </div>
+    </section>
+
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand"><a href="index.html" class="logo"><img src="ifm-logo-gold.png" alt="IFM" class="logo-img"><span class="logo-text">Increasing<span>Faith</span></span></a><p>Advancing the reign of God in people, communities, and cultures.</p><div class="social-links"><a href="https://www.facebook.com/IFMinistry" target="_blank" class="social-fb" title="Facebook">f</a><a href="https://www.instagram.com/hourofpowerextra" target="_blank" class="social-ig" title="Instagram">ig</a><a href="https://www.youtube.com/@thehourofpowerextra2883/shorts" target="_blank" class="social-yt" title="YouTube">▶</a><a href="https://www.tiktok.com/@hourofpower4" target="_blank" class="social-tt" title="TikTok">♪</a><a href="https://giv.li/129ina" target="_blank" class="social-give" title="Give with Givelify" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);">$</a></div></div>
+            <div class="footer-column"><h4>Explore</h4><ul><li><a href="journey.html">Your Journey</a></li><li><a href="community.html">Community</a></li><li><a href="prayer.html">Prayer</a></li></ul></div>
+            <div class="footer-column"><h4>Connect</h4><ul><li><a href="mailto:increasingfaithministry@gmail.com">Email Us</a></li><li><a href="give.html">Give</a></li></ul></div>
+            <div class="footer-column"><h4>Follow</h4><ul><li><a href="https://www.facebook.com/IFMinistry" target="_blank">Facebook</a></li><li><a href="https://www.youtube.com/@thehourofpowerextra2883/shorts" target="_blank">YouTube</a></li><li><a href="https://www.instagram.com/hourofpowerextra" target="_blank">Instagram</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; <span id="currentYear">2025</span> Increasing Faith Ministries. All rights reserved.</p></div>
+    </footer>
+
+    <script>
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabBtns.forEach(btn => { btn.addEventListener('click', () => { const tabId = btn.dataset.tab; tabBtns.forEach(b => b.classList.remove('active')); tabContents.forEach(c => c.classList.remove('active')); btn.classList.add('active'); document.getElementById(tabId).classList.add('active'); revealOnScroll(); }); });
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        mobileToggle.addEventListener('click', () => { navLinks.classList.toggle('open'); mobileToggle.innerHTML = navLinks.classList.contains('open') ? '✕' : '☰'; });
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 100); });
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => { revealElements.forEach(el => { const rect = el.getBoundingClientRect(); if (rect.top < window.innerHeight - 100) el.classList.add('visible'); }); };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+        // Newsletter form handler with Formspree
+        const newsletterForm = document.getElementById('newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const form = e.target;
+                const messageEl = document.getElementById('newsletter-message');
+                const submitBtn = form.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        messageEl.textContent = 'Thank you for subscribing! We\'ll be in touch soon.';
+                        messageEl.style.color = '#4ade80';
+                        messageEl.style.display = 'block';
+                        form.reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    messageEl.textContent = 'Oops! Something went wrong. Please try again.';
+                    messageEl.style.color = '#f87171';
+                    messageEl.style.display = 'block';
+                }
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Subscribe';
+            });
+        }
+        function openConnect() { alert('Connect form coming soon! Email: increasingfaithministry@gmail.com'); }
+        // Set current year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script src="enhancements.js"></script>
+</body>
+</html>

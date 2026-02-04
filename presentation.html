@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom-Ready Church Website | Sales Presentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables */
+        :root {
+            --gray-darkest: #0a0a0a;
+            --gray-darker: #1a1a1a;
+            --gray-dark: #333333;
+            --gray-medium: #666666;
+            --gray-light: #888888;
+            --white: #ffffff;
+            --white-soft: rgba(255, 255, 255, 0.9);
+            --white-dim: rgba(255, 255, 255, 0.7);
+            --off-white: #f5f5f5;
+            --accent-gold: #d4af37;
+            --accent-gold-dim: rgba(212, 175, 55, 0.3);
+            --success: #10b981;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Montserrat', -apple-system, sans-serif;
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+            --ease-flow: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--gray-darkest);
+            color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: var(--accent-gold);
+            color: var(--gray-darkest);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        /* Presentation Container */
+        .presentation {
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated Background */
+        .bg-gradient {
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 20%, var(--gray-dark) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, var(--accent-gold-dim) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, var(--gray-darker) 0%, var(--gray-darkest) 100%);
+            z-index: 0;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(15deg); }
+        }
+
+        /* Slides */
+        .slide {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 80px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(100px);
+            transition: all 0.6s var(--ease-flow);
+            z-index: 1;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .slide.exit {
+            transform: translateX(-100px);
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+        }
+
+        /* Typography */
+        .slide h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--white), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .slide h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 2rem;
+            color: var(--white);
+        }
+
+        .slide h3 {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--white-dim);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            margin-top: 2rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Logo Placeholder */
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            border: 3px solid var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 0.8rem;
+            color: var(--white-dim);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            box-shadow: 0 0 40px var(--accent-gold-dim);
+        }
+
+        /* Lists */
+        .problem-list, .solution-list, .feature-list, .page-list, .tech-list, .included-list {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .problem-list li, .solution-list li, .feature-list li, .page-list li, .tech-list li, .included-list li {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--white-soft);
+            list-style: none;
+        }
+
+        .problem-list li::before {
+            content: '\2717';
+            position: absolute;
+            left: 0;
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        .solution-list li::before, .feature-list li::before, .page-list li::before, .tech-list li::before, .included-list li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Two Column Layout */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            text-align: left;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .column h4 {
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .column ul {
+            list-style: none;
+        }
+
+        .column li {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            color: var(--white-soft);
+        }
+
+        .column li::before {
+            content: '\2022';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, rgba(50, 50, 50, 0.6), rgba(30, 30, 30, 0.8));
+            border: 1px solid var(--gray-medium);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            transition: all 0.4s var(--ease-smooth);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 60px var(--accent-gold-dim);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent-gold);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(30, 30, 30, 0.9));
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-card h4 {
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-family: var(--font-display);
+        }
+
+        .pricing-card p {
+            font-size: 0.95rem;
+            color: var(--white-dim);
+            line-height: 1.6;
+        }
+
+        .pricing-note {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--white-dim);
+            font-style: italic;
+        }
+
+        /* Screenshot Placeholder */
+        .screenshot-placeholder {
+            background: linear-gradient(135deg, rgba(50, 50, 50, 0.5), rgba(30, 30, 30, 0.7));
+            border: 2px dashed var(--gray-medium);
+            border-radius: 12px;
+            padding: 60px 40px;
+            margin: 2rem auto;
+            max-width: 600px;
+            color: var(--white-dim);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* CTA Slide */
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s var(--ease-smooth);
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), #b8962e);
+            color: var(--gray-darkest);
+            box-shadow: 0 10px 40px var(--accent-gold-dim);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px var(--accent-gold-dim);
+        }
+
+        .contact-info {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(50, 50, 50, 0.4);
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: var(--white-dim);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info .email {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        .final-tagline {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--white);
+            margin-top: 2rem;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gray-medium);
+            cursor: pointer;
+            transition: all 0.3s var(--ease-smooth);
+        }
+
+        .progress-dot.active {
+            background: var(--accent-gold);
+            box-shadow: 0 0 15px var(--accent-gold);
+            transform: scale(1.2);
+        }
+
+        .progress-dot:hover {
+            background: var(--white);
+        }
+
+        /* Navigation Arrows */
+        .nav-arrows {
+            position: fixed;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .nav-arrow {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--gray-medium);
+            border-radius: 50%;
+            background: transparent;
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-arrow:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            box-shadow: 0 0 20px var(--accent-gold-dim);
+        }
+
+        .nav-arrow:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Slide Counter */
+        .slide-counter {
+            position: fixed;
+            bottom: 35px;
+            left: 40px;
+            font-size: 0.9rem;
+            color: var(--white-dim);
+            z-index: 100;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+        }
+
+        /* Instructions */
+        .instructions {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            font-size: 0.75rem;
+            color: var(--white-dim);
+            z-index: 100;
+            text-align: right;
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .slide {
+                padding: 40px;
+            }
+
+            .two-columns {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px 20px 100px;
+            }
+
+            .slide h1 {
+                font-size: 2rem;
+            }
+
+            .slide h2 {
+                font-size: 1.5rem;
+            }
+
+            .problem-list li, .solution-list li, .feature-list li {
+                font-size: 1rem;
+            }
+
+            .instructions {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <div class="presentation">
+        <!-- Slide 1: Title -->
+        <div class="slide active" data-slide="1">
+            <div class="slide-content">
+                <img src="ifm-logo-gold.png" alt="Logo" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--accent-gold); box-shadow: 0 0 40px var(--accent-gold-dim); margin-bottom: 2rem;">
+                <h1>Kingdom-Ready Church Website</h1>
+                <p class="subtitle">Professional Web Presence for Modern Ministries</p>
+                <p class="tagline">Designed to Serve. Built to Inspire.</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: The Problem -->
+        <div class="slide" data-slide="2">
+            <div class="slide-content">
+                <h3>The Challenge</h3>
+                <h2>Why Most Church Websites Fall Short</h2>
+                <ul class="problem-list">
+                    <li>Most church websites look outdated and unprofessional</li>
+                    <li>DIY solutions lack the polish that reflects your ministry's excellence</li>
+                    <li>Members struggle to find service times and giving links</li>
+                    <li>No mobile optimization - losing 60% of visitors</li>
+                    <li>Poor SEO means seekers can't find you online</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 3: The Solution -->
+        <div class="slide" data-slide="3">
+            <div class="slide-content">
+                <h3>The Solution</h3>
+                <h2>A Website That Matches Your Ministry's Excellence</h2>
+                <ul class="solution-list">
+                    <li>Modern, stunning design that makes a powerful first impression</li>
+                    <li>Mobile-first responsive design - perfect on every device</li>
+                    <li>Built-in SEO optimization to help seekers find your church</li>
+                    <li>Easy content management system - no coding required</li>
+                    <li>Performance optimized for lightning-fast loading</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 4: Features Overview -->
+        <div class="slide" data-slide="4">
+            <div class="slide-content">
+                <h3>Features</h3>
+                <h2>Everything Your Ministry Needs</h2>
+                <div class="two-columns">
+                    <div class="column">
+                        <h4>Design & Experience</h4>
+                        <ul>
+                            <li>7 professionally designed pages</li>
+                            <li>Animated, engaging user experience</li>
+                            <li>Service times prominently displayed</li>
+                            <li>Location with interactive maps</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h4>Ministry Tools</h4>
+                        <ul>
+                            <li>Integrated giving button (Givelify ready)</li>
+                            <li>Social media integration</li>
+                            <li>Email signup forms</li>
+                            <li>Prayer request submission</li>
+                            <li>Contact forms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Pages Included -->
+        <div class="slide" data-slide="5">
+            <div class="slide-content">
+                <h3>Complete Package</h3>
+                <h2>7 Purpose-Built Pages</h2>
+                <div class="two-columns">
+                    <div class="column">
+                        <ul>
+                            <li><strong>Homepage</strong> - Hero, values, testimonials, CTAs</li>
+                            <li><strong>About</strong> - Your story, leadership bios</li>
+                            <li><strong>Journey</strong> - Discipleship pathway</li>
+                            <li><strong>Community</strong> - Small groups, events</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <ul>
+                            <li><strong>Teachings</strong> - Sermon archive ready</li>
+                            <li><strong>Prayer</strong> - Prayer request submission</li>
+                            <li><strong>Give</strong> - Donation page with integration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Technical Excellence -->
+        <div class="slide" data-slide="6">
+            <div class="slide-content">
+                <h3>Under The Hood</h3>
+                <h2>Technical Excellence</h2>
+                <div class="two-columns">
+                    <div class="column">
+                        <h4>SEO & Discovery</h4>
+                        <ul>
+                            <li>Schema.org markup for rich results</li>
+                            <li>XML sitemap generation</li>
+                            <li>Optimized meta tags</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h4>Performance & Accessibility</h4>
+                        <ul>
+                            <li>Optimized images & lazy loading</li>
+                            <li>Screen reader friendly</li>
+                            <li>Keyboard navigation support</li>
+                            <li>Form spam protection</li>
+                            <li>Analytics integration ready</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Easy Content Management -->
+        <div class="slide" data-slide="7">
+            <div class="slide-content">
+                <h3>Simple Updates</h3>
+                <h2>Easy Content Management</h2>
+                <ul class="feature-list">
+                    <li>Built-in CMS - no coding required</li>
+                    <li>Update text and images with ease</li>
+                    <li>Add new sermons in minutes</li>
+                    <li>Manage testimonials with a few clicks</li>
+                    <li>Update service times instantly</li>
+                </ul>
+                <div class="screenshot-placeholder" style="text-align: left; padding: 30px 40px; text-transform: none; letter-spacing: normal; font-size: 1rem; line-height: 1.8;">
+                    <strong style="color: var(--accent-gold); font-size: 1.1rem;">Admin Panel Preview:</strong><br><br>
+                    <span style="color: var(--white-soft);">📄 <strong>Pages</strong> - Edit Homepage hero text, About page content</span><br>
+                    <span style="color: var(--white-soft);">⚙️ <strong>Site Settings</strong> - Service times, location, contact email</span><br>
+                    <span style="color: var(--white-soft);">💬 <strong>Testimonials</strong> - Add/edit member stories with photos</span><br>
+                    <span style="color: var(--white-soft);">🎬 <strong>Teachings</strong> - Upload sermons with video links & dates</span><br>
+                    <span style="color: var(--white-soft);">🔗 <strong>Social Links</strong> - Facebook, Instagram, YouTube, TikTok</span><br>
+                    <span style="color: var(--white-soft);">🖼️ <strong>Media</strong> - Drag & drop image uploads</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: What's Included -->
+        <div class="slide" data-slide="8">
+            <div class="slide-content">
+                <h3>Your Investment Includes</h3>
+                <h2>Everything You Need to Launch</h2>
+                <ul class="included-list">
+                    <li>Complete 7-page website</li>
+                    <li>Decap CMS integration for easy updates</li>
+                    <li>1-hour training session</li>
+                    <li>30 days of post-launch support</li>
+                    <li>All source files included</li>
+                    <li>Deployment assistance</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 9: Investment -->
+        <div class="slide" data-slide="9">
+            <div class="slide-content">
+                <h3>Investment</h3>
+                <h2>Choose Your Package</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h4>Starter</h4>
+                        <div class="price">$2,500</div>
+                        <p>Template customization with your colors, logo, and basic content setup.</p>
+                    </div>
+                    <div class="pricing-card featured">
+                        <h4>Professional</h4>
+                        <div class="price">$4,000</div>
+                        <p>Custom branding, full content migration, photography guidance, and SEO setup.</p>
+                    </div>
+                    <div class="pricing-card">
+                        <h4>Premium</h4>
+                        <div class="price">$6,000</div>
+                        <p>Everything in Professional plus 6 months of ongoing support and updates.</p>
+                    </div>
+                </div>
+                <p class="pricing-note">* Prices are starting points - custom quotes available based on your needs</p>
+            </div>
+        </div>
+
+        <!-- Slide 10: Next Steps -->
+        <div class="slide" data-slide="10">
+            <div class="slide-content">
+                <h3>Ready to Get Started?</h3>
+                <h2>Let's Bring Your Ministry Online</h2>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Schedule a Demo</a>
+                </div>
+                <div class="contact-info">
+                    <p>Questions? Let's talk.</p>
+                    <p class="email">curtisstephensjr@gmail.com</p>
+                </div>
+                <p class="final-tagline">"Let's bring your ministry online with excellence."</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="progress-container">
+        <div class="progress-dot active" data-goto="1"></div>
+        <div class="progress-dot" data-goto="2"></div>
+        <div class="progress-dot" data-goto="3"></div>
+        <div class="progress-dot" data-goto="4"></div>
+        <div class="progress-dot" data-goto="5"></div>
+        <div class="progress-dot" data-goto="6"></div>
+        <div class="progress-dot" data-goto="7"></div>
+        <div class="progress-dot" data-goto="8"></div>
+        <div class="progress-dot" data-goto="9"></div>
+        <div class="progress-dot" data-goto="10"></div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-arrows">
+        <button class="nav-arrow" id="prevBtn" aria-label="Previous slide">&#8592;</button>
+        <button class="nav-arrow" id="nextBtn" aria-label="Next slide">&#8594;</button>
+    </div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">10</span>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions">
+        Use arrow keys or click to navigate
+    </div>
+
+    <script>
+        (function() {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.progress-dot');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const currentSlideEl = document.getElementById('currentSlide');
+            const totalSlides = slides.length;
+
+            let currentSlide = 1;
+
+            function goToSlide(n) {
+                if (n < 1 || n > totalSlides) return;
+
+                const currentEl = document.querySelector('.slide.active');
+                const nextEl = document.querySelector(`[data-slide="${n}"]`);
+
+                if (currentEl) {
+                    currentEl.classList.remove('active');
+                    if (n > currentSlide) {
+                        currentEl.classList.add('exit');
+                    }
+                }
+
+                setTimeout(() => {
+                    document.querySelectorAll('.slide').forEach(s => s.classList.remove('exit'));
+                }, 600);
+
+                nextEl.classList.add('active');
+
+                // Update dots
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[n - 1].classList.add('active');
+
+                // Update counter
+                currentSlideEl.textContent = n;
+
+                // Update buttons
+                prevBtn.disabled = n === 1;
+                nextBtn.disabled = n === totalSlides;
+
+                currentSlide = n;
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides) {
+                    goToSlide(currentSlide + 1);
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 1) {
+                    goToSlide(currentSlide - 1);
+                }
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === ' ') {
+                    e.preventDefault();
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    prevSlide();
+                } else if (e.key === 'Home') {
+                    e.preventDefault();
+                    goToSlide(1);
+                } else if (e.key === 'End') {
+                    e.preventDefault();
+                    goToSlide(totalSlides);
+                }
+            });
+
+            // Click navigation
+            document.addEventListener('click', (e) => {
+                // Don't advance if clicking on buttons or dots
+                if (e.target.closest('.nav-arrow') || e.target.closest('.progress-dot') || e.target.closest('.btn')) {
+                    return;
+                }
+
+                // Click on right side advances, left side goes back
+                const clickX = e.clientX;
+                const windowWidth = window.innerWidth;
+
+                if (clickX > windowWidth * 0.6) {
+                    nextSlide();
+                } else if (clickX < windowWidth * 0.4) {
+                    prevSlide();
+                }
+            });
+
+            // Button navigation
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+
+            // Dot navigation
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const slideNum = parseInt(dot.dataset.goto);
+                    goToSlide(slideNum);
+                });
+            });
+
+            // Initialize
+            prevBtn.disabled = true;
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+{
+  "hero": {
+    "badge": "Advancing the Reign of God",
+    "title": "Live Under the Lordship of Jesus",
+    "subtitle": "We exist to make mature disciples who proclaim the Kingdom, form counter-cultural community, and carry Kingdom influence into every sphere of society.",
+    "primaryBtn": "Begin Your Journey",
+    "primaryLink": "journey.html",
+    "secondaryBtn": "Explore the Kingdom",
+    "secondaryLink": "#values"
+  },
+  "scripture": {
+    "quote": "The time is fulfilled, and the kingdom of God is at hand; repent and believe in the gospel.",
+    "citation": "Jesus Christ — Mark 1:15"
+  },
+  "values": {
+    "badge": "Our Foundation",
+    "title": "Kingdom Values",
+    "description": "These aren't just beliefs we hold—they're the reality we live under and the vision we advance.",
+    "cards": [
+      {
+        "icon": "👑",
+        "title": "Proclaim the King",
+        "description": "Salvation initiates people into a new rule, not just a future destination. We announce Jesus as Lord over all creation."
+      },
+      {
+        "icon": "🔥",
+        "title": "Make Disciples",
+        "description": "We're forming mature followers of Jesus who live under His lordship and reproduce that life in others."
+      },
+      {
+        "icon": "🏛️",
+        "title": "Counter-Cultural Community",
+        "description": "The church is an embassy of the Kingdom, embodying an alternative society that demonstrates Kingdom life."
+      },
+      {
+        "icon": "⚡",
+        "title": "Kingdom Influence",
+        "description": "We equip believers to carry Kingdom authority into every domain: work, family, culture, and society."
+      }
+    ]
+  },
+  "pathway": {
+    "badge": "The Pathway",
+    "title": "From Seeker to Sent One",
+    "description": "Discipleship isn't a program—it's a lifelong journey of transformation under Jesus' lordship.",
+    "steps": [
+      {
+        "title": "Explore",
+        "description": "Investigate who Jesus is and what His Kingdom means."
+      },
+      {
+        "title": "Enter",
+        "description": "Surrender to Jesus as Lord and become a Kingdom citizen."
+      },
+      {
+        "title": "Grow",
+        "description": "Be formed through Scripture, community, and practice."
+      },
+      {
+        "title": "Advance",
+        "description": "Carry Kingdom influence and make disciples who make disciples."
+      }
+    ]
+  },
+  "cta": {
+    "badge": "Your Next Step",
+    "title": "Begin Your Journey",
+    "description": "Whether you're exploring faith for the first time or ready to go deeper, there's a place for you.",
+    "primaryBtn": "Start the Journey",
+    "primaryLink": "journey.html",
+    "secondaryBtn": "Join a Cohort",
+    "secondaryLink": "community.html"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "churchName": "Increasing Faith Ministries",
+  "tagline": "Advancing the Reign of God",
+  "email": "increasingfaithministry@gmail.com",
+  "phone": "",
+  "serviceTimes": {
+    "inPersonDay": "Saturdays",
+    "inPersonTime": "12:00 Noon",
+    "onlineDays": "Monday - Friday",
+    "onlineTime": "8:15 AM"
+  },
+  "location": "Detroit, MI",
+  "social": {
+    "facebook": "https://www.facebook.com/IFMinistry",
+    "instagram": "https://www.instagram.com/hourofpowerextra",
+    "youtube": "https://www.youtube.com/@thehourofpowerextra2883/shorts",
+    "tiktok": "https://www.tiktok.com/@hourofpower4",
+    "givelify": "https://giv.li/129ina"
+  },
+  "seo": {
+    "title": "Increasing Faith Ministries | Advancing the Reign of God",
+    "description": "Making mature disciples who proclaim the Kingdom, form counter-cultural community, and carry Kingdom influence into every sphere of society.",
+    "ogImage": "ifm-logo-gold.png"
+  }
+}

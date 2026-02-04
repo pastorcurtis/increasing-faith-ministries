@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Kingdom Journey | Increasing Faith Ministries</title>
+    <meta name="description" content="Explore faith, grow deeper, and discover Kingdom foundations through our discipleship pathway.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="ifm-logo-gold.png">
+    <link rel="apple-touch-icon" href="ifm-logo-gold.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="enhancements.css">
+    <style>
+        /* ═══════════════════════════════════════════════════════════════
+           JOURNEY PAGE SPECIFIC STYLES
+        ═══════════════════════════════════════════════════════════════ */
+
+        /* Cards Grid */
+        .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto; }
+        .card { padding: 3rem; background: linear-gradient(135deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9)); border: 1px solid rgba(233, 30, 140, 0.3); border-radius: 20px; transition: all 0.5s var(--ease-flow); position: relative; overflow: hidden; }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--white), var(--silver), var(--white)); transform: scaleX(0); transition: transform 0.5s var(--ease-flow); }
+        .card:hover { transform: translateY(-10px); border-color: var(--white); box-shadow: 0 20px 60px rgba(233, 30, 140, 0.3); }
+        .card:hover::before { transform: scaleX(1); }
+        .card-icon { font-size: 3rem; margin-bottom: 1.5rem; display: block; filter: drop-shadow(0 0 20px var(--white)); }
+        .card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--white); }
+        .card p { color: var(--off-white); line-height: 1.8; }
+
+        /* Pathway Steps */
+        .pathway { max-width: 900px; margin: 0 auto; }
+        .pathway-step { display: flex; gap: 2.5rem; padding: 2.5rem; background: linear-gradient(135deg, rgba(45, 27, 78, 0.6), rgba(26, 10, 46, 0.8)); border: 1px solid rgba(233, 30, 140, 0.2); border-radius: 15px; margin-bottom: 1.5rem; transition: all 0.5s var(--ease-flow); }
+        .pathway-step:hover { transform: translateX(15px); border-color: var(--white); box-shadow: 0 15px 50px rgba(255, 215, 0, 0.2); }
+        .step-number { font-family: var(--font-display); font-size: 3.5rem; font-weight: 700; background: linear-gradient(135deg, var(--white), var(--silver)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; min-width: 70px; }
+        .step-content h4 { font-family: var(--font-body); font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--white); }
+        .step-content p { color: var(--off-white); line-height: 1.8; }
+
+        /* Week Body styles */
+        .week-body p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--off-white); }
+        .week-body strong { color: var(--white); font-weight: 600; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .cards-grid { grid-template-columns: 1fr; max-width: 600px; }
+        }
+        @media (max-width: 768px) {
+            .pathway-step { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body data-barba="wrapper">
+    <div class="preloader"><div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div><img src="ifm-logo-gold.png" alt="IFM" class="preloader-logo"><span class="preloader-text">Advancing the Kingdom</span><div class="preloader-progress"><div class="preloader-progress-bar"></div></div></div>
+    <div class="cursor-dot"></div><div class="cursor-outline"></div>
+    <div class="scroll-progress"></div>
+    <div class="noise-overlay"></div>
+    <div class="page-transition"><div class="page-transition-layer"></div><div class="page-transition-layer"></div><div class="page-transition-layer"></div></div>
+    <button class="theme-toggle" aria-label="Toggle theme"><div class="theme-toggle-icon"><span class="sun">&#9728;</span><span class="moon">&#9790;</span></div></button>
+    <main data-barba="container" data-barba-namespace="journey">
+    <!-- Animated Background -->
+    <div class="bg-gradient"></div>
+
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    </div>
+
+    <!-- Floating Images -->
+    <div class="floating-images">
+        <img src="ministry-couple-1.jpg" alt="" class="float-img">
+        <img src="ministry-preaching.jpg" alt="" class="float-img">
+        <img src="ministry-couple-2.jpg" alt="" class="float-img">
+        <img src="ministry-teaching.jpg" alt="" class="float-img">
+        <img src="ministry-pastor.jpg" alt="" class="float-img">
+        <img src="ministry-congregation1.jpg" alt="" class="float-img">
+        <img src="ministry-congregation2.jpg" alt="" class="float-img">
+        <img src="ministry-congregation3.jpg" alt="" class="float-img">
+        <img src="ministry-congregation4.jpg" alt="" class="float-img">
+        <img src="ministry-congregation5.jpg" alt="" class="float-img">
+    </div>
+
+    <!-- Lens Flares -->
+    <div class="lens-flare lens-flare-1"></div>
+    <div class="lens-flare lens-flare-2"></div>
+    <div class="lens-flare lens-flare-3"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="index.html" class="logo">
+            <img src="ifm-logo-gold.png" alt="IFM" class="logo-img">
+            <span class="logo-text">Increasing<span>Faith</span></span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="journey.html">Journey</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="teachings.html">Teachings</a></li>
+            <li><a href="prayer.html">Prayer</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="teachings.html" class="nav-btn nav-btn-outline">Watch</a>
+            <a href="give.html" class="nav-btn nav-btn-glow">Give</a>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle">&#9776;</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge"><span>Your Path Forward</span></div>
+            <h1>Your Kingdom Journey</h1>
+            <p>Whether you're exploring faith or ready to go deeper, there's a next step for you in the Kingdom.</p>
+        </div>
+    </section>
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab-btn active" data-tab="explore">Explore Faith</button>
+        <button class="tab-btn" data-tab="grow">Grow Deeper</button>
+        <button class="tab-btn" data-tab="teaching">Teaching Series</button>
+    </div>
+
+    <!-- EXPLORE TAB -->
+    <div id="explore" class="tab-content active">
+        <div class="section-header reveal">
+            <span class="section-badge">For Seekers</span>
+            <h2>Explore the Kingdom</h2>
+            <p>Curious about Jesus and His Kingdom? Start here. No pressure, just honest exploration.</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card reveal">
+                <span class="card-icon">?</span>
+                <h3>Who Is Jesus?</h3>
+                <p>More than a teacher or prophet—Jesus claimed to be the King bringing God's Kingdom to earth. Explore His life, teachings, and invitation.</p>
+            </div>
+            <div class="card reveal">
+                <span class="card-icon">&#9813;</span>
+                <h3>What Is the Kingdom?</h3>
+                <p>The Kingdom of God isn't a place—it's God's reign breaking into our world. Discover what it means to live under His rule.</p>
+            </div>
+            <div class="card reveal">
+                <span class="card-icon">&#10140;</span>
+                <h3>Why Does It Matter?</h3>
+                <p>The Kingdom offers purpose, community, transformation, and hope. See how it addresses life's deepest questions.</p>
+            </div>
+            <div class="card reveal">
+                <span class="card-icon">&#9829;</span>
+                <h3>Your Invitation</h3>
+                <p>Jesus invites everyone to enter the Kingdom through repentance and faith. This isn't religion—it's relationship with the King.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- GROW TAB -->
+    <div id="grow" class="tab-content">
+        <div class="section-header reveal">
+            <span class="section-badge">For Believers</span>
+            <h2>Grow as a Kingdom Citizen</h2>
+            <p>You've entered the Kingdom—now it's time to be formed as a disciple who lives under Jesus' lordship.</p>
+        </div>
+
+        <div class="pathway">
+            <div class="pathway-step reveal">
+                <span class="step-number">01</span>
+                <div class="step-content">
+                    <h4>Root Yourself in Scripture</h4>
+                    <p>The Word of God shapes Kingdom citizens. Develop rhythms of reading, studying, and meditating on Scripture daily.</p>
+                </div>
+            </div>
+            <div class="pathway-step reveal">
+                <span class="step-number">02</span>
+                <div class="step-content">
+                    <h4>Join a Discipleship Cohort</h4>
+                    <p>Transformation happens in community. Join a small group for accountability, encouragement, and deeper formation.</p>
+                </div>
+            </div>
+            <div class="pathway-step reveal">
+                <span class="step-number">03</span>
+                <div class="step-content">
+                    <h4>Practice Kingdom Disciplines</h4>
+                    <p>Prayer, fasting, generosity, service—these practices align our lives with Kingdom values and priorities.</p>
+                </div>
+            </div>
+            <div class="pathway-step reveal">
+                <span class="step-number">04</span>
+                <div class="step-content">
+                    <h4>Discover Your Kingdom Assignment</h4>
+                    <p>Every believer has a sphere of influence. Learn to carry Kingdom authority into your work, family, and community.</p>
+                </div>
+            </div>
+            <div class="pathway-step reveal">
+                <span class="step-number">05</span>
+                <div class="step-content">
+                    <h4>Make Disciples Who Make Disciples</h4>
+                    <p>The ultimate goal: reproduce Kingdom life in others. Learn to invest in and develop emerging disciples.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TEACHING TAB -->
+    <div id="teaching" class="tab-content">
+        <div class="section-header reveal">
+            <span class="section-badge">12-Week Journey</span>
+            <h2>Kingdom Foundations</h2>
+            <p>A comprehensive teaching series through the essential teachings of Jesus about life in His Kingdom.</p>
+        </div>
+
+        <div class="weeks-grid">
+            <div class="week-card reveal">
+                <div class="week-header"><span class="week-num">01</span><span class="week-title">The King and the Kingdom</span></div>
+                <div class="week-body"><p><strong>Text:</strong> Mark 1:14-15</p><p>The gospel Jesus preached was the Kingdom of God.</p></div>
+            </div>
+            <div class="week-card reveal">
+                <div class="week-header"><span class="week-num">02</span><span class="week-title">Entering the Kingdom</span></div>
+                <div class="week-body"><p><strong>Text:</strong> John 3:1-8</p><p>You must be born again to see and enter the Kingdom.</p></div>
+            </div>
+            <div class="week-card reveal">
+                <div class="week-header"><span class="week-num">03</span><span class="week-title">Kingdom Citizens</span></div>
+                <div class="week-body"><p><strong>Text:</strong> Matthew 5:1-16</p><p>The Beatitudes describe Kingdom character.</p></div>
+            </div>
+            <div class="week-card reveal">
+                <div class="week-header"><span class="week-num">04</span><span class="week-title">Kingdom Righteousness</span></div>
+                <div class="week-body"><p><strong>Text:</strong> Matthew 5:17-48</p><p>Kingdom ethics exceed external compliance.</p></div>
+            </div>
+            <div class="week-card reveal">
+                <div class="week-header"><span class="week-num">05</span><span class="week-title">Kingdom Practices</span></div>
+                <div class="week-body"><p><strong>Text:</strong> Matthew 6:1-18</p><p>Giving, praying, and fasting in secret.</p></div>
+            </div>
+            <div class="week-card reveal">
+                <div class="week-header"><span class="week-num">06</span><span class="week-title">Kingdom Priorities</span></div>
+                <div class="week-body"><p><strong>Text:</strong> Matthew 6:19-34</p><p>Seek first the Kingdom and His righteousness.</p></div>
+            </div>
+            <div class="week-card reveal">
+                <div class="week-header"><span class="week-num">07</span><span class="week-title">Kingdom Relationships</span></div>
+                <div class="week-body"><p><strong>Text:</strong> Matthew 7:1-12</p><p>How Kingdom citizens treat one another.</p></div>
+            </div>
+            <div class="week-card reveal">
+                <div class="week-header"><span class="week-num">08</span><span class="week-title">Kingdom Choices</span></div>
+                <div class="week-body"><p><strong>Text:</strong> Matthew 7:13-29</p><p>Two paths, two builders, two outcomes.</p></div>
+            </div>
+            <div class="week-card reveal">
+                <div class="week-header"><span class="week-num">09</span><span class="week-title">Kingdom Power</span></div>
+                <div class="week-body"><p><strong>Text:</strong> Matthew 10:1-8</p><p>Authority to advance the Kingdom.</p></div>
+            </div>
+            <div class="week-card reveal">
+                <div class="week-header"><span class="week-num">10</span><span class="week-title">Kingdom Parables</span></div>
+                <div class="week-body"><p><strong>Text:</strong> Matthew 13</p><p>Secrets of Kingdom growth and value.</p></div>
+            </div>
+            <div class="week-card reveal">
+                <div class="week-header"><span class="week-num">11</span><span class="week-title">Kingdom Community</span></div>
+                <div class="week-body"><p><strong>Text:</strong> Matthew 18:1-20</p><p>Life together in the Kingdom family.</p></div>
+            </div>
+            <div class="week-card reveal">
+                <div class="week-header"><span class="week-num">12</span><span class="week-title">Kingdom Consummation</span></div>
+                <div class="week-body"><p><strong>Text:</strong> Matthew 25:31-46</p><p>The Kingdom fully realized at Christ's return.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-content reveal">
+            <h2>Ready for Your Next Step?</h2>
+            <p>Whether you're just beginning to explore or ready to dive deeper, we're here to walk with you.</p>
+            <a href="community.html" class="btn">Join a Cohort</a>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter reveal">
+        <div class="newsletter-content">
+            <span class="section-badge">Stay Connected</span>
+            <h2>Kingdom Updates</h2>
+            <p>Receive weekly devotionals, teaching resources, and community updates directly to your inbox.</p>
+            <form class="newsletter-form" id="newsletter-form" action="https://formspree.io/f/increasingfaithministry@gmail.com" method="POST">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <input type="hidden" name="_subject" value="New Newsletter Signup">
+                <button type="submit">Subscribe</button>
+            </form>
+            <p id="newsletter-message" style="display: none; margin-top: 1rem; font-size: 0.9rem;"></p>
+        </div>
+    </section>
+
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="ifm-logo-gold.png" alt="IFM" class="logo-img">
+                    <span class="logo-text">Increasing<span>Faith</span></span>
+                </a>
+                <p>Advancing the reign of God in people, communities, and cultures.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/IFMinistry" target="_blank" class="social-fb" title="Facebook">f</a>
+                    <a href="https://www.instagram.com/hourofpowerextra" target="_blank" class="social-ig" title="Instagram">ig</a>
+                    <a href="https://www.youtube.com/@thehourofpowerextra2883/shorts" target="_blank" class="social-yt" title="YouTube">▶</a>
+                    <a href="https://www.tiktok.com/@hourofpower4" target="_blank" class="social-tt" title="TikTok">♪</a>
+                    <a href="https://giv.li/129ina" target="_blank" class="social-give" title="Give with Givelify" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);">$</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Journey</h4>
+                <ul>
+                    <li><a href="journey.html#explore">Explore Faith</a></li>
+                    <li><a href="journey.html#grow">Grow Deeper</a></li>
+                    <li><a href="journey.html#teaching">Teaching Series</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="prayer.html">Prayer</a></li>
+                    <li><a href="give.html">Give</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:increasingfaithministry@gmail.com">Email Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear">2025</span> Increasing Faith Ministries. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.dataset.tab;
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+                revealOnScroll();
+            });
+        });
+
+        // Mobile menu
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            mobileToggle.innerHTML = navLinks.classList.contains('open') ? '✕' : '☰';
+        });
+
+        // Nav scroll
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 100); });
+
+        // Scroll reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) el.classList.add('visible');
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Newsletter form handler with Formspree
+        const newsletterForm = document.getElementById('newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const form = e.target;
+                const messageEl = document.getElementById('newsletter-message');
+                const submitBtn = form.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        messageEl.textContent = 'Thank you for subscribing! We\'ll be in touch soon.';
+                        messageEl.style.color = '#4ade80';
+                        messageEl.style.display = 'block';
+                        form.reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    messageEl.textContent = 'Oops! Something went wrong. Please try again.';
+                    messageEl.style.color = '#f87171';
+                    messageEl.style.display = 'block';
+                }
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Subscribe';
+            });
+        }
+
+        function openConnect() { alert('Connect form coming soon! Email: increasingfaithministry@gmail.com'); }
+
+        // Set current year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script src="enhancements.js"></script>
+</body>
+</html>

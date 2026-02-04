@@ -1,0 +1,246 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Media files will be stored in the images folder
+media_folder: "images"
+public_folder: "/images"
+
+# Logo for the CMS interface
+logo_url: "/ifm-logo-gold.png"
+
+collections:
+  # ═══════════════════════════════════════════════════════════════
+  # PAGES - Single page content files
+  # ═══════════════════════════════════════════════════════════════
+  - name: "pages"
+    label: "Pages"
+    files:
+      # Homepage Content
+      - name: "home"
+        label: "Homepage"
+        file: "content/home.json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Badge Text", name: "badge", widget: "string", default: "Advancing the Reign of God"}
+              - {label: "Title", name: "title", widget: "string", default: "Live Under the Lordship of Jesus"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+              - {label: "Primary Button Text", name: "primaryBtn", widget: "string"}
+              - {label: "Primary Button Link", name: "primaryLink", widget: "string"}
+              - {label: "Secondary Button Text", name: "secondaryBtn", widget: "string"}
+              - {label: "Secondary Button Link", name: "secondaryLink", widget: "string"}
+          - label: "Scripture Section"
+            name: "scripture"
+            widget: "object"
+            fields:
+              - {label: "Quote", name: "quote", widget: "text"}
+              - {label: "Citation", name: "citation", widget: "string"}
+          - label: "Values Section"
+            name: "values"
+            widget: "object"
+            fields:
+              - {label: "Badge Text", name: "badge", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Value Cards"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - {label: "Icon (emoji)", name: "icon", widget: "string"}
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+          - label: "Pathway Section"
+            name: "pathway"
+            widget: "object"
+            fields:
+              - {label: "Badge Text", name: "badge", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Steps"
+                name: "steps"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+          - label: "CTA Section"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "Badge Text", name: "badge", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Primary Button Text", name: "primaryBtn", widget: "string"}
+              - {label: "Primary Button Link", name: "primaryLink", widget: "string"}
+              - {label: "Secondary Button Text", name: "secondaryBtn", widget: "string"}
+              - {label: "Secondary Button Link", name: "secondaryLink", widget: "string"}
+
+      # About Page Content
+      - name: "about"
+        label: "About Page"
+        file: "content/about.json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Badge Text", name: "badge", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+          - label: "Ministry Story"
+            name: "story"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Paragraphs", name: "paragraphs", widget: "list", field: {label: "Paragraph", name: "text", widget: "text"}}
+          - label: "Mission Section"
+            name: "mission"
+            widget: "object"
+            fields:
+              - {label: "Badge Text", name: "badge", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Mission Cards"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - {label: "Icon (HTML entity or emoji)", name: "icon", widget: "string"}
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+          - label: "Pastors Section"
+            name: "pastors"
+            widget: "object"
+            fields:
+              - {label: "Badge Text", name: "badge", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+              - {label: "Pastor Image", name: "image", widget: "image"}
+              - {label: "Pastor Names", name: "names", widget: "string"}
+              - {label: "Pastor Title", name: "title_role", widget: "string"}
+              - {label: "Bio Paragraphs", name: "bio", widget: "list", field: {label: "Paragraph", name: "text", widget: "text"}}
+          - label: "Beliefs Section"
+            name: "beliefs"
+            widget: "object"
+            fields:
+              - {label: "Badge Text", name: "badge", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Beliefs"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+
+  # ═══════════════════════════════════════════════════════════════
+  # SITE SETTINGS
+  # ═══════════════════════════════════════════════════════════════
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "content/settings.json"
+        fields:
+          - {label: "Church Name", name: "churchName", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Phone (optional)", name: "phone", widget: "string", required: false}
+          - label: "Service Times"
+            name: "serviceTimes"
+            widget: "object"
+            fields:
+              - {label: "In-Person Day", name: "inPersonDay", widget: "string"}
+              - {label: "In-Person Time", name: "inPersonTime", widget: "string"}
+              - {label: "Online Teaching Days", name: "onlineDays", widget: "string"}
+              - {label: "Online Teaching Time", name: "onlineTime", widget: "string"}
+          - {label: "Location", name: "location", widget: "string"}
+          - label: "Social Media Links"
+            name: "social"
+            widget: "object"
+            fields:
+              - {label: "Facebook URL", name: "facebook", widget: "string", required: false}
+              - {label: "Instagram URL", name: "instagram", widget: "string", required: false}
+              - {label: "YouTube URL", name: "youtube", widget: "string", required: false}
+              - {label: "TikTok URL", name: "tiktok", widget: "string", required: false}
+              - {label: "Givelify URL", name: "givelify", widget: "string", required: false}
+          - label: "SEO Settings"
+            name: "seo"
+            widget: "object"
+            fields:
+              - {label: "Site Title", name: "title", widget: "string"}
+              - {label: "Meta Description", name: "description", widget: "text"}
+              - {label: "OG Image", name: "ogImage", widget: "image", required: false}
+
+  # ═══════════════════════════════════════════════════════════════
+  # TESTIMONIALS - Folder collection (multiple files)
+  # ═══════════════════════════════════════════════════════════════
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Role/Title", name: "role", widget: "string", hint: "e.g., IFM Disciple, Worship Leader, Member"}
+      - {label: "Quote", name: "quote", widget: "text"}
+      - {label: "Photo", name: "image", widget: "image", required: false}
+      - {label: "Display Order", name: "order", widget: "number", default: 0, hint: "Lower numbers appear first"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false, hint: "Show on homepage"}
+
+  # ═══════════════════════════════════════════════════════════════
+  # TEACHINGS - Folder collection (multiple files)
+  # ═══════════════════════════════════════════════════════════════
+  - name: "teachings"
+    label: "Teachings"
+    folder: "content/teachings"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Speaker", name: "speaker", widget: "string", default: "Pastor Curtis Stephens Jr."}
+      - {label: "Video URL", name: "videoUrl", widget: "string", hint: "YouTube or Facebook video URL"}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image", required: false}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Scripture Reference", name: "scripture", widget: "string", required: false}
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Kingdom Teaching"
+          - "Worship Service"
+          - "Bible Study"
+          - "Special Event"
+          - "Hour of Power"
+        default: "Kingdom Teaching"
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+
+  # ═══════════════════════════════════════════════════════════════
+  # PRAYER REQUESTS SETTINGS
+  # ═══════════════════════════════════════════════════════════════
+  - name: "prayer"
+    label: "Prayer Page"
+    files:
+      - name: "prayer-settings"
+        label: "Prayer Page Settings"
+        file: "content/prayer.json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Badge Text", name: "badge", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+          - {label: "Introduction Text", name: "intro", widget: "text"}
+          - {label: "Form Submission Email", name: "formEmail", widget: "string", hint: "Email where prayer requests are sent"}
+          - {label: "Confirmation Message", name: "confirmationMessage", widget: "text", hint: "Message shown after form submission"}
+          - label: "Scripture for Prayer"
+            name: "scripture"
+            widget: "object"
+            fields:
+              - {label: "Quote", name: "quote", widget: "text"}
+              - {label: "Reference", name: "reference", widget: "string"}
