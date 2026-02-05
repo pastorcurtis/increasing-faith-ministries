@@ -5,14 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Increasing Faith Ministries</title>
     <meta name="description" content="Learn about Increasing Faith Ministries - our leadership, history, and mission to advance the reign of God.">
+
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Us | Increasing Faith Ministries">
+    <meta property="og:description" content="Learn about Increasing Faith Ministries - our leadership, history, and mission to advance the reign of God.">
+    <meta property="og:image" content="https://increasingfaith.net/ifm-logo-gold.png">
+    <meta property="og:url" content="https://increasingfaith.net/about.html">
+    <meta property="og:site_name" content="Increasing Faith Ministries">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Us | Increasing Faith Ministries">
+    <meta name="twitter:description" content="Learn about Increasing Faith Ministries - our leadership, history, and mission to advance the reign of God.">
+    <meta name="twitter:image" content="https://increasingfaith.net/ifm-logo-gold.png">
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About Increasing Faith Ministries",
+        "description": "Learn about Increasing Faith Ministries - our leadership, history, and mission to advance the reign of God.",
+        "url": "https://increasingfaith.net/about.html",
+        "mainEntity": {
+            "@type": "Church",
+            "name": "Increasing Faith Ministries",
+            "url": "https://increasingfaith.net/"
+        }
+    }
+    </script>
+
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" href="ifm-logo-gold.png">
     <link rel="apple-touch-icon" href="ifm-logo-gold.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-    <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
+    <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="enhancements.css">
     <style>
@@ -63,10 +96,12 @@
     <div class="noise-overlay"></div>
     <div class="page-transition"><div class="page-transition-layer"></div><div class="page-transition-layer"></div><div class="page-transition-layer"></div></div>
     <button class="theme-toggle" aria-label="Toggle theme"><div class="theme-toggle-icon"><span class="sun">&#9728;</span><span class="moon">&#9790;</span></div></button>
+    <!-- PERFORMANCE TOGGLE - Allows users to disable animations -->
+    <button class="perf-toggle" aria-label="Toggle animations" aria-pressed="false" title="Toggle animations on/off">&#9889;</button>
     <main data-barba="container" data-barba-namespace="about">
     <div class="bg-gradient"></div>
     <div class="particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
-    <div class="floating-images"><img src="ministry-couple-1.jpg" alt="" class="float-img"><img src="ministry-preaching.jpg" alt="" class="float-img"><img src="ministry-teaching.jpg" alt="" class="float-img"></div>
+    <div class="floating-images"><img src="ministry-couple-1.jpg" alt="Pastor and wife ministering together" class="float-img" loading="lazy"><img src="ministry-preaching.jpg" alt="Pastor preaching at Increasing Faith Ministries" class="float-img" loading="lazy"><img src="ministry-teaching.jpg" alt="Kingdom teaching session at Increasing Faith Ministries" class="float-img" loading="lazy"></div>
     <div class="lens-flare lens-flare-1"></div><div class="lens-flare lens-flare-2"></div><div class="lens-flare lens-flare-3"></div>
 
     <nav class="nav" id="nav">
@@ -139,7 +174,7 @@
         </div>
         <div class="pastors-feature reveal">
             <div class="pastors-image">
-                <img src="img_0948.jpg" alt="Pastors Curtis and Tammy Stephens">
+                <img src="img_0948.jpg" alt="Pastors Curtis and Tammy Stephens" loading="lazy">
             </div>
             <div class="pastors-bio">
                 <h3>Pastors Curtis Stephens Jr. &amp; Tammy Stephens</h3>
@@ -203,42 +238,57 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="index.html" class="logo"><img src="ifm-logo-gold.png" alt="IFM" class="logo-img"><span class="logo-text">Increasing<span>Faith</span></span></a>
-                <p>Advancing the reign of God in people, communities, and cultures.</p>
+                <a href="index.html" class="logo">
+                    <img src="ifm-logo-gold.png" alt="IFM" class="logo-img">
+                    <span class="logo-text">Increasing<span>Faith</span></span>
+                </a>
+                <p>Advancing the reign of God in people, communities, and cultures by making mature disciples of Jesus.</p>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/IFMinistry" target="_blank" class="social-fb" title="Facebook">f</a>
-                    <a href="https://www.instagram.com/hourofpowerextra" target="_blank" class="social-ig" title="Instagram">ig</a>
-                    <a href="https://www.youtube.com/@thehourofpowerextra2883/shorts" target="_blank" class="social-yt" title="YouTube">&#9658;</a>
-                    <a href="https://www.tiktok.com/@hourofpower4" target="_blank" class="social-tt" title="TikTok">&#9835;</a>
-                    <a href="https://giv.li/129ina" target="_blank" class="social-give" title="Give with Givelify" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);">$</a>
+                    <a href="https://www.facebook.com/IFMinistry" target="_blank" rel="noopener noreferrer" class="social-fb" title="Facebook">f</a>
+                    <a href="https://www.instagram.com/hourofpowerextra" target="_blank" rel="noopener noreferrer" class="social-ig" title="Instagram">ig</a>
+                    <a href="https://www.youtube.com/@thehourofpowerextra2883/shorts" target="_blank" rel="noopener noreferrer" class="social-yt" title="YouTube">&#9658;</a>
+                    <a href="https://www.tiktok.com/@hourofpower4" target="_blank" rel="noopener noreferrer" class="social-tt" title="TikTok">&#9835;</a>
+                    <a href="https://giv.li/129ina" target="_blank" rel="noopener noreferrer" class="social-give" title="Give with Givelify">$</a>
+                </div>
+                <!-- Email Signup -->
+                <div class="email-signup">
+                    <h4>Stay Connected</h4>
+                    <p>Get Kingdom teachings delivered to your inbox</p>
+                    <form class="signup-form" action="https://formspree.io/f/increasingfaithministry@gmail.com" method="POST" id="newsletter-form">
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <input type="hidden" name="_subject" value="New Newsletter Signup">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <p class="form-message" id="newsletter-message" style="display: none; margin-top: 0.75rem; font-size: 0.85rem;"></p>
                 </div>
             </div>
             <div class="footer-column">
-                <h4>Explore</h4>
+                <h4>The Kingdom</h4>
                 <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="journey.html">Your Journey</a></li>
-                    <li><a href="community.html">Community</a></li>
+                    <li><a href="journey.html">What We Believe</a></li>
+                    <li><a href="journey.html">Our Mission</a></li>
+                    <li><a href="journey.html">Kingdom Theology</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="journey.html">Start the Journey</a></li>
+                    <li><a href="community.html">Join a Cohort</a></li>
+                    <li><a href="give.html">Give</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h4>Connect</h4>
                 <ul>
-                    <li><a href="mailto:increasingfaithministry@gmail.com">Email Us</a></li>
+                    <li><a href="mailto:increasingfaithministry@gmail.com">Contact Us</a></li>
                     <li><a href="prayer.html">Prayer</a></li>
-                    <li><a href="give.html">Give</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Follow</h4>
-                <ul>
-                    <li><a href="https://www.facebook.com/IFMinistry" target="_blank">Facebook</a></li>
-                    <li><a href="https://www.youtube.com/@thehourofpowerextra2883/shorts" target="_blank">YouTube</a></li>
-                    <li><a href="https://www.instagram.com/hourofpowerextra" target="_blank">Instagram</a></li>
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom"><p>&copy; <span id="currentYear">2025</span> Increasing Faith Ministries. All rights reserved.</p></div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear">2025</span> Increasing Faith Ministries. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
@@ -254,7 +304,25 @@
         function openConnect() { alert('Connect form coming soon! Email: increasingfaithministry@gmail.com'); }
         // Set current year dynamically
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Performance toggle - allows users to disable animations
+        const perfToggle = document.querySelector('.perf-toggle');
+        if (perfToggle) {
+            // Check for saved preference
+            const animationsDisabled = localStorage.getItem('reduceAnimations') === 'true';
+            if (animationsDisabled) {
+                document.body.classList.add('reduce-animations');
+                perfToggle.setAttribute('aria-pressed', 'true');
+            }
+
+            perfToggle.addEventListener('click', () => {
+                const isPressed = perfToggle.getAttribute('aria-pressed') === 'true';
+                perfToggle.setAttribute('aria-pressed', !isPressed);
+                document.body.classList.toggle('reduce-animations');
+                localStorage.setItem('reduceAnimations', !isPressed);
+            });
+        }
     </script>
-    <script src="enhancements.js"></script>
+    <script src="enhancements.js" defer></script>
 </body>
 </html>

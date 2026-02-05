@@ -23,7 +23,7 @@
 
         let progress = 0;
         const interval = setInterval(() => {
-            progress += Math.random() * 15;
+            progress += Math.random() * 30;
             if (progress > 100) progress = 100;
             if (progressBar) progressBar.style.width = progress + '%';
 
@@ -37,15 +37,15 @@
                     if (typeof gsap !== 'undefined') {
                         animatePageEntrance();
                     }
-                }, 500);
+                }, 200);
             }
-        }, 100);
+        }, 50);
 
-        // Fallback - hide preloader after max 3 seconds
+        // Fallback - hide preloader after max 1 second
         setTimeout(() => {
             preloader.classList.add('loaded');
             document.body.classList.add('loaded');
-        }, 3000);
+        }, 1000);
     }
 
     // ═══════════════════════════════════════════════════════════════════════════

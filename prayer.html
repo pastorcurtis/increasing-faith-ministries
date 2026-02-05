@@ -5,14 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prayer | Increasing Faith Ministries</title>
     <meta name="description" content="Share your prayer needs with our community. We believe in the power of united prayer and stand with you in faith.">
+
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Prayer | Increasing Faith Ministries">
+    <meta property="og:description" content="Share your prayer needs with our community. We believe in the power of united prayer and stand with you in faith.">
+    <meta property="og:image" content="https://increasingfaith.net/ifm-logo-gold.png">
+    <meta property="og:url" content="https://increasingfaith.net/prayer.html">
+    <meta property="og:site_name" content="Increasing Faith Ministries">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prayer | Increasing Faith Ministries">
+    <meta name="twitter:description" content="Share your prayer needs with our community. We believe in the power of united prayer and stand with you in faith.">
+    <meta name="twitter:image" content="https://increasingfaith.net/ifm-logo-gold.png">
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Prayer Requests | Increasing Faith Ministries",
+        "description": "Share your prayer needs with our community. We believe in the power of united prayer and stand with you in faith.",
+        "url": "https://increasingfaith.net/prayer.html",
+        "mainEntity": {
+            "@type": "Church",
+            "name": "Increasing Faith Ministries",
+            "url": "https://increasingfaith.net/"
+        }
+    }
+    </script>
+
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" href="ifm-logo-gold.png">
     <link rel="apple-touch-icon" href="ifm-logo-gold.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-    <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
+    <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="enhancements.css">
     <style>
@@ -79,10 +112,12 @@
     <div class="noise-overlay"></div>
     <div class="page-transition"><div class="page-transition-layer"></div><div class="page-transition-layer"></div><div class="page-transition-layer"></div></div>
     <button class="theme-toggle" aria-label="Toggle theme"><div class="theme-toggle-icon"><span class="sun">&#9728;</span><span class="moon">&#9790;</span></div></button>
+    <!-- PERFORMANCE TOGGLE - Allows users to disable animations -->
+    <button class="perf-toggle" aria-label="Toggle animations" aria-pressed="false" title="Toggle animations on/off">&#9889;</button>
     <main data-barba="container" data-barba-namespace="prayer">
     <div class="bg-gradient"></div>
     <div class="particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
-    <div class="floating-images"><img src="ministry-couple-1.jpg" alt="" class="float-img"><img src="ministry-preaching.jpg" alt="" class="float-img"><img src="ministry-couple-2.jpg" alt="" class="float-img"><img src="ministry-teaching.jpg" alt="" class="float-img"><img src="ministry-pastor.jpg" alt="" class="float-img"><img src="ministry-congregation1.jpg" alt="" class="float-img"><img src="ministry-congregation2.jpg" alt="" class="float-img"><img src="ministry-congregation3.jpg" alt="" class="float-img"><img src="ministry-congregation4.jpg" alt="" class="float-img"><img src="ministry-congregation5.jpg" alt="" class="float-img"></div>
+    <div class="floating-images"><img src="ministry-couple-1.jpg" alt="Pastor and wife ministering together" class="float-img" loading="lazy"><img src="ministry-preaching.jpg" alt="Pastor preaching at Increasing Faith Ministries" class="float-img" loading="lazy"><img src="ministry-couple-2.jpg" alt="Pastors Curtis and Tammy Stephens" class="float-img" loading="lazy"><img src="ministry-teaching.jpg" alt="Kingdom teaching session at Increasing Faith Ministries" class="float-img" loading="lazy"><img src="ministry-pastor.jpg" alt="Senior Pastor of Increasing Faith Ministries" class="float-img" loading="lazy"><img src="ministry-congregation1.jpg" alt="Congregation worshiping at Increasing Faith Ministries" class="float-img" loading="lazy"><img src="ministry-congregation2.jpg" alt="IFM community gathered for worship" class="float-img" loading="lazy"><img src="ministry-congregation3.jpg" alt="Believers praising during service" class="float-img" loading="lazy"><img src="ministry-congregation4.jpg" alt="Kingdom community in worship" class="float-img" loading="lazy"><img src="ministry-congregation5.jpg" alt="Congregation engaged in worship service" class="float-img" loading="lazy"></div>
     <div class="lens-flare lens-flare-1"></div><div class="lens-flare lens-flare-2"></div><div class="lens-flare lens-flare-3"></div>
 
     <nav class="nav" id="nav">
@@ -108,7 +143,8 @@
                 <h2>Submit Your Request</h2>
                 <p>Let us join you in bringing your needs before the King.</p>
             </div>
-            <form id="prayerForm" action="https://formspree.io/f/increasingfaithministry@gmail.com" method="POST">
+            <!-- TODO: Replace xformid with your real Formspree form ID from https://formspree.io -->
+            <form id="prayerForm" action="https://formspree.io/f/xformid" method="POST">
                 <input type="hidden" name="_subject" value="Prayer Request Submission">
                 <div class="form-group">
                     <label for="name">Name <span class="optional">(optional)</span></label>
@@ -160,7 +196,8 @@
                 <h2>Contact Us</h2>
                 <p>Have a question or want to connect? Send us a message.</p>
             </div>
-            <form id="contactForm" action="https://formspree.io/f/increasingfaithministry@gmail.com" method="POST">
+            <!-- TODO: Replace xformid with your real Formspree form ID from https://formspree.io -->
+            <form id="contactForm" action="https://formspree.io/f/xformid" method="POST">
                 <input type="hidden" name="_subject" value="Contact Form Message">
                 <div class="form-group">
                     <label for="contact-name">Name <span style="color: var(--magenta);">*</span></label>
@@ -181,9 +218,61 @@
     </section>
 
     </main>
+    <!-- Footer -->
     <footer class="footer">
-        <a href="index.html" class="logo"><img src="ifm-logo-gold.png" alt="IFM" class="logo-img"><span class="logo-text">Increasing<span>Faith</span></span></a>
-        <p>&copy; <span id="currentYear">2025</span> Increasing Faith Ministries. Advancing the reign of God.</p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="ifm-logo-gold.png" alt="IFM" class="logo-img">
+                    <span class="logo-text">Increasing<span>Faith</span></span>
+                </a>
+                <p>Advancing the reign of God in people, communities, and cultures by making mature disciples of Jesus.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/IFMinistry" target="_blank" rel="noopener noreferrer" class="social-fb" title="Facebook">f</a>
+                    <a href="https://www.instagram.com/hourofpowerextra" target="_blank" rel="noopener noreferrer" class="social-ig" title="Instagram">ig</a>
+                    <a href="https://www.youtube.com/@thehourofpowerextra2883/shorts" target="_blank" rel="noopener noreferrer" class="social-yt" title="YouTube">&#9658;</a>
+                    <a href="https://www.tiktok.com/@hourofpower4" target="_blank" rel="noopener noreferrer" class="social-tt" title="TikTok">&#9835;</a>
+                    <a href="https://giv.li/129ina" target="_blank" rel="noopener noreferrer" class="social-give" title="Give with Givelify">$</a>
+                </div>
+                <!-- Email Signup -->
+                <div class="email-signup">
+                    <h4>Stay Connected</h4>
+                    <p>Get Kingdom teachings delivered to your inbox</p>
+                    <form class="signup-form" action="https://formspree.io/f/increasingfaithministry@gmail.com" method="POST" id="newsletter-form">
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <input type="hidden" name="_subject" value="New Newsletter Signup">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <p class="form-message" id="newsletter-message" style="display: none; margin-top: 0.75rem; font-size: 0.85rem;"></p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>The Kingdom</h4>
+                <ul>
+                    <li><a href="journey.html">What We Believe</a></li>
+                    <li><a href="journey.html">Our Mission</a></li>
+                    <li><a href="journey.html">Kingdom Theology</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="journey.html">Start the Journey</a></li>
+                    <li><a href="community.html">Join a Cohort</a></li>
+                    <li><a href="give.html">Give</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="mailto:increasingfaithministry@gmail.com">Contact Us</a></li>
+                    <li><a href="prayer.html">Prayer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear">2025</span> Increasing Faith Ministries. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
@@ -271,7 +360,25 @@
         function openConnect() { alert('Connect form coming soon! Email: increasingfaithministry@gmail.com'); }
         // Set current year dynamically
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Performance toggle - allows users to disable animations
+        const perfToggle = document.querySelector('.perf-toggle');
+        if (perfToggle) {
+            // Check for saved preference
+            const animationsDisabled = localStorage.getItem('reduceAnimations') === 'true';
+            if (animationsDisabled) {
+                document.body.classList.add('reduce-animations');
+                perfToggle.setAttribute('aria-pressed', 'true');
+            }
+
+            perfToggle.addEventListener('click', () => {
+                const isPressed = perfToggle.getAttribute('aria-pressed') === 'true';
+                perfToggle.setAttribute('aria-pressed', !isPressed);
+                document.body.classList.toggle('reduce-animations');
+                localStorage.setItem('reduceAnimations', !isPressed);
+            });
+        }
     </script>
-    <script src="enhancements.js"></script>
+    <script src="enhancements.js" defer></script>
 </body>
 </html>
