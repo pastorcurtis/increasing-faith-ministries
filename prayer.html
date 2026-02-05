@@ -96,6 +96,9 @@
         .footer p { color: var(--off-white); font-size: 0.85rem; }
 
         /* Responsive */
+        @media (max-width: 900px) {
+            .location-grid { grid-template-columns: 1fr !important; }
+        }
         @media (max-width: 768px) {
             .form-container { padding: 2.5rem 1.5rem; }
         }
@@ -206,6 +209,60 @@
     <section class="scripture reveal visible">
         <blockquote>"Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus."</blockquote>
         <cite>Philippians 4:6-7</cite>
+    </section>
+
+    <!-- Location & Contact Info Section -->
+    <section class="form-section" style="padding-top: 40px;">
+        <div class="section-header reveal visible" style="text-align: center; margin-bottom: 3rem;">
+            <span class="section-badge">Visit Us</span>
+            <h2>Location & Service Times</h2>
+        </div>
+
+        <div class="location-grid" style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <!-- Contact Info Card -->
+            <div class="form-container reveal visible" style="padding: 2.5rem;">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">📍</span>
+                    <h3 style="font-size: 1.5rem; color: var(--white); margin-bottom: 0.5rem;">Increasing Faith Ministries</h3>
+                </div>
+
+                <div style="margin-bottom: 1.5rem; padding: 1.25rem; background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 12px;">
+                    <p style="color: var(--gold); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Address</p>
+                    <p style="color: var(--white); font-size: 1.1rem; line-height: 1.6;">24301 Telegraph<br>Southfield, MI 48033</p>
+                </div>
+
+                <div style="margin-bottom: 1.5rem; padding: 1.25rem; background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 12px;">
+                    <p style="color: var(--gold); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">On-Site Service</p>
+                    <p style="color: var(--white); font-size: 1.1rem; line-height: 1.6;">Every <strong>First Saturday</strong> of the month<br>at <strong>12:00 Noon</strong></p>
+                </div>
+
+                <div style="margin-bottom: 1.5rem; padding: 1.25rem; background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 12px;">
+                    <p style="color: var(--gold); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Online Teaching</p>
+                    <p style="color: var(--white); font-size: 1.1rem; line-height: 1.6;">Monday - Friday at <strong>8:15 AM</strong><br>Live on social media</p>
+                </div>
+
+                <div style="padding: 1.25rem; background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 12px;">
+                    <p style="color: var(--gold); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Email</p>
+                    <a href="mailto:increasingfaithministry@gmail.com" style="color: var(--white); font-size: 1rem; text-decoration: none;">increasingfaithministry@gmail.com</a>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="form-container reveal visible" style="padding: 1.5rem; display: flex; flex-direction: column;">
+                <div style="flex: 1; border-radius: 12px; overflow: hidden; min-height: 350px;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2942.8!2d-83.2867!3d42.4731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8824b2e2c8e8e8e7%3A0x1234567890abcdef!2s24301%20Telegraph%20Rd%2C%20Southfield%2C%20MI%2048033!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                        width="100%"
+                        height="100%"
+                        style="border:0; min-height: 350px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <a href="https://www.google.com/maps/dir//24301+Telegraph+Rd,+Southfield,+MI+48033" target="_blank" rel="noopener noreferrer" class="btn" style="margin-top: 1rem; text-align: center; display: block;">Get Directions</a>
+            </div>
+        </div>
     </section>
 
     <!-- Contact Form Section -->
