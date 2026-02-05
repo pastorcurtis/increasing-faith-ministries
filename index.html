@@ -127,6 +127,10 @@
         height: auto;
         transform: translate(-50%, -50%);
         object-fit: cover;
+        transition: opacity 0.5s ease;
+    }
+    .hero-video.fading {
+        opacity: 0.3;
     }
     .hero-video-overlay {
         position: absolute;
@@ -232,9 +236,8 @@
     <section class="hero">
         <!-- Video Background -->
         <div class="hero-video-container">
-            <video class="hero-video" autoplay muted loop playsinline poster="ministry-preaching.webp">
+            <video class="hero-video" id="heroVideo" autoplay muted loop playsinline poster="ministry-preaching.webp">
                 <source src="hero-worship.mp4" type="video/mp4">
-                <!-- Fallback to poster image if video doesn't load -->
             </video>
             <div class="hero-video-overlay"></div>
         </div>
@@ -501,6 +504,20 @@
 
         // Set current year dynamically
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Smooth video loop - fade out before end, fade in after restart
+        const heroVideo = document.getElementById('heroVideo');
+        if (heroVideo) {
+            heroVideo.addEventListener('timeupdate', function() {
+                // Start fading 0.5 seconds before video ends
+                if (this.duration - this.currentTime < 0.5) {
+                    this.classList.add('fading');
+                } else if (this.currentTime < 0.5) {
+                    // Fade back in after restart
+                    this.classList.remove('fading');
+                }
+            });
+        }
 
         // Performance toggle - allows users to disable animations
         const perfToggle = document.querySelector('.perf-toggle');
