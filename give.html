@@ -42,10 +42,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
-    <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="enhancements.css">
     <style>
@@ -245,8 +241,31 @@
             .social-links { justify-content: center; }
         }
     </style>
+    <style>
+    /* Instant visibility - no preloader blocking */
+    body { opacity: 1 !important; visibility: visible !important; }
+    .preloader { display: none !important; }
+    /* Reduce particle count via CSS */
+    .particle:nth-child(n+5) { display: none; }
+    /* Disable custom cursor on load - enable after scripts load */
+    .cursor-dot, .cursor-outline { display: none; }
+    /* Instant reveals - no waiting */
+    .reveal, .reveal-left, .reveal-right {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    /* Re-enable animations after load */
+    body.effects-ready .reveal,
+    body.effects-ready .reveal-left,
+    body.effects-ready .reveal-right {
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    body.effects-ready .cursor-dot,
+    body.effects-ready .cursor-outline { display: block; }
+    </style>
 </head>
-<body data-barba="wrapper">
+<body data-barba="wrapper" class="loaded">
     <div class="preloader"><div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div><img src="ifm-logo-gold.png" alt="IFM" class="preloader-logo"><span class="preloader-text">Advancing the Kingdom</span><div class="preloader-progress"><div class="preloader-progress-bar"></div></div></div>
     <div class="cursor-dot"></div><div class="cursor-outline"></div>
     <div class="scroll-progress"></div>
@@ -258,7 +277,7 @@
 
     <main data-barba="container" data-barba-namespace="give">
     <div class="bg-gradient"></div>
-    <div class="particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
+    <div class="particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
 
     <nav class="nav" id="nav">
         <a href="index.html" class="logo"><img src="ifm-logo-gold.png" alt="IFM" class="logo-img"><span class="logo-text">Increasing<span>Faith</span></span></a>
@@ -275,7 +294,7 @@
     </nav>
 
     <section class="hero">
-        <div class="hero-content reveal">
+        <div class="hero-content reveal visible">
             <div class="hero-badge"><span>Kingdom Partnership</span></div>
             <h1>Partner With Us</h1>
             <p>Your generosity advances the reign of God and transforms lives through discipleship, community, and Kingdom influence.</p>
@@ -286,7 +305,7 @@
     <section class="giving-section">
         <div class="giving-container">
             <!-- Left: Info -->
-            <div class="giving-info reveal">
+            <div class="giving-info reveal visible">
                 <h2>Why We Give</h2>
                 <p>Giving is an act of worship and a declaration that God is Lord over every area of our lives. When we give generously, we participate in advancing God's Kingdom on earth.</p>
                 <p>Your contributions support discipleship programs, community outreach, Kingdom resources, and the global mission of making mature disciples of Jesus.</p>
@@ -311,7 +330,7 @@
             </div>
 
             <!-- Right: Widget -->
-            <div class="giving-widget reveal">
+            <div class="giving-widget reveal visible">
                 <div class="widget-header">
                     <h3>Give Now</h3>
                     <p>Choose an amount and give securely</p>
@@ -349,29 +368,29 @@
 
     <!-- Payment Methods -->
     <section class="payment-section">
-        <div class="section-header reveal">
+        <div class="section-header reveal visible">
             <span class="section-badge">Multiple Options</span>
             <h2>Ways to Give</h2>
             <p>Choose the payment method that works best for you</p>
         </div>
         <div class="payment-grid">
-            <a href="https://giv.li/129ina" target="_blank" rel="noopener noreferrer" class="payment-card givelify reveal">
+            <a href="https://giv.li/129ina" target="_blank" rel="noopener noreferrer" class="payment-card givelify reveal visible">
                 <div class="payment-icon">G</div>
                 <h4>Givelify</h4>
                 <p>Quick & easy mobile giving with the Givelify app</p>
                 <span class="payment-tag">Recommended</span>
             </a>
-            <a href="https://cash.app/$IncreasingFaith" target="_blank" rel="noopener noreferrer" class="payment-card cashapp reveal">
+            <a href="https://cash.app/$IncreasingFaith" target="_blank" rel="noopener noreferrer" class="payment-card cashapp reveal visible">
                 <div class="payment-icon">$</div>
                 <h4>Cash App</h4>
                 <p>Send instantly via Cash App to $IncreasingFaith</p>
             </a>
-            <a href="https://paypal.me/IncreasingFaithMin" target="_blank" rel="noopener noreferrer" class="payment-card paypal reveal">
+            <a href="https://paypal.me/IncreasingFaithMin" target="_blank" rel="noopener noreferrer" class="payment-card paypal reveal visible">
                 <div class="payment-icon">P</div>
                 <h4>PayPal</h4>
                 <p>Secure payments through your PayPal account</p>
             </a>
-            <div class="payment-card zelle reveal" onclick="alert('Zelle: increasingfaithministry@gmail.com')">
+            <div class="payment-card zelle reveal visible" onclick="alert('Zelle: increasingfaithministry@gmail.com')">
                 <div class="payment-icon">Z</div>
                 <h4>Zelle</h4>
                 <p>Bank transfer via Zelle using our email</p>
@@ -381,23 +400,23 @@
 
     <!-- Impact Section -->
     <section class="impact-section">
-        <div class="section-header reveal">
+        <div class="section-header reveal visible">
             <span class="section-badge">Your Impact</span>
             <h2>Where Your Gift Goes</h2>
             <p>Every dollar advances the Kingdom and transforms lives</p>
         </div>
         <div class="impact-cards">
-            <div class="impact-card reveal">
+            <div class="impact-card reveal visible">
                 <span class="impact-icon">&#128218;</span>
                 <h3>Discipleship</h3>
                 <p>Supporting resources, materials, and programs that help people grow as mature disciples of Jesus.</p>
             </div>
-            <div class="impact-card reveal">
+            <div class="impact-card reveal visible">
                 <span class="impact-icon">&#127758;</span>
                 <h3>Global Outreach</h3>
                 <p>Extending Kingdom influence to communities around the world through missions and partnerships.</p>
             </div>
-            <div class="impact-card reveal">
+            <div class="impact-card reveal visible">
                 <span class="impact-icon">&#129309;</span>
                 <h3>Community Care</h3>
                 <p>Meeting practical needs and demonstrating God's love to those in our local community.</p>
@@ -407,24 +426,24 @@
 
     <!-- FAQ Section -->
     <section class="faq-section">
-        <div class="section-header reveal">
+        <div class="section-header reveal visible">
             <span class="section-badge">Questions?</span>
             <h2>Frequently Asked</h2>
         </div>
         <div class="faq-grid">
-            <div class="faq-item reveal">
+            <div class="faq-item reveal visible">
                 <button class="faq-question">Is my donation tax-deductible? <span class="icon">+</span></button>
                 <div class="faq-answer"><p>Yes! Increasing Faith Ministries is a registered 501(c)(3) nonprofit organization. All donations are tax-deductible to the fullest extent allowed by law. You will receive a giving statement for your records.</p></div>
             </div>
-            <div class="faq-item reveal">
+            <div class="faq-item reveal visible">
                 <button class="faq-question">How do I set up recurring giving? <span class="icon">+</span></button>
                 <div class="faq-answer"><p>Through Givelify, you can easily set up weekly or monthly recurring donations. Simply select your frequency when making your gift, and it will automatically process on your chosen schedule.</p></div>
             </div>
-            <div class="faq-item reveal">
+            <div class="faq-item reveal visible">
                 <button class="faq-question">How can I give by mail or in person? <span class="icon">+</span></button>
                 <div class="faq-answer"><p>You can mail checks to our ministry address or give in person during our services. Please make checks payable to "Increasing Faith Ministries" and include your contact information for tax receipt purposes.</p></div>
             </div>
-            <div class="faq-item reveal">
+            <div class="faq-item reveal visible">
                 <button class="faq-question">Is online giving secure? <span class="icon">+</span></button>
                 <div class="faq-answer"><p>Yes, all online transactions are protected with 256-bit SSL encryption. We use trusted payment processors like Givelify and PayPal that meet the highest security standards.</p></div>
             </div>
@@ -433,7 +452,7 @@
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <div class="cta-content reveal">
+        <div class="cta-content reveal visible">
             <h2>Ready to Make a Difference?</h2>
             <p>Join us in advancing the reign of God through your generous partnership.</p>
             <a href="https://giv.li/129ina" target="_blank" rel="noopener noreferrer" class="cta-btn">Give Now <span>&#8594;</span></a>
@@ -601,5 +620,27 @@
         }
     </script>
     <script src="enhancements.js" defer></script>
+
+    <script>
+    // Load animation libraries AFTER page is interactive
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            var gsap = document.createElement('script');
+            gsap.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+            gsap.onload = function() {
+                var st = document.createElement('script');
+                st.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+                document.body.appendChild(st);
+            };
+            document.body.appendChild(gsap);
+            var lenis = document.createElement('script');
+            lenis.src = 'https://unpkg.com/lenis@1.1.18/dist/lenis.min.js';
+            document.body.appendChild(lenis);
+            setTimeout(function() {
+                document.body.classList.add('effects-ready');
+            }, 500);
+        }, 100);
+    });
+    </script>
 </body>
 </html>

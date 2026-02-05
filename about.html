@@ -42,10 +42,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
-    <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="enhancements.css">
     <style>
@@ -88,8 +84,31 @@
         @media (max-width: 1024px) { .mission-grid { grid-template-columns: 1fr; max-width: 500px; } .pastors-feature { grid-template-columns: 1fr; gap: 2.5rem; max-width: 600px; text-align: center; } .pastors-image::before { display: none; } }
         @media (max-width: 768px) { .story-content { padding: 2.5rem 1.5rem; } }
     </style>
+    <style>
+    /* Instant visibility - no preloader blocking */
+    body { opacity: 1 !important; visibility: visible !important; }
+    .preloader { display: none !important; }
+    /* Reduce particle count via CSS */
+    .particle:nth-child(n+5) { display: none; }
+    /* Disable custom cursor on load - enable after scripts load */
+    .cursor-dot, .cursor-outline { display: none; }
+    /* Instant reveals - no waiting */
+    .reveal, .reveal-left, .reveal-right {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    /* Re-enable animations after load */
+    body.effects-ready .reveal,
+    body.effects-ready .reveal-left,
+    body.effects-ready .reveal-right {
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    body.effects-ready .cursor-dot,
+    body.effects-ready .cursor-outline { display: block; }
+    </style>
 </head>
-<body data-barba="wrapper">
+<body data-barba="wrapper" class="loaded">
     <div class="preloader"><div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div><img src="ifm-logo-gold.png" alt="IFM" class="preloader-logo"><span class="preloader-text">Advancing the Kingdom</span><div class="preloader-progress"><div class="preloader-progress-bar"></div></div></div>
     <div class="cursor-dot"></div><div class="cursor-outline"></div>
     <div class="scroll-progress"></div>
@@ -100,9 +119,9 @@
     <button class="perf-toggle" aria-label="Toggle animations" aria-pressed="false" title="Toggle animations on/off">&#9889;</button>
     <main data-barba="container" data-barba-namespace="about">
     <div class="bg-gradient"></div>
-    <div class="particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
-    <div class="floating-images"><img src="ministry-couple-1.jpg" alt="Pastor and wife ministering together" class="float-img" loading="lazy"><img src="ministry-preaching.jpg" alt="Pastor preaching at Increasing Faith Ministries" class="float-img" loading="lazy"><img src="ministry-teaching.jpg" alt="Kingdom teaching session at Increasing Faith Ministries" class="float-img" loading="lazy"></div>
-    <div class="lens-flare lens-flare-1"></div><div class="lens-flare lens-flare-2"></div><div class="lens-flare lens-flare-3"></div>
+    <div class="particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
+    <div class="floating-images"><img src="ministry-couple-1.jpg" alt="Pastor and wife ministering together" class="float-img" loading="lazy"><img src="ministry-preaching.jpg" alt="Pastor preaching at Increasing Faith Ministries" class="float-img" loading="lazy"><img src="ministry-pastor.jpg" alt="Senior Pastor of Increasing Faith Ministries" class="float-img" loading="lazy"></div>
+    <div class="lens-flare lens-flare-1"></div><div class="lens-flare lens-flare-2"></div>
 
     <nav class="nav" id="nav">
         <a href="index.html" class="logo"><img src="ifm-logo-gold.png" alt="IFM" class="logo-img"><span class="logo-text">Increasing<span>Faith</span></span></a>
@@ -128,7 +147,7 @@
 
     <!-- Ministry Bio Section -->
     <section>
-        <div class="story-section reveal">
+        <div class="story-section reveal visible">
             <div class="story-content">
                 <h2>Our Ministry</h2>
                 <p>Increasing Faith Ministries (IFM) is a global, Kingdom-centered teaching ministry founded on the conviction that faith increases when believers understand and live according to Kingdom truth. Led by Pastors Curtis Stephens Jr. and Tammy Stephens, IFM has faithfully served for over 28 years, teaching the Word of God with clarity, authority, and compassion.</p>
@@ -141,23 +160,23 @@
 
     <!-- Mission Section -->
     <section class="mission-section">
-        <div class="section-header reveal">
+        <div class="section-header reveal visible">
             <span class="section-badge">Our Focus</span>
             <h2>What We Do</h2>
             <p>Developing disciplined Kingdom citizens equipped to walk out their faith with wisdom, integrity, and purpose.</p>
         </div>
         <div class="mission-grid">
-            <div class="mission-card reveal">
+            <div class="mission-card reveal visible">
                 <span class="mission-icon">&#128218;</span>
                 <h3>Sound Teaching</h3>
                 <p>Teaching the Word of God with clarity, authority, and compassion to restore Kingdom understanding.</p>
             </div>
-            <div class="mission-card reveal">
+            <div class="mission-card reveal visible">
                 <span class="mission-icon">&#128588;</span>
                 <h3>Pastoral Care</h3>
                 <p>Shepherding believers with a balanced blend of care and prophetic insight for spiritual growth.</p>
             </div>
-            <div class="mission-card reveal">
+            <div class="mission-card reveal visible">
                 <span class="mission-icon">&#127758;</span>
                 <h3>Kingdom Impact</h3>
                 <p>Equipping believers to represent Heaven on earth, impacting families, communities, and nations.</p>
@@ -167,12 +186,12 @@
 
     <!-- Pastors Section -->
     <section>
-        <div class="section-header reveal">
+        <div class="section-header reveal visible">
             <span class="section-badge">Our Pastors</span>
             <h2>Meet Pastors Curtis &amp; Tammy</h2>
             <p>Over 28 years of faithful Kingdom teaching and pastoral leadership.</p>
         </div>
-        <div class="pastors-feature reveal">
+        <div class="pastors-feature reveal visible">
             <div class="pastors-image">
                 <img src="img_0948.jpg" alt="Pastors Curtis and Tammy Stephens" loading="lazy">
             </div>
@@ -187,34 +206,34 @@
 
     <!-- Values Section -->
     <section>
-        <div class="section-header reveal">
+        <div class="section-header reveal visible">
             <span class="section-badge">Our Foundation</span>
             <h2>What We Believe</h2>
             <p>Core convictions that shape our ministry and teaching.</p>
         </div>
         <div class="values-grid">
-            <div class="value-item reveal">
+            <div class="value-item reveal visible">
                 <span class="value-num">01</span>
                 <div class="value-content">
                     <h4>Kingdom First</h4>
                     <p>"Seek first the Kingdom of God and His righteousness" (Matthew 6:33)—this is our foundation and priority.</p>
                 </div>
             </div>
-            <div class="value-item reveal">
+            <div class="value-item reveal visible">
                 <span class="value-num">02</span>
                 <div class="value-content">
                     <h4>New Creation Reality</h4>
                     <p>In Christ, believers are not only forgiven—but made new (2 Corinthians 5:17), empowered to represent Heaven on earth.</p>
                 </div>
             </div>
-            <div class="value-item reveal">
+            <div class="value-item reveal visible">
                 <span class="value-num">03</span>
                 <div class="value-content">
                     <h4>Spiritual Maturity</h4>
                     <p>We emphasize growth, obedience, and disciplined living—moving beyond inspiration to transformation.</p>
                 </div>
             </div>
-            <div class="value-item reveal">
+            <div class="value-item reveal visible">
                 <span class="value-num">04</span>
                 <div class="value-content">
                     <h4>Renewed Identity</h4>
@@ -226,7 +245,7 @@
 
     <!-- CTA -->
     <section class="cta-section">
-        <div class="cta-content reveal">
+        <div class="cta-content reveal visible">
             <h2>Join the Movement</h2>
             <p>Become part of a community committed to living under the reign of Jesus.</p>
             <a href="community.html" class="btn">Get Connected</a>
@@ -324,5 +343,27 @@
         }
     </script>
     <script src="enhancements.js" defer></script>
+
+    <script>
+    // Load animation libraries AFTER page is interactive
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            var gsap = document.createElement('script');
+            gsap.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+            gsap.onload = function() {
+                var st = document.createElement('script');
+                st.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+                document.body.appendChild(st);
+            };
+            document.body.appendChild(gsap);
+            var lenis = document.createElement('script');
+            lenis.src = 'https://unpkg.com/lenis@1.1.18/dist/lenis.min.js';
+            document.body.appendChild(lenis);
+            setTimeout(function() {
+                document.body.classList.add('effects-ready');
+            }, 500);
+        }, 100);
+    });
+    </script>
 </body>
 </html>

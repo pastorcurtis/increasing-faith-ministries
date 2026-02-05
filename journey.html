@@ -42,10 +42,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
-    <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="enhancements.css">
     <style>
@@ -71,9 +67,119 @@
         .step-content h4 { font-family: var(--font-body); font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--white); }
         .step-content p { color: var(--off-white); line-height: 1.8; }
 
-        /* Week Body styles */
-        .week-body p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--off-white); }
-        .week-body strong { color: var(--white); font-weight: 600; }
+        /* ═══════════════════════════════════════════════════════════════
+           KINGDOM FOUNDATIONS 12-WEEK COURSE - Premium Styling
+        ═══════════════════════════════════════════════════════════════ */
+
+        .weeks-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .week-card {
+            background: linear-gradient(135deg, rgba(45, 27, 78, 0.9), rgba(26, 10, 46, 0.95));
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .week-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), #fff8dc, var(--gold));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .week-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.15), 0 0 30px rgba(233, 30, 140, 0.1);
+        }
+
+        .week-card:hover::before {
+            opacity: 1;
+        }
+
+        .week-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.02));
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .week-num {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold), #fff8dc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            min-width: 40px;
+        }
+
+        .week-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.3;
+        }
+
+        .week-body {
+            padding: 1.25rem 1.5rem;
+        }
+
+        .week-body p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--off-white);
+            line-height: 1.6;
+        }
+
+        .week-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .week-body strong {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Responsive - 12 Week Grid */
+        @media (max-width: 1024px) {
+            .weeks-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .weeks-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .week-header {
+                padding: 1rem 1.25rem;
+            }
+
+            .week-body {
+                padding: 1rem 1.25rem;
+            }
+        }
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -83,8 +189,31 @@
             .pathway-step { flex-direction: column; gap: 1rem; }
         }
     </style>
+    <style>
+    /* Instant visibility - no preloader blocking */
+    body { opacity: 1 !important; visibility: visible !important; }
+    .preloader { display: none !important; }
+    /* Reduce particle count via CSS */
+    .particle:nth-child(n+5) { display: none; }
+    /* Disable custom cursor on load - enable after scripts load */
+    .cursor-dot, .cursor-outline { display: none; }
+    /* Instant reveals - no waiting */
+    .reveal, .reveal-left, .reveal-right {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    /* Re-enable animations after load */
+    body.effects-ready .reveal,
+    body.effects-ready .reveal-left,
+    body.effects-ready .reveal-right {
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    body.effects-ready .cursor-dot,
+    body.effects-ready .cursor-outline { display: block; }
+    </style>
 </head>
-<body data-barba="wrapper">
+<body data-barba="wrapper" class="loaded">
     <div class="preloader"><div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div><img src="ifm-logo-gold.png" alt="IFM" class="preloader-logo"><span class="preloader-text">Advancing the Kingdom</span><div class="preloader-progress"><div class="preloader-progress-bar"></div></div></div>
     <div class="cursor-dot"></div><div class="cursor-outline"></div>
     <div class="scroll-progress"></div>
@@ -95,32 +224,22 @@
     <!-- Animated Background -->
     <div class="bg-gradient"></div>
 
-    <!-- Floating Particles -->
+    <!-- Floating Particles (reduced to 4 for performance) -->
     <div class="particles">
         <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div>
     </div>
 
-    <!-- Floating Images -->
+    <!-- Floating Images (reduced to 3 for performance) -->
     <div class="floating-images">
         <img src="ministry-couple-1.jpg" alt="Pastor and wife ministering together" class="float-img" loading="lazy">
         <img src="ministry-preaching.jpg" alt="Pastor preaching at Increasing Faith Ministries" class="float-img" loading="lazy">
-        <img src="ministry-couple-2.jpg" alt="Pastors Curtis and Tammy Stephens" class="float-img" loading="lazy">
-        <img src="ministry-teaching.jpg" alt="Kingdom teaching session at Increasing Faith Ministries" class="float-img" loading="lazy">
         <img src="ministry-pastor.jpg" alt="Senior Pastor of Increasing Faith Ministries" class="float-img" loading="lazy">
-        <img src="ministry-congregation1.jpg" alt="Congregation worshiping at Increasing Faith Ministries" class="float-img" loading="lazy">
-        <img src="ministry-congregation2.jpg" alt="IFM community gathered for worship" class="float-img" loading="lazy">
-        <img src="ministry-congregation3.jpg" alt="Believers praising during service" class="float-img" loading="lazy">
-        <img src="ministry-congregation4.jpg" alt="Kingdom community in worship" class="float-img" loading="lazy">
-        <img src="ministry-congregation5.jpg" alt="Congregation engaged in worship service" class="float-img" loading="lazy">
     </div>
 
     <!-- Lens Flares -->
     <div class="lens-flare lens-flare-1"></div>
     <div class="lens-flare lens-flare-2"></div>
-    <div class="lens-flare lens-flare-3"></div>
 
     <!-- Navigation -->
     <nav class="nav" id="nav">
@@ -161,29 +280,29 @@
 
     <!-- EXPLORE TAB -->
     <div id="explore" class="tab-content active">
-        <div class="section-header reveal">
+        <div class="section-header reveal visible">
             <span class="section-badge">For Seekers</span>
             <h2>Explore the Kingdom</h2>
             <p>Curious about Jesus and His Kingdom? Start here. No pressure, just honest exploration.</p>
         </div>
 
         <div class="cards-grid">
-            <div class="card reveal">
+            <div class="card reveal visible">
                 <span class="card-icon">?</span>
                 <h3>Who Is Jesus?</h3>
                 <p>More than a teacher or prophet—Jesus claimed to be the King bringing God's Kingdom to earth. Explore His life, teachings, and invitation.</p>
             </div>
-            <div class="card reveal">
+            <div class="card reveal visible">
                 <span class="card-icon">&#9813;</span>
                 <h3>What Is the Kingdom?</h3>
                 <p>The Kingdom of God isn't a place—it's God's reign breaking into our world. Discover what it means to live under His rule.</p>
             </div>
-            <div class="card reveal">
+            <div class="card reveal visible">
                 <span class="card-icon">&#10140;</span>
                 <h3>Why Does It Matter?</h3>
                 <p>The Kingdom offers purpose, community, transformation, and hope. See how it addresses life's deepest questions.</p>
             </div>
-            <div class="card reveal">
+            <div class="card reveal visible">
                 <span class="card-icon">&#9829;</span>
                 <h3>Your Invitation</h3>
                 <p>Jesus invites everyone to enter the Kingdom through repentance and faith. This isn't religion—it's relationship with the King.</p>
@@ -193,42 +312,51 @@
 
     <!-- GROW TAB -->
     <div id="grow" class="tab-content">
-        <div class="section-header reveal">
+        <div class="section-header reveal visible">
             <span class="section-badge">For Believers</span>
             <h2>Grow as a Kingdom Citizen</h2>
             <p>You've entered the Kingdom—now it's time to be formed as a disciple who lives under Jesus' lordship.</p>
         </div>
 
+        <!-- Coming Soon Banner -->
+        <div class="coming-soon-banner reveal visible" style="max-width: 800px; margin: 0 auto 3rem; padding: 2.5rem; background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 215, 0, 0.05)); border: 2px solid rgba(255, 215, 0, 0.4); border-radius: 20px; text-align: center;">
+            <span style="font-size: 2.5rem; display: block; margin-bottom: 1rem;">🏛️</span>
+            <h3 style="font-size: 1.5rem; color: var(--gold); margin-bottom: 0.75rem;">Management, Order &amp; Structure</h3>
+            <p style="font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem; font-weight: 500;">Advanced Teaching Series</p>
+            <p style="color: var(--off-white); line-height: 1.7; max-width: 500px; margin: 0 auto 1.5rem;">Learn Kingdom principles for organizing your life, family, ministry, and work under God's divine order.</p>
+            <span style="display: inline-block; padding: 0.75rem 2rem; background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1)); border: 1px solid var(--gold); border-radius: 50px; color: var(--gold); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase;">Coming Soon</span>
+        </div>
+
         <div class="pathway">
-            <div class="pathway-step reveal">
+            <div class="pathway-step reveal visible">
                 <span class="step-number">01</span>
                 <div class="step-content">
                     <h4>Root Yourself in Scripture</h4>
                     <p>The Word of God shapes Kingdom citizens. Develop rhythms of reading, studying, and meditating on Scripture daily.</p>
                 </div>
             </div>
-            <div class="pathway-step reveal">
+            <div class="pathway-step reveal visible">
                 <span class="step-number">02</span>
                 <div class="step-content">
                     <h4>Join a Discipleship Cohort</h4>
                     <p>Transformation happens in community. Join a small group for accountability, encouragement, and deeper formation.</p>
                 </div>
             </div>
-            <div class="pathway-step reveal">
+            <div class="pathway-step reveal visible">
                 <span class="step-number">03</span>
                 <div class="step-content">
                     <h4>Practice Kingdom Disciplines</h4>
                     <p>Prayer, fasting, generosity, service—these practices align our lives with Kingdom values and priorities.</p>
                 </div>
             </div>
-            <div class="pathway-step reveal">
+            <div class="pathway-step reveal visible">
                 <span class="step-number">04</span>
                 <div class="step-content">
                     <h4>Discover Your Kingdom Assignment</h4>
                     <p>Every believer has a sphere of influence. Learn to carry Kingdom authority into your work, family, and community.</p>
                 </div>
             </div>
-            <div class="pathway-step reveal">
+            <div class="pathway-step reveal visible">
                 <span class="step-number">05</span>
                 <div class="step-content">
                     <h4>Make Disciples Who Make Disciples</h4>
@@ -240,67 +368,115 @@
 
     <!-- TEACHING TAB -->
     <div id="teaching" class="tab-content">
-        <div class="section-header reveal">
+        <div class="section-header reveal visible">
             <span class="section-badge">12-Week Journey</span>
             <h2>Kingdom Foundations</h2>
             <p>A comprehensive teaching series through the essential teachings of Jesus about life in His Kingdom.</p>
         </div>
 
+        <!-- Course Intro Card -->
+        <div class="course-intro reveal visible" style="max-width: 800px; margin: 0 auto 3rem; padding: 2rem; background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.02)); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 20px; text-align: center;">
+            <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">📖</span>
+            <h3 style="font-size: 1.3rem; color: var(--white); margin-bottom: 0.75rem;">Study the Sermon on the Mount</h3>
+            <p style="color: var(--off-white); line-height: 1.7; max-width: 600px; margin: 0 auto;">Journey through Jesus' most comprehensive teaching on Kingdom life. Each week builds on the last, forming a complete picture of what it means to live as a citizen of God's Kingdom.</p>
+        </div>
+
         <div class="weeks-grid">
-            <div class="week-card reveal">
+            <div class="week-card reveal visible">
                 <div class="week-header"><span class="week-num">01</span><span class="week-title">The King and the Kingdom</span></div>
-                <div class="week-body"><p><strong>Text:</strong> Mark 1:14-15</p><p>The gospel Jesus preached was the Kingdom of God.</p></div>
+                <div class="week-body">
+                    <p><strong>📜 Mark 1:14-15</strong></p>
+                    <p>The gospel Jesus preached was the Kingdom of God—discover why this changes everything.</p>
+                </div>
             </div>
-            <div class="week-card reveal">
+            <div class="week-card reveal visible">
                 <div class="week-header"><span class="week-num">02</span><span class="week-title">Entering the Kingdom</span></div>
-                <div class="week-body"><p><strong>Text:</strong> John 3:1-8</p><p>You must be born again to see and enter the Kingdom.</p></div>
+                <div class="week-body">
+                    <p><strong>📜 John 3:1-8</strong></p>
+                    <p>You must be born again to see and enter the Kingdom. Learn what this truly means.</p>
+                </div>
             </div>
-            <div class="week-card reveal">
+            <div class="week-card reveal visible">
                 <div class="week-header"><span class="week-num">03</span><span class="week-title">Kingdom Citizens</span></div>
-                <div class="week-body"><p><strong>Text:</strong> Matthew 5:1-16</p><p>The Beatitudes describe Kingdom character.</p></div>
+                <div class="week-body">
+                    <p><strong>📜 Matthew 5:1-16</strong></p>
+                    <p>The Beatitudes describe Kingdom character—the inside-out transformation Jesus brings.</p>
+                </div>
             </div>
-            <div class="week-card reveal">
+            <div class="week-card reveal visible">
                 <div class="week-header"><span class="week-num">04</span><span class="week-title">Kingdom Righteousness</span></div>
-                <div class="week-body"><p><strong>Text:</strong> Matthew 5:17-48</p><p>Kingdom ethics exceed external compliance.</p></div>
+                <div class="week-body">
+                    <p><strong>📜 Matthew 5:17-48</strong></p>
+                    <p>Kingdom ethics exceed external compliance—Jesus transforms the heart, not just behavior.</p>
+                </div>
             </div>
-            <div class="week-card reveal">
+            <div class="week-card reveal visible">
                 <div class="week-header"><span class="week-num">05</span><span class="week-title">Kingdom Practices</span></div>
-                <div class="week-body"><p><strong>Text:</strong> Matthew 6:1-18</p><p>Giving, praying, and fasting in secret.</p></div>
+                <div class="week-body">
+                    <p><strong>📜 Matthew 6:1-18</strong></p>
+                    <p>Giving, praying, and fasting in secret—spiritual disciplines that shape Kingdom life.</p>
+                </div>
             </div>
-            <div class="week-card reveal">
+            <div class="week-card reveal visible">
                 <div class="week-header"><span class="week-num">06</span><span class="week-title">Kingdom Priorities</span></div>
-                <div class="week-body"><p><strong>Text:</strong> Matthew 6:19-34</p><p>Seek first the Kingdom and His righteousness.</p></div>
+                <div class="week-body">
+                    <p><strong>📜 Matthew 6:19-34</strong></p>
+                    <p>Seek first the Kingdom and His righteousness—reordering life around what matters most.</p>
+                </div>
             </div>
-            <div class="week-card reveal">
+            <div class="week-card reveal visible">
                 <div class="week-header"><span class="week-num">07</span><span class="week-title">Kingdom Relationships</span></div>
-                <div class="week-body"><p><strong>Text:</strong> Matthew 7:1-12</p><p>How Kingdom citizens treat one another.</p></div>
+                <div class="week-body">
+                    <p><strong>📜 Matthew 7:1-12</strong></p>
+                    <p>How Kingdom citizens treat one another—the Golden Rule as a way of life.</p>
+                </div>
             </div>
-            <div class="week-card reveal">
+            <div class="week-card reveal visible">
                 <div class="week-header"><span class="week-num">08</span><span class="week-title">Kingdom Choices</span></div>
-                <div class="week-body"><p><strong>Text:</strong> Matthew 7:13-29</p><p>Two paths, two builders, two outcomes.</p></div>
+                <div class="week-body">
+                    <p><strong>📜 Matthew 7:13-29</strong></p>
+                    <p>Two paths, two builders, two outcomes—wisdom for building a lasting life.</p>
+                </div>
             </div>
-            <div class="week-card reveal">
+            <div class="week-card reveal visible">
                 <div class="week-header"><span class="week-num">09</span><span class="week-title">Kingdom Power</span></div>
-                <div class="week-body"><p><strong>Text:</strong> Matthew 10:1-8</p><p>Authority to advance the Kingdom.</p></div>
+                <div class="week-body">
+                    <p><strong>📜 Matthew 10:1-8</strong></p>
+                    <p>Authority to advance the Kingdom—the power Jesus delegates to His followers.</p>
+                </div>
             </div>
-            <div class="week-card reveal">
+            <div class="week-card reveal visible">
                 <div class="week-header"><span class="week-num">10</span><span class="week-title">Kingdom Parables</span></div>
-                <div class="week-body"><p><strong>Text:</strong> Matthew 13</p><p>Secrets of Kingdom growth and value.</p></div>
+                <div class="week-body">
+                    <p><strong>📜 Matthew 13</strong></p>
+                    <p>Secrets of Kingdom growth and value—Jesus reveals mysteries through stories.</p>
+                </div>
             </div>
-            <div class="week-card reveal">
+            <div class="week-card reveal visible">
                 <div class="week-header"><span class="week-num">11</span><span class="week-title">Kingdom Community</span></div>
-                <div class="week-body"><p><strong>Text:</strong> Matthew 18:1-20</p><p>Life together in the Kingdom family.</p></div>
+                <div class="week-body">
+                    <p><strong>📜 Matthew 18:1-20</strong></p>
+                    <p>Life together in the Kingdom family—humility, forgiveness, and unity.</p>
+                </div>
             </div>
-            <div class="week-card reveal">
+            <div class="week-card reveal visible">
                 <div class="week-header"><span class="week-num">12</span><span class="week-title">Kingdom Consummation</span></div>
-                <div class="week-body"><p><strong>Text:</strong> Matthew 25:31-46</p><p>The Kingdom fully realized at Christ's return.</p></div>
+                <div class="week-body">
+                    <p><strong>📜 Matthew 25:31-46</strong></p>
+                    <p>The Kingdom fully realized at Christ's return—living today in light of eternity.</p>
+                </div>
             </div>
+        </div>
+
+        <!-- Course CTA -->
+        <div class="course-cta reveal visible" style="text-align: center; margin-top: 3rem;">
+            <a href="community.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Start the 12-Week Journey</a>
         </div>
     </div>
 
     <!-- CTA -->
     <section class="cta-section">
-        <div class="cta-content reveal">
+        <div class="cta-content reveal visible">
             <h2>Ready for Your Next Step?</h2>
             <p>Whether you're just beginning to explore or ready to dive deeper, we're here to walk with you.</p>
             <a href="community.html" class="btn">Join a Cohort</a>
@@ -308,7 +484,7 @@
     </section>
 
     <!-- Newsletter -->
-    <section class="newsletter reveal">
+    <section class="newsletter reveal visible">
         <div class="newsletter-content">
             <span class="section-badge">Stay Connected</span>
             <h2>Kingdom Updates</h2>
@@ -459,5 +635,27 @@
         document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
     <script src="enhancements.js" defer></script>
+
+    <script>
+    // Load animation libraries AFTER page is interactive
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            var gsap = document.createElement('script');
+            gsap.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+            gsap.onload = function() {
+                var st = document.createElement('script');
+                st.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+                document.body.appendChild(st);
+            };
+            document.body.appendChild(gsap);
+            var lenis = document.createElement('script');
+            lenis.src = 'https://unpkg.com/lenis@1.1.18/dist/lenis.min.js';
+            document.body.appendChild(lenis);
+            setTimeout(function() {
+                document.body.classList.add('effects-ready');
+            }, 500);
+        }, 100);
+    });
+    </script>
 </body>
 </html>

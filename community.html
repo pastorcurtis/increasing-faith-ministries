@@ -42,10 +42,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
-    <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="enhancements.css">
     <style>
@@ -106,8 +102,31 @@
             .flow-step { flex-direction: column; gap: 1rem; }
         }
     </style>
+    <style>
+    /* Instant visibility - no preloader blocking */
+    body { opacity: 1 !important; visibility: visible !important; }
+    .preloader { display: none !important; }
+    /* Reduce particle count via CSS */
+    .particle:nth-child(n+5) { display: none; }
+    /* Disable custom cursor on load - enable after scripts load */
+    .cursor-dot, .cursor-outline { display: none; }
+    /* Instant reveals - no waiting */
+    .reveal, .reveal-left, .reveal-right {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    /* Re-enable animations after load */
+    body.effects-ready .reveal,
+    body.effects-ready .reveal-left,
+    body.effects-ready .reveal-right {
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    body.effects-ready .cursor-dot,
+    body.effects-ready .cursor-outline { display: block; }
+    </style>
 </head>
-<body data-barba="wrapper">
+<body data-barba="wrapper" class="loaded">
     <div class="preloader"><div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div><img src="ifm-logo-gold.png" alt="IFM" class="preloader-logo"><span class="preloader-text">Advancing the Kingdom</span><div class="preloader-progress"><div class="preloader-progress-bar"></div></div></div>
     <div class="cursor-dot"></div><div class="cursor-outline"></div>
     <div class="scroll-progress"></div>
@@ -116,9 +135,9 @@
     <button class="theme-toggle" aria-label="Toggle theme"><div class="theme-toggle-icon"><span class="sun">&#9728;</span><span class="moon">&#9790;</span></div></button>
     <main data-barba="container" data-barba-namespace="community">
     <div class="bg-gradient"></div>
-    <div class="particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
-    <div class="floating-images"><img src="ministry-couple-1.jpg" alt="Pastor and wife ministering together" class="float-img" loading="lazy"><img src="ministry-preaching.jpg" alt="Pastor preaching at Increasing Faith Ministries" class="float-img" loading="lazy"><img src="ministry-couple-2.jpg" alt="Pastors Curtis and Tammy Stephens" class="float-img" loading="lazy"><img src="ministry-teaching.jpg" alt="Kingdom teaching session at Increasing Faith Ministries" class="float-img" loading="lazy"><img src="ministry-pastor.jpg" alt="Senior Pastor of Increasing Faith Ministries" class="float-img" loading="lazy"><img src="ministry-congregation1.jpg" alt="Congregation worshiping at Increasing Faith Ministries" class="float-img" loading="lazy"><img src="ministry-congregation2.jpg" alt="IFM community gathered for worship" class="float-img" loading="lazy"><img src="ministry-congregation3.jpg" alt="Believers praising during service" class="float-img" loading="lazy"><img src="ministry-congregation4.jpg" alt="Kingdom community in worship" class="float-img" loading="lazy"><img src="ministry-congregation5.jpg" alt="Congregation engaged in worship service" class="float-img" loading="lazy"></div>
-    <div class="lens-flare lens-flare-1"></div><div class="lens-flare lens-flare-2"></div><div class="lens-flare lens-flare-3"></div>
+    <div class="particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
+    <div class="floating-images"><img src="ministry-couple-1.jpg" alt="Pastor and wife ministering together" class="float-img" loading="lazy"><img src="ministry-preaching.jpg" alt="Pastor preaching at Increasing Faith Ministries" class="float-img" loading="lazy"><img src="ministry-pastor.jpg" alt="Senior Pastor of Increasing Faith Ministries" class="float-img" loading="lazy"></div>
+    <div class="lens-flare lens-flare-1"></div><div class="lens-flare lens-flare-2"></div>
 
     <nav class="nav" id="nav">
         <a href="index.html" class="logo"><img src="ifm-logo-gold.png" alt="IFM" class="logo-img"><span class="logo-text">Increasing<span>Faith</span></span></a>
@@ -144,19 +163,19 @@
     </div>
 
     <div id="about" class="tab-content active">
-        <div class="section-header reveal"><span class="section-badge">A Global Movement</span><h2>One Kingdom. Every Nation.</h2><p>Across cultures, ethnicities, and borders, God is forming a family whose shared allegiance is to Jesus, not a denomination, ideology, or nation-state.</p></div>
+        <div class="section-header reveal visible"><span class="section-badge">A Global Movement</span><h2>One Kingdom. Every Nation.</h2><p>Across cultures, ethnicities, and borders, God is forming a family whose shared allegiance is to Jesus, not a denomination, ideology, or nation-state.</p></div>
         <div class="pillars-grid">
-            <div class="pillar-card reveal">
+            <div class="pillar-card reveal visible">
                 <div class="pillar-header"><h3>Local</h3><span>Rooted Community</span></div>
                 <div class="pillar-body"><p>Kingdom community always has a local expression. It looks like people who:</p><ul><li>Share life, not just services</li><li>Practice hospitality, generosity, confession, and prayer</li><li>Carry one another's burdens and celebrate growth</li></ul></div>
                 <div class="pillar-footer">The kingdom takes root in ordinary places through faithful presence.</div>
             </div>
-            <div class="pillar-card reveal">
+            <div class="pillar-card reveal visible">
                 <div class="pillar-header"><h3>Global</h3><span>Kingdom Vision</span></div>
                 <div class="pillar-body"><p>Local communities are never isolated. They see themselves as part of a global body advancing the same reign of God.</p><ul><li>Valuing every culture as a bearer of God's image</li><li>Learning from believers across the world</li><li>Aligning with God's purposes beyond comfort</li></ul></div>
                 <div class="pillar-footer">The kingdom expands not by control, but by shared obedience to the same King.</div>
             </div>
-            <div class="pillar-card reveal">
+            <div class="pillar-card reveal visible">
                 <div class="pillar-header"><h3>Eternal</h3><span>Impact</span></div>
                 <div class="pillar-body"><p>Kingdom community measures success differently. Not attendance. Not buildings. Not budgets.</p><ul><li>Lives restored</li><li>Justice practiced</li><li>Reconciliation embodied</li><li>Faithfulness sustained over time</li></ul></div>
                 <div class="pillar-footer">What is built in love, obedience, and truth outlasts this age.</div>
@@ -165,54 +184,54 @@
     </div>
 
     <div id="cohorts" class="tab-content">
-        <div class="cohort-intro reveal">
+        <div class="cohort-intro reveal visible">
             <span class="section-badge">Small Group Formation</span><h2>Discipleship Cohorts</h2><p>To form disciples who live under the reign of Jesus—together.</p>
             <div class="cohort-highlight">This is not information transfer. It is life apprenticeship.</div>
             <div class="cohort-specs"><div class="spec-item"><div class="spec-label">Cohort Size</div><div class="spec-value">5-8 people</div></div><div class="spec-item"><div class="spec-label">Rhythm</div><div class="spec-value">Weekly (90 min)</div></div><div class="spec-item"><div class="spec-label">Posture</div><div class="spec-value">Honest, Scripture-centered</div></div></div>
         </div>
-        <div class="section-header reveal"><h2>Cohort Commitments</h2><p>Each participant commits to:</p></div>
+        <div class="section-header reveal visible"><h2>Cohort Commitments</h2><p>Each participant commits to:</p></div>
         <div class="commitments-grid">
-            <div class="commitment-card reveal"><h4>Presence</h4><p>Show up consistently</p></div>
-            <div class="commitment-card reveal"><h4>Practice</h4><p>Live out what is learned</p></div>
-            <div class="commitment-card reveal"><h4>Participation</h4><p>Speak truth and listen well</p></div>
-            <div class="commitment-card reveal"><h4>Prayer</h4><p>Intercede for one another</p></div>
-            <div class="commitment-card reveal"><h4>Submission</h4><p>Allow the Spirit and community to shape you</p></div>
+            <div class="commitment-card reveal visible"><h4>Presence</h4><p>Show up consistently</p></div>
+            <div class="commitment-card reveal visible"><h4>Practice</h4><p>Live out what is learned</p></div>
+            <div class="commitment-card reveal visible"><h4>Participation</h4><p>Speak truth and listen well</p></div>
+            <div class="commitment-card reveal visible"><h4>Prayer</h4><p>Intercede for one another</p></div>
+            <div class="commitment-card reveal visible"><h4>Submission</h4><p>Allow the Spirit and community to shape you</p></div>
         </div>
-        <div class="section-header reveal"><h2>Weekly Gathering Flow</h2><p>90 minutes of intentional formation</p></div>
+        <div class="section-header reveal visible"><h2>Weekly Gathering Flow</h2><p>90 minutes of intentional formation</p></div>
         <div class="flow-steps">
-            <div class="flow-step reveal"><div class="flow-time">10 min</div><div class="flow-content"><h4>Recenter</h4><p>Silence, Scripture reading, short prayer</p><p class="focus">"Jesus, we submit again to Your reign."</p></div></div>
-            <div class="flow-step reveal"><div class="flow-time">20 min</div><div class="flow-content"><h4>Shared Life</h4><p>Highs, lows, and faith-in-action from the week</p><p class="focus">Where did you notice the Kingdom? Where did you resist it?</p></div></div>
-            <div class="flow-step reveal"><div class="flow-time">30 min</div><div class="flow-content"><h4>Scripture & Truth</h4><p>Engage Jesus' teaching together</p><p class="focus">What is Jesus revealing about life under God's rule?</p></div></div>
-            <div class="flow-step reveal"><div class="flow-time">20 min</div><div class="flow-content"><h4>Practice & Obedience</h4><p>Discuss concrete responses</p><p class="focus">Decide on one kingdom practice for the week</p></div></div>
-            <div class="flow-step reveal"><div class="flow-time">10 min</div><div class="flow-content"><h4>Prayer & Commissioning</h4><p>Pray with expectation</p><p class="focus">Send one another out as representatives of the Kingdom</p></div></div>
+            <div class="flow-step reveal visible"><div class="flow-time">10 min</div><div class="flow-content"><h4>Recenter</h4><p>Silence, Scripture reading, short prayer</p><p class="focus">"Jesus, we submit again to Your reign."</p></div></div>
+            <div class="flow-step reveal visible"><div class="flow-time">20 min</div><div class="flow-content"><h4>Shared Life</h4><p>Highs, lows, and faith-in-action from the week</p><p class="focus">Where did you notice the Kingdom? Where did you resist it?</p></div></div>
+            <div class="flow-step reveal visible"><div class="flow-time">30 min</div><div class="flow-content"><h4>Scripture & Truth</h4><p>Engage Jesus' teaching together</p><p class="focus">What is Jesus revealing about life under God's rule?</p></div></div>
+            <div class="flow-step reveal visible"><div class="flow-time">20 min</div><div class="flow-content"><h4>Practice & Obedience</h4><p>Discuss concrete responses</p><p class="focus">Decide on one kingdom practice for the week</p></div></div>
+            <div class="flow-step reveal visible"><div class="flow-time">10 min</div><div class="flow-content"><h4>Prayer & Commissioning</h4><p>Pray with expectation</p><p class="focus">Send one another out as representatives of the Kingdom</p></div></div>
         </div>
     </div>
 
     <div id="journey" class="tab-content">
-        <div class="section-header reveal"><span class="section-badge">Formation Curriculum</span><h2>12-Week Cohort Journey</h2><p>A structured path through the essential teachings of Jesus about Kingdom life.</p></div>
+        <div class="section-header reveal visible"><span class="section-badge">Formation Curriculum</span><h2>12-Week Cohort Journey</h2><p>A structured path through the essential teachings of Jesus about Kingdom life.</p></div>
         <div class="weeks-grid">
-            <div class="week-card reveal"><div class="week-header"><span class="week-num">01</span><span class="week-title">Allegiance and the Gospel</span></div><div class="week-body"><div class="week-scripture">Mark 1:14-15</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Repentance as reorientation</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Identify one area where self-rule needs to yield to Jesus</div></div></div></div>
-            <div class="week-card reveal"><div class="week-header"><span class="week-num">02</span><span class="week-title">Entering the Kingdom</span></div><div class="week-body"><div class="week-scripture">John 3:1-8; Matthew 18:1-4</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Dependence and humility</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Daily prayer of surrender</div></div></div></div>
-            <div class="week-card reveal"><div class="week-header"><span class="week-num">03</span><span class="week-title">Hearing vs. Doing</span></div><div class="week-body"><div class="week-scripture">Matthew 7:24-27</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Obedience as trust</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Act on one difficult teaching of Jesus</div></div></div></div>
-            <div class="week-card reveal"><div class="week-header"><span class="week-num">04</span><span class="week-title">Re-formed Desires</span></div><div class="week-body"><div class="week-scripture">Matthew 5:1-12</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Kingdom values</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Fast from one cultural "status" habit</div></div></div></div>
-            <div class="week-card reveal"><div class="week-header"><span class="week-num">05</span><span class="week-title">Heart-Level Transformation</span></div><div class="week-body"><div class="week-scripture">Matthew 5:21-48</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Inner alignment</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Confession and reconciliation</div></div></div></div>
-            <div class="week-card reveal"><div class="week-header"><span class="week-num">06</span><span class="week-title">Trusting the Father</span></div><div class="week-body"><div class="week-scripture">Matthew 6:9-34</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Freedom from anxiety</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Audit time, money, and attention</div></div></div></div>
-            <div class="week-card reveal"><div class="week-header"><span class="week-num">07</span><span class="week-title">Kingdom Economics</span></div><div class="week-body"><div class="week-scripture">Luke 12:13-34</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Stewardship</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Radical generosity—planned, not spontaneous</div></div></div></div>
-            <div class="week-card reveal"><div class="week-header"><span class="week-num">08</span><span class="week-title">Authority and Power</span></div><div class="week-body"><div class="week-scripture">Luke 10:1-20</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Confidence in Christ's authority</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Pray boldly for healing or restoration</div></div></div></div>
-            <div class="week-card reveal"><div class="week-header"><span class="week-num">09</span><span class="week-title">Kingdom Community</span></div><div class="week-body"><div class="week-scripture">John 13:34-35; Acts 2:42-47</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Shared life</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Intentional hospitality</div></div></div></div>
-            <div class="week-card reveal"><div class="week-header"><span class="week-num">10</span><span class="week-title">Justice, Mercy, and the Least</span></div><div class="week-body"><div class="week-scripture">Luke 10:25-37</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Compassion as allegiance</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Serve someone with no return benefit</div></div></div></div>
-            <div class="week-card reveal"><div class="week-header"><span class="week-num">11</span><span class="week-title">Cost and Perseverance</span></div><div class="week-body"><div class="week-scripture">Luke 9:57-62</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Endurance</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Name and release one false security</div></div></div></div>
-            <div class="week-card reveal"><div class="week-header"><span class="week-num">12</span><span class="week-title">Living for the Coming Kingdom</span></div><div class="week-body"><div class="week-scripture">Matthew 25; Revelation 11:15</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Faithfulness until the King returns</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Write a personal "Kingdom Rule of Life"</div></div></div></div>
+            <div class="week-card reveal visible"><div class="week-header"><span class="week-num">01</span><span class="week-title">Allegiance and the Gospel</span></div><div class="week-body"><div class="week-scripture">Mark 1:14-15</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Repentance as reorientation</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Identify one area where self-rule needs to yield to Jesus</div></div></div></div>
+            <div class="week-card reveal visible"><div class="week-header"><span class="week-num">02</span><span class="week-title">Entering the Kingdom</span></div><div class="week-body"><div class="week-scripture">John 3:1-8; Matthew 18:1-4</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Dependence and humility</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Daily prayer of surrender</div></div></div></div>
+            <div class="week-card reveal visible"><div class="week-header"><span class="week-num">03</span><span class="week-title">Hearing vs. Doing</span></div><div class="week-body"><div class="week-scripture">Matthew 7:24-27</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Obedience as trust</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Act on one difficult teaching of Jesus</div></div></div></div>
+            <div class="week-card reveal visible"><div class="week-header"><span class="week-num">04</span><span class="week-title">Re-formed Desires</span></div><div class="week-body"><div class="week-scripture">Matthew 5:1-12</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Kingdom values</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Fast from one cultural "status" habit</div></div></div></div>
+            <div class="week-card reveal visible"><div class="week-header"><span class="week-num">05</span><span class="week-title">Heart-Level Transformation</span></div><div class="week-body"><div class="week-scripture">Matthew 5:21-48</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Inner alignment</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Confession and reconciliation</div></div></div></div>
+            <div class="week-card reveal visible"><div class="week-header"><span class="week-num">06</span><span class="week-title">Trusting the Father</span></div><div class="week-body"><div class="week-scripture">Matthew 6:9-34</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Freedom from anxiety</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Audit time, money, and attention</div></div></div></div>
+            <div class="week-card reveal visible"><div class="week-header"><span class="week-num">07</span><span class="week-title">Kingdom Economics</span></div><div class="week-body"><div class="week-scripture">Luke 12:13-34</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Stewardship</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Radical generosity—planned, not spontaneous</div></div></div></div>
+            <div class="week-card reveal visible"><div class="week-header"><span class="week-num">08</span><span class="week-title">Authority and Power</span></div><div class="week-body"><div class="week-scripture">Luke 10:1-20</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Confidence in Christ's authority</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Pray boldly for healing or restoration</div></div></div></div>
+            <div class="week-card reveal visible"><div class="week-header"><span class="week-num">09</span><span class="week-title">Kingdom Community</span></div><div class="week-body"><div class="week-scripture">John 13:34-35; Acts 2:42-47</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Shared life</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Intentional hospitality</div></div></div></div>
+            <div class="week-card reveal visible"><div class="week-header"><span class="week-num">10</span><span class="week-title">Justice, Mercy, and the Least</span></div><div class="week-body"><div class="week-scripture">Luke 10:25-37</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Compassion as allegiance</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Serve someone with no return benefit</div></div></div></div>
+            <div class="week-card reveal visible"><div class="week-header"><span class="week-num">11</span><span class="week-title">Cost and Perseverance</span></div><div class="week-body"><div class="week-scripture">Luke 9:57-62</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Endurance</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Name and release one false security</div></div></div></div>
+            <div class="week-card reveal visible"><div class="week-header"><span class="week-num">12</span><span class="week-title">Living for the Coming Kingdom</span></div><div class="week-body"><div class="week-scripture">Matthew 25; Revelation 11:15</div><div class="week-row"><div class="week-label">Focus</div><div class="week-value">Faithfulness until the King returns</div></div><div class="week-row"><div class="week-label">Practice</div><div class="week-value">Write a personal "Kingdom Rule of Life"</div></div></div></div>
         </div>
     </div>
 
     <section class="cta-section">
-        <div class="cta-content reveal"><h2>Ready to Join the Movement?</h2><p>Find your place in a community of disciples committed to the King.</p>
+        <div class="cta-content reveal visible"><h2>Ready to Join the Movement?</h2><p>Find your place in a community of disciples committed to the King.</p>
             <div class="cta-buttons"><a href="mailto:increasingfaithministry@gmail.com?subject=Interested%20in%20Joining%20a%20Cohort" class="btn btn-primary">Join a Cohort</a><a href="give.html" class="btn btn-secondary">Partner With Us</a></div>
         </div>
     </section>
 
-    <section class="newsletter reveal">
+    <section class="newsletter reveal visible">
         <div class="newsletter-content"><span class="section-badge">Stay Connected</span><h2>Kingdom Updates</h2><p>Receive weekly devotionals, teaching resources, and community updates directly to your inbox.</p>
             <!-- TODO: Replace xformid with your real Formspree form ID from https://formspree.io -->
             <form class="newsletter-form" id="newsletter-form" action="https://formspree.io/f/xformid" method="POST">
@@ -333,5 +352,27 @@
         document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
     <script src="enhancements.js" defer></script>
+
+    <script>
+    // Load animation libraries AFTER page is interactive
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            var gsap = document.createElement('script');
+            gsap.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+            gsap.onload = function() {
+                var st = document.createElement('script');
+                st.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+                document.body.appendChild(st);
+            };
+            document.body.appendChild(gsap);
+            var lenis = document.createElement('script');
+            lenis.src = 'https://unpkg.com/lenis@1.1.18/dist/lenis.min.js';
+            document.body.appendChild(lenis);
+            setTimeout(function() {
+                document.body.classList.add('effects-ready');
+            }, 500);
+        }, 100);
+    });
+    </script>
 </body>
 </html>
