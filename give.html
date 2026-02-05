@@ -143,7 +143,7 @@
         .payment-icon { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.8rem; font-weight: 700; }
         .payment-card.givelify .payment-icon { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; }
         .payment-card.cashapp .payment-icon { background: linear-gradient(135deg, #00d632, #00b828); color: white; }
-        .payment-card.paypal .payment-icon { background: linear-gradient(135deg, #003087, #009cde); color: white; }
+        .payment-card.register .payment-icon { background: linear-gradient(135deg, #00d632, #00a328); color: white; }
         .payment-card.zelle .payment-icon { background: linear-gradient(135deg, #6d1ed4, #8b2fc9); color: white; }
         .payment-card h4 { font-family: var(--font-body); font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
         .payment-card p { font-size: 0.8rem; color: var(--white-dim); line-height: 1.6; }
@@ -385,15 +385,26 @@
                 <h4>Cash App</h4>
                 <p>Send instantly via Cash App to $IncreasingFaith</p>
             </a>
-            <a href="https://paypal.me/IncreasingFaithMin" target="_blank" rel="noopener noreferrer" class="payment-card paypal reveal visible">
-                <div class="payment-icon">P</div>
-                <h4>PayPal</h4>
-                <p>Secure payments through your PayPal account</p>
+            <a href="https://square.link/u/ycON7R6E" target="_blank" rel="noopener noreferrer" class="payment-card register reveal visible">
+                <div class="payment-icon">&#9634;</div>
+                <h4>Square</h4>
+                <p>Donate securely with Square</p>
             </a>
-            <div class="payment-card zelle reveal visible" onclick="alert('Zelle: increasingfaithministry@gmail.com')">
+            <div class="payment-card zelle reveal visible" onclick="document.getElementById('zelleModal').style.display='flex'" style="cursor:pointer;">
                 <div class="payment-icon">Z</div>
                 <h4>Zelle</h4>
-                <p>Bank transfer via Zelle using our email</p>
+                <p>Scan QR code to send via Zelle</p>
+            </div>
+
+            <!-- Zelle QR Code Modal -->
+            <div id="zelleModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;" onclick="this.style.display='none'">
+                <div style="background:white; padding:2rem; border-radius:20px; text-align:center; max-width:350px; margin:1rem;" onclick="event.stopPropagation()">
+                    <h3 style="color:#6d1ed4; margin-bottom:1rem; font-size:1.5rem;">Send via Zelle</h3>
+                    <img src="Zelle-qr.png" alt="Zelle QR Code" style="width:250px; height:250px; border-radius:10px; margin-bottom:1rem;">
+                    <p style="color:#333; font-size:0.95rem; margin-bottom:0.5rem;">Scan with your bank app</p>
+                    <p style="color:#666; font-size:0.85rem;">Or send to: <strong>increasingfaithministry@gmail.com</strong></p>
+                    <button onclick="document.getElementById('zelleModal').style.display='none'" style="margin-top:1rem; padding:0.75rem 2rem; background:#6d1ed4; color:white; border:none; border-radius:50px; cursor:pointer; font-weight:600;">Close</button>
+                </div>
             </div>
         </div>
     </section>
@@ -445,7 +456,7 @@
             </div>
             <div class="faq-item reveal visible">
                 <button class="faq-question">Is online giving secure? <span class="icon">+</span></button>
-                <div class="faq-answer"><p>Yes, all online transactions are protected with 256-bit SSL encryption. We use trusted payment processors like Givelify and PayPal that meet the highest security standards.</p></div>
+                <div class="faq-answer"><p>Yes, all online transactions are protected with 256-bit SSL encryption. We use trusted payment processors like Givelify and Square that meet the highest security standards.</p></div>
             </div>
         </div>
     </section>
