@@ -481,12 +481,10 @@
                 <div class="email-signup">
                     <h4>Stay Connected</h4>
                     <p>Get Kingdom teachings delivered to your inbox</p>
-                    <form class="signup-form" action="https://formspree.io/f/increasingfaithministry@gmail.com" method="POST" id="newsletter-form">
+                    <form class="signup-form" id="newsletter-form">
                         <input type="email" name="email" placeholder="Enter your email" required>
-                        <input type="hidden" name="_subject" value="New Newsletter Signup">
                         <button type="submit">Subscribe</button>
                     </form>
-                    <p class="form-message" id="newsletter-message" style="display: none; margin-top: 0.75rem; font-size: 0.85rem;"></p>
                 </div>
             </div>
             <div class="footer-column">
@@ -600,6 +598,18 @@
 
         // Set current year dynamically
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Newsletter form handler with mailto
+        const newsletterForm = document.getElementById('newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = newsletterForm.querySelector('input[type="email"]').value;
+                const subject = encodeURIComponent('Newsletter Signup');
+                const body = encodeURIComponent('Please add me to the newsletter.\n\nEmail: ' + email);
+                window.location.href = 'mailto:increasingfaithministry@gmail.com?subject=' + subject + '&body=' + body;
+            });
+        }
 
         // Performance toggle - allows users to disable animations
         const perfToggle = document.querySelector('.perf-toggle');

@@ -489,13 +489,10 @@
             <span class="section-badge">Stay Connected</span>
             <h2>Kingdom Updates</h2>
             <p>Receive weekly devotionals, teaching resources, and community updates directly to your inbox.</p>
-            <!-- TODO: Replace xformid with your real Formspree form ID from https://formspree.io -->
-            <form class="newsletter-form" id="newsletter-form" action="https://formspree.io/f/xformid" method="POST">
+            <form class="newsletter-form" id="newsletter-form">
                 <input type="email" name="email" placeholder="Enter your email" required>
-                <input type="hidden" name="_subject" value="New Newsletter Signup">
                 <button type="submit">Subscribe</button>
             </form>
-            <p id="newsletter-message" style="display: none; margin-top: 1rem; font-size: 0.9rem;"></p>
         </div>
     </section>
 
@@ -520,12 +517,10 @@
                 <div class="email-signup">
                     <h4>Stay Connected</h4>
                     <p>Get Kingdom teachings delivered to your inbox</p>
-                    <form class="signup-form" action="https://formspree.io/f/increasingfaithministry@gmail.com" method="POST" id="footer-newsletter-form">
+                    <form class="signup-form" id="footer-newsletter-form">
                         <input type="email" name="email" placeholder="Enter your email" required>
-                        <input type="hidden" name="_subject" value="New Newsletter Signup">
                         <button type="submit">Subscribe</button>
                     </form>
-                    <p class="form-message" id="footer-newsletter-message" style="display: none; margin-top: 0.75rem; font-size: 0.85rem;"></p>
                 </div>
             </div>
             <div class="footer-column">
@@ -595,37 +590,26 @@
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
 
-        // Newsletter form handler with Formspree
+        // Newsletter form handler with mailto
         const newsletterForm = document.getElementById('newsletter-form');
         if (newsletterForm) {
-            newsletterForm.addEventListener('submit', async function(e) {
+            newsletterForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const form = e.target;
-                const messageEl = document.getElementById('newsletter-message');
-                const submitBtn = form.querySelector('button[type="submit"]');
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Sending...';
-                try {
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        body: new FormData(form),
-                        headers: { 'Accept': 'application/json' }
-                    });
-                    if (response.ok) {
-                        messageEl.textContent = 'Thank you for subscribing! We\'ll be in touch soon.';
-                        messageEl.style.color = '#4ade80';
-                        messageEl.style.display = 'block';
-                        form.reset();
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                } catch (error) {
-                    messageEl.textContent = 'Oops! Something went wrong. Please try again.';
-                    messageEl.style.color = '#f87171';
-                    messageEl.style.display = 'block';
-                }
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Subscribe';
+                const email = newsletterForm.querySelector('input[type="email"]').value;
+                const subject = encodeURIComponent('Newsletter Signup');
+                const body = encodeURIComponent('Please add me to the newsletter.\n\nEmail: ' + email);
+                window.location.href = 'mailto:increasingfaithministry@gmail.com?subject=' + subject + '&body=' + body;
+            });
+        }
+        // Footer newsletter form handler with mailto
+        const footerNewsletterForm = document.getElementById('footer-newsletter-form');
+        if (footerNewsletterForm) {
+            footerNewsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = footerNewsletterForm.querySelector('input[type="email"]').value;
+                const subject = encodeURIComponent('Newsletter Signup');
+                const body = encodeURIComponent('Please add me to the newsletter.\n\nEmail: ' + email);
+                window.location.href = 'mailto:increasingfaithministry@gmail.com?subject=' + subject + '&body=' + body;
             });
         }
 

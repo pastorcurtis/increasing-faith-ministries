@@ -165,9 +165,7 @@
                 <h2>Submit Your Request</h2>
                 <p>Let us join you in bringing your needs before the King.</p>
             </div>
-            <!-- TODO: Replace xformid with your real Formspree form ID from https://formspree.io -->
-            <form id="prayerForm" action="https://formspree.io/f/xformid" method="POST">
-                <input type="hidden" name="_subject" value="Prayer Request Submission">
+            <form id="prayerForm">
                 <div class="form-group">
                     <label for="name">Name <span class="optional">(optional)</span></label>
                     <input type="text" id="name" name="name" placeholder="Your name">
@@ -272,9 +270,7 @@
                 <h2>Contact Us</h2>
                 <p>Have a question or want to connect? Send us a message.</p>
             </div>
-            <!-- TODO: Replace xformid with your real Formspree form ID from https://formspree.io -->
-            <form id="contactForm" action="https://formspree.io/f/xformid" method="POST">
-                <input type="hidden" name="_subject" value="Contact Form Message">
+            <form id="contactForm">
                 <div class="form-group">
                     <label for="contact-name">Name <span style="color: var(--magenta);">*</span></label>
                     <input type="text" id="contact-name" name="name" placeholder="Your name" required>
@@ -314,12 +310,10 @@
                 <div class="email-signup">
                     <h4>Stay Connected</h4>
                     <p>Get Kingdom teachings delivered to your inbox</p>
-                    <form class="signup-form" action="https://formspree.io/f/increasingfaithministry@gmail.com" method="POST" id="newsletter-form">
+                    <form class="signup-form" id="newsletter-form">
                         <input type="email" name="email" placeholder="Enter your email" required>
-                        <input type="hidden" name="_subject" value="New Newsletter Signup">
                         <button type="submit">Subscribe</button>
                     </form>
-                    <p class="form-message" id="newsletter-message" style="display: none; margin-top: 0.75rem; font-size: 0.85rem;"></p>
                 </div>
             </div>
             <div class="footer-column">
@@ -352,77 +346,42 @@
     </footer>
 
     <script>
-        // Prayer form handler with Formspree
-        document.getElementById('prayerForm').addEventListener('submit', async function(e) {
+        // Prayer form handler with mailto
+        document.getElementById('prayerForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const form = e.target;
-            const messageEl = document.getElementById('prayer-form-message');
-            const submitBtn = form.querySelector('button[type="submit"]');
-
-            // Disable button during submission
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    messageEl.textContent = 'Your prayer request has been received. We are standing with you in faith!';
-                    messageEl.style.color = '#4ade80';
-                    messageEl.style.display = 'block';
-                    form.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                messageEl.textContent = 'Oops! Something went wrong. Please try again or email us directly.';
-                messageEl.style.color = '#f87171';
-                messageEl.style.display = 'block';
-            }
-
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit Prayer Request';
+            const name = form.querySelector('#name').value || 'Anonymous';
+            const email = form.querySelector('#email').value || 'Not provided';
+            const category = form.querySelector('#category').value || 'General';
+            const request = form.querySelector('#request').value;
+            const subject = encodeURIComponent('Prayer Request - ' + category);
+            const body = encodeURIComponent('Prayer Request\n\nName: ' + name + '\nEmail: ' + email + '\nCategory: ' + category + '\n\nRequest:\n' + request);
+            window.location.href = 'mailto:increasingfaithministry@gmail.com?subject=' + subject + '&body=' + body;
         });
 
-        // Contact form handler with Formspree
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        // Contact form handler with mailto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const form = e.target;
-            const messageEl = document.getElementById('contact-form-message');
-            const submitBtn = form.querySelector('button[type="submit"]');
-
-            // Disable button during submission
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    messageEl.textContent = 'Thank you for reaching out! We\'ll get back to you soon.';
-                    messageEl.style.color = '#4ade80';
-                    messageEl.style.display = 'block';
-                    form.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                messageEl.textContent = 'Oops! Something went wrong. Please try again or email us directly.';
-                messageEl.style.color = '#f87171';
-                messageEl.style.display = 'block';
-            }
-
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Send Message';
+            const name = form.querySelector('#contact-name').value;
+            const email = form.querySelector('#contact-email').value;
+            const message = form.querySelector('#contact-message').value;
+            const subject = encodeURIComponent('Contact Form Message from ' + name);
+            const body = encodeURIComponent('Contact Form Message\n\nName: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+            window.location.href = 'mailto:increasingfaithministry@gmail.com?subject=' + subject + '&body=' + body;
         });
+
+        // Newsletter form handler with mailto
+        const newsletterForm = document.getElementById('newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = newsletterForm.querySelector('input[type="email"]').value;
+                const subject = encodeURIComponent('Newsletter Signup');
+                const body = encodeURIComponent('Please add me to the newsletter.\n\nEmail: ' + email);
+                window.location.href = 'mailto:increasingfaithministry@gmail.com?subject=' + subject + '&body=' + body;
+            });
+        }
 
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
