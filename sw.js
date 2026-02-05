@@ -1,7 +1,7 @@
 // Service Worker for Increasing Faith Ministries
 // Provides offline support and caching
 
-const CACHE_NAME = 'ifm-cache-v2';
+const CACHE_NAME = 'ifm-cache-v3';
 const OFFLINE_URL = '404.html';
 
 // Files to cache immediately
@@ -13,6 +13,7 @@ const PRECACHE_FILES = [
     '/community.html',
     '/teachings.html',
     '/prayer.html',
+    '/visit.html',
     '/give.html',
     '/404.html',
     '/styles.css',
