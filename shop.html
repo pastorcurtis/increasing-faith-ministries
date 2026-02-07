@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom Apparel | Increasing Faith Ministries</title>
+    <meta name="description" content="Faith worn bold. Premium Kingdom-centered apparel designed to proclaim the reign of God in every sphere of society. Coming soon.">
+
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kingdom Apparel | Increasing Faith Ministries">
+    <meta property="og:description" content="Faith worn bold. Premium Kingdom-centered apparel designed to proclaim the reign of God in every sphere of society. Coming soon.">
+    <meta property="og:image" content="https://increasingfaith.net/ifm-logo-gold.png">
+    <meta property="og:url" content="https://increasingfaith.net/shop.html">
+    <meta property="og:site_name" content="Increasing Faith Ministries">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kingdom Apparel | Increasing Faith Ministries">
+    <meta name="twitter:description" content="Faith worn bold. Premium Kingdom-centered apparel designed to proclaim the reign of God in every sphere of society. Coming soon.">
+    <meta name="twitter:image" content="https://increasingfaith.net/ifm-logo-gold.png">
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Kingdom Apparel | Increasing Faith Ministries",
+        "description": "Faith worn bold. Premium Kingdom-centered apparel designed to proclaim the reign of God in every sphere of society.",
+        "url": "https://increasingfaith.net/shop.html",
+        "mainEntity": {
+            "@type": "Church",
+            "name": "Increasing Faith Ministries",
+            "url": "https://increasingfaith.net/"
+        }
+    }
+    </script>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="ifm-logo-gold.png">
+    <link rel="apple-touch-icon" href="ifm-logo-gold.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="enhancements.css">
+    <style>
+        /* ═══════════════════════════════════════════════════════════════
+           SHOP — UNDER CONSTRUCTION
+        ═══════════════════════════════════════════════════════════════ */
+
+        .shop-uc {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 160px 5% 120px;
+            text-align: center;
+        }
+
+        .shop-uc-badge {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--white-dim);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 100px;
+            margin-bottom: 3rem;
+        }
+
+        .shop-uc h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .shop-uc h1 em {
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        /* Gold accent line */
+        .shop-uc-rule {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 0 auto 2rem;
+        }
+
+        .shop-uc-text {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: var(--white-dim);
+            line-height: 1.8;
+            max-width: 520px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Teaser: subtle gold keywords */
+        .shop-uc-teaser {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem 2rem;
+            margin-bottom: 3.5rem;
+            max-width: 600px;
+        }
+
+        .shop-uc-teaser span {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(212, 175, 55, 0.3);
+            padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.08);
+        }
+
+        /* CTA */
+        .shop-uc-cta {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--black);
+            background: linear-gradient(135deg, var(--white), var(--gray-medium));
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 3rem;
+        }
+
+        .shop-uc-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.15);
+        }
+
+        /* Footer note */
+        .shop-uc-note {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.25);
+            letter-spacing: 0.1em;
+        }
+
+        .shop-uc-note a {
+            color: rgba(212, 175, 55, 0.4);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .shop-uc-note a:hover {
+            color: rgba(212, 175, 55, 0.7);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           FOOTER
+        ═══════════════════════════════════════════════════════════════ */
+        .footer { background: var(--black); padding: 80px 5% 40px; position: relative; z-index: 10; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; max-width: 1400px; margin: 0 auto 4rem; }
+        .footer-brand p { color: var(--white-dim); margin-top: 1.5rem; line-height: 1.8; }
+        .social-links { display: flex; gap: 1rem; margin-top: 2rem; }
+        .social-links a { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.4s var(--ease-bounce); }
+        .social-links a.social-fb { background: linear-gradient(135deg, #1877f2, #0d5bbd); }
+        .social-links a.social-ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .social-links a.social-yt { background: linear-gradient(135deg, #ff0000, #cc0000); }
+        .social-links a.social-tt { background: #000; box-shadow: 0 0 10px rgba(0, 242, 234, 0.3), 0 0 10px rgba(255, 0, 80, 0.3); }
+        .social-links a.social-give { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+        .social-links a:hover { transform: translateY(-4px) scale(1.1); }
+        .footer-column h4 { font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 1.5rem; }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 0.75rem; }
+        .footer-column a { color: var(--white-dim); text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease; }
+        .footer-column a:hover { color: var(--white); padding-left: 5px; }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); color: var(--white-dim); font-size: 0.85rem; }
+
+        /* ═══════════════════════════════════════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════════════════════════════════════ */
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions { display: none; }
+            .nav-links.open { display: flex; position: fixed; inset: 0; background: rgba(10, 6, 18, 0.98); flex-direction: column; justify-content: center; align-items: center; gap: 2rem; z-index: 999; }
+            .nav-links a { font-size: 1.3rem; }
+            .mobile-toggle { display: block; z-index: 1001; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .social-links { justify-content: center; }
+            .shop-uc { padding: 140px 5% 80px; }
+            .shop-uc-teaser { gap: 0.75rem 1.5rem; }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           ANIMATIONS
+        ═══════════════════════════════════════════════════════════════ */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s var(--ease-flow); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+    <style>
+    /* Instant visibility - no preloader blocking */
+    body { opacity: 1 !important; visibility: visible !important; }
+    .preloader { display: none !important; }
+    .particle:nth-child(n+5) { display: none; }
+    .cursor-dot, .cursor-outline { display: none; }
+    .reveal, .reveal-left, .reveal-right {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    body.effects-ready .reveal,
+    body.effects-ready .reveal-left,
+    body.effects-ready .reveal-right {
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    body.effects-ready .cursor-dot,
+    body.effects-ready .cursor-outline { display: block; }
+    </style>
+</head>
+<body data-barba="wrapper" class="loaded">
+    <div class="preloader"><div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div><img src="ifm-logo-gold.png" alt="IFM" class="preloader-logo"><span class="preloader-text">Advancing the Kingdom</span><div class="preloader-progress"><div class="preloader-progress-bar"></div></div></div>
+    <div class="cursor-dot"></div><div class="cursor-outline"></div>
+    <div class="scroll-progress"></div>
+    <div class="noise-overlay"></div>
+    <div class="page-transition"><div class="page-transition-layer"></div><div class="page-transition-layer"></div><div class="page-transition-layer"></div></div>
+    <button class="theme-toggle" aria-label="Toggle theme"><div class="theme-toggle-icon"><span class="sun">&#9728;</span><span class="moon">&#9790;</span></div></button>
+    <button class="perf-toggle" aria-label="Toggle animations" aria-pressed="false" title="Toggle animations on/off">&#9889;</button>
+
+    <main data-barba="container" data-barba-namespace="shop">
+    <div class="bg-gradient"></div>
+    <div class="particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
+
+    <nav class="nav" id="nav">
+        <a href="index.html" class="logo">
+            <img src="ifm-logo-gold.png" alt="IFM" class="logo-img">
+            <span class="logo-text">Increasing<span>Faith</span></span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="journey.html">Journey</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="teachings.html">Teachings</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="visit.html">Visit</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="teachings.html" class="nav-btn nav-btn-outline">Watch</a>
+            <a href="give.html" class="nav-btn nav-btn-glow">Give</a>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle">&#9776;</button>
+    </nav>
+
+    <!-- ═══════════ UNDER CONSTRUCTION ═══════════ -->
+    <section class="shop-uc">
+
+        <div class="shop-uc-badge reveal visible">Kingdom Apparel</div>
+
+        <h1 class="reveal visible">Something <em>Beautiful</em><br>Is Being Built</h1>
+
+        <div class="shop-uc-rule"></div>
+
+        <p class="shop-uc-text reveal visible">
+            Our Kingdom Apparel collection is being crafted with the same standard of excellence we bring to everything we do. Premium, Kingdom-centered apparel — designed to proclaim, not perform.
+        </p>
+
+        <!-- Collection teasers -->
+        <div class="shop-uc-teaser reveal visible">
+            <span>Kingdom vs Religion</span>
+            <span>Kingdom Everything</span>
+            <span>Proclaim The Kingdom</span>
+            <span>Mind The Kingdom Business</span>
+        </div>
+
+        <a href="mailto:increasingfaithministry@gmail.com?subject=Kingdom%20Apparel%20Inquiry" class="shop-uc-cta reveal visible">Contact Us to Order</a>
+
+        <p class="shop-uc-note reveal visible">Full online store launching soon at <a href="https://increasingfaith.net">IncreasingFaith.net</a></p>
+
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="ifm-logo-gold.png" alt="IFM" class="logo-img">
+                    <span class="logo-text">Increasing<span>Faith</span></span>
+                </a>
+                <p>Advancing the reign of God in people, communities, and cultures by making mature disciples of Jesus.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/IFMinistry" target="_blank" rel="noopener noreferrer" class="social-fb" title="Facebook">f</a>
+                    <a href="https://www.instagram.com/hourofpowerextra" target="_blank" rel="noopener noreferrer" class="social-ig" title="Instagram">ig</a>
+                    <a href="https://www.youtube.com/@thehourofpowerextra2883/shorts" target="_blank" rel="noopener noreferrer" class="social-yt" title="YouTube">&#9658;</a>
+                    <a href="https://www.tiktok.com/@hourofpower4" target="_blank" rel="noopener noreferrer" class="social-tt" title="TikTok">&#9835;</a>
+                    <a href="https://giv.li/129ina" target="_blank" rel="noopener noreferrer" class="social-give" title="Give with Givelify">$</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>The Kingdom</h4>
+                <ul>
+                    <li><a href="journey.html">What We Believe</a></li>
+                    <li><a href="journey.html">Our Mission</a></li>
+                    <li><a href="journey.html">Kingdom Theology</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="journey.html">Start the Journey</a></li>
+                    <li><a href="community.html">Join a Cohort</a></li>
+                    <li><a href="shop.html">Kingdom Apparel</a></li>
+                    <li><a href="give.html">Give</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="mailto:increasingfaithministry@gmail.com">Contact Us</a></li>
+                    <li><a href="visit.html">Visit</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear">2026</span> Increasing Faith Ministries. All rights reserved. | <a href="privacy.html" style="color: var(--off-white); text-decoration: none;">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            mobileToggle.innerHTML = navLinks.classList.contains('open') ? '&#10005;' : '&#9776;';
+        });
+
+        // Scrolled Nav
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+        // Reveal on Scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) el.classList.add('visible');
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Set current year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Performance toggle
+        const perfToggle = document.querySelector('.perf-toggle');
+        if (perfToggle) {
+            const animationsDisabled = localStorage.getItem('reduceAnimations') === 'true';
+            if (animationsDisabled) {
+                document.body.classList.add('reduce-animations');
+                perfToggle.setAttribute('aria-pressed', 'true');
+            }
+            perfToggle.addEventListener('click', () => {
+                const isPressed = perfToggle.getAttribute('aria-pressed') === 'true';
+                perfToggle.setAttribute('aria-pressed', !isPressed);
+                document.body.classList.toggle('reduce-animations');
+                localStorage.setItem('reduceAnimations', !isPressed);
+            });
+        }
+    </script>
+    <script src="enhancements.js" defer></script>
+
+    <script>
+    // Load animation libraries AFTER page is interactive
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            var gsap = document.createElement('script');
+            gsap.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+            gsap.onload = function() {
+                var st = document.createElement('script');
+                st.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+                document.body.appendChild(st);
+            };
+            document.body.appendChild(gsap);
+            var lenis = document.createElement('script');
+            lenis.src = 'https://unpkg.com/lenis@1.1.18/dist/lenis.min.js';
+            document.body.appendChild(lenis);
+            setTimeout(function() {
+                document.body.classList.add('effects-ready');
+            }, 500);
+        }, 100);
+    });
+    </script>
+
+<!-- Service Worker for offline support -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js')
+        .then(function(reg) { console.log('SW registered'); })
+        .catch(function(err) { console.log('SW failed:', err); });
+    });
+  }
+</script>
+</body>
+</html>
