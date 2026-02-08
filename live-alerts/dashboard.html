@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFM Live Alert Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0d0d0d;
+            color: #fff;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .dashboard {
+            max-width: 500px;
+            width: 100%;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .header h1 {
+            font-size: 1.5rem;
+            color: #d4af37;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .header p {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+        .status-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .status-item {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .status-item .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        .dot.green { background: #10b981; }
+        .dot.yellow { background: #f59e0b; }
+        .dot.gray { background: #666; }
+        .status-item .label {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .status-item .value {
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+        .message-input {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 80px;
+            margin-bottom: 1.5rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .message-input:focus {
+            border-color: #d4af37;
+        }
+        .go-live-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #d4af37, #f5d76e);
+            border: none;
+            border-radius: 50px;
+            color: #0d0d0d;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 1rem;
+        }
+        .go-live-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(212,175,55,0.3);
+        }
+        .go-live-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .go-live-btn.sending {
+            background: linear-gradient(135deg, #666, #888);
+            animation: pulse 1.5s infinite;
+        }
+        .go-live-btn.success {
+            background: linear-gradient(135deg, #10b981, #34d399);
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .platform-toggles {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .toggle {
+            flex: 1;
+            padding: 10px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            user-select: none;
+        }
+        .toggle.active {
+            border-color: #d4af37;
+            color: #d4af37;
+            background: rgba(212,175,55,0.08);
+        }
+        .toggle .emoji { font-size: 1.2rem; display: block; margin-bottom: 4px; }
+        .log {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-top: 2rem;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            display: none;
+        }
+        .log.visible { display: block; }
+        .log .entry { padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .log .entry.success { color: #10b981; }
+        .log .entry.error { color: #ef4444; }
+        .log .entry.info { color: #d4af37; }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>IFM Live Alerts</h1>
+            <p>One-click broadcast to all platforms</p>
+        </div>
+
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="dot green"></span>
+                <div class="label">ntfy.sh</div>
+                <div class="value">Active</div>
+            </div>
+            <div class="status-item">
+                <span class="dot" id="telegram-dot"></span>
+                <div class="label">Telegram</div>
+                <div class="value" id="telegram-status">--</div>
+            </div>
+            <div class="status-item">
+                <span class="dot green"></span>
+                <div class="label">Email</div>
+                <div class="value">6 subs</div>
+            </div>
+        </div>
+
+        <textarea class="message-input" id="message" placeholder="Custom message (or leave blank for default)..."></textarea>
+
+        <div class="platform-toggles">
+            <div class="toggle active" data-platform="ntfy" onclick="togglePlatform(this)">
+                <span class="emoji">🔔</span>
+                ntfy.sh
+            </div>
+            <div class="toggle active" data-platform="telegram" onclick="togglePlatform(this)">
+                <span class="emoji">✈️</span>
+                Telegram
+            </div>
+            <div class="toggle active" data-platform="email" onclick="togglePlatform(this)">
+                <span class="emoji">📧</span>
+                Email
+            </div>
+        </div>
+
+        <button class="go-live-btn" id="sendBtn" onclick="sendAlerts()">
+            🔴 SEND LIVE ALERT
+        </button>
+
+        <div class="log" id="log"></div>
+    </div>
+
+    <script>
+        // ============================================
+        // CONFIGURATION — UPDATE THESE VALUES
+        // ============================================
+        const CONFIG = {
+            ntfy: {
+                topic: 'ifm-live-alerts-2026',
+                server: 'https://ntfy.sh',
+            },
+            telegram: {
+                botToken: '8335913868:AAH8EpJ5WHdAlR7jHFowRuSYMLMli4rjPoY',
+                channelId: '@ifm_live',
+            },
+            email: {
+                apiKey: '', // Resend API key (for browser-based sending)
+                // NOTE: For security, email sending should be done server-side
+                // This dashboard sends ntfy + telegram from browser
+                // Email alerts are sent via the Node.js script
+            },
+            defaultMessage: "Pastors Curtis & Tammy are LIVE now! Tap to watch Kingdom truth, faith, and discipleship.",
+            facebookUrl: 'https://www.facebook.com/IFMinistry',
+            youtubeUrl: 'https://www.youtube.com/@thehourofpowerextra2883/shorts',
+        };
+
+        // ============================================
+        // PLATFORM TOGGLE
+        // ============================================
+        function togglePlatform(el) {
+            el.classList.toggle('active');
+        }
+
+        // ============================================
+        // LOGGING
+        // ============================================
+        function log(msg, type = '') {
+            const logEl = document.getElementById('log');
+            logEl.classList.add('visible');
+            const entry = document.createElement('div');
+            entry.className = `entry ${type}`;
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            logEl.appendChild(entry);
+            logEl.scrollTop = logEl.scrollHeight;
+        }
+
+        // ============================================
+        // SEND ALERTS
+        // ============================================
+        async function sendAlerts() {
+            const btn = document.getElementById('sendBtn');
+            const message = document.getElementById('message').value.trim() || CONFIG.defaultMessage;
+            const platforms = document.querySelectorAll('.toggle.active');
+
+            btn.disabled = true;
+            btn.className = 'go-live-btn sending';
+            btn.textContent = 'SENDING...';
+
+            log('Starting live alert broadcast...', 'info');
+
+            let results = {};
+
+            for (const platform of platforms) {
+                const name = platform.dataset.platform;
+                try {
+                    if (name === 'ntfy') {
+                        await sendNtfy(message);
+                        results.ntfy = true;
+                        log('ntfy.sh — Sent to all subscribers!', 'success');
+                    } else if (name === 'telegram') {
+                        if (!CONFIG.telegram.botToken || !CONFIG.telegram.channelId) {
+                            log('Telegram — Not configured yet (need bot token + channel ID)', 'error');
+                            results.telegram = false;
+                        } else {
+                            await sendTelegram(message);
+                            results.telegram = true;
+                            log('Telegram — Broadcast sent!', 'success');
+                        }
+                    } else if (name === 'email') {
+                        log('Email — Use terminal: node live-alerts/send-alert.js --platform email', 'info');
+                        results.email = 'manual';
+                    }
+                } catch (error) {
+                    log(`${name} — FAILED: ${error.message}`, 'error');
+                    results[name] = false;
+                }
+            }
+
+            btn.className = 'go-live-btn success';
+            btn.textContent = '✓ ALERTS SENT!';
+            log('Broadcast complete.', 'info');
+
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.className = 'go-live-btn';
+                btn.textContent = '🔴 SEND LIVE ALERT';
+            }, 3000);
+        }
+
+        // ============================================
+        // ntfy.sh SENDER
+        // ============================================
+        async function sendNtfy(message) {
+            const response = await fetch(`${CONFIG.ntfy.server}/${CONFIG.ntfy.topic}`, {
+                method: 'POST',
+                headers: {
+                    'Title': 'IFM is LIVE!',
+                    'Tags': 'rotating_light,video_camera',
+                    'Click': CONFIG.facebookUrl,
+                    'Priority': '5',
+                },
+                body: message,
+            });
+            if (!response.ok) throw new Error(`ntfy ${response.status}`);
+        }
+
+        // ============================================
+        // TELEGRAM SENDER
+        // ============================================
+        async function sendTelegram(message) {
+            const text = `🔴 *WE'RE LIVE!*\n\n${message}\n\n[Watch on Facebook](${CONFIG.facebookUrl}) | [Watch on YouTube](${CONFIG.youtubeUrl})`;
+            const url = `https://api.telegram.org/bot${CONFIG.telegram.botToken}/sendMessage`;
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: CONFIG.telegram.channelId,
+                    text: text,
+                    parse_mode: 'Markdown',
+                }),
+            });
+            if (!response.ok) throw new Error(`Telegram ${response.status}`);
+        }
+
+        // ============================================
+        // INIT — Check Telegram status
+        // ============================================
+        (function init() {
+            const dot = document.getElementById('telegram-dot');
+            const status = document.getElementById('telegram-status');
+            if (CONFIG.telegram.botToken && CONFIG.telegram.channelId) {
+                dot.className = 'dot green';
+                status.textContent = 'Active';
+            } else {
+                dot.className = 'dot yellow';
+                status.textContent = 'Setup needed';
+            }
+        })();
+    </script>
+</body>
+</html>
