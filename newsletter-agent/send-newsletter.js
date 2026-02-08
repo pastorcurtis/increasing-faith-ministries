@@ -52,7 +52,7 @@ async function main() {
     console.error('ERROR: No newsletter content found at', CONFIG.contentPath);
     process.exit(1);
   }
-  console.log(`Newsletter: ${content.month} - "${content.theme}"`);
+  console.log(`Newsletter: ${content.metadata?.dateString || 'Unknown'} - "${content.metadata?.theme?.theme || 'No theme'}"`);;
 
   // Load email template
   console.log('Loading email template...');
@@ -153,60 +153,59 @@ function loadTemplate() {
 // ============================================
 
 function buildEmailHtml(template, content) {
+  // The generator outputs: { metadata: {...}, sections: { pastoralMessage, kingdomIntelligence, ... } }
+  // Each section has { title, content } where content is markdown text
+  const meta = content.metadata || {};
+  const sections = content.sections || {};
+
   let html = template;
 
   // Month/Year
-  html = html.replace(/\{\{month_year\}\}/g, content.month || 'Monthly Newsletter');
+  html = html.replace(/\{\{month_year\}\}/g, meta.dateString || 'Monthly Newsletter');
 
   // Pastoral Message
-  const pastoralHtml = content.pastoralMessage
-    ? `<h2 style="color:#ffffff; font-size:22px; margin:0 0 15px;">${content.pastoralMessage.title}</h2>
-       <p style="color:#cccccc; font-size:15px; line-height:1.8; white-space:pre-line;">${content.pastoralMessage.content}</p>`
+  const pastoral = sections.pastoralMessage || {};
+  const pastoralHtml = pastoral.content
+    ? `<h2 style="color:#ffffff; font-size:22px; margin:0 0 15px;">${pastoral.title || 'From the Desk of Pastor Curtis'}</h2>
+       <p style="color:#cccccc; font-size:15px; line-height:1.8; white-space:pre-line;">${pastoral.content}</p>`
     : '';
   html = html.replace('{{pastoral_message}}', pastoralHtml);
 
-  // Kingdom Intelligence (news items)
-  const newsHtml = (content.kingdomIntelligence || []).map(item => `
-    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:20px; background-color:#111111; border-radius:8px; border-left:3px solid #d4af37;">
-      <tr><td style="padding:20px;">
-        <h3 style="color:#ffffff; font-size:17px; margin:0 0 8px;">${item.headline}</h3>
-        <p style="color:#aaaaaa; font-size:14px; line-height:1.7; margin:0 0 8px;">${item.summary}</p>
-        ${item.source ? `<p style="color:#d4af37; font-size:12px; margin:0; font-style:italic;">Source: ${item.source}</p>` : ''}
-      </td></tr>
-    </table>
-  `).join('');
+  // Kingdom Intelligence (content is a single markdown string with ### headings)
+  const intelligence = sections.kingdomIntelligence || {};
+  const newsHtml = intelligence.content
+    ? `<div style="color:#cccccc; font-size:15px; line-height:1.8; white-space:pre-line;">${intelligence.content.replace(/### /g, '<h3 style="color:#d4af37; font-size:17px; margin:24px 0 8px 0;">').replace(/\n\n/g, '</h3>\n<p style="color:#cccccc; font-size:14px; line-height:1.7;">') + '</p>'}</div>`
+    : '';
   html = html.replace('{{news_items}}', newsHtml);
 
   // Kingdom Living
-  const livingHtml = content.kingdomLiving
-    ? `<h3 style="color:#ffffff; font-size:20px; margin:0 0 15px;">${content.kingdomLiving.title}</h3>
-       <p style="color:#cccccc; font-size:15px; line-height:1.8; white-space:pre-line;">${content.kingdomLiving.content}</p>`
+  const living = sections.kingdomLiving || {};
+  const livingHtml = living.content
+    ? `<h3 style="color:#ffffff; font-size:20px; margin:0 0 15px;">${living.title || 'Kingdom Living'}</h3>
+       <p style="color:#cccccc; font-size:15px; line-height:1.8; white-space:pre-line;">${living.content}</p>`
     : '';
   html = html.replace('{{kingdom_living}}', livingHtml);
 
   // Prayer Focus
-  const prayerHtml = (content.prayerFocus || []).map(point =>
-    `<p style="color:#cccccc; font-size:15px; line-height:1.7; margin:0 0 12px; padding-left:15px; border-left:2px solid #d4af37;">${point}</p>`
-  ).join('');
+  const prayer = sections.prayerFocus || {};
+  const prayerHtml = prayer.content
+    ? `<p style="color:#cccccc; font-size:15px; line-height:1.7; white-space:pre-line;">${prayer.content}</p>`
+    : '';
   html = html.replace('{{prayer_focus}}', prayerHtml);
 
   // Scripture
-  html = html.replace('{{scripture}}', content.scripture?.verse || '');
-  html = html.replace('{{scripture_reference}}', content.scripture?.reference || '');
+  const scripture = sections.scriptureFocus || {};
+  html = html.replace('{{scripture}}', scripture.content || '');
+  html = html.replace('{{scripture_reference}}', scripture.title || 'Scripture of the Month');
 
-  // Events
-  const eventsHtml = (content.events || []).map(event => `
-    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:15px; background-color:#111111; border-radius:8px;">
-      <tr><td style="padding:18px;">
-        <h4 style="color:#d4af37; font-size:16px; margin:0 0 5px;">${event.name}</h4>
-        <p style="color:#ffffff; font-size:14px; margin:0 0 5px;">${event.date}</p>
-        ${event.description ? `<p style="color:#999999; font-size:13px; margin:0;">${event.description}</p>` : ''}
-      </td></tr>
-    </table>
-  `).join('');
+  // Events/Upcoming
+  const upcoming = sections.upcoming || {};
+  const eventsHtml = upcoming.content
+    ? `<p style="color:#cccccc; font-size:15px; line-height:1.8; white-space:pre-line;">${upcoming.content}</p>`
+    : '';
   html = html.replace('{{events}}', eventsHtml);
 
-  // Unsubscribe URL (placeholder — update when you have real unsubscribe handling)
+  // Unsubscribe URL
   html = html.replace('{{unsubscribe_url}}', 'mailto:increasingfaithministry@gmail.com?subject=Unsubscribe%20from%20Kingdom%20Report');
 
   return html;
