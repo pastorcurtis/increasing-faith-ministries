@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Kingdom Report | Increasing Faith Ministries</title>
+    <meta name="description" content="Subscribe to The Kingdom Report - monthly Kingdom-centered news, teachings, and insights from Increasing Faith Ministries delivered to your inbox.">
+
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Kingdom Report | Increasing Faith Ministries">
+    <meta property="og:description" content="Subscribe to The Kingdom Report - monthly Kingdom-centered news, teachings, and insights from Increasing Faith Ministries delivered to your inbox.">
+    <meta property="og:image" content="https://increasingfaith.net/ifm-logo-gold.png">
+    <meta property="og:url" content="https://increasingfaith.net/newsletter.html">
+    <meta property="og:site_name" content="Increasing Faith Ministries">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Kingdom Report | Increasing Faith Ministries">
+    <meta name="twitter:description" content="Subscribe to The Kingdom Report - monthly Kingdom-centered news, teachings, and insights from Increasing Faith Ministries delivered to your inbox.">
+    <meta name="twitter:image" content="https://increasingfaith.net/ifm-logo-gold.png">
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "The Kingdom Report | Increasing Faith Ministries",
+        "description": "Subscribe to The Kingdom Report - monthly Kingdom-centered news, teachings, and insights from Increasing Faith Ministries.",
+        "url": "https://increasingfaith.net/newsletter.html",
+        "mainEntity": {
+            "@type": "Church",
+            "name": "Increasing Faith Ministries",
+            "url": "https://increasingfaith.net/"
+        }
+    }
+    </script>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="ifm-logo-gold.png">
+    <link rel="apple-touch-icon" href="ifm-logo-gold.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="enhancements.css">
+    <style>
+        /* ===================================================================
+           NEWSLETTER PAGE SPECIFIC STYLES
+        =================================================================== */
+        section { padding: 100px 5%; position: relative; z-index: 10; }
+
+        .newsletter-issue {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9));
+            border: 1px solid rgba(233, 30, 140, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 60px rgba(233, 30, 140, 0.1);
+        }
+        .newsletter-issue-header {
+            background: linear-gradient(135deg, rgba(45, 27, 78, 0.95), rgba(26, 10, 46, 1));
+            padding: 2.5rem 3rem;
+            border-bottom: 1px solid rgba(233, 30, 140, 0.2);
+            text-align: center;
+        }
+        .newsletter-issue-header .issue-date {
+            font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--off-white); margin-bottom: 0.5rem;
+        }
+        .newsletter-issue-header h3 {
+            font-family: var(--font-display); font-size: 2rem; color: var(--white); margin-bottom: 0.5rem;
+        }
+        .newsletter-issue-header .issue-theme {
+            font-size: 1rem; color: var(--off-white); font-style: italic;
+        }
+        .newsletter-section {
+            padding: 2rem 3rem; border-bottom: 1px solid rgba(233, 30, 140, 0.15);
+        }
+        .newsletter-section:last-child { border-bottom: none; }
+        .newsletter-section-label {
+            font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--white);
+            font-weight: 600; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;
+        }
+        .newsletter-section-label::before {
+            content: ''; display: inline-block; width: 20px; height: 2px;
+            background: linear-gradient(90deg, var(--white), transparent);
+        }
+        .newsletter-section h4 {
+            font-family: var(--font-display); font-size: 1.4rem; color: var(--white); margin-bottom: 1rem;
+        }
+        .newsletter-section p {
+            font-size: 1rem; line-height: 1.8; color: var(--off-white); margin-bottom: 1rem;
+        }
+        .newsletter-section p:last-child { margin-bottom: 0; }
+        .news-stories { list-style: none; padding: 0; }
+        .news-story { padding: 1.25rem 0; border-bottom: 1px solid rgba(233, 30, 140, 0.1); }
+        .news-story:last-child { border-bottom: none; padding-bottom: 0; }
+        .news-story h5 { font-family: var(--font-body); font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: 0.4rem; }
+        .news-story p { font-size: 0.95rem; color: var(--off-white); margin-bottom: 0; }
+        .featured-scripture {
+            background: linear-gradient(135deg, rgba(45, 27, 78, 0.6), rgba(26, 10, 46, 0.7));
+            border-left: 4px solid var(--white); padding: 1.5rem 2rem; border-radius: 0 12px 12px 0; margin: 1rem 0;
+        }
+        .featured-scripture blockquote {
+            font-family: var(--font-display); font-size: 1.2rem; font-style: italic;
+            color: var(--white); line-height: 1.7; margin: 0 0 0.75rem 0;
+        }
+        .featured-scripture cite {
+            font-family: var(--font-body); font-size: 0.85rem; color: var(--off-white); font-style: normal; font-weight: 600;
+        }
+        .newsletter-events { list-style: none; padding: 0; }
+        .newsletter-event {
+            display: flex; gap: 1.25rem; align-items: flex-start; padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 30, 140, 0.1);
+        }
+        .newsletter-event:last-child { border-bottom: none; padding-bottom: 0; }
+        .event-date-badge {
+            background: linear-gradient(135deg, rgba(45, 27, 78, 0.9), rgba(26, 10, 46, 1));
+            border: 1px solid rgba(233, 30, 140, 0.3); border-radius: 10px;
+            padding: 0.75rem 1rem; text-align: center; min-width: 65px; flex-shrink: 0;
+        }
+        .event-date-badge .event-month { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--off-white); }
+        .event-date-badge .event-day { font-family: var(--font-display); font-size: 1.4rem; color: var(--white); line-height: 1.2; }
+        .event-info h5 { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+        .event-info p { font-size: 0.9rem; color: var(--off-white); margin: 0; }
+
+        .newsletter-archive-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto;
+        }
+        .newsletter-archive-card {
+            background: linear-gradient(135deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9));
+            border: 1px solid rgba(233, 30, 140, 0.3); border-radius: 16px;
+            overflow: hidden; transition: all 0.5s ease; cursor: pointer;
+        }
+        .newsletter-archive-card:hover {
+            transform: translateY(-8px); box-shadow: 0 20px 60px rgba(233, 30, 140, 0.3);
+            border-color: rgba(233, 30, 140, 0.6);
+        }
+        .newsletter-archive-card::before {
+            content: ''; display: block; height: 4px;
+            background: linear-gradient(90deg, var(--white), var(--silver), var(--white));
+        }
+        .archive-card-body { padding: 2rem; }
+        .archive-card-date { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--off-white); margin-bottom: 0.75rem; }
+        .archive-card-body h4 { font-family: var(--font-display); font-size: 1.3rem; color: var(--white); margin-bottom: 0.75rem; line-height: 1.4; }
+        .archive-card-body p { font-size: 0.9rem; color: var(--off-white); line-height: 1.6; margin-bottom: 1.25rem; }
+        .archive-card-link { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); text-decoration: none; transition: color 0.3s ease; }
+        .archive-card-link:hover { color: var(--off-white); }
+
+        .subscribe-section { text-align: center; background: linear-gradient(135deg, rgba(45, 27, 78, 0.4), rgba(26, 10, 46, 0.6)); }
+        .subscribe-form-container {
+            max-width: 550px; margin: 0 auto;
+            background: linear-gradient(135deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9));
+            border: 1px solid rgba(233, 30, 140, 0.3); border-radius: 20px; padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        .subscribe-form-container .form-group { margin-bottom: 1.5rem; text-align: left; }
+        .subscribe-form-container label {
+            display: block; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--white); font-weight: 600; margin-bottom: 0.5rem;
+        }
+        .subscribe-form-container input[type="text"],
+        .subscribe-form-container input[type="email"] {
+            width: 100%; padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(233, 30, 140, 0.25); border-radius: 10px;
+            color: var(--white); font-family: var(--font-body); font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; box-sizing: border-box;
+        }
+        .subscribe-form-container input[type="text"]:focus,
+        .subscribe-form-container input[type="email"]:focus {
+            outline: none; border-color: rgba(233, 30, 140, 0.6); box-shadow: 0 0 20px rgba(233, 30, 140, 0.15);
+        }
+        .subscribe-form-container input::placeholder { color: rgba(255, 255, 255, 0.4); }
+        .submit-btn {
+            width: 100%; padding: 1.1rem 2rem;
+            background: linear-gradient(135deg, rgba(233, 30, 140, 0.8), rgba(160, 20, 100, 0.9));
+            border: 1px solid rgba(233, 30, 140, 0.5); border-radius: 10px;
+            color: var(--white); font-family: var(--font-body); font-size: 1rem;
+            font-weight: 600; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s ease;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px); box-shadow: 0 10px 40px rgba(233, 30, 140, 0.4);
+            background: linear-gradient(135deg, rgba(233, 30, 140, 0.9), rgba(160, 20, 100, 1));
+        }
+        .form-message { display: none; padding: 1rem 1.5rem; border-radius: 10px; margin-top: 1.5rem; font-size: 0.95rem; text-align: center; }
+        .form-message.success { display: block; background: rgba(40, 167, 69, 0.2); border: 1px solid rgba(40, 167, 69, 0.5); color: #6fdc8c; }
+        .form-message.error { display: block; background: rgba(220, 53, 69, 0.2); border: 1px solid rgba(220, 53, 69, 0.5); color: #ff8a8a; }
+
+        .coming-soon { text-align: center; padding: 4rem 2rem; }
+        .coming-soon-icon { font-size: 3rem; margin-bottom: 1.5rem; display: block; }
+        .coming-soon h3 { font-family: var(--font-display); font-size: 1.8rem; color: var(--white); margin-bottom: 1rem; }
+        .coming-soon p { font-size: 1.05rem; color: var(--off-white); max-width: 500px; margin: 0 auto; line-height: 1.7; }
+
+        @media (max-width: 1024px) { .newsletter-archive-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) {
+            .newsletter-archive-grid { grid-template-columns: 1fr; max-width: 500px; }
+            .newsletter-issue-header { padding: 2rem 1.5rem; }
+            .newsletter-section { padding: 1.5rem; }
+            .newsletter-issue-header h3 { font-size: 1.5rem; }
+            .newsletter-event { flex-direction: column; gap: 0.75rem; }
+            .subscribe-form-container { padding: 2rem 1.5rem; }
+        }
+    </style>
+    <style>
+    body { opacity: 1 !important; visibility: visible !important; }
+    .preloader { display: none !important; }
+    .particle:nth-child(n+5) { display: none; }
+    .cursor-dot, .cursor-outline { display: none; }
+    .reveal, .reveal-left, .reveal-right { opacity: 1 !important; transform: none !important; transition: none !important; }
+    body.effects-ready .reveal, body.effects-ready .reveal-left, body.effects-ready .reveal-right { transition: opacity 0.6s ease, transform 0.6s ease; }
+    body.effects-ready .cursor-dot, body.effects-ready .cursor-outline { display: block; }
+    </style>
+</head>
+<body data-barba="wrapper" class="loaded">
+    <!-- PRELOADER -->
+    <div class="preloader">
+        <div class="preloader-ring"></div>
+        <div class="preloader-ring"></div>
+        <div class="preloader-ring"></div>
+        <img src="ifm-logo-gold.png" alt="IFM" class="preloader-logo">
+        <span class="preloader-text">Advancing the Kingdom</span>
+        <div class="preloader-progress"><div class="preloader-progress-bar"></div></div>
+    </div>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- SCROLL PROGRESS -->
+    <div class="scroll-progress"></div>
+
+    <!-- NOISE OVERLAY -->
+    <div class="noise-overlay"></div>
+
+    <!-- PAGE TRANSITIONS -->
+    <div class="page-transition">
+        <div class="page-transition-layer"></div>
+        <div class="page-transition-layer"></div>
+        <div class="page-transition-layer"></div>
+    </div>
+
+    <!-- DARK MODE TOGGLE -->
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <div class="theme-toggle-icon">
+            <span class="sun">&#9728;</span>
+            <span class="moon">&#9790;</span>
+        </div>
+    </button>
+
+    <!-- PERFORMANCE TOGGLE -->
+    <button class="perf-toggle" aria-label="Toggle animations" aria-pressed="false" title="Toggle animations on/off">
+        &#9889;
+    </button>
+
+    <main data-barba="container" data-barba-namespace="newsletter">
+    <!-- Animated Background -->
+    <div class="bg-gradient"></div>
+
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Floating Images -->
+    <div class="floating-images">
+        <img src="ministry-couple-1.webp" alt="Pastor and wife ministering together" class="float-img" loading="lazy">
+        <img src="ministry-preaching.webp" alt="Pastor preaching at Increasing Faith Ministries" class="float-img" loading="lazy">
+        <img src="ministry-pastor.webp" alt="Senior Pastor of Increasing Faith Ministries" class="float-img" loading="lazy">
+    </div>
+
+    <!-- Lens Flares -->
+    <div class="lens-flare lens-flare-1"></div>
+    <div class="lens-flare lens-flare-2"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="index.html" class="logo">
+            <img src="ifm-logo-gold.png" alt="IFM" class="logo-img">
+            <span class="logo-text">Increasing<span>Faith</span></span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="journey.html">Journey</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="teachings.html">Teachings</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="visit.html">Visit</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="teachings.html" class="nav-btn nav-btn-outline">Watch</a>
+            <a href="give.html" class="nav-btn nav-btn-glow">Give</a>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle">&#9776;</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge"><span>Kingdom Intelligence</span></div>
+            <h1>The Kingdom Report</h1>
+            <p class="hero-text">Monthly Kingdom-centered news, teachings, and insights from Pastor Curtis delivered directly to your inbox.</p>
+            <div class="hero-buttons">
+                <a href="#subscribe" class="btn btn-primary">Subscribe Now</a>
+                <a href="#latest" class="btn btn-secondary">Read Latest Issue</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Newsletter Section -->
+    <section id="latest">
+        <div class="section-header reveal">
+            <span class="section-badge">Current Issue</span>
+            <h2>Latest Kingdom Report</h2>
+            <p>Stay informed with Kingdom-centered teaching, global news, and practical application for daily life.</p>
+        </div>
+        <div id="latest-newsletter-container" class="reveal">
+            <!-- JavaScript will populate this area, or show a "coming soon" state -->
+            <div class="newsletter-issue">
+                <div class="coming-soon">
+                    <span class="coming-soon-icon">&#9993;</span>
+                    <h3>Coming Soon</h3>
+                    <p>The first edition of The Kingdom Report is being prepared. Subscribe below to be the first to receive it when it launches.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Archive Section -->
+    <section id="archive">
+        <div class="section-header reveal">
+            <span class="section-badge">Past Issues</span>
+            <h2>Newsletter Archive</h2>
+            <p>Browse previous editions of The Kingdom Report.</p>
+        </div>
+        <div id="archive-grid-container" class="reveal">
+            <!-- JavaScript will populate this grid, or show a "coming soon" state -->
+            <div class="newsletter-archive-grid">
+                <div class="newsletter-archive-card">
+                    <div class="archive-card-body coming-soon" style="padding: 2rem;">
+                        <span class="coming-soon-icon" style="font-size: 2rem;">&#128218;</span>
+                        <h4 style="font-size: 1.1rem;">Archive Coming Soon</h4>
+                        <p style="font-size: 0.85rem;">Past issues will appear here as The Kingdom Report grows.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section id="subscribe" class="subscribe-section">
+        <div class="section-header reveal">
+            <span class="section-badge">Stay Connected</span>
+            <h2>Subscribe to The Kingdom Report</h2>
+            <p>Receive monthly Kingdom-centered news, teachings from Pastor Curtis, and practical insights for living under the reign of God.</p>
+        </div>
+        <div class="subscribe-form-container reveal">
+            <form name="newsletter-subscribers" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="subscribe-form">
+                <input type="hidden" name="form-name" value="newsletter-subscribers">
+                <p class="hidden" style="display:none"><input name="bot-field"></p>
+                <div class="form-group">
+                    <label for="subscriber-name">Your Name</label>
+                    <input type="text" id="subscriber-name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="subscriber-email">Email Address</label>
+                    <input type="email" id="subscriber-email" name="email" placeholder="Enter your email" required>
+                </div>
+                <button type="submit" class="submit-btn">Subscribe to the Kingdom Report</button>
+                <div id="form-message" class="form-message"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content reveal">
+            <span class="section-badge">Go Deeper</span>
+            <h2>Continue Your Kingdom Journey</h2>
+            <p>The Kingdom Report is just one way to stay connected. Explore teachings, join community, and grow in your faith.</p>
+            <div class="cta-buttons">
+                <a href="teachings.html" class="btn btn-primary">Watch Teachings</a>
+                <a href="community.html" class="btn btn-secondary">Join a Cohort</a>
+            </div>
+        </div>
+    </section>
+
+    </main><!-- End Barba container -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="ifm-logo-gold.png" alt="IFM" class="logo-img">
+                    <span class="logo-text">Increasing<span>Faith</span></span>
+                </a>
+                <p>Advancing the reign of God in people, communities, and cultures by making mature disciples of Jesus.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/IFMinistry" target="_blank" rel="noopener noreferrer" class="social-fb" title="Facebook">f</a>
+                    <a href="https://www.instagram.com/hourofpowerextra" target="_blank" rel="noopener noreferrer" class="social-ig" title="Instagram">ig</a>
+                    <a href="https://www.youtube.com/@thehourofpowerextra2883/shorts" target="_blank" rel="noopener noreferrer" class="social-yt" title="YouTube">&#9658;</a>
+                    <a href="https://www.tiktok.com/@hourofpower4" target="_blank" rel="noopener noreferrer" class="social-tt" title="TikTok">&#9835;</a>
+                    <a href="https://giv.li/129ina" target="_blank" rel="noopener noreferrer" class="social-give" title="Give with Givelify">$</a>
+                </div>
+                <!-- Footer Email Signup - Netlify Forms -->
+                <div class="email-signup">
+                    <h4>Stay Connected</h4>
+                    <p>Get Kingdom teachings delivered to your inbox</p>
+                    <form name="footer-newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="signup-form" id="footer-newsletter-form">
+                        <input type="hidden" name="form-name" value="footer-newsletter">
+                        <p class="hidden" style="display:none"><input name="bot-field"></p>
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>The Kingdom</h4>
+                <ul>
+                    <li><a href="journey.html">What We Believe</a></li>
+                    <li><a href="journey.html">Our Mission</a></li>
+                    <li><a href="journey.html">Kingdom Theology</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="journey.html">Start the Journey</a></li>
+                    <li><a href="community.html">Join a Cohort</a></li>
+                    <li><a href="give.html">Give</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="mailto:increasingfaithministry@gmail.com">Contact Us</a></li>
+                    <li><a href="visit.html">Visit</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear">2025</span> Increasing Faith Ministries. All rights reserved. | <a href="privacy.html" style="color: var(--off-white); text-decoration: none;">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // ===================================================================
+        // NEWSLETTER CONTENT LOADING
+        // Fetches JSON data from content/newsletters/ and renders dynamically.
+        // Falls back to "Coming Soon" state if no content exists yet.
+        // ===================================================================
+
+        /**
+         * Renders the latest newsletter issue from JSON data.
+         * Expected JSON structure for content/newsletters/latest.json:
+         * {
+         *   "date": "February 2026",
+         *   "title": "Walking in Kingdom Authority",
+         *   "theme": "Understanding the believer's position under Christ's rule",
+         *   "teaching": { "title": "...", "content": "..." },
+         *   "news": [ { "headline": "...", "summary": "..." } ],
+         *   "kingdomLiving": { "title": "...", "content": "..." },
+         *   "scripture": { "text": "...", "reference": "..." },
+         *   "events": [ { "month": "FEB", "day": "1", "title": "...", "description": "..." } ]
+         * }
+         */
+        function renderLatestNewsletter(data) {
+            var container = document.getElementById('latest-newsletter-container');
+            var html = '<div class="newsletter-issue">';
+
+            // Header
+            html += '<div class="newsletter-issue-header">';
+            html += '<p class="issue-date">' + escapeHtml(data.date) + '</p>';
+            html += '<h3>' + escapeHtml(data.title) + '</h3>';
+            if (data.theme) {
+                html += '<p class="issue-theme">' + escapeHtml(data.theme) + '</p>';
+            }
+            html += '</div>';
+
+            // Featured Teaching from Pastor Curtis
+            if (data.teaching) {
+                html += '<div class="newsletter-section">';
+                html += '<div class="newsletter-section-label">Featured Kingdom Teaching</div>';
+                html += '<h4>' + escapeHtml(data.teaching.title) + '</h4>';
+                html += '<p>' + escapeHtml(data.teaching.content) + '</p>';
+                html += '</div>';
+            }
+
+            // Global Kingdom News
+            if (data.news && data.news.length > 0) {
+                html += '<div class="newsletter-section">';
+                html += '<div class="newsletter-section-label">Global Kingdom News</div>';
+                html += '<ul class="news-stories">';
+                for (var i = 0; i < data.news.length; i++) {
+                    html += '<li class="news-story">';
+                    html += '<h5>' + escapeHtml(data.news[i].headline) + '</h5>';
+                    html += '<p>' + escapeHtml(data.news[i].summary) + '</p>';
+                    html += '</li>';
+                }
+                html += '</ul></div>';
+            }
+
+            // Kingdom Living - practical application
+            if (data.kingdomLiving) {
+                html += '<div class="newsletter-section">';
+                html += '<div class="newsletter-section-label">Kingdom Living</div>';
+                html += '<h4>' + escapeHtml(data.kingdomLiving.title) + '</h4>';
+                html += '<p>' + escapeHtml(data.kingdomLiving.content) + '</p>';
+                html += '</div>';
+            }
+
+            // Featured Scripture
+            if (data.scripture) {
+                html += '<div class="newsletter-section">';
+                html += '<div class="newsletter-section-label">Featured Scripture</div>';
+                html += '<div class="featured-scripture">';
+                html += '<blockquote>"' + escapeHtml(data.scripture.text) + '"</blockquote>';
+                html += '<cite>' + escapeHtml(data.scripture.reference) + '</cite>';
+                html += '</div></div>';
+            }
+
+            // Upcoming Events
+            if (data.events && data.events.length > 0) {
+                html += '<div class="newsletter-section">';
+                html += '<div class="newsletter-section-label">Upcoming Events</div>';
+                html += '<ul class="newsletter-events">';
+                for (var j = 0; j < data.events.length; j++) {
+                    var evt = data.events[j];
+                    html += '<li class="newsletter-event">';
+                    html += '<div class="event-date-badge">';
+                    html += '<div class="event-month">' + escapeHtml(evt.month) + '</div>';
+                    html += '<div class="event-day">' + escapeHtml(evt.day) + '</div>';
+                    html += '</div>';
+                    html += '<div class="event-info">';
+                    html += '<h5>' + escapeHtml(evt.title) + '</h5>';
+                    html += '<p>' + escapeHtml(evt.description) + '</p>';
+                    html += '</div></li>';
+                }
+                html += '</ul></div>';
+            }
+
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        /**
+         * Renders the archive grid from JSON data.
+         * Expected JSON structure for content/newsletters/archive.json:
+         * {
+         *   "issues": [
+         *     { "date": "January 2026", "title": "...", "summary": "...", "slug": "january-2026" }
+         *   ]
+         * }
+         */
+        function renderArchive(data) {
+            var container = document.getElementById('archive-grid-container');
+            if (!data.issues || data.issues.length === 0) return;
+
+            var html = '<div class="newsletter-archive-grid">';
+            for (var i = 0; i < data.issues.length; i++) {
+                var issue = data.issues[i];
+                html += '<div class="newsletter-archive-card">';
+                html += '<div class="archive-card-body">';
+                html += '<p class="archive-card-date">' + escapeHtml(issue.date) + '</p>';
+                html += '<h4>' + escapeHtml(issue.title) + '</h4>';
+                html += '<p>' + escapeHtml(issue.summary) + '</p>';
+                if (issue.slug) {
+                    html += '<a href="content/newsletters/' + escapeHtml(issue.slug) + '.html" class="archive-card-link">Read Issue &rarr;</a>';
+                }
+                html += '</div></div>';
+            }
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        // Simple HTML escaping to prevent XSS when rendering fetched content
+        function escapeHtml(str) {
+            if (!str) return '';
+            var div = document.createElement('div');
+            div.appendChild(document.createTextNode(str));
+            return div.innerHTML;
+        }
+
+        // Fetch latest newsletter - fall back gracefully if file does not exist
+        fetch('content/newsletters/latest.json')
+            .then(function(response) {
+                if (!response.ok) throw new Error('No latest newsletter found');
+                return response.json();
+            })
+            .then(function(data) {
+                renderLatestNewsletter(data);
+            })
+            .catch(function(err) {
+                // Keep the default "Coming Soon" state already in the HTML
+                console.log('Newsletter: ' + err.message + ' - showing coming soon state.');
+            });
+
+        // Fetch newsletter archive - fall back gracefully if file does not exist
+        fetch('content/newsletters/archive.json')
+            .then(function(response) {
+                if (!response.ok) throw new Error('No archive found');
+                return response.json();
+            })
+            .then(function(data) {
+                renderArchive(data);
+            })
+            .catch(function(err) {
+                // Keep the default "Coming Soon" state already in the HTML
+                console.log('Archive: ' + err.message + ' - showing coming soon state.');
+            });
+
+        // ===================================================================
+        // SUBSCRIBE FORM HANDLER
+        // Submits via Netlify Forms and shows a success/error message
+        // ===================================================================
+        var subscribeForm = document.getElementById('subscribe-form');
+        if (subscribeForm) {
+            subscribeForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var formMessage = document.getElementById('form-message');
+                var formData = new FormData(subscribeForm);
+
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                })
+                .then(function(response) {
+                    if (response.ok) {
+                        formMessage.className = 'form-message success';
+                        formMessage.textContent = 'Welcome to The Kingdom Report! You have been subscribed successfully.';
+                        subscribeForm.reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(function(err) {
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = 'Something went wrong. Please try again or email us at increasingfaithministry@gmail.com';
+                });
+            });
+        }
+
+        // Footer newsletter form handler - Netlify Forms
+        var footerForm = document.getElementById('footer-newsletter-form');
+        if (footerForm) {
+            footerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var formData = new FormData(footerForm);
+
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                })
+                .then(function(response) {
+                    if (response.ok) {
+                        var btn = footerForm.querySelector('button');
+                        btn.textContent = 'Subscribed!';
+                        btn.style.background = 'rgba(40, 167, 69, 0.6)';
+                        footerForm.reset();
+                        setTimeout(function() {
+                            btn.textContent = 'Subscribe';
+                            btn.style.background = '';
+                        }, 3000);
+                    }
+                })
+                .catch(function(err) {
+                    console.log('Footer form error:', err);
+                });
+            });
+        }
+
+        // ===================================================================
+        // STANDARD PAGE SCRIPTS
+        // ===================================================================
+
+        // Navigation scroll effect
+        var nav = document.getElementById('nav');
+        window.addEventListener('scroll', function() {
+            nav.classList.toggle('scrolled', window.scrollY > 100);
+        });
+
+        // Mobile menu
+        var mobileToggle = document.getElementById('mobileToggle');
+        var navLinks = document.getElementById('navLinks');
+        mobileToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('open');
+            mobileToggle.innerHTML = navLinks.classList.contains('open') ? '\u2715' : '\u2630';
+        });
+
+        // Scroll reveal
+        var revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        var revealOnScroll = function() {
+            revealElements.forEach(function(el) {
+                var rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Set current year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Performance toggle - allows users to disable animations
+        var perfToggle = document.querySelector('.perf-toggle');
+        if (perfToggle) {
+            var animationsDisabled = localStorage.getItem('reduceAnimations') === 'true';
+            if (animationsDisabled) {
+                document.body.classList.add('reduce-animations');
+                perfToggle.setAttribute('aria-pressed', 'true');
+            }
+            perfToggle.addEventListener('click', function() {
+                var isPressed = perfToggle.getAttribute('aria-pressed') === 'true';
+                perfToggle.setAttribute('aria-pressed', !isPressed);
+                document.body.classList.toggle('reduce-animations');
+                localStorage.setItem('reduceAnimations', !isPressed);
+            });
+        }
+    </script>
+
+    <!-- Enhancement Script -->
+    <script src="enhancements.js" defer></script>
+
+    <script>
+    // Load animation libraries AFTER page is interactive
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            var gsap = document.createElement('script');
+            gsap.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+            gsap.onload = function() {
+                var st = document.createElement('script');
+                st.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+                document.body.appendChild(st);
+            };
+            document.body.appendChild(gsap);
+            var lenis = document.createElement('script');
+            lenis.src = 'https://unpkg.com/lenis@1.1.18/dist/lenis.min.js';
+            document.body.appendChild(lenis);
+            setTimeout(function() {
+                document.body.classList.add('effects-ready');
+            }, 500);
+        }, 100);
+    });
+    </script>
+
+    <!-- Netlify Identity Widget - for CMS authentication redirect -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function(user) {
+          if (!user) {
+            window.netlifyIdentity.on("login", function() {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+
+      // Register Service Worker for offline support
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js')
+            .then(function(reg) { console.log('SW registered'); })
+            .catch(function(err) { console.log('SW failed:', err); });
+        });
+      }
+    </script>
+</body>
+</html>

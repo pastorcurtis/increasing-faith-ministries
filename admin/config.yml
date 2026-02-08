@@ -244,3 +244,57 @@ collections:
             fields:
               - {label: "Quote", name: "quote", widget: "text"}
               - {label: "Reference", name: "reference", widget: "string"}
+
+  # ═══════════════════════════════════════════════════════════════
+  # NEWSLETTERS - Monthly Kingdom Report
+  # ═══════════════════════════════════════════════════════════════
+  - name: "newsletters"
+    label: "Newsletters"
+    folder: "content/newsletters"
+    create: true
+    slug: "{{year}}-{{month}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - {label: "Month", name: "month", widget: "string", hint: "e.g., February 2026"}
+      - {label: "Theme/Title", name: "theme", widget: "string", hint: "Monthly theme for the newsletter"}
+      - {label: "Published Date", name: "publishedDate", widget: "datetime"}
+      - label: "Pastoral Message"
+        name: "pastoralMessage"
+        widget: "object"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Content", name: "content", widget: "markdown"}
+      - label: "Kingdom Intelligence"
+        name: "kingdomIntelligence"
+        widget: "list"
+        fields:
+          - {label: "Headline", name: "headline", widget: "string"}
+          - {label: "Summary", name: "summary", widget: "text"}
+          - {label: "Source", name: "source", widget: "string", required: false}
+      - label: "Kingdom Living"
+        name: "kingdomLiving"
+        widget: "object"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Content", name: "content", widget: "markdown"}
+      - label: "Prayer Focus"
+        name: "prayerFocus"
+        widget: "list"
+        field: {label: "Prayer Point", name: "point", widget: "string"}
+      - label: "Scripture of the Month"
+        name: "scripture"
+        widget: "object"
+        fields:
+          - {label: "Verse", name: "verse", widget: "text"}
+          - {label: "Reference", name: "reference", widget: "string"}
+          - {label: "Commentary", name: "commentary", widget: "text", required: false}
+      - label: "Upcoming Events"
+        name: "events"
+        widget: "list"
+        required: false
+        fields:
+          - {label: "Event Name", name: "name", widget: "string"}
+          - {label: "Date", name: "date", widget: "string"}
+          - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Featured", name: "featured", widget: "boolean", default: true, hint: "Show as latest newsletter"}

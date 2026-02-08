@@ -1,0 +1,118 @@
+# =============================================================================
+# IFM Monthly Newsletter Generator
+# =============================================================================
+#
+# Automatically generates and sends the Increasing Faith Ministries monthly
+# newsletter on the 1st of every month at 9:00 AM EST.
+#
+# HOW IT WORKS:
+#   1. Uses AI (via Groq) to generate newsletter content
+#   2. Saves the generated newsletter as HTML in content/newsletters/
+#   3. Commits the newsletter to the repository for archival
+#   4. Sends the newsletter to all subscribers via Resend email service
+#   5. Subscriber list is pulled from the Netlify site (form submissions)
+#
+# REQUIRED SECRETS (configure in GitHub repo Settings > Secrets > Actions):
+#   - GROQ_API_KEY          : API key from https://console.groq.com
+#                             Used by the newsletter agent to generate content
+#   - RESEND_API_KEY         : API key from https://resend.com
+#                             Used to send the newsletter emails
+#   - NETLIFY_ACCESS_TOKEN   : Personal access token from https://app.netlify.com/user/applications
+#                             Used to fetch the subscriber list from Netlify forms
+#   - NETLIFY_SITE_ID        : Your Netlify site ID (found in Site Settings > General)
+#                             Identifies which site form submissions to query
+#
+# HOW TO TRIGGER MANUALLY:
+#   - Go to the Actions tab in GitHub
+#   - Select "Monthly Newsletter" from the left sidebar
+#   - Click "Run workflow" button
+#   - Select the branch (main) and click "Run workflow"
+#
+# HOW TO TEST LOCALLY:
+#   1. Set the environment variables in your terminal:
+#        export GROQ_API_KEY="your-key"
+#        export RESEND_API_KEY="your-key"
+#        export NETLIFY_ACCESS_TOKEN="your-token"
+#        export NETLIFY_SITE_ID="your-site-id"
+#   2. Generate the newsletter:
+#        cd newsletter-agent && npm install && node index.js
+#   3. Send the newsletter (after reviewing the generated content):
+#        node send-newsletter.js
+#
+# =============================================================================
+name: Monthly Newsletter
+on:
+  # Runs on the 1st of every month at 9:00 AM EST (14:00 UTC)
+  # Note: EST is UTC-5, so 9:00 AM EST = 14:00 UTC
+  # During daylight saving time (EDT, UTC-4), this will run at 10:00 AM EDT
+  schedule:
+    - cron: '0 14 1 * *'
+  # Allow manual triggering from the GitHub Actions UI
+  workflow_dispatch:
+# Only allow one newsletter workflow to run at a time
+# Prevents duplicate newsletters if triggered manually while scheduled run is active
+concurrency:
+  group: newsletter
+  cancel-in-progress: false
+jobs:
+  generate-and-send:
+    name: Generate & Send Newsletter
+    runs-on: ubuntu-latest
+    # Make secrets available as environment variables for the Node.js scripts
+    env:
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+    steps:
+      # Step 1: Check out the repository so we have access to the code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      # Step 2: Set up Node.js runtime for running the newsletter scripts
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # Step 3: Install the newsletter agent npm dependencies
+      - name: Install newsletter-agent dependencies
+        working-directory: newsletter-agent
+        run: npm install
+      # Step 4: Run the newsletter generator script
+      # This calls the Groq API to generate newsletter content and saves
+      # the output to content/newsletters/ (e.g., 2026-02.html)
+      - name: Generate newsletter
+        working-directory: newsletter-agent
+        run: node index.js
+      # Step 5: Configure git for the automated commit
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      # Step 6: Commit the generated newsletter files to the repository
+      # This preserves a permanent archive of every newsletter sent
+      - name: Commit generated newsletter
+        run: |
+          git add content/newsletters/
+          # Only commit if there are actual changes (avoids empty commit errors)
+          git diff --staged --quiet || git commit -m "Add monthly newsletter for $(date +'%B %Y')"
+      # Step 7: Push the committed newsletter to the main branch
+      - name: Push changes to main
+        run: git push origin main
+      # Step 8: Send the newsletter to all subscribers via Resend
+      # continue-on-error: true ensures that if email sending fails,
+      # the workflow still succeeds (the newsletter is already saved to the repo)
+      - name: Send newsletter to subscribers
+        id: send-newsletter
+        continue-on-error: true
+        working-directory: newsletter-agent
+        run: node send-newsletter.js
+      # Step 9: Report the outcome of the email sending step
+      # This makes it easy to see in the Actions log whether emails went out
+      - name: Report email status
+        if: always()
+        run: |
+          if [ "${{ steps.send-newsletter.outcome }}" == "failure" ]; then
+            echo "::warning::Newsletter was generated and committed, but email sending failed. Check the send-newsletter step logs."
+          else
+            echo "Newsletter generated, committed, and sent successfully!"
+          fi
