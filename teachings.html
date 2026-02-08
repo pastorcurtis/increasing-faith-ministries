@@ -159,6 +159,7 @@
             <li><a href="journey.html">Journey</a></li>
             <li><a href="community.html">Community</a></li>
             <li><a href="teachings.html">Teachings</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
             <li><a href="shop.html">Shop</a></li>
             <li><a href="visit.html">Visit</a></li>
         </ul>
@@ -290,10 +291,13 @@
                 <div class="email-signup">
                     <h4>Stay Connected</h4>
                     <p>Get Kingdom teachings delivered to your inbox</p>
-                    <form class="signup-form" id="newsletter-form">
+                    <form class="signup-form" id="newsletter-form" name="newsletter-subscribers" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="newsletter-subscribers">
+                        <p style="display:none"><input name="bot-field"></p>
                         <input type="email" name="email" placeholder="Enter your email" required>
                         <button type="submit">Subscribe</button>
                     </form>
+                    <p id="signup-success" style="display:none; color:#10b981; font-size:0.85rem; margin-top:0.5rem;">Welcome to The Kingdom Report!</p>
                 </div>
             </div>
             <div class="footer-column">

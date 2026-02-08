@@ -1,0 +1,28 @@
+{
+  "name": "ifm-newsletter-agent",
+  "version": "1.0.0",
+  "description": "Kingdom-centered newsletter content generation agent for Increasing Faith Ministries",
+  "main": "index.js",
+  "scripts": {
+    "generate": "node index.js",
+    "generate:dry": "node index.js --dry-run",
+    "generate:month": "node index.js --month",
+    "test": "node index.js --dry-run"
+  },
+  "keywords": [
+    "newsletter",
+    "kingdom",
+    "ministry",
+    "content-generation"
+  ],
+  "author": "Increasing Faith Ministries",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "date-fns": "^3.6.0",
+    "dotenv": "^16.4.5",
+    "marked": "^12.0.2",
+    "node-fetch": "^2.7.0"
+  }
+}
