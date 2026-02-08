@@ -1,3 +1,11 @@
-{
-  "newsletters": []
-}
+[
+  {
+    "dateKey": "2026-02",
+    "title": "The Kingdom Report",
+    "dateString": "February 2026",
+    "theme": "Kingdom Love",
+    "generatedAt": "2026-02-08T05:03:38.965Z",
+    "jsonFile": "2026-02.json",
+    "htmlFile": "2026-02.html"
+  }
+]
