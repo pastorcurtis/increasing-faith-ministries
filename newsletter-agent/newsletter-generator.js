@@ -52,7 +52,10 @@ async function callGroqAI(systemPrompt, userPrompt) {
       lastError = error;
       console.log('  [RETRY ' + attempt + '/' + config.ai.maxRetries + '] ' + error.message);
       if (attempt < config.ai.maxRetries) {
-        const delay = config.ai.retryDelayMs * attempt;
+        // Use longer delay for rate limits (429), shorter for other errors
+        const isRateLimit = error.message.includes('429');
+        const delay = isRateLimit ? 15000 : config.ai.retryDelayMs * attempt;
+        console.log('  Waiting ' + (delay / 1000) + 's before retry...');
         await new Promise((resolve) => setTimeout(resolve, delay));
       }
     }

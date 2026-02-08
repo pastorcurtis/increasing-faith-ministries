@@ -104,7 +104,7 @@ const config = {
     maxTokens: 4096,
     temperature: 0.7,
     // Retry settings for API calls
-    maxRetries: 3,
+    maxRetries: 5,
     retryDelayMs: 2000,
   },
 
@@ -128,9 +128,9 @@ const config = {
   // File Output Paths (relative to this agent directory)
   // ---------------------------------------------------------------------------
   paths: {
-    contentDir: '../../content/newsletters',
-    latestJson: '../../content/newsletters/latest.json',
-    archiveIndex: '../../content/newsletters/archive.json',
+    contentDir: '../content/newsletters',
+    latestJson: '../content/newsletters/latest.json',
+    archiveIndex: '../content/newsletters/archive.json',
   },
 
   // ---------------------------------------------------------------------------
