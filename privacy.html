@@ -6,6 +6,22 @@
     <title>Privacy Policy | Increasing Faith Ministries</title>
     <meta name="description" content="Privacy Policy for Increasing Faith Ministries - how we collect, use, and protect your information.">
 
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Privacy Policy | Increasing Faith Ministries">
+    <meta property="og:description" content="Privacy Policy for Increasing Faith Ministries - how we collect, use, and protect your information.">
+    <meta property="og:image" content="https://increasingfaith.net/ifm-logo-gold.png">
+    <meta property="og:url" content="https://increasingfaith.net/privacy.html">
+    <meta property="og:site_name" content="Increasing Faith Ministries">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Privacy Policy | Increasing Faith Ministries">
+    <meta name="twitter:description" content="Privacy Policy for Increasing Faith Ministries - how we collect, use, and protect your information.">
+    <meta name="twitter:image" content="https://increasingfaith.net/ifm-logo-gold.png">
+
+    <link rel="canonical" href="https://increasingfaith.net/privacy.html">
+
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" href="ifm-logo-gold.png">
     <link rel="apple-touch-icon" href="ifm-logo-gold.png">
@@ -153,7 +169,7 @@
             <a href="teachings.html" class="nav-btn nav-btn-outline">Watch</a>
             <a href="give.html" class="nav-btn nav-btn-glow">Give</a>
         </div>
-        <button class="mobile-toggle" id="mobileToggle">&#9776;</button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
     </nav>
 
     <div class="privacy-container">
@@ -274,7 +290,9 @@
         const navLinks = document.getElementById('navLinks');
         mobileToggle.addEventListener('click', () => {
             navLinks.classList.toggle('open');
-            mobileToggle.innerHTML = navLinks.classList.contains('open') ? '✕' : '☰';
+            const isOpen = navLinks.classList.contains('open');
+            mobileToggle.innerHTML = isOpen ? '✕' : '☰';
+            mobileToggle.setAttribute('aria-expanded', isOpen);
         });
 
         // Nav scroll

@@ -20,6 +20,8 @@
     <meta name="twitter:description" content="Visit Increasing Faith Ministries at 24301 Telegraph, Southfield, MI. Join us for worship every First Saturday at 12:00 Noon.">
     <meta name="twitter:image" content="https://increasingfaith.net/ifm-logo-gold.png">
 
+    <link rel="canonical" href="https://increasingfaith.net/visit.html">
+
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
@@ -314,7 +316,7 @@
             <a href="teachings.html" class="nav-btn nav-btn-outline">Watch</a>
             <a href="give.html" class="nav-btn nav-btn-glow">Give</a>
         </div>
-        <button class="mobile-toggle" id="mobileToggle">&#9776;</button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
     </nav>
 
     <!-- Hero -->
@@ -416,7 +418,9 @@
         const navLinks = document.getElementById('navLinks');
         mobileToggle.addEventListener('click', () => {
             navLinks.classList.toggle('open');
-            mobileToggle.innerHTML = navLinks.classList.contains('open') ? '✕' : '☰';
+            const isOpen = navLinks.classList.contains('open');
+            mobileToggle.innerHTML = isOpen ? '✕' : '☰';
+            mobileToggle.setAttribute('aria-expanded', isOpen);
         });
 
         // Nav scroll

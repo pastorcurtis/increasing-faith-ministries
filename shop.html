@@ -20,6 +20,8 @@
     <meta name="twitter:description" content="Faith worn bold. Premium Kingdom-centered apparel designed to proclaim the reign of God in every sphere of society. Coming soon.">
     <meta name="twitter:image" content="https://increasingfaith.net/ifm-logo-gold.png">
 
+    <link rel="canonical" href="https://increasingfaith.net/shop.html">
+
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
@@ -262,7 +264,7 @@
             <a href="teachings.html" class="nav-btn nav-btn-outline">Watch</a>
             <a href="give.html" class="nav-btn nav-btn-glow">Give</a>
         </div>
-        <button class="mobile-toggle" id="mobileToggle">&#9776;</button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
     </nav>
 
     <!-- ═══════════ UNDER CONSTRUCTION ═══════════ -->
@@ -347,7 +349,9 @@
         const navLinks = document.getElementById('navLinks');
         mobileToggle.addEventListener('click', () => {
             navLinks.classList.toggle('open');
-            mobileToggle.innerHTML = navLinks.classList.contains('open') ? '&#10005;' : '&#9776;';
+            const isOpen = navLinks.classList.contains('open');
+            mobileToggle.innerHTML = isOpen ? '&#10005;' : '&#9776;';
+            mobileToggle.setAttribute('aria-expanded', isOpen);
         });
 
         // Scrolled Nav
