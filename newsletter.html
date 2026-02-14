@@ -20,6 +20,8 @@
     <meta name="twitter:description" content="Subscribe to The Kingdom Report - monthly Kingdom-centered news, teachings, and insights from Increasing Faith Ministries delivered to your inbox.">
     <meta name="twitter:image" content="https://increasingfaith.net/ifm-logo-gold.png">
 
+    <link rel="canonical" href="https://increasingfaith.net/newsletter.html">
+
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
@@ -296,7 +298,7 @@
             <a href="teachings.html" class="nav-btn nav-btn-outline">Watch</a>
             <a href="give.html" class="nav-btn nav-btn-glow">Give</a>
         </div>
-        <button class="mobile-toggle" id="mobileToggle">&#9776;</button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
     </nav>
 
     <!-- Hero -->
@@ -692,7 +694,9 @@
         var navLinks = document.getElementById('navLinks');
         mobileToggle.addEventListener('click', function() {
             navLinks.classList.toggle('open');
-            mobileToggle.innerHTML = navLinks.classList.contains('open') ? '\u2715' : '\u2630';
+            const isOpen = navLinks.classList.contains('open');
+            mobileToggle.innerHTML = isOpen ? '\u2715' : '\u2630';
+            mobileToggle.setAttribute('aria-expanded', isOpen);
         });
 
         // Scroll reveal

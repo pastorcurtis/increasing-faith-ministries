@@ -20,6 +20,8 @@
     <meta name="twitter:description" content="Join a global Kingdom movement. Find your place in discipleship cohorts and counter-cultural community.">
     <meta name="twitter:image" content="https://increasingfaith.net/ifm-logo-gold.png">
 
+    <link rel="canonical" href="https://increasingfaith.net/community.html">
+
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
@@ -145,7 +147,7 @@
             <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="journey.html">Journey</a></li><li><a href="community.html">Community</a></li><li><a href="teachings.html">Teachings</a></li><li><a href="newsletter.html">Newsletter</a></li><li><a href="shop.html">Shop</a></li><li><a href="visit.html">Visit</a></li>
         </ul>
         <div class="nav-actions"><a href="teachings.html" class="nav-btn nav-btn-outline">Watch</a><a href="give.html" class="nav-btn nav-btn-glow">Give</a></div>
-        <button class="mobile-toggle" id="mobileToggle">&#9776;</button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
     </nav>
 
     <section class="hero">
@@ -227,7 +229,7 @@
 
     <section class="cta-section">
         <div class="cta-content reveal visible"><h2>Ready to Join the Movement?</h2><p>Find your place in a community of disciples committed to the King.</p>
-            <div class="cta-buttons"><a href="mailto:increasingfaithministry@gmail.com?subject=Interested%20in%20Joining%20a%20Cohort" class="btn btn-primary">Join a Cohort</a><a href="give.html" class="btn btn-secondary">Partner With Us</a></div>
+            <div class="cta-buttons"><a href="mailto:increasingfaithministry@gmail.com?subject=Interested%20in%20Joining%20a%20Cohort" class="btn btn-primary">Join a Cohort</a><!-- Consider replacing with a form page in the future --><a href="give.html" class="btn btn-secondary">Partner With Us</a></div>
         </div>
     </section>
 
@@ -239,6 +241,7 @@
                 <input type="email" name="email" placeholder="Enter your email" required>
                 <button type="submit">Subscribe</button>
             </form>
+            <p id="signup-success" style="display:none; color:var(--success, #10b981); font-size:0.85rem; margin-top:0.5rem;">Welcome to The Kingdom Report!</p>
         </div>
     </section>
 
@@ -263,7 +266,9 @@
                 <div class="email-signup">
                     <h4>Stay Connected</h4>
                     <p>Get Kingdom teachings delivered to your inbox</p>
-                    <form class="signup-form" id="footer-newsletter-form">
+                    <form class="signup-form" id="footer-newsletter-form" name="newsletter-subscribers" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="newsletter-subscribers">
+                        <p style="display:none"><input name="bot-field"></p>
                         <input type="email" name="email" placeholder="Enter your email" required>
                         <button type="submit">Subscribe</button>
                     </form>
@@ -304,35 +309,35 @@
         tabBtns.forEach(btn => { btn.addEventListener('click', () => { const tabId = btn.dataset.tab; tabBtns.forEach(b => b.classList.remove('active')); tabContents.forEach(c => c.classList.remove('active')); btn.classList.add('active'); document.getElementById(tabId).classList.add('active'); revealOnScroll(); }); });
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
-        mobileToggle.addEventListener('click', () => { navLinks.classList.toggle('open'); mobileToggle.innerHTML = navLinks.classList.contains('open') ? '✕' : '☰'; });
+        mobileToggle.addEventListener('click', () => { navLinks.classList.toggle('open'); const isOpen = navLinks.classList.contains('open'); mobileToggle.innerHTML = isOpen ? '✕' : '☰'; mobileToggle.setAttribute('aria-expanded', isOpen); });
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 100); });
         const revealElements = document.querySelectorAll('.reveal');
         const revealOnScroll = () => { revealElements.forEach(el => { const rect = el.getBoundingClientRect(); if (rect.top < window.innerHeight - 100) el.classList.add('visible'); }); };
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
-        // Newsletter form handler with mailto
+        // Newsletter form handler with Netlify Forms
+        function handleNewsletterSubmit(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                }).then(() => {
+                    form.style.display = 'none';
+                    const successEl = form.parentElement.querySelector('#signup-success') || form.nextElementSibling;
+                    if (successEl) successEl.style.display = 'block';
+                }).catch(() => {
+                    form.style.display = 'none';
+                });
+            });
+        }
         const newsletterForm = document.getElementById('newsletter-form');
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = newsletterForm.querySelector('input[type="email"]').value;
-                const subject = encodeURIComponent('Newsletter Signup');
-                const body = encodeURIComponent('Please add me to the newsletter.\n\nEmail: ' + email);
-                window.location.href = 'mailto:increasingfaithministry@gmail.com?subject=' + subject + '&body=' + body;
-            });
-        }
-        // Footer newsletter form handler with mailto
+        if (newsletterForm) handleNewsletterSubmit(newsletterForm);
         const footerNewsletterForm = document.getElementById('footer-newsletter-form');
-        if (footerNewsletterForm) {
-            footerNewsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = footerNewsletterForm.querySelector('input[type="email"]').value;
-                const subject = encodeURIComponent('Newsletter Signup');
-                const body = encodeURIComponent('Please add me to the newsletter.\n\nEmail: ' + email);
-                window.location.href = 'mailto:increasingfaithministry@gmail.com?subject=' + subject + '&body=' + body;
-            });
-        }
+        if (footerNewsletterForm) handleNewsletterSubmit(footerNewsletterForm);
         function openConnect() { alert('Connect form coming soon! Email: increasingfaithministry@gmail.com'); }
         // Set current year dynamically
         document.getElementById('currentYear').textContent = new Date().getFullYear();

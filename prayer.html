@@ -20,6 +20,8 @@
     <meta name="twitter:description" content="Share your prayer needs with our community. We believe in the power of united prayer and stand with you in faith.">
     <meta name="twitter:image" content="https://increasingfaith.net/ifm-logo-gold.png">
 
+    <link rel="canonical" href="https://increasingfaith.net/prayer.html">
+
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
@@ -148,7 +150,7 @@
             <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="journey.html">Journey</a></li><li><a href="community.html">Community</a></li><li><a href="teachings.html">Teachings</a></li><li><a href="newsletter.html">Newsletter</a></li><li><a href="shop.html">Shop</a></li><li><a href="visit.html">Visit</a></li>
         </ul>
         <div class="nav-actions"><a href="teachings.html" class="nav-btn nav-btn-outline">Watch</a><a href="give.html" class="nav-btn nav-btn-glow">Give</a></div>
-        <button class="mobile-toggle" id="mobileToggle">&#9776;</button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
     </nav>
 
     <section class="hero">
@@ -165,7 +167,9 @@
                 <h2>Submit Your Request</h2>
                 <p>Let us join you in bringing your needs before the King.</p>
             </div>
-            <form id="prayerForm">
+            <form id="prayerForm" name="prayer-requests" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="prayer-requests">
+                <p style="display:none"><input name="bot-field"></p>
                 <div class="form-group">
                     <label for="name">Name <span class="optional">(optional)</span></label>
                     <input type="text" id="name" name="name" placeholder="Your name">
@@ -216,7 +220,9 @@
                 <h2>Contact Us</h2>
                 <p>Have a question or want to connect? Send us a message.</p>
             </div>
-            <form id="contactForm">
+            <form id="contactForm" name="contact-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact-form">
+                <p style="display:none"><input name="bot-field"></p>
                 <div class="form-group">
                     <label for="contact-name">Name <span style="color: var(--magenta);">*</span></label>
                     <input type="text" id="contact-name" name="name" placeholder="Your name" required>
@@ -295,46 +301,68 @@
     </footer>
 
     <script>
-        // Prayer form handler with mailto
+        // Prayer form handler with Netlify Forms
         document.getElementById('prayerForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const form = e.target;
-            const name = form.querySelector('#name').value || 'Anonymous';
-            const email = form.querySelector('#email').value || 'Not provided';
-            const category = form.querySelector('#category').value || 'General';
-            const request = form.querySelector('#request').value;
-            const subject = encodeURIComponent('Prayer Request - ' + category);
-            const body = encodeURIComponent('Prayer Request\n\nName: ' + name + '\nEmail: ' + email + '\nCategory: ' + category + '\n\nRequest:\n' + request);
-            window.location.href = 'mailto:increasingfaithministry@gmail.com?subject=' + subject + '&body=' + body;
+            const formData = new FormData(form);
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            }).then(() => {
+                const msg = document.getElementById('prayer-form-message');
+                msg.textContent = 'Your prayer request has been submitted. We stand with you in faith.';
+                msg.style.display = 'block';
+                msg.style.color = 'var(--success, #10b981)';
+                form.reset();
+            }).catch(() => {
+                const msg = document.getElementById('prayer-form-message');
+                msg.textContent = 'Something went wrong. Please try again or email us directly.';
+                msg.style.display = 'block';
+                msg.style.color = '#ef4444';
+            });
         });
 
-        // Contact form handler with mailto
+        // Contact form handler with Netlify Forms
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const form = e.target;
-            const name = form.querySelector('#contact-name').value;
-            const email = form.querySelector('#contact-email').value;
-            const message = form.querySelector('#contact-message').value;
-            const subject = encodeURIComponent('Contact Form Message from ' + name);
-            const body = encodeURIComponent('Contact Form Message\n\nName: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
-            window.location.href = 'mailto:increasingfaithministry@gmail.com?subject=' + subject + '&body=' + body;
+            const formData = new FormData(form);
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            }).then(() => {
+                form.innerHTML = '<p style="text-align:center; color:var(--success, #10b981); font-size:1.1rem;">Message sent! We\'ll get back to you soon.</p>';
+            }).catch(() => {
+                form.innerHTML = '<p style="text-align:center; color:#ef4444; font-size:1.1rem;">Something went wrong. Please email us at increasingfaithministry@gmail.com</p>';
+            });
         });
 
-        // Newsletter form handler with mailto
+        // Newsletter form handler with Netlify Forms
         const newsletterForm = document.getElementById('newsletter-form');
         if (newsletterForm) {
             newsletterForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const email = newsletterForm.querySelector('input[type="email"]').value;
-                const subject = encodeURIComponent('Newsletter Signup');
-                const body = encodeURIComponent('Please add me to the newsletter.\n\nEmail: ' + email);
-                window.location.href = 'mailto:increasingfaithministry@gmail.com?subject=' + subject + '&body=' + body;
+                const formData = new FormData(newsletterForm);
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                }).then(() => {
+                    newsletterForm.style.display = 'none';
+                    document.getElementById('signup-success').style.display = 'block';
+                }).catch(() => {
+                    newsletterForm.style.display = 'none';
+                    document.getElementById('signup-success').style.display = 'block';
+                });
             });
         }
 
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
-        mobileToggle.addEventListener('click', () => { navLinks.classList.toggle('open'); mobileToggle.innerHTML = navLinks.classList.contains('open') ? '✕' : '☰'; });
+        mobileToggle.addEventListener('click', () => { navLinks.classList.toggle('open'); const isOpen = navLinks.classList.contains('open'); mobileToggle.innerHTML = isOpen ? '✕' : '☰'; mobileToggle.setAttribute('aria-expanded', isOpen); });
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 100); });
         const revealElements = document.querySelectorAll('.reveal');

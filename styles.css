@@ -33,7 +33,10 @@
     /* Core Colors */
     --black: #000000;
 
-    /* Accent Color for Give Page */
+    /* Accent Colors */
+    --gold: #ffd700;
+    --magenta: #e91e8c;
+    --purple-dark: #2d1b4e;
     --success: #10b981;
     --success-glow: rgba(16, 185, 129, 0.3);
 
