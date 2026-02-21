@@ -492,9 +492,11 @@
 
   <!-- Form -->
   <div class="form-container">
-    <form id="intakeForm" name="client-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="client-intake">
-      <p style="display:none"><input name="bot-field"></p>
+    <form id="intakeForm" action="https://formsubmit.co/curtisstephensjr@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Client Intake Form Submission">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://increasingfaith.net/client-intake.html#success">
 
       <!-- 1. Business Information -->
       <div class="form-section" data-section="1">
@@ -801,7 +803,7 @@
         inputs.forEach(function(input) {
           if (input.type === 'checkbox' || input.type === 'radio') {
             if (input.checked) hasValue = true;
-          } else if (input.type !== 'hidden' && input.name !== 'bot-field') {
+          } else if (input.type !== 'hidden') {
             if (input.value.trim()) hasValue = true;
           }
         });
@@ -819,24 +821,12 @@
     });
 
     /* --- Form submission --- */
-    var form = document.getElementById('intakeForm');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var formData = new FormData(form);
-
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-      }).then(function() {
-        form.style.display = 'none';
-        document.querySelector('.submit-section').style.display = 'none';
-        document.getElementById('formSuccess').classList.add('show');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }).catch(function() {
-        form.submit();
-      });
-    });
+    /* Show success state if redirected back after submission */
+    if (window.location.hash === '#success') {
+      document.getElementById('intakeForm').style.display = 'none';
+      document.querySelector('.submit-section').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('show');
+    }
   })();
   </script>
 </body>
