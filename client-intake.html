@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Project Intake Form — IFM Productions</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #0d0d0d;
+      --white: #ffffff;
+      --gray-50: #fafafa;
+      --gray-100: #f5f5f5;
+      --gray-200: #e5e5e5;
+      --gray-300: #d4d4d4;
+      --gray-400: #a3a3a3;
+      --gray-500: #737373;
+      --gray-600: #525252;
+      --gray-800: #262626;
+      --accent: #6c2bd9;
+      --accent-light: #8b5cf6;
+      --accent-dark: #5521b5;
+      --accent-bg: #f5f0ff;
+      --accent-border: #e4d7fc;
+      --success: #059669;
+      --success-bg: #ecfdf5;
+      --radius: 10px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.03);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--gray-800);
+      background: var(--gray-50);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- Header --- */
+    .form-header {
+      background: var(--black);
+      color: var(--white);
+      padding: 48px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(108, 43, 217, 0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .form-header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .form-header p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.92rem;
+      font-weight: 400;
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .form-header .brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 16px;
+      display: block;
+      position: relative;
+    }
+
+    /* --- Progress Bar --- */
+    .progress-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 12px 24px;
+    }
+
+    .progress-track {
+      max-width: 680px;
+      margin: 0 auto;
+      height: 4px;
+      background: var(--gray-200);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      border-radius: 4px;
+      width: 0%;
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .progress-text {
+      max-width: 680px;
+      margin: 6px auto 0;
+      font-size: 0.72rem;
+      color: var(--gray-400);
+      font-weight: 500;
+      text-align: right;
+    }
+
+    /* --- Form Container --- */
+    .form-container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    /* --- Sections --- */
+    .form-section {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-200);
+      padding: 36px 32px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .form-section:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .section-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.01em;
+    }
+
+    /* --- Form Fields --- */
+    .field-group {
+      margin-bottom: 22px;
+    }
+
+    .field-group:last-child {
+      margin-bottom: 0;
+    }
+
+    label, .field-label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.82rem;
+      color: var(--gray-800);
+      margin-bottom: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    .field-hint {
+      font-size: 0.78rem;
+      color: var(--gray-400);
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--black);
+      background: var(--white);
+      transition: all 0.25s ease;
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(108, 43, 217, 0.1);
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: var(--gray-300);
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    /* --- Checkbox / Radio Groups --- */
+    .check-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1.5px solid var(--gray-200);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .check-item:hover {
+      border-color: var(--accent-border);
+      background: var(--accent-bg);
+    }
+
+    .check-item.checked {
+      border-color: var(--accent);
+      background: var(--accent-bg);
+    }
+
+    .check-item input[type="checkbox"],
+    .check-item input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .check-item span {
+      font-size: 0.85rem;
+      font-weight: 450;
+      color: var(--gray-600);
+      line-height: 1.3;
+    }
+
+    .check-item.checked span {
+      color: var(--accent-dark);
+      font-weight: 500;
+    }
+
+    /* Radio row (inline) */
+    .radio-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .radio-row .check-item {
+      flex: 0 0 auto;
+    }
+
+    /* Other field */
+    .other-field {
+      margin-top: 8px;
+      display: none;
+    }
+
+    .other-field.visible {
+      display: block;
+    }
+
+    /* --- Budget pills --- */
+    .budget-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .budget-grid .check-item {
+      flex: 1 1 auto;
+      justify-content: center;
+      text-align: center;
+      min-width: 120px;
+    }
+
+    .budget-grid .check-item input {
+      display: none;
+    }
+
+    .budget-grid .check-item.checked {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .budget-grid .check-item.checked span {
+      color: var(--white);
+    }
+
+    /* Domain text field */
+    .domain-inline {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .domain-inline input {
+      flex: 1;
+    }
+
+    .domain-hidden {
+      display: none;
+    }
+
+    .domain-hidden.visible {
+      display: flex;
+    }
+
+    /* --- Submit --- */
+    .submit-section {
+      text-align: center;
+      padding: 40px 32px;
+    }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 48px;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(108, 43, 217, 0.25);
+    }
+
+    .submit-btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(108, 43, 217, 0.35);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .submit-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .submit-note {
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: var(--gray-400);
+    }
+
+    /* --- Success State --- */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 80px 32px;
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-200);
+    }
+
+    .form-success.show {
+      display: block;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--success-bg);
+      color: var(--success);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .success-icon svg { width: 28px; height: 28px; }
+
+    .form-success h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .form-success p {
+      color: var(--gray-500);
+      font-size: 0.92rem;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    /* --- Footer --- */
+    .form-footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--gray-400);
+      font-size: 0.75rem;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 640px) {
+      .form-section { padding: 28px 20px; }
+      .check-grid { grid-template-columns: 1fr; }
+      .budget-grid { flex-direction: column; }
+      .budget-grid .check-item { min-width: unset; }
+      .radio-row { flex-direction: column; }
+      .form-header { padding: 36px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="form-header">
+    <span class="brand">IFM Productions</span>
+    <h1>Website Project Intake Form</h1>
+    <p>Please complete this form so we can understand your vision and create the perfect website for you.</p>
+  </header>
+
+  <!-- Progress -->
+  <div class="progress-bar">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-text" id="progressText">0 of 7 sections</div>
+  </div>
+
+  <!-- Form -->
+  <div class="form-container">
+    <form id="intakeForm" name="client-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="client-intake">
+      <p style="display:none"><input name="bot-field"></p>
+
+      <!-- 1. Business Information -->
+      <div class="form-section" data-section="1">
+        <div class="section-header">
+          <div class="section-number">1</div>
+          <div class="section-title">Business Information</div>
+        </div>
+
+        <div class="field-group">
+          <label for="business-name">Business / Organization Name <span style="color:var(--accent)">*</span></label>
+          <input type="text" id="business-name" name="business_name" required placeholder="Your business name">
+        </div>
+
+        <div class="field-group">
+          <label for="contact-name">Your Name & Title <span style="color:var(--accent)">*</span></label>
+          <input type="text" id="contact-name" name="contact_name" required placeholder="e.g. Jane Smith, Owner">
+        </div>
+
+        <div class="field-group">
+          <label for="email">Email Address <span style="color:var(--accent)">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="you@business.com">
+        </div>
+
+        <div class="field-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+        </div>
+
+        <div class="field-group">
+          <label for="current-url">Current Website URL <span class="field-hint">(if applicable)</span></label>
+          <input type="url" id="current-url" name="current_url" placeholder="https://yoursite.com">
+        </div>
+
+        <div class="field-group">
+          <label for="business-desc">Briefly describe what your business does <span style="color:var(--accent)">*</span></label>
+          <textarea id="business-desc" name="business_description" required placeholder="What products or services do you offer? Who do you serve?"></textarea>
+        </div>
+      </div>
+
+      <!-- 2. Project Goals -->
+      <div class="form-section" data-section="2">
+        <div class="section-header">
+          <div class="section-number">2</div>
+          <div class="section-title">Project Goals</div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label">What is the main purpose of your website? <span class="field-hint">(Check all that apply)</span></div>
+          <div class="check-grid">
+            <label class="check-item"><input type="checkbox" name="purpose" value="Showcase services"><span>Showcase services</span></label>
+            <label class="check-item"><input type="checkbox" name="purpose" value="Sell products online"><span>Sell products online</span></label>
+            <label class="check-item"><input type="checkbox" name="purpose" value="Generate leads"><span>Generate leads</span></label>
+            <label class="check-item"><input type="checkbox" name="purpose" value="Provide information"><span>Provide information</span></label>
+            <label class="check-item"><input type="checkbox" name="purpose" value="Build credibility"><span>Build credibility</span></label>
+            <label class="check-item"><input type="checkbox" name="purpose" value="Accept donations"><span>Accept donations</span></label>
+            <label class="check-item"><input type="checkbox" name="purpose" value="Book appointments"><span>Book appointments</span></label>
+            <label class="check-item"><input type="checkbox" name="purpose" value="Other"><span>Other</span></label>
+          </div>
+          <div class="other-field" id="purpose-other">
+            <input type="text" name="purpose_other" placeholder="Please specify...">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="target-audience">Who is your target audience? <span style="color:var(--accent)">*</span></label>
+          <textarea id="target-audience" name="target_audience" required placeholder="Describe your ideal customer or visitor..."></textarea>
+        </div>
+
+        <div class="field-group">
+          <label for="visitor-action">What action do you want visitors to take on your site?</label>
+          <input type="text" id="visitor-action" name="visitor_action" placeholder="e.g. Call us, buy a product, fill out a form...">
+        </div>
+      </div>
+
+      <!-- 3. Design Preferences -->
+      <div class="form-section" data-section="3">
+        <div class="section-header">
+          <div class="section-number">3</div>
+          <div class="section-title">Design Preferences</div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label">How would you describe the feel you want? <span class="field-hint">(Check all that apply)</span></div>
+          <div class="check-grid">
+            <label class="check-item"><input type="checkbox" name="design_feel" value="Professional"><span>Professional</span></label>
+            <label class="check-item"><input type="checkbox" name="design_feel" value="Modern/Clean"><span>Modern / Clean</span></label>
+            <label class="check-item"><input type="checkbox" name="design_feel" value="Bold/Edgy"><span>Bold / Edgy</span></label>
+            <label class="check-item"><input type="checkbox" name="design_feel" value="Warm/Friendly"><span>Warm / Friendly</span></label>
+            <label class="check-item"><input type="checkbox" name="design_feel" value="Elegant/Luxury"><span>Elegant / Luxury</span></label>
+            <label class="check-item"><input type="checkbox" name="design_feel" value="Fun/Playful"><span>Fun / Playful</span></label>
+            <label class="check-item"><input type="checkbox" name="design_feel" value="Minimalist"><span>Minimalist</span></label>
+            <label class="check-item"><input type="checkbox" name="design_feel" value="Traditional"><span>Traditional</span></label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="websites-liked">List 2–3 websites you like and what you like about them:</label>
+          <textarea id="websites-liked" name="websites_liked" placeholder="e.g. apple.com — I like the clean layout and big images..."></textarea>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label">Do you have brand colors and a logo?</div>
+          <div class="radio-row">
+            <label class="check-item"><input type="radio" name="has_branding" value="Yes, I'll provide them"><span>Yes, I'll provide them</span></label>
+            <label class="check-item"><input type="radio" name="has_branding" value="No, I need help with branding"><span>No, I need help with branding</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Website Features -->
+      <div class="form-section" data-section="4">
+        <div class="section-header">
+          <div class="section-number">4</div>
+          <div class="section-title">Website Features</div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label">What pages/sections do you need? <span class="field-hint">(Check all that apply)</span></div>
+          <div class="check-grid">
+            <label class="check-item"><input type="checkbox" name="pages" value="Home"><span>Home</span></label>
+            <label class="check-item"><input type="checkbox" name="pages" value="About Us"><span>About Us</span></label>
+            <label class="check-item"><input type="checkbox" name="pages" value="Services"><span>Services</span></label>
+            <label class="check-item"><input type="checkbox" name="pages" value="Products/Shop"><span>Products / Shop</span></label>
+            <label class="check-item"><input type="checkbox" name="pages" value="Portfolio/Gallery"><span>Portfolio / Gallery</span></label>
+            <label class="check-item"><input type="checkbox" name="pages" value="Blog"><span>Blog</span></label>
+            <label class="check-item"><input type="checkbox" name="pages" value="Contact"><span>Contact</span></label>
+            <label class="check-item"><input type="checkbox" name="pages" value="Testimonials"><span>Testimonials</span></label>
+            <label class="check-item"><input type="checkbox" name="pages" value="FAQ"><span>FAQ</span></label>
+            <label class="check-item"><input type="checkbox" name="pages" value="Pricing"><span>Pricing</span></label>
+            <label class="check-item"><input type="checkbox" name="pages" value="Team/Staff"><span>Team / Staff</span></label>
+            <label class="check-item"><input type="checkbox" name="pages" value="Events/Calendar"><span>Events / Calendar</span></label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label">Special features needed? <span class="field-hint">(Check all that apply)</span></div>
+          <div class="check-grid">
+            <label class="check-item"><input type="checkbox" name="features" value="Contact form"><span>Contact form</span></label>
+            <label class="check-item"><input type="checkbox" name="features" value="Online payments"><span>Online payments</span></label>
+            <label class="check-item"><input type="checkbox" name="features" value="Booking/Scheduling"><span>Booking / Scheduling</span></label>
+            <label class="check-item"><input type="checkbox" name="features" value="Newsletter signup"><span>Newsletter signup</span></label>
+            <label class="check-item"><input type="checkbox" name="features" value="Social media integration"><span>Social media integration</span></label>
+            <label class="check-item"><input type="checkbox" name="features" value="Video/Media"><span>Video / Media</span></label>
+            <label class="check-item"><input type="checkbox" name="features" value="Live chat"><span>Live chat</span></label>
+            <label class="check-item"><input type="checkbox" name="features" value="Member login area"><span>Member login area</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Content & Assets -->
+      <div class="form-section" data-section="5">
+        <div class="section-header">
+          <div class="section-number">5</div>
+          <div class="section-title">Content & Assets</div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label">Do you have content ready (text, images, videos)?</div>
+          <div class="radio-row">
+            <label class="check-item"><input type="radio" name="content_ready" value="Yes, all ready"><span>Yes, all ready</span></label>
+            <label class="check-item"><input type="radio" name="content_ready" value="Partially ready"><span>Partially ready</span></label>
+            <label class="check-item"><input type="radio" name="content_ready" value="No, I need help"><span>No, I need help</span></label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label">Do you need professional photos or stock images?</div>
+          <div class="radio-row">
+            <label class="check-item"><input type="radio" name="photos" value="I have my own"><span>I have my own</span></label>
+            <label class="check-item"><input type="radio" name="photos" value="Need stock images"><span>Need stock images</span></label>
+            <label class="check-item"><input type="radio" name="photos" value="Need photography"><span>Need photography</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Budget & Timeline -->
+      <div class="form-section" data-section="6">
+        <div class="section-header">
+          <div class="section-number">6</div>
+          <div class="section-title">Budget & Timeline</div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label">What is your budget range for this project?</div>
+          <div class="budget-grid">
+            <label class="check-item"><input type="radio" name="budget" value="Under $1,000"><span>Under $1,000</span></label>
+            <label class="check-item"><input type="radio" name="budget" value="$1,000 - $3,000"><span>$1,000 – $3,000</span></label>
+            <label class="check-item"><input type="radio" name="budget" value="$3,000 - $5,000"><span>$3,000 – $5,000</span></label>
+            <label class="check-item"><input type="radio" name="budget" value="$5,000 - $10,000"><span>$5,000 – $10,000</span></label>
+            <label class="check-item"><input type="radio" name="budget" value="$10,000+"><span>$10,000+</span></label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="timeline">When do you need the website completed?</label>
+          <input type="text" id="timeline" name="timeline" placeholder="e.g. Within 4 weeks, by March 15th, etc.">
+        </div>
+
+        <div class="field-group">
+          <label for="deadline">Is there a specific event or deadline driving this timeline?</label>
+          <input type="text" id="deadline" name="deadline" placeholder="e.g. Product launch, grand opening, conference...">
+        </div>
+      </div>
+
+      <!-- 7. Additional Information -->
+      <div class="form-section" data-section="7">
+        <div class="section-header">
+          <div class="section-number">7</div>
+          <div class="section-title">Additional Information</div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label">Do you have a domain name? <span class="field-hint">(e.g. yourbusiness.com)</span></div>
+          <div class="radio-row">
+            <label class="check-item"><input type="radio" name="has_domain" value="Yes" id="domain-yes"><span>Yes</span></label>
+            <label class="check-item"><input type="radio" name="has_domain" value="No, I need one"><span>No, I need one</span></label>
+          </div>
+          <div class="domain-inline domain-hidden" id="domain-field">
+            <input type="text" name="domain_name" placeholder="yourbusiness.com">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label">Do you have web hosting?</div>
+          <div class="radio-row">
+            <label class="check-item"><input type="radio" name="has_hosting" value="Yes"><span>Yes</span></label>
+            <label class="check-item"><input type="radio" name="has_hosting" value="No"><span>No</span></label>
+            <label class="check-item"><input type="radio" name="has_hosting" value="Not sure"><span>Not sure</span></label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="additional">Anything else we should know about your project?</label>
+          <textarea id="additional" name="additional_info" placeholder="Share any other details, inspiration, concerns, or questions..."></textarea>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="submit-section">
+        <button type="submit" class="submit-btn">
+          Submit Form
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </button>
+        <div class="submit-note">We'll review your responses and get back to you within 1–2 business days.</div>
+      </div>
+    </form>
+
+    <!-- Success -->
+    <div class="form-success" id="formSuccess">
+      <div class="success-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <h2>Form Submitted!</h2>
+      <p>Thank you for completing the intake form. We'll review your responses and reach out within 1–2 business days to discuss your project.</p>
+    </div>
+  </div>
+
+  <footer class="form-footer">
+    &copy; 2026 IFM Productions. All rights reserved.
+  </footer>
+
+  <script>
+  (function() {
+    'use strict';
+
+    /* --- Check item toggle styling --- */
+    document.querySelectorAll('.check-item input').forEach(function(input) {
+      input.addEventListener('change', function() {
+        var item = this.closest('.check-item');
+        if (this.type === 'checkbox') {
+          item.classList.toggle('checked', this.checked);
+        } else if (this.type === 'radio') {
+          var name = this.name;
+          document.querySelectorAll('input[name="' + name + '"]').forEach(function(r) {
+            r.closest('.check-item').classList.toggle('checked', r.checked);
+          });
+        }
+
+        /* Show "Other" field if Other checkbox is checked */
+        if (this.value === 'Other' && this.name === 'purpose') {
+          var otherField = document.getElementById('purpose-other');
+          otherField.classList.toggle('visible', this.checked);
+        }
+
+        /* Show domain field if "Yes" is selected */
+        if (this.id === 'domain-yes') {
+          document.getElementById('domain-field').classList.add('visible');
+        }
+        if (this.name === 'has_domain' && this.value !== 'Yes') {
+          document.getElementById('domain-field').classList.remove('visible');
+        }
+
+        updateProgress();
+      });
+    });
+
+    /* --- Progress tracking --- */
+    function updateProgress() {
+      var sections = document.querySelectorAll('.form-section');
+      var filled = 0;
+      sections.forEach(function(section) {
+        var inputs = section.querySelectorAll('input, textarea');
+        var hasValue = false;
+        inputs.forEach(function(input) {
+          if (input.type === 'checkbox' || input.type === 'radio') {
+            if (input.checked) hasValue = true;
+          } else if (input.type !== 'hidden' && input.name !== 'bot-field') {
+            if (input.value.trim()) hasValue = true;
+          }
+        });
+        if (hasValue) filled++;
+      });
+
+      var pct = Math.round((filled / sections.length) * 100);
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressText').textContent = filled + ' of ' + sections.length + ' sections';
+    }
+
+    /* Listen for typing too */
+    document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="url"], textarea').forEach(function(el) {
+      el.addEventListener('input', updateProgress);
+    });
+
+    /* --- Form submission --- */
+    var form = document.getElementById('intakeForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var formData = new FormData(form);
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      }).then(function() {
+        form.style.display = 'none';
+        document.querySelector('.submit-section').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }).catch(function() {
+        form.submit();
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
