@@ -54,43 +54,108 @@
         /* Section padding */
         section { padding: 100px 5%; position: relative; z-index: 10; }
 
-        /* Live Stream Section */
-        .live-section { text-align: center; }
-        .live-indicator { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(200, 0, 0, 0.3)); border: 2px solid #ff0000; border-radius: 50px; margin-bottom: 3rem; animation: livePulse 2s ease-in-out infinite; }
-        .live-dot { width: 12px; height: 12px; background: #ff0000; border-radius: 50%; animation: liveDot 1s ease-in-out infinite; }
-        .live-text { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #ff4444; }
-        @keyframes livePulse { 0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); } 50% { box-shadow: 0 0 40px rgba(255, 0, 0, 0.6); } }
-        @keyframes liveDot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        /* ── Archive Search & Filters ── */
+        .archive-controls { max-width: 900px; margin: 0 auto 3rem; text-align: center; }
+        .search-wrap { position: relative; max-width: 500px; margin: 0 auto 2rem; }
+        .search-wrap input {
+            width: 100%; padding: 1rem 1.5rem 1rem 3rem;
+            background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px; color: var(--white); font-family: var(--font-body);
+            font-size: 0.95rem; outline: none; transition: all 0.3s ease;
+        }
+        .search-wrap input::placeholder { color: rgba(255, 255, 255, 0.4); }
+        .search-wrap input:focus { border-color: rgba(255, 255, 255, 0.5); background: rgba(255, 255, 255, 0.12); box-shadow: 0 0 30px rgba(255, 255, 255, 0.1); }
+        .search-icon { position: absolute; left: 1.1rem; top: 50%; transform: translateY(-50%); color: rgba(255, 255, 255, 0.4); font-size: 1rem; pointer-events: none; }
 
-        /* Video Container */
-        .video-container { max-width: 600px; margin: 0 auto 2rem; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 60px rgba(233, 30, 140, 0.15); border: 1px solid rgba(255, 255, 255, 0.2); }
-        .video-container iframe { width: 100%; aspect-ratio: 16/9; display: block; }
+        .filter-pills { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+        .filter-pill {
+            padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.78rem; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; border: 1px solid rgba(255, 255, 255, 0.2);
+            background: transparent; color: rgba(255, 255, 255, 0.6); transition: all 0.3s ease;
+            font-family: var(--font-body);
+        }
+        .filter-pill:hover { border-color: rgba(255, 255, 255, 0.5); color: var(--white); }
+        .filter-pill.active { background: var(--white); color: var(--black); border-color: var(--white); }
 
-        /* Watch Buttons */
-        .watch-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+        .results-count { font-size: 0.8rem; color: rgba(255, 255, 255, 0.4); margin-top: 1.5rem; letter-spacing: 0.05em; }
+
+        /* ── Video Archive Grid ── */
+        .archive-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+            max-width: 1100px; margin: 0 auto;
+        }
+        .teaching-card {
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(15, 15, 15, 0.95));
+            border-radius: 16px; overflow: hidden; transition: all 0.4s var(--ease-flow);
+            border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;
+        }
+        .teaching-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.25); }
+        .teaching-card.hidden { display: none; }
+
+        .card-thumb { position: relative; overflow: hidden; }
+        .card-thumb img { width: 100%; aspect-ratio: 16/9; object-fit: cover; transition: transform 0.5s ease; }
+        .teaching-card:hover .card-thumb img { transform: scale(1.08); }
+        .card-play {
+            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+            background: rgba(0, 0, 0, 0.4); opacity: 0; transition: opacity 0.3s ease;
+        }
+        .teaching-card:hover .card-play { opacity: 1; }
+        .card-play-btn {
+            width: 56px; height: 56px; background: rgba(255, 0, 0, 0.9); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: white;
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5); transition: transform 0.3s ease;
+        }
+        .teaching-card:hover .card-play-btn { transform: scale(1.1); }
+
+        .card-series-badge {
+            position: absolute; top: 0.75rem; left: 0.75rem; padding: 0.3rem 0.8rem;
+            background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); border-radius: 20px;
+            font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .card-info { padding: 1.2rem 1.2rem 1rem; }
+        .card-info h3 { font-size: 0.95rem; font-weight: 600; color: var(--white); line-height: 1.4; margin-bottom: 0.4rem; }
+        .card-info .card-speaker { font-size: 0.78rem; color: rgba(255, 255, 255, 0.5); }
+
+        /* No results message */
+        .no-results { display: none; text-align: center; padding: 4rem 2rem; max-width: 500px; margin: 0 auto; }
+        .no-results.visible { display: block; }
+        .no-results h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--white); }
+        .no-results p { color: rgba(255, 255, 255, 0.5); font-size: 0.9rem; }
+
+        /* ── Video Modal ── */
+        .video-modal {
+            display: none; position: fixed; inset: 0; z-index: 100000;
+            background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(10px);
+            align-items: center; justify-content: center;
+        }
+        .video-modal.open { display: flex; }
+        .modal-inner { position: relative; width: 90%; max-width: 400px; }
+        .modal-close {
+            position: absolute; top: -3rem; right: 0; background: none; border: none;
+            color: var(--white); font-size: 1.8rem; cursor: pointer; opacity: 0.7;
+            transition: opacity 0.3s ease; z-index: 10;
+        }
+        .modal-close:hover { opacity: 1; }
+        .modal-player {
+            width: 100%; aspect-ratio: 9/16; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .modal-player iframe { width: 100%; height: 100%; border: none; }
+        .modal-title {
+            text-align: center; margin-top: 1.2rem; font-size: 0.95rem; font-weight: 600;
+            color: var(--white); line-height: 1.4;
+        }
+
+        /* ── Watch Buttons ── */
         .btn-youtube { background: linear-gradient(135deg, #ff0000, #cc0000); color: var(--white); box-shadow: 0 10px 40px rgba(255, 0, 0, 0.4); }
         .btn-youtube:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 20px 60px rgba(255, 0, 0, 0.6); }
 
-        /* Content Cards */
-        .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 0 auto; }
-        .content-card { background: linear-gradient(135deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9)); border-radius: 20px; overflow: hidden; transition: all 0.5s var(--ease-flow); border: 1px solid rgba(255, 255, 255, 0.15); }
-        .content-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(255, 255, 255, 0.15); }
-        .content-card a { text-decoration: none; color: inherit; display: block; }
-        .card-thumbnail { position: relative; overflow: hidden; }
-        .card-thumbnail img { width: 100%; aspect-ratio: 16/9; object-fit: cover; transition: transform 0.5s ease; }
-        .content-card:hover .card-thumbnail img { transform: scale(1.1); }
-        .play-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.4); opacity: 0; transition: opacity 0.3s ease; }
-        .content-card:hover .play-overlay { opacity: 1; }
-        .play-icon { width: 60px; height: 60px; background: rgba(255, 0, 0, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; }
-        .card-content { padding: 1.5rem; }
-        .card-content h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--white); }
-        .card-content p { font-size: 0.9rem; color: var(--off-white); }
-        .card-meta { display: flex; gap: 1rem; margin-top: 1rem; font-size: 0.75rem; color: var(--white); }
-
-        /* Social Links Section */
+        /* ── Social Links Section ── */
         .social-section { text-align: center; background: linear-gradient(135deg, var(--gray-darker), var(--gray-darkest)); }
         .social-grid { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
-        .social-card { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 2.5rem 3rem; background: linear-gradient(135deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9)); border-radius: 20px; text-decoration: none; transition: all 0.5s var(--ease-flow); border: 1px solid rgba(255, 255, 255, 0.15); min-width: 200px; }
+        .social-card { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 2.5rem 3rem; background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(15, 15, 15, 0.95)); border-radius: 20px; text-decoration: none; transition: all 0.5s var(--ease-flow); border: 1px solid rgba(255, 255, 255, 0.15); min-width: 200px; }
         .social-card:hover { transform: translateY(-10px); }
         .social-card.youtube { border-color: rgba(255, 0, 0, 0.5); }
         .social-card.youtube:hover { box-shadow: 0 20px 60px rgba(255, 0, 0, 0.3); }
@@ -106,11 +171,13 @@
         /* CTA override for teachings page */
         .cta-section::before { background: radial-gradient(circle, rgba(255, 0, 0, 0.15) 0%, transparent 60%); }
 
-        /* Responsive */
-        @media (max-width: 1024px) { .content-grid { grid-template-columns: 1fr; max-width: 500px; } }
+        /* ── Responsive ── */
+        @media (max-width: 1024px) { .archive-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) {
-            .watch-buttons { flex-direction: column; align-items: center; }
+            .archive-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
             .social-grid { flex-direction: column; align-items: center; }
+            .filter-pills { gap: 0.4rem; }
+            .filter-pill { font-size: 0.7rem; padding: 0.4rem 0.9rem; }
         }
     </style>
     <style>
@@ -177,58 +244,197 @@
         </div>
     </section>
 
-    <!-- Live Stream Section -->
-    <section class="live-section" style="padding-top: 60px; padding-bottom: 60px;">
-        <div class="video-container reveal visible" style="position: relative; cursor: pointer;" onclick="window.open('https://www.youtube.com/@thehourofpowerextra2883', '_blank')">
-            <div style="width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, rgba(45, 27, 78, 0.9), rgba(26, 10, 46, 0.95)); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
-                <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #ff0000, #cc0000); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; box-shadow: 0 8px 30px rgba(255, 0, 0, 0.4); transition: transform 0.3s ease;">&#9658;</div>
-                <h3 style="font-size: 1.1rem; color: white; text-align: center;">Watch Our Teachings</h3>
-                <p style="color: rgba(255,255,255,0.7); font-size: 0.8rem;">Click to view on YouTube</p>
-            </div>
-        </div>
-
-        <div class="watch-buttons reveal visible">
-            <a href="https://www.youtube.com/@thehourofpowerextra2883?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                Subscribe to Channel
-            </a>
-        </div>
-    </section>
-
-    <!-- Recent Content -->
-    <section>
+    <!-- Teachings Archive -->
+    <section style="padding-top: 60px;">
         <div class="section-header reveal visible">
-            <span class="section-badge">Recent Messages</span>
-            <h2>Latest Kingdom Teachings</h2>
-            <p>Catch up on our most recent teachings and short-form content.</p>
+            <span class="section-badge">The Archive</span>
+            <h2>Kingdom Teachings</h2>
+            <p>Search and watch powerful teachings from Pastor Curtis Stephens Jr.</p>
         </div>
 
-        <div class="content-grid">
-            <div class="content-card reveal visible">
-                <a href="https://www.youtube.com/@thehourofpowerextra2883/shorts" target="_blank" rel="noopener noreferrer">
-                    <div class="card-thumbnail">
-                        <img src="ministry-teaching.webp" alt="Hour of Power Shorts" loading="lazy">
-                        <div class="play-overlay"><div class="play-icon">&#9658;</div></div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Hour of Power Shorts</h3>
-                        <p>Quick, powerful Kingdom insights in bite-sized videos.</p>
-                        <div class="card-meta"><span>YouTube Shorts</span></div>
-                    </div>
-                </a>
+        <div class="archive-controls reveal visible">
+            <div class="search-wrap">
+                <span class="search-icon">&#128269;</span>
+                <input type="text" id="archiveSearch" placeholder="Search teachings..." autocomplete="off">
             </div>
-            <div class="content-card reveal visible">
-                <a href="https://www.youtube.com/@thehourofpowerextra2883/streams" target="_blank" rel="noopener noreferrer">
-                    <div class="card-thumbnail">
-                        <img src="ministry-congregation1.webp" alt="Past Livestreams" loading="lazy">
-                        <div class="play-overlay"><div class="play-icon">&#9658;</div></div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Past Livestreams</h3>
-                        <p>Replay our live worship services and special events.</p>
-                        <div class="card-meta"><span>Archives</span></div>
-                    </div>
-                </a>
+            <div class="filter-pills" id="filterPills">
+                <button class="filter-pill active" data-filter="all">All</button>
+                <button class="filter-pill" data-filter="law-of-first-mention">Law of First Mention</button>
+<button class="filter-pill" data-filter="types-realities">Types &amp; Realities</button>
+                <button class="filter-pill" data-filter="faith-identity">Faith &amp; Identity</button>
+                <button class="filter-pill" data-filter="kingdom-living">Kingdom Living</button>
             </div>
+            <p class="results-count" id="resultsCount">Showing all 15 teachings</p>
+        </div>
+
+        <div class="archive-grid" id="archiveGrid">
+
+            <!-- Law of First Mention Series -->
+            <div class="teaching-card reveal visible" data-id="ICxQq_GQ7jo" data-series="law-of-first-mention" data-title="The Law of First Mention">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/ICxQq_GQ7jo/hqdefault.jpg" alt="The Law of First Mention" loading="lazy">
+                    <span class="card-series-badge">Law of First Mention</span>
+                    <div class="card-play"><div class="card-play-btn">&#9658;</div></div>
+                </div>
+                <div class="card-info">
+                    <h3>The Law of First Mention</h3>
+                    <span class="card-speaker">Pastor Curtis Stephens Jr.</span>
+                </div>
+            </div>
+
+            <div class="teaching-card reveal visible" data-id="EFxd2UbFTnM" data-series="law-of-first-mention" data-title="Law of First Mention">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/EFxd2UbFTnM/hqdefault.jpg" alt="Law of First Mention" loading="lazy">
+                    <span class="card-series-badge">Law of First Mention</span>
+                    <div class="card-play"><div class="card-play-btn">&#9658;</div></div>
+                </div>
+                <div class="card-info">
+                    <h3>Law of First Mention</h3>
+                    <span class="card-speaker">Pastor Curtis Stephens Jr.</span>
+                </div>
+            </div>
+
+            <div class="teaching-card reveal visible" data-id="Vunv8punjaA" data-series="law-of-first-mention" data-title="The Law of First Mention">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/Vunv8punjaA/hqdefault.jpg" alt="The Law of First Mention" loading="lazy">
+                    <span class="card-series-badge">Law of First Mention</span>
+                    <div class="card-play"><div class="card-play-btn">&#9658;</div></div>
+                </div>
+                <div class="card-info">
+                    <h3>The Law of First Mention</h3>
+                    <span class="card-speaker">Pastor Curtis Stephens Jr.</span>
+                </div>
+            </div>
+
+            <div class="teaching-card reveal visible" data-id="g4PqSAWmzAU" data-series="law-of-first-mention" data-title="Law of First Mention">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/g4PqSAWmzAU/hqdefault.jpg" alt="Law of First Mention" loading="lazy">
+                    <span class="card-series-badge">Law of First Mention</span>
+                    <div class="card-play"><div class="card-play-btn">&#9658;</div></div>
+                </div>
+                <div class="card-info">
+                    <h3>Law of First Mention</h3>
+                    <span class="card-speaker">Pastor Curtis Stephens Jr.</span>
+                </div>
+            </div>
+
+            <div class="teaching-card reveal visible" data-id="lZ5nCEF4z6g" data-series="law-of-first-mention" data-title="The Law of First Mention">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/lZ5nCEF4z6g/hqdefault.jpg" alt="The Law of First Mention" loading="lazy">
+                    <span class="card-series-badge">Law of First Mention</span>
+                    <div class="card-play"><div class="card-play-btn">&#9658;</div></div>
+                </div>
+                <div class="card-info">
+                    <h3>The Law of First Mention</h3>
+                    <span class="card-speaker">Pastor Curtis Stephens Jr.</span>
+                </div>
+            </div>
+
+            <!-- Types & Realities Series -->
+            <div class="teaching-card reveal visible" data-id="DikVSWZlpNg" data-series="types-realities" data-title="BCV O.T. Types Vs N.T. Realities">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/DikVSWZlpNg/hqdefault.jpg" alt="BCV O.T. Types Vs N.T. Realities" loading="lazy">
+                    <span class="card-series-badge">Types &amp; Realities</span>
+                    <div class="card-play"><div class="card-play-btn">&#9658;</div></div>
+                </div>
+                <div class="card-info">
+                    <h3>BCV O.T. Types Vs N.T. Realities</h3>
+                    <span class="card-speaker">Pastor Curtis Stephens Jr.</span>
+                </div>
+            </div>
+
+            <div class="teaching-card reveal visible" data-id="WFzwNAV07cU" data-series="types-realities" data-title="BCV Old Testament Types Vs New Testament Realities">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/WFzwNAV07cU/hqdefault.jpg" alt="BCV Old Testament Types Vs New Testament Realities" loading="lazy">
+                    <span class="card-series-badge">Types &amp; Realities</span>
+                    <div class="card-play"><div class="card-play-btn">&#9658;</div></div>
+                </div>
+                <div class="card-info">
+                    <h3>BCV Old Testament Types Vs New Testament Realities</h3>
+                    <span class="card-speaker">Pastor Curtis Stephens Jr.</span>
+                </div>
+            </div>
+
+            <!-- Faith & Identity -->
+            <div class="teaching-card reveal visible" data-id="KW0by5K9CBo" data-series="faith-identity" data-title="Unlock Your God-Given Creativity: Avoid the Enemy's Lies">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/KW0by5K9CBo/hqdefault.jpg" alt="Unlock Your God-Given Creativity" loading="lazy">
+                    <span class="card-series-badge">Faith &amp; Identity</span>
+                    <div class="card-play"><div class="card-play-btn">&#9658;</div></div>
+                </div>
+                <div class="card-info">
+                    <h3>Unlock Your God-Given Creativity: Avoid the Enemy's Lies</h3>
+                    <span class="card-speaker">Pastor Curtis Stephens Jr.</span>
+                </div>
+            </div>
+
+            <div class="teaching-card reveal visible" data-id="rCR2JHAGbnI" data-series="faith-identity" data-title="Unlock Your God-Given Creativity: Avoid the Enemy's Lies">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/rCR2JHAGbnI/hqdefault.jpg" alt="Unlock Your God-Given Creativity" loading="lazy">
+                    <span class="card-series-badge">Faith &amp; Identity</span>
+                    <div class="card-play"><div class="card-play-btn">&#9658;</div></div>
+                </div>
+                <div class="card-info">
+                    <h3>Unlock Your God-Given Creativity: Avoid the Enemy's Lies</h3>
+                    <span class="card-speaker">Pastor Curtis Stephens Jr.</span>
+                </div>
+            </div>
+
+            <!-- Kingdom Living -->
+            <div class="teaching-card reveal visible" data-id="6nY5sI7RPeU" data-series="kingdom-living" data-title="Be Fruitful: God's Command, Not a Suggestion">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/6nY5sI7RPeU/hqdefault.jpg" alt="Be Fruitful" loading="lazy">
+                    <span class="card-series-badge">Kingdom Living</span>
+                    <div class="card-play"><div class="card-play-btn">&#9658;</div></div>
+                </div>
+                <div class="card-info">
+                    <h3>Be Fruitful: God's Command, Not a Suggestion</h3>
+                    <span class="card-speaker">Pastor Curtis Stephens Jr.</span>
+                </div>
+            </div>
+
+            <div class="teaching-card reveal visible" data-id="qAxu1msUjHM" data-series="kingdom-living" data-title="Be Fruitful: God's Command, Not a Suggestion">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/qAxu1msUjHM/hqdefault.jpg" alt="Be Fruitful" loading="lazy">
+                    <span class="card-series-badge">Kingdom Living</span>
+                    <div class="card-play"><div class="card-play-btn">&#9658;</div></div>
+                </div>
+                <div class="card-info">
+                    <h3>Be Fruitful: God's Command, Not a Suggestion</h3>
+                    <span class="card-speaker">Pastor Curtis Stephens Jr.</span>
+                </div>
+            </div>
+
+            <div class="teaching-card reveal visible" data-id="ZF-OcEWBiU0" data-series="kingdom-living" data-title="Christ Fulfilled the Law: Your Path to Prosperity">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/ZF-OcEWBiU0/hqdefault.jpg" alt="Christ Fulfilled the Law" loading="lazy">
+                    <span class="card-series-badge">Kingdom Living</span>
+                    <div class="card-play"><div class="card-play-btn">&#9658;</div></div>
+                </div>
+                <div class="card-info">
+                    <h3>Christ Fulfilled the Law: Your Path to Prosperity</h3>
+                    <span class="card-speaker">Pastor Curtis Stephens Jr.</span>
+                </div>
+            </div>
+
+            <!-- General -->
+            <div class="teaching-card reveal visible" data-id="5MdSkMO7lZY" data-series="faith-identity" data-title="IFM">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/5MdSkMO7lZY/hqdefault.jpg" alt="IFM" loading="lazy">
+                    <span class="card-series-badge">Faith &amp; Identity</span>
+                    <div class="card-play"><div class="card-play-btn">&#9658;</div></div>
+                </div>
+                <div class="card-info">
+                    <h3>IFM</h3>
+                    <span class="card-speaker">Pastor Curtis Stephens Jr.</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="no-results" id="noResults">
+            <h3>No teachings found</h3>
+            <p>Try a different search term or filter.</p>
         </div>
     </section>
 
@@ -272,6 +478,15 @@
     </section>
 
     </main>
+
+    <!-- Video Player Modal (outside main to avoid stacking context issues) -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-inner">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-player" id="modalPlayer"></div>
+            <p class="modal-title" id="modalTitle"></p>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -334,48 +549,120 @@
     <script>
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
-        mobileToggle.addEventListener('click', () => { navLinks.classList.toggle('open'); const isOpen = navLinks.classList.contains('open'); mobileToggle.innerHTML = isOpen ? '✕' : '☰'; mobileToggle.setAttribute('aria-expanded', isOpen); });
+        mobileToggle.addEventListener('click', () => { navLinks.classList.toggle('open'); const isOpen = navLinks.classList.contains('open'); mobileToggle.textContent = isOpen ? '\u2715' : '\u2630'; mobileToggle.setAttribute('aria-expanded', isOpen); });
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 100); });
         const revealElements = document.querySelectorAll('.reveal');
         const revealOnScroll = () => { revealElements.forEach(el => { const rect = el.getBoundingClientRect(); if (rect.top < window.innerHeight - 100) el.classList.add('visible'); }); };
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
-        // Set current year dynamically
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
+        // ── Archive: Search & Filter ──
+        const cards = document.querySelectorAll('.teaching-card');
+        const searchInput = document.getElementById('archiveSearch');
+        const filterPills = document.querySelectorAll('.filter-pill');
+        const resultsCount = document.getElementById('resultsCount');
+        const noResults = document.getElementById('noResults');
+        let activeFilter = 'all';
+
+        function filterArchive() {
+            const query = searchInput.value.toLowerCase().trim();
+            let visible = 0;
+            cards.forEach(function(card) {
+                var title = card.dataset.title.toLowerCase();
+                var series = card.dataset.series;
+                var matchesFilter = activeFilter === 'all' || series === activeFilter;
+                var matchesSearch = !query || title.indexOf(query) !== -1;
+                if (matchesFilter && matchesSearch) {
+                    card.classList.remove('hidden');
+                    visible++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            resultsCount.textContent = visible === cards.length
+                ? 'Showing all ' + cards.length + ' teachings'
+                : 'Showing ' + visible + ' of ' + cards.length + ' teachings';
+            noResults.classList.toggle('visible', visible === 0);
+        }
+
+        searchInput.addEventListener('input', filterArchive);
+
+        filterPills.forEach(function(pill) {
+            pill.addEventListener('click', function() {
+                filterPills.forEach(function(p) { p.classList.remove('active'); });
+                pill.classList.add('active');
+                activeFilter = pill.dataset.filter;
+                filterArchive();
+            });
+        });
+
+        // ── Video Modal (safe DOM construction) ──
+        var modal = document.getElementById('videoModal');
+        var modalPlayer = document.getElementById('modalPlayer');
+        var modalTitle = document.getElementById('modalTitle');
+        var modalClose = document.getElementById('modalClose');
+
+        // Whitelist: only allow known YouTube video IDs (alphanumeric, hyphens, underscores)
+        var validVideoId = /^[a-zA-Z0-9_-]{11}$/;
+
+        cards.forEach(function(card) {
+            card.addEventListener('click', function() {
+                var videoId = card.dataset.id;
+                if (!validVideoId.test(videoId)) return;
+                // Build iframe using safe DOM methods
+                while (modalPlayer.firstChild) modalPlayer.removeChild(modalPlayer.firstChild);
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+                iframe.setAttribute('allow', 'autoplay; encrypted-media');
+                iframe.setAttribute('allowfullscreen', '');
+                modalPlayer.appendChild(iframe);
+                modalTitle.textContent = card.dataset.title;
+                modal.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeModal() {
+            modal.classList.remove('open');
+            while (modalPlayer.firstChild) modalPlayer.removeChild(modalPlayer.firstChild);
+            document.body.style.overflow = '';
+        }
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
         // Newsletter form handler with Netlify Forms
-        const newsletterForm = document.getElementById('newsletter-form');
+        var newsletterForm = document.getElementById('newsletter-form');
         if (newsletterForm) {
             newsletterForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const formData = new FormData(newsletterForm);
+                var formData = new FormData(newsletterForm);
                 fetch('/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: new URLSearchParams(formData).toString()
-                }).then(() => {
+                }).then(function() {
                     newsletterForm.style.display = 'none';
                     document.getElementById('signup-success').style.display = 'block';
-                }).catch(() => {
+                }).catch(function() {
                     newsletterForm.style.display = 'none';
                     document.getElementById('signup-success').style.display = 'block';
                 });
             });
         }
 
-        // Performance toggle - allows users to disable animations
-        const perfToggle = document.querySelector('.perf-toggle');
+        // Performance toggle
+        var perfToggle = document.querySelector('.perf-toggle');
         if (perfToggle) {
-            // Check for saved preference
-            const animationsDisabled = localStorage.getItem('reduceAnimations') === 'true';
+            var animationsDisabled = localStorage.getItem('reduceAnimations') === 'true';
             if (animationsDisabled) {
                 document.body.classList.add('reduce-animations');
                 perfToggle.setAttribute('aria-pressed', 'true');
             }
-
-            perfToggle.addEventListener('click', () => {
-                const isPressed = perfToggle.getAttribute('aria-pressed') === 'true';
+            perfToggle.addEventListener('click', function() {
+                var isPressed = perfToggle.getAttribute('aria-pressed') === 'true';
                 perfToggle.setAttribute('aria-pressed', !isPressed);
                 document.body.classList.toggle('reduce-animations');
                 localStorage.setItem('reduceAnimations', !isPressed);
