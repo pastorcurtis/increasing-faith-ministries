@@ -79,12 +79,6 @@ module.exports = {
       hashtagCount: 10,
       linkPlacement: 'bio_reference', // "Link in bio"
     },
-    x: {
-      maxLength: 270, // Leave room for link
-      style: 'Sharp, direct, quotable. One strong statement. No fluff.',
-      hashtagCount: 2,
-      linkPlacement: 'end',
-    },
     tiktok: {
       maxLength: 300,
       style: 'Casual but authoritative. Speak directly. Pattern-interrupt opening.',
