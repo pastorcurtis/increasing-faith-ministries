@@ -1,0 +1,15 @@
+{
+  "name": "ifm-social-agent",
+  "version": "1.0.0",
+  "description": "Automated daily social media content generator and poster for IFM",
+  "scripts": {
+    "generate": "node index.js",
+    "generate:preview": "node index.js --preview",
+    "post": "node poster.js",
+    "post:test": "node poster.js --test"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "node-fetch": "^2.7.0"
+  }
+}
