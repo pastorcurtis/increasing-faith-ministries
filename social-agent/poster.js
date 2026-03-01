@@ -1,6 +1,6 @@
 /**
  * IFM Social Media Agent — Auto-Poster
- * Reads generated content and posts to Facebook and X (Twitter)
+ * Reads generated content and posts to Facebook
  *
  * Usage:
  *   node poster.js             — Post today's generated content
@@ -10,57 +10,12 @@
  * Required environment variables:
  *   FACEBOOK_PAGE_TOKEN  — Facebook Page Access Token (long-lived)
  *   FACEBOOK_PAGE_ID     — Facebook Page ID
- *   X_API_KEY            — X (Twitter) API Key
- *   X_API_SECRET         — X (Twitter) API Key Secret
- *   X_ACCESS_TOKEN       — X (Twitter) Access Token
- *   X_ACCESS_SECRET      — X (Twitter) Access Token Secret
  */
 
 require('dotenv').config();
 const fetch = require('node-fetch');
-const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
-
-// -- OAuth 1.0a for X API ---
-
-function generateOAuthSignature(method, url, params, consumerSecret, tokenSecret) {
-  const sortedParams = Object.keys(params).sort()
-    .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
-    .join('&');
-
-  const baseString = [
-    method.toUpperCase(),
-    encodeURIComponent(url),
-    encodeURIComponent(sortedParams),
-  ].join('&');
-
-  const signingKey = `${encodeURIComponent(consumerSecret)}&${encodeURIComponent(tokenSecret)}`;
-  return crypto.createHmac('sha1', signingKey).update(baseString).digest('base64');
-}
-
-function buildOAuthHeader(method, url) {
-  const oauthParams = {
-    oauth_consumer_key: process.env.X_API_KEY,
-    oauth_nonce: crypto.randomBytes(16).toString('hex'),
-    oauth_signature_method: 'HMAC-SHA1',
-    oauth_timestamp: Math.floor(Date.now() / 1000).toString(),
-    oauth_token: process.env.X_ACCESS_TOKEN,
-    oauth_version: '1.0',
-  };
-
-  const signature = generateOAuthSignature(
-    method, url, oauthParams,
-    process.env.X_API_SECRET, process.env.X_ACCESS_SECRET
-  );
-  oauthParams.oauth_signature = signature;
-
-  const header = Object.keys(oauthParams).sort()
-    .map(k => `${encodeURIComponent(k)}="${encodeURIComponent(oauthParams[k])}"`)
-    .join(', ');
-
-  return `OAuth ${header}`;
-}
 
 // -- Platform Posting Functions ---
 
@@ -92,40 +47,6 @@ async function postToFacebook(content) {
       return { success: false, error: data.error.message };
     }
     return { success: true, postId: data.id };
-  } catch (err) {
-    clearTimeout(timeout);
-    return { success: false, error: err.message };
-  }
-}
-
-async function postToX(content) {
-  if (!process.env.X_API_KEY || !process.env.X_ACCESS_TOKEN) {
-    return { success: false, error: 'Missing X API credentials' };
-  }
-
-  const url = 'https://api.twitter.com/2/tweets';
-
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 30000);
-
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      signal: controller.signal,
-      headers: {
-        'Authorization': buildOAuthHeader('POST', url),
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ text: content }),
-    });
-
-    clearTimeout(timeout);
-    const data = await response.json();
-
-    if (data.errors) {
-      return { success: false, error: data.errors[0]?.detail || JSON.stringify(data.errors) };
-    }
-    return { success: true, tweetId: data.data?.id };
   } catch (err) {
     clearTimeout(timeout);
     return { success: false, error: err.message };
@@ -169,20 +90,6 @@ async function main() {
     } else {
       const result = await postToFacebook(fbContent);
       results.facebook = result;
-      console.log(`  -> ${result.success ? 'Posted' : 'FAILED: ' + result.error}`);
-    }
-  }
-
-  // Post to X (Twitter)
-  if (content.posts.x && !content.posts.x.error) {
-    const xContent = content.posts.x.fullPost;
-    console.log(`  X: ${xContent.length} chars`);
-    if (testMode) {
-      console.log('  -> [TEST] Would post to X');
-      results.x = { success: true, test: true };
-    } else {
-      const result = await postToX(xContent);
-      results.x = result;
       console.log(`  -> ${result.success ? 'Posted' : 'FAILED: ' + result.error}`);
     }
   }
@@ -232,4 +139,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { postToFacebook, postToX };
+module.exports = { postToFacebook };

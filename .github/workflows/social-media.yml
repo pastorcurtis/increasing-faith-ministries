@@ -13,14 +13,6 @@ on:
         description: 'Preview only (do not post)'
         type: boolean
         default: false
-      skip_facebook:
-        description: 'Skip Facebook posting'
-        type: boolean
-        default: false
-      skip_x:
-        description: 'Skip X (Twitter) posting'
-        type: boolean
-        default: false
 
 permissions:
   issues: write
@@ -37,11 +29,13 @@ jobs:
         run: |
           MISSING=""
           if [ -z "${{ secrets.GROQ_API_KEY }}" ]; then MISSING="$MISSING GROQ_API_KEY"; fi
+          if [ -z "${{ secrets.FACEBOOK_PAGE_TOKEN }}" ]; then MISSING="$MISSING FACEBOOK_PAGE_TOKEN"; fi
+          if [ -z "${{ secrets.FACEBOOK_PAGE_ID }}" ]; then MISSING="$MISSING FACEBOOK_PAGE_ID"; fi
           if [ -n "$MISSING" ]; then
             echo "::error::Missing required secrets:$MISSING"
             exit 1
           fi
-          echo "Required secrets present"
+          echo "All required secrets present"
 
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -57,7 +51,6 @@ jobs:
 
       # -- Generate content --
       - name: Generate social media content
-        id: generate
         working-directory: social-agent
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
@@ -71,18 +64,13 @@ jobs:
           fi
           node index.js $ARGS
 
-      # -- Post to platforms --
-      - name: Post to social media
+      # -- Post to Facebook --
+      - name: Post to Facebook
         if: ${{ github.event.inputs.preview_only != 'true' }}
-        id: post
         working-directory: social-agent
         env:
           FACEBOOK_PAGE_TOKEN: ${{ secrets.FACEBOOK_PAGE_TOKEN }}
           FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
-          X_API_KEY: ${{ secrets.X_API_KEY }}
-          X_API_SECRET: ${{ secrets.X_API_SECRET }}
-          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
-          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
         run: node poster.js
 
       # -- Commit generated content to archive --
