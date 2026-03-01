@@ -1,0 +1,35 @@
+# =============================================================================
+# Repository Keep-Alive
+# =============================================================================
+# GitHub automatically disables scheduled workflows on repos with no commits
+# for 60 days. This workflow makes a tiny commit every 50 days to prevent
+# the Monthly Newsletter cron from being silently killed.
+#
+# This is a known GitHub limitation:
+# https://docs.github.com/en/actions/using-workflows/disabling-and-enabling-a-workflow
+# =============================================================================
+name: Keep Alive
+
+on:
+  schedule:
+    # Every 50 days (day 1 and day 51 of a 100-day cycle)
+    # Runs at 12:00 UTC on the 15th of odd months (Jan, Mar, May, Jul, Sep, Nov)
+    - cron: '0 12 15 1,3,5,7,9,11 *'
+  workflow_dispatch:
+
+jobs:
+  keepalive:
+    name: Keep repository active
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update keepalive timestamp
+        run: |
+          echo "Last keepalive: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" > .github/.keepalive
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/.keepalive
+          git diff --staged --quiet || git commit -m "chore: keepalive ping to prevent workflow disabling"
+          git push origin main

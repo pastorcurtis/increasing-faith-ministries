@@ -21,8 +21,13 @@ async function callGroqAI(systemPrompt, userPrompt) {
   let lastError;
   for (let attempt = 1; attempt <= config.ai.maxRetries; attempt++) {
     try {
+      // 30-second timeout to prevent indefinite hanging
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 30000);
+
       const response = await fetch(config.ai.baseUrl, {
         method: 'POST',
+        signal: controller.signal,
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + apiKey,
@@ -37,6 +42,8 @@ async function callGroqAI(systemPrompt, userPrompt) {
           temperature: config.ai.temperature,
         }),
       });
+
+      clearTimeout(timeout);
 
       if (!response.ok) {
         const errorBody = await response.text();
