@@ -194,6 +194,57 @@
         .coming-soon h3 { font-family: var(--font-display); font-size: 1.8rem; color: var(--white); margin-bottom: 1rem; }
         .coming-soon p { font-size: 1.05rem; color: var(--off-white); max-width: 500px; margin: 0 auto; line-height: 1.7; }
 
+        /* Prayer Focus section - styled with a distinct accent for each prayer item */
+        .prayer-item {
+            background: linear-gradient(135deg, rgba(45, 27, 78, 0.5), rgba(26, 10, 46, 0.6));
+            border-left: 4px solid rgba(233, 30, 140, 0.5);
+            padding: 1.25rem 1.75rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1rem 0;
+        }
+        .prayer-item h5 {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        .prayer-item p {
+            font-size: 0.95rem;
+            color: var(--off-white);
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+        .prayer-item p:last-child { margin-bottom: 0; }
+        .prayer-item em {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Markdown-rendered content styles within newsletter sections */
+        .newsletter-section .md-content h5 {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--white);
+            margin: 1.25rem 0 0.5rem 0;
+        }
+        .newsletter-section .md-content ul,
+        .newsletter-section .md-content ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--off-white);
+        }
+        .newsletter-section .md-content li {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--off-white);
+            margin-bottom: 0.4rem;
+        }
+        .newsletter-section .md-content strong {
+            color: var(--white);
+        }
+
         @media (max-width: 1024px) { .newsletter-archive-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) {
             .newsletter-archive-grid { grid-template-columns: 1fr; max-width: 500px; }
@@ -456,132 +507,18 @@
         // NEWSLETTER CONTENT LOADING
         // Fetches JSON data from content/newsletters/ and renders dynamically.
         // Falls back to "Coming Soon" state if no content exists yet.
+        //
+        // Data structures:
+        //   latest.json  -> { metadata: {...}, sections: {...} }
+        //   archive.json -> [ { dateKey, title, dateString, theme, htmlFile, ... } ]
         // ===================================================================
 
-        /**
-         * Renders the latest newsletter issue from JSON data.
-         * Expected JSON structure for content/newsletters/latest.json:
-         * {
-         *   "date": "February 2026",
-         *   "title": "Walking in Kingdom Authority",
-         *   "theme": "Understanding the believer's position under Christ's rule",
-         *   "teaching": { "title": "...", "content": "..." },
-         *   "news": [ { "headline": "...", "summary": "..." } ],
-         *   "kingdomLiving": { "title": "...", "content": "..." },
-         *   "scripture": { "text": "...", "reference": "..." },
-         *   "events": [ { "month": "FEB", "day": "1", "title": "...", "description": "..." } ]
-         * }
-         */
-        function renderLatestNewsletter(data) {
-            var container = document.getElementById('latest-newsletter-container');
-            var html = '<div class="newsletter-issue">';
-
-            // Header
-            html += '<div class="newsletter-issue-header">';
-            html += '<p class="issue-date">' + escapeHtml(data.date) + '</p>';
-            html += '<h3>' + escapeHtml(data.title) + '</h3>';
-            if (data.theme) {
-                html += '<p class="issue-theme">' + escapeHtml(data.theme) + '</p>';
-            }
-            html += '</div>';
-
-            // Featured Teaching from Pastor Curtis
-            if (data.teaching) {
-                html += '<div class="newsletter-section">';
-                html += '<div class="newsletter-section-label">Featured Kingdom Teaching</div>';
-                html += '<h4>' + escapeHtml(data.teaching.title) + '</h4>';
-                html += '<p>' + escapeHtml(data.teaching.content) + '</p>';
-                html += '</div>';
-            }
-
-            // Global Kingdom News
-            if (data.news && data.news.length > 0) {
-                html += '<div class="newsletter-section">';
-                html += '<div class="newsletter-section-label">Global Kingdom News</div>';
-                html += '<ul class="news-stories">';
-                for (var i = 0; i < data.news.length; i++) {
-                    html += '<li class="news-story">';
-                    html += '<h5>' + escapeHtml(data.news[i].headline) + '</h5>';
-                    html += '<p>' + escapeHtml(data.news[i].summary) + '</p>';
-                    html += '</li>';
-                }
-                html += '</ul></div>';
-            }
-
-            // Kingdom Living - practical application
-            if (data.kingdomLiving) {
-                html += '<div class="newsletter-section">';
-                html += '<div class="newsletter-section-label">Kingdom Living</div>';
-                html += '<h4>' + escapeHtml(data.kingdomLiving.title) + '</h4>';
-                html += '<p>' + escapeHtml(data.kingdomLiving.content) + '</p>';
-                html += '</div>';
-            }
-
-            // Featured Scripture
-            if (data.scripture) {
-                html += '<div class="newsletter-section">';
-                html += '<div class="newsletter-section-label">Featured Scripture</div>';
-                html += '<div class="featured-scripture">';
-                html += '<blockquote>"' + escapeHtml(data.scripture.text) + '"</blockquote>';
-                html += '<cite>' + escapeHtml(data.scripture.reference) + '</cite>';
-                html += '</div></div>';
-            }
-
-            // Upcoming Events
-            if (data.events && data.events.length > 0) {
-                html += '<div class="newsletter-section">';
-                html += '<div class="newsletter-section-label">Upcoming Events</div>';
-                html += '<ul class="newsletter-events">';
-                for (var j = 0; j < data.events.length; j++) {
-                    var evt = data.events[j];
-                    html += '<li class="newsletter-event">';
-                    html += '<div class="event-date-badge">';
-                    html += '<div class="event-month">' + escapeHtml(evt.month) + '</div>';
-                    html += '<div class="event-day">' + escapeHtml(evt.day) + '</div>';
-                    html += '</div>';
-                    html += '<div class="event-info">';
-                    html += '<h5>' + escapeHtml(evt.title) + '</h5>';
-                    html += '<p>' + escapeHtml(evt.description) + '</p>';
-                    html += '</div></li>';
-                }
-                html += '</ul></div>';
-            }
-
-            html += '</div>';
-            container.innerHTML = html;
-        }
-
-        /**
-         * Renders the archive grid from JSON data.
-         * Expected JSON structure for content/newsletters/archive.json:
-         * {
-         *   "issues": [
-         *     { "date": "January 2026", "title": "...", "summary": "...", "slug": "january-2026" }
-         *   ]
-         * }
-         */
-        function renderArchive(data) {
-            var container = document.getElementById('archive-grid-container');
-            if (!data.issues || data.issues.length === 0) return;
-
-            var html = '<div class="newsletter-archive-grid">';
-            for (var i = 0; i < data.issues.length; i++) {
-                var issue = data.issues[i];
-                html += '<div class="newsletter-archive-card">';
-                html += '<div class="archive-card-body">';
-                html += '<p class="archive-card-date">' + escapeHtml(issue.date) + '</p>';
-                html += '<h4>' + escapeHtml(issue.title) + '</h4>';
-                html += '<p>' + escapeHtml(issue.summary) + '</p>';
-                if (issue.slug) {
-                    html += '<a href="content/newsletters/' + escapeHtml(issue.slug) + '.html" class="archive-card-link">Read Issue &rarr;</a>';
-                }
-                html += '</div></div>';
-            }
-            html += '</div>';
-            container.innerHTML = html;
-        }
-
-        // Simple HTML escaping to prevent XSS when rendering fetched content
+        // -----------------------------------------------------------------
+        // Simple HTML escaping to prevent XSS when rendering fetched content.
+        // All user-supplied text passes through this BEFORE any markdown
+        // formatting is applied, so the resulting HTML only contains
+        // known-safe tags produced by our own converter functions.
+        // -----------------------------------------------------------------
         function escapeHtml(str) {
             if (!str) return '';
             var div = document.createElement('div');
@@ -589,21 +526,560 @@
             return div.innerHTML;
         }
 
-        // Fetch latest newsletter - fall back gracefully if file does not exist
+        // -----------------------------------------------------------------
+        // Handle inline markdown: **bold** and *italic*
+        // Called AFTER escapeHtml, so it only transforms our escaped text.
+        // -----------------------------------------------------------------
+        function inlineMarkdown(text) {
+            // Bold: **text**
+            text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            // Italic: *text* (but not inside bold markers)
+            text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
+            return text;
+        }
+
+        // -----------------------------------------------------------------
+        // Simple Markdown-to-HTML converter
+        // Handles: **bold**, *italic*, ### headings, ## headings,
+        //          line breaks, unordered lists (* or -), ordered lists (1.)
+        //
+        // Security note: all text is run through escapeHtml() first, then
+        // only known-safe tags (<strong>, <em>, <h4>, <h5>, <p>, <ul>,
+        // <ol>, <li>, <br>) are inserted by the converter.
+        // -----------------------------------------------------------------
+        function markdownToHtml(md) {
+            if (!md) return '';
+
+            var lines = md.split('\n');
+            var html = '';
+            var inUl = false;
+            var inOl = false;
+            var inParagraph = false;
+
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                var trimmed = line.trim();
+
+                // Detect list item types
+                var isUnorderedItem = /^[\*\-]\s+(.+)/.test(trimmed);
+                var isOrderedItem = /^\d+\.\s+(.+)/.test(trimmed);
+
+                // Close open lists if this line is not the same type
+                if (!isUnorderedItem && inUl) { html += '</ul>'; inUl = false; }
+                if (!isOrderedItem && inOl) { html += '</ol>'; inOl = false; }
+
+                // Empty line = paragraph break
+                if (trimmed === '') {
+                    if (inParagraph) { html += '</p>'; inParagraph = false; }
+                    continue;
+                }
+
+                // ### Heading -> <h5> (fits newsletter design scale)
+                var h3Match = trimmed.match(/^###\s+(.+)/);
+                if (h3Match) {
+                    if (inParagraph) { html += '</p>'; inParagraph = false; }
+                    html += '<h5>' + inlineMarkdown(escapeHtml(h3Match[1])) + '</h5>';
+                    continue;
+                }
+
+                // ## Heading -> <h4>
+                var h2Match = trimmed.match(/^##\s+(.+)/);
+                if (h2Match) {
+                    if (inParagraph) { html += '</p>'; inParagraph = false; }
+                    html += '<h4>' + inlineMarkdown(escapeHtml(h2Match[1])) + '</h4>';
+                    continue;
+                }
+
+                // Unordered list item: * item  or  - item
+                if (isUnorderedItem) {
+                    if (inParagraph) { html += '</p>'; inParagraph = false; }
+                    var ulContent = trimmed.match(/^[\*\-]\s+(.+)/)[1];
+                    if (!inUl) { html += '<ul>'; inUl = true; }
+                    html += '<li>' + inlineMarkdown(escapeHtml(ulContent)) + '</li>';
+                    continue;
+                }
+
+                // Ordered list item: 1. item
+                if (isOrderedItem) {
+                    if (inParagraph) { html += '</p>'; inParagraph = false; }
+                    var olContent = trimmed.match(/^\d+\.\s+(.+)/)[1];
+                    if (!inOl) { html += '<ol>'; inOl = true; }
+                    html += '<li>' + inlineMarkdown(escapeHtml(olContent)) + '</li>';
+                    continue;
+                }
+
+                // Regular text line
+                if (!inParagraph) {
+                    html += '<p>';
+                    inParagraph = true;
+                } else {
+                    html += '<br>';
+                }
+                html += inlineMarkdown(escapeHtml(trimmed));
+            }
+
+            // Close any remaining open tags
+            if (inParagraph) html += '</p>';
+            if (inUl) html += '</ul>';
+            if (inOl) html += '</ol>';
+
+            return html;
+        }
+
+        // -----------------------------------------------------------------
+        // Parse Kingdom Intelligence content into news story objects.
+        // The markdown uses ### headings to separate individual stories,
+        // with body paragraphs and **Kingdom Perspective:** callouts.
+        // -----------------------------------------------------------------
+        function parseNewsStories(content) {
+            if (!content) return [];
+
+            var stories = [];
+            // Split on ### headings -- first chunk before any heading is ignored
+            var parts = content.split(/^###\s+/m);
+
+            for (var i = 0; i < parts.length; i++) {
+                var part = parts[i].trim();
+                if (!part) continue;
+
+                var lineBreak = part.indexOf('\n');
+                if (lineBreak === -1) {
+                    stories.push({ headline: part.trim(), body: '' });
+                } else {
+                    stories.push({
+                        headline: part.substring(0, lineBreak).trim(),
+                        body: part.substring(lineBreak + 1).trim()
+                    });
+                }
+            }
+
+            return stories;
+        }
+
+        // -----------------------------------------------------------------
+        // Parse Scripture Focus content into structured parts:
+        //   reference  - e.g. "Matthew 25:31-46 (NIV)"
+        //   text       - the scripture passage itself
+        //   commentary - the commentary paragraph(s)
+        //   meditation - the closing meditation prompt
+        // -----------------------------------------------------------------
+        function parseScripture(content) {
+            if (!content) return null;
+
+            var result = { reference: '', text: '', commentary: '', meditation: '' };
+
+            // Find scripture reference: bold line with book + chapter:verse
+            var refMatch = content.match(/\*\*([A-Z0-9][^*]*\d+:\d+[^*]*)\*\*/);
+            if (refMatch) {
+                result.reference = refMatch[1].trim();
+            }
+
+            // Locate the **Commentary** and **Meditation** markers
+            var commentaryIdx = content.indexOf('**Commentary**');
+            var meditationIdx = content.indexOf('**Meditation');
+
+            // Scripture text lives between the reference line and Commentary
+            if (refMatch && commentaryIdx !== -1) {
+                var afterRef = content.indexOf(refMatch[0]) + refMatch[0].length;
+                var scriptureText = content.substring(afterRef, commentaryIdx).trim();
+                // Strip surrounding smart quotes
+                scriptureText = scriptureText.replace(/^["\u201C]+|["\u201D]+$/g, '').trim();
+                result.text = scriptureText;
+            }
+
+            // Commentary text (between **Commentary** and **Meditation**)
+            if (commentaryIdx !== -1) {
+                var afterCommentary = commentaryIdx + '**Commentary**'.length;
+                var endIdx = meditationIdx !== -1 ? meditationIdx : content.length;
+                result.commentary = content.substring(afterCommentary, endIdx).trim();
+            }
+
+            // Meditation prompt
+            if (meditationIdx !== -1) {
+                var meditationLine = content.substring(meditationIdx);
+                result.meditation = meditationLine.replace(/\*\*Meditation:?\*\*\s*/, '').trim();
+            }
+
+            return result;
+        }
+
+        // -----------------------------------------------------------------
+        // Parse Upcoming events content into structured event objects.
+        // Format in markdown: **Event Title** - Date/time info\nDescription
+        // -----------------------------------------------------------------
+        function parseEvents(content) {
+            if (!content) return [];
+
+            var events = [];
+            var lines = content.split('\n');
+            var currentEvent = null;
+
+            // Month abbreviation lookup
+            var monthAbbr = {
+                'january':'JAN','february':'FEB','march':'MAR','april':'APR',
+                'may':'MAY','june':'JUN','july':'JUL','august':'AUG',
+                'september':'SEP','october':'OCT','november':'NOV','december':'DEC'
+            };
+
+            for (var i = 0; i < lines.length; i++) {
+                var trimmed = lines[i].trim();
+
+                // Match: **Event Title** - Date/Time info
+                var eventMatch = trimmed.match(/^\*\*(.+?)\*\*\s*[-\u2013\u2014]\s*(.+)/);
+                if (eventMatch) {
+                    if (currentEvent) events.push(currentEvent);
+
+                    var title = eventMatch[1].trim();
+                    var dateInfo = eventMatch[2].trim();
+
+                    // Try to extract month and day from dateInfo
+                    var month = '';
+                    var day = '';
+
+                    // Specific date: "February 7, 2026 at ..."
+                    var dateMatch = dateInfo.match(/(\w+)\s+(\d{1,2}),?\s*\d{0,4}/);
+                    if (dateMatch) {
+                        var mn = dateMatch[1].toLowerCase();
+                        if (monthAbbr[mn]) {
+                            month = monthAbbr[mn];
+                            day = dateMatch[2];
+                        }
+                    }
+
+                    // Recurring pattern: "Monday-Friday at ..."
+                    if (!month && /^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)/i.test(dateInfo)) {
+                        month = 'WEEKLY';
+                    }
+
+                    currentEvent = {
+                        title: title,
+                        dateInfo: dateInfo,
+                        month: month,
+                        day: day,
+                        description: ''
+                    };
+                    continue;
+                }
+
+                // Skip standalone bold headings (like "**Upcoming at IFM**")
+                if (/^\*\*[^*]+\*\*\s*$/.test(trimmed)) continue;
+
+                // Accumulate description lines for the current event
+                // (skip intro/outro sentences that are not event-specific)
+                if (currentEvent && trimmed && !/^(We're excited|As we dive|To support)/.test(trimmed) && !/^\*\s+/.test(trimmed)) {
+                    if (currentEvent.description) currentEvent.description += ' ';
+                    currentEvent.description += trimmed;
+                }
+            }
+
+            if (currentEvent) events.push(currentEvent);
+            return events;
+        }
+
+        // -----------------------------------------------------------------
+        // Parse Prayer Focus content into individual prayer items.
+        // Uses ### headings for categories and **bold** titles for each
+        // prayer point, with *Prayer: ...* text for the actual prayers.
+        // -----------------------------------------------------------------
+        function parsePrayerItems(content) {
+            if (!content) return [];
+
+            var items = [];
+            var sections = content.split(/^###\s+/m);
+
+            for (var i = 0; i < sections.length; i++) {
+                var section = sections[i].trim();
+                if (!section) continue;
+
+                var firstNewline = section.indexOf('\n');
+                if (firstNewline === -1) continue;
+
+                var category = section.substring(0, firstNewline).trim();
+                var body = section.substring(firstNewline + 1).trim();
+
+                // Find the bold numbered title: **1. Title** or **Title**
+                var titleMatch = body.match(/\*\*\d*\.?\s*(.+?)\*\*/);
+                var title = titleMatch ? titleMatch[1].trim() : category;
+
+                // Get the description and prayer text
+                var afterTitle = titleMatch
+                    ? body.substring(body.indexOf(titleMatch[0]) + titleMatch[0].length)
+                    : body;
+
+                var prayerIdx = afterTitle.indexOf('*Prayer:');
+                if (prayerIdx === -1) prayerIdx = afterTitle.indexOf('*Prayer :');
+
+                var description = '';
+                var prayer = '';
+
+                if (prayerIdx !== -1) {
+                    description = afterTitle.substring(0, prayerIdx).trim();
+                    var prayerText = afterTitle.substring(prayerIdx);
+                    // Extract text between *Prayer: ... (reference)*
+                    prayer = prayerText.replace(/^\*Prayer:\s*/, '').replace(/\*\s*$/, '').trim();
+                } else {
+                    description = afterTitle.trim();
+                }
+
+                items.push({
+                    category: category,
+                    title: title,
+                    description: description,
+                    prayer: prayer
+                });
+            }
+
+            return items;
+        }
+
+        // =================================================================
+        // renderLatestNewsletter(data)
+        //
+        // Reads from the actual latest.json structure:
+        //   data.metadata  -> { title, dateString, theme: { theme, focus } }
+        //   data.sections  -> { pastoralMessage, kingdomIntelligence,
+        //                       kingdomLiving, prayerFocus,
+        //                       scriptureFocus, upcoming }
+        //
+        // Each section has { title: "...", content: "..." } where content
+        // is a markdown string.
+        // =================================================================
+        function renderLatestNewsletter(data) {
+            var container = document.getElementById('latest-newsletter-container');
+            var meta = data.metadata;
+            var sec = data.sections;
+
+            // Build the newsletter HTML using safe DOM-string construction.
+            // All dynamic text goes through escapeHtml() first.
+            var parts = [];
+
+            parts.push('<div class="newsletter-issue">');
+
+            // ---- Header ----
+            parts.push('<div class="newsletter-issue-header">');
+            parts.push('<p class="issue-date">' + escapeHtml(meta.dateString) + '</p>');
+            parts.push('<h3>' + escapeHtml(meta.title) + '</h3>');
+            if (meta.theme) {
+                var themeText = meta.theme.theme;
+                if (meta.theme.focus) themeText += ' \u2014 ' + meta.theme.focus;
+                parts.push('<p class="issue-theme">' + escapeHtml(themeText) + '</p>');
+            }
+            parts.push('</div>');
+
+            // ---- Pastoral Message (maps to old "teaching") ----
+            if (sec.pastoralMessage) {
+                parts.push('<div class="newsletter-section">');
+                parts.push('<div class="newsletter-section-label">Featured Kingdom Teaching</div>');
+                parts.push('<h4>' + escapeHtml(sec.pastoralMessage.title) + '</h4>');
+                parts.push('<div class="md-content">' + markdownToHtml(sec.pastoralMessage.content) + '</div>');
+                parts.push('</div>');
+            }
+
+            // ---- Kingdom Intelligence (maps to old "news" array) ----
+            if (sec.kingdomIntelligence) {
+                var stories = parseNewsStories(sec.kingdomIntelligence.content);
+                if (stories.length > 0) {
+                    parts.push('<div class="newsletter-section">');
+                    parts.push('<div class="newsletter-section-label">Kingdom Intelligence</div>');
+                    parts.push('<ul class="news-stories">');
+                    for (var si = 0; si < stories.length; si++) {
+                        parts.push('<li class="news-story">');
+                        parts.push('<h5>' + escapeHtml(stories[si].headline) + '</h5>');
+                        parts.push('<div class="md-content">' + markdownToHtml(stories[si].body) + '</div>');
+                        parts.push('</li>');
+                    }
+                    parts.push('</ul></div>');
+                }
+            }
+
+            // ---- Kingdom Living ----
+            if (sec.kingdomLiving) {
+                parts.push('<div class="newsletter-section">');
+                parts.push('<div class="newsletter-section-label">Kingdom Living</div>');
+                parts.push('<h4>' + escapeHtml(sec.kingdomLiving.title) + '</h4>');
+                parts.push('<div class="md-content">' + markdownToHtml(sec.kingdomLiving.content) + '</div>');
+                parts.push('</div>');
+            }
+
+            // ---- Prayer Focus (NEW section - not in original HTML) ----
+            if (sec.prayerFocus) {
+                var prayerItems = parsePrayerItems(sec.prayerFocus.content);
+                parts.push('<div class="newsletter-section">');
+                parts.push('<div class="newsletter-section-label">Prayer Focus</div>');
+                parts.push('<h4>' + escapeHtml(sec.prayerFocus.title) + '</h4>');
+
+                if (prayerItems.length > 0) {
+                    for (var pi = 0; pi < prayerItems.length; pi++) {
+                        var pItem = prayerItems[pi];
+                        parts.push('<div class="prayer-item">');
+                        parts.push('<h5>' + escapeHtml(pItem.category) + ': ' + escapeHtml(pItem.title) + '</h5>');
+                        if (pItem.description) {
+                            parts.push('<p>' + inlineMarkdown(escapeHtml(pItem.description)) + '</p>');
+                        }
+                        if (pItem.prayer) {
+                            parts.push('<p><em>' + inlineMarkdown(escapeHtml(pItem.prayer)) + '</em></p>');
+                        }
+                        parts.push('</div>');
+                    }
+                } else {
+                    // Fallback: render full markdown if parsing yields nothing
+                    parts.push('<div class="md-content">' + markdownToHtml(sec.prayerFocus.content) + '</div>');
+                }
+
+                parts.push('</div>');
+            }
+
+            // ---- Scripture Focus ----
+            if (sec.scriptureFocus) {
+                var scripture = parseScripture(sec.scriptureFocus.content);
+                parts.push('<div class="newsletter-section">');
+                parts.push('<div class="newsletter-section-label">Scripture of the Month</div>');
+
+                if (scripture && scripture.reference && scripture.text) {
+                    // Styled blockquote for the scripture passage
+                    parts.push('<div class="featured-scripture">');
+                    var excerpt = scripture.text;
+                    // Trim very long passages to keep layout manageable
+                    if (excerpt.length > 600) {
+                        var bp = excerpt.indexOf('.', 500);
+                        if (bp !== -1 && bp < 700) excerpt = excerpt.substring(0, bp + 1) + '..';
+                    }
+                    parts.push('<blockquote>\u201C' + inlineMarkdown(escapeHtml(excerpt)) + '\u201D</blockquote>');
+                    parts.push('<cite>' + escapeHtml(scripture.reference) + '</cite>');
+                    parts.push('</div>');
+
+                    // Commentary
+                    if (scripture.commentary) {
+                        parts.push('<div class="md-content" style="margin-top: 1.5rem;">');
+                        parts.push('<h5>Commentary</h5>');
+                        parts.push(markdownToHtml(scripture.commentary));
+                        parts.push('</div>');
+                    }
+
+                    // Meditation prompt
+                    if (scripture.meditation) {
+                        parts.push('<p style="margin-top: 1rem; font-style: italic; color: var(--off-white);"><strong style="color: var(--white);">Meditation:</strong> ' + inlineMarkdown(escapeHtml(scripture.meditation)) + '</p>');
+                    }
+                } else {
+                    // Fallback: render full markdown
+                    parts.push('<div class="md-content">' + markdownToHtml(sec.scriptureFocus.content) + '</div>');
+                }
+
+                parts.push('</div>');
+            }
+
+            // ---- Upcoming Events ----
+            if (sec.upcoming) {
+                var events = parseEvents(sec.upcoming.content);
+                parts.push('<div class="newsletter-section">');
+                parts.push('<div class="newsletter-section-label">Upcoming at IFM</div>');
+
+                if (events.length > 0) {
+                    parts.push('<ul class="newsletter-events">');
+                    for (var ei = 0; ei < events.length; ei++) {
+                        var evt = events[ei];
+                        parts.push('<li class="newsletter-event">');
+
+                        // Date badge
+                        parts.push('<div class="event-date-badge">');
+                        if (evt.month && evt.month !== 'WEEKLY' && evt.day) {
+                            parts.push('<div class="event-month">' + escapeHtml(evt.month) + '</div>');
+                            parts.push('<div class="event-day">' + escapeHtml(evt.day) + '</div>');
+                        } else if (evt.month === 'WEEKLY') {
+                            parts.push('<div class="event-month">DAILY</div>');
+                            parts.push('<div class="event-day" style="font-size: 0.8rem;">M-F</div>');
+                        } else {
+                            parts.push('<div class="event-month">EVENT</div>');
+                            parts.push('<div class="event-day" style="font-size: 1rem;">&bull;</div>');
+                        }
+                        parts.push('</div>');
+
+                        parts.push('<div class="event-info">');
+                        parts.push('<h5>' + escapeHtml(evt.title) + '</h5>');
+                        parts.push('<p>' + escapeHtml(evt.dateInfo) + '</p>');
+                        if (evt.description) {
+                            parts.push('<p>' + inlineMarkdown(escapeHtml(evt.description)) + '</p>');
+                        }
+                        parts.push('</div></li>');
+                    }
+                    parts.push('</ul>');
+                } else {
+                    // Fallback: render full markdown
+                    parts.push('<div class="md-content">' + markdownToHtml(sec.upcoming.content) + '</div>');
+                }
+
+                parts.push('</div>');
+            }
+
+            parts.push('</div>');
+
+            // Write to the DOM
+            container.textContent = '';
+            container.insertAdjacentHTML('beforeend', parts.join(''));
+        }
+
+        // =================================================================
+        // renderArchive(data)
+        //
+        // Reads from the actual archive.json structure -- a FLAT ARRAY:
+        //   [ { dateKey, title, dateString, theme, htmlFile, ... } ]
+        //
+        // (The old code incorrectly expected data.issues)
+        // =================================================================
+        function renderArchive(data) {
+            var container = document.getElementById('archive-grid-container');
+
+            // data is a flat array, not { issues: [...] }
+            if (!Array.isArray(data) || data.length === 0) return;
+
+            var parts = [];
+            parts.push('<div class="newsletter-archive-grid">');
+
+            for (var i = 0; i < data.length; i++) {
+                var issue = data[i];
+                parts.push('<div class="newsletter-archive-card">');
+                parts.push('<div class="archive-card-body">');
+                parts.push('<p class="archive-card-date">' + escapeHtml(issue.dateString) + '</p>');
+                parts.push('<h4>' + escapeHtml(issue.title) + '</h4>');
+                if (issue.theme) {
+                    parts.push('<p>Theme: ' + escapeHtml(issue.theme) + '</p>');
+                }
+                if (issue.htmlFile) {
+                    parts.push('<a href="content/newsletters/' + escapeHtml(issue.htmlFile) + '" class="archive-card-link">Read Issue &rarr;</a>');
+                }
+                parts.push('</div></div>');
+            }
+
+            parts.push('</div>');
+
+            container.textContent = '';
+            container.insertAdjacentHTML('beforeend', parts.join(''));
+        }
+
+        // -----------------------------------------------------------------
+        // Fetch latest newsletter
+        // Falls back gracefully to the "Coming Soon" state in the HTML
+        // -----------------------------------------------------------------
         fetch('content/newsletters/latest.json')
             .then(function(response) {
                 if (!response.ok) throw new Error('No latest newsletter found');
                 return response.json();
             })
             .then(function(data) {
-                renderLatestNewsletter(data);
+                if (data && data.metadata && data.sections) {
+                    renderLatestNewsletter(data);
+                } else {
+                    console.log('Newsletter: unexpected data structure - showing coming soon state.');
+                }
             })
             .catch(function(err) {
-                // Keep the default "Coming Soon" state already in the HTML
                 console.log('Newsletter: ' + err.message + ' - showing coming soon state.');
             });
 
-        // Fetch newsletter archive - fall back gracefully if file does not exist
+        // -----------------------------------------------------------------
+        // Fetch newsletter archive
+        // Falls back gracefully to the "Coming Soon" state in the HTML
+        // -----------------------------------------------------------------
         fetch('content/newsletters/archive.json')
             .then(function(response) {
                 if (!response.ok) throw new Error('No archive found');
@@ -613,7 +1089,6 @@
                 renderArchive(data);
             })
             .catch(function(err) {
-                // Keep the default "Coming Soon" state already in the HTML
                 console.log('Archive: ' + err.message + ' - showing coming soon state.');
             });
 
