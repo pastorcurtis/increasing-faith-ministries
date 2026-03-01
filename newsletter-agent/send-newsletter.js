@@ -97,7 +97,7 @@ async function main() {
   console.log(`\nSending to ${subscribers.length} subscriber(s)...`);
 
   // Send in batches
-  const subject = `The Kingdom Report — ${content.month}`;
+  const subject = `The Kingdom Report — ${content.metadata?.dateString || "Monthly Newsletter"}`;
   let sent = 0;
   let failed = 0;
 
