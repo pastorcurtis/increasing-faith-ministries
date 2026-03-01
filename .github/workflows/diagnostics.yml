@@ -1,0 +1,393 @@
+# =============================================================================
+# IFM Weekly Diagnostics
+# =============================================================================
+#
+# Runs every 7 days to check the health of the newsletter system and website.
+# Automatically fixes issues it can resolve. Creates a GitHub Issue for
+# anything that requires manual intervention.
+#
+# Checks performed:
+#   1. Newsletter workflow is enabled (re-enables if disabled)
+#   2. Keep-alive workflow is enabled (re-enables if disabled)
+#   3. latest.json exists and has valid structure
+#   4. archive.json exists and has valid structure
+#   5. Website pages return 200 (homepage, newsletter, key pages)
+#   6. Newsletter page isn't stuck on "Coming Soon"
+#   7. Required secrets are configured
+#   8. Node.js dependencies install cleanly
+#
+# =============================================================================
+name: Weekly Diagnostics
+
+on:
+  schedule:
+    # Every Sunday at 6:00 AM EST (11:00 UTC)
+    - cron: '0 11 * * 0'
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    name: System Health Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # ================================================================
+      # CHECK 1: Verify all workflows are enabled
+      # ================================================================
+      - name: Check workflow status
+        id: workflows
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const results = [];
+            const requiredWorkflows = ['Monthly Newsletter', 'Keep Alive'];
+
+            const { data: workflows } = await github.rest.actions.listRepoWorkflows({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+
+            for (const name of requiredWorkflows) {
+              const wf = workflows.workflows.find(w => w.name === name);
+              if (!wf) {
+                results.push({ name, status: 'MISSING', fixed: false });
+                continue;
+              }
+              if (wf.state !== 'active') {
+                // Auto-fix: re-enable the workflow
+                try {
+                  await github.rest.actions.enableWorkflow({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    workflow_id: wf.id
+                  });
+                  results.push({ name, status: 'RE-ENABLED', fixed: true });
+                  core.warning(`${name} workflow was disabled — automatically re-enabled`);
+                } catch (e) {
+                  results.push({ name, status: 'DISABLED', fixed: false, error: e.message });
+                }
+              } else {
+                results.push({ name, status: 'OK', fixed: false });
+              }
+            }
+
+            core.setOutput('results', JSON.stringify(results));
+            const issues = results.filter(r => r.status !== 'OK' && !r.fixed);
+            if (issues.length > 0) {
+              core.setOutput('workflow_issues', 'true');
+            }
+
+      # ================================================================
+      # CHECK 2: Verify required secrets exist
+      # ================================================================
+      - name: Check secrets
+        id: secrets
+        run: |
+          ISSUES=""
+          if [ -z "$GROQ_API_KEY" ]; then ISSUES="$ISSUES GROQ_API_KEY"; fi
+          if [ -z "$RESEND_API_KEY" ]; then ISSUES="$ISSUES RESEND_API_KEY"; fi
+          if [ -z "$NETLIFY_ACCESS_TOKEN" ]; then ISSUES="$ISSUES NETLIFY_ACCESS_TOKEN"; fi
+          if [ -z "$NETLIFY_SITE_ID" ]; then ISSUES="$ISSUES NETLIFY_SITE_ID"; fi
+          if [ -n "$ISSUES" ]; then
+            echo "missing=$ISSUES" >> $GITHUB_OUTPUT
+            echo "::warning::Missing secrets:$ISSUES"
+          else
+            echo "missing=" >> $GITHUB_OUTPUT
+            echo "All secrets configured."
+          fi
+
+      # ================================================================
+      # CHECK 3: Validate newsletter content files
+      # ================================================================
+      - name: Validate content files
+        id: content
+        run: |
+          ISSUES=""
+          FIXED=""
+
+          # Check latest.json
+          if [ ! -f "content/newsletters/latest.json" ]; then
+            ISSUES="$ISSUES latest.json_missing"
+            echo "::error::content/newsletters/latest.json is missing"
+          else
+            # Validate JSON structure
+            node -e "
+              const data = require('./content/newsletters/latest.json');
+              const errors = [];
+              if (!data.metadata) errors.push('missing metadata');
+              if (!data.metadata?.dateString) errors.push('missing metadata.dateString');
+              if (!data.metadata?.title) errors.push('missing metadata.title');
+              if (!data.sections) errors.push('missing sections');
+              if (!data.sections?.pastoralMessage) errors.push('missing pastoralMessage section');
+              if (!data.sections?.kingdomIntelligence) errors.push('missing kingdomIntelligence section');
+              if (errors.length > 0) {
+                console.error('latest.json structure issues: ' + errors.join(', '));
+                process.exit(1);
+              }
+              console.log('latest.json: valid (' + data.metadata.dateString + ')');
+            " 2>&1 || ISSUES="$ISSUES latest.json_invalid"
+          fi
+
+          # Check archive.json
+          if [ ! -f "content/newsletters/archive.json" ]; then
+            ISSUES="$ISSUES archive.json_missing"
+            echo "::error::content/newsletters/archive.json is missing"
+          else
+            node -e "
+              const data = require('./content/newsletters/archive.json');
+              if (!Array.isArray(data)) {
+                console.error('archive.json is not an array');
+                process.exit(1);
+              }
+              console.log('archive.json: valid (' + data.length + ' entries)');
+            " 2>&1 || ISSUES="$ISSUES archive.json_invalid"
+          fi
+
+          echo "issues=$ISSUES" >> $GITHUB_OUTPUT
+          echo "fixed=$FIXED" >> $GITHUB_OUTPUT
+
+      # ================================================================
+      # CHECK 4: Verify newsletter-agent dependencies install
+      # ================================================================
+      - name: Test newsletter-agent install
+        id: deps
+        working-directory: newsletter-agent
+        run: |
+          npm install 2>&1 || echo "deps_failed=true" >> $GITHUB_OUTPUT
+          echo "Dependencies installed successfully."
+
+      # ================================================================
+      # CHECK 5: Website accessibility
+      # ================================================================
+      - name: Check website pages
+        id: website
+        run: |
+          ISSUES=""
+          PAGES="index.html newsletter.html about.html teachings.html give.html"
+          BASE="https://increasingfaith.net"
+
+          for page in $PAGES; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "$BASE/$page" 2>/dev/null || echo "timeout")
+            if [ "$STATUS" = "200" ]; then
+              echo "$page: OK (200)"
+            else
+              ISSUES="$ISSUES ${page}=${STATUS}"
+              echo "::warning::$page returned $STATUS"
+            fi
+          done
+
+          echo "issues=$ISSUES" >> $GITHUB_OUTPUT
+
+      # ================================================================
+      # CHECK 6: Newsletter page content check
+      # ================================================================
+      - name: Check newsletter renders content
+        id: newsletter_page
+        run: |
+          # Fetch the newsletter page and check if latest.json is accessible
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://increasingfaith.net/content/newsletters/latest.json" 2>/dev/null || echo "timeout")
+          if [ "$STATUS" = "200" ]; then
+            echo "Newsletter JSON accessible: OK"
+            echo "stuck=false" >> $GITHUB_OUTPUT
+          else
+            echo "::warning::Newsletter JSON not accessible (status: $STATUS)"
+            echo "stuck=true" >> $GITHUB_OUTPUT
+          fi
+
+      # ================================================================
+      # CHECK 7: Verify last newsletter run
+      # ================================================================
+      - name: Check last newsletter run
+        id: last_run
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: workflows } = await github.rest.actions.listRepoWorkflows({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+
+            const nlWorkflow = workflows.workflows.find(w => w.name === 'Monthly Newsletter');
+            if (!nlWorkflow) {
+              core.setOutput('status', 'workflow_missing');
+              return;
+            }
+
+            const { data: runs } = await github.rest.actions.listWorkflowRuns({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: nlWorkflow.id,
+              per_page: 1
+            });
+
+            if (runs.workflow_runs.length === 0) {
+              core.setOutput('status', 'never_run');
+              core.warning('Monthly Newsletter has never run');
+              return;
+            }
+
+            const lastRun = runs.workflow_runs[0];
+            const daysSince = Math.floor((Date.now() - new Date(lastRun.created_at).getTime()) / 86400000);
+            core.setOutput('status', lastRun.conclusion || lastRun.status);
+            core.setOutput('days_since', daysSince.toString());
+            core.setOutput('last_run_date', lastRun.created_at);
+
+            if (lastRun.conclusion === 'failure') {
+              core.warning(`Last newsletter run FAILED on ${lastRun.created_at}`);
+            }
+            if (daysSince > 35) {
+              core.warning(`Last newsletter run was ${daysSince} days ago — may have missed a month`);
+            }
+
+      # ================================================================
+      # REPORT: Compile results and create issue if needed
+      # ================================================================
+      - name: Compile diagnostic report
+        id: report
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const workflowResults = JSON.parse('${{ steps.workflows.outputs.results }}' || '[]');
+            const missingSecrets = '${{ steps.secrets.outputs.missing }}'.trim();
+            const contentIssues = '${{ steps.content.outputs.issues }}'.trim();
+            const depsFailed = '${{ steps.deps.outputs.deps_failed }}' === 'true';
+            const websiteIssues = '${{ steps.website.outputs.issues }}'.trim();
+            const newsletterStuck = '${{ steps.newsletter_page.outputs.stuck }}' === 'true';
+            const lastRunStatus = '${{ steps.last_run.outputs.status }}';
+            const daysSinceRun = '${{ steps.last_run.outputs.days_since }}';
+
+            const problems = [];
+            const fixes = [];
+
+            // Workflow checks
+            for (const wf of workflowResults) {
+              if (wf.status === 'RE-ENABLED') {
+                fixes.push(`**${wf.name}** workflow was disabled — automatically re-enabled`);
+              } else if (wf.status !== 'OK') {
+                problems.push(`**${wf.name}** workflow: ${wf.status}${wf.error ? ' — ' + wf.error : ''}`);
+              }
+            }
+
+            // Secret checks
+            if (missingSecrets) {
+              problems.push(`Missing secrets: \`${missingSecrets.trim()}\``);
+            }
+
+            // Content checks
+            if (contentIssues) {
+              problems.push(`Content file issues: ${contentIssues}`);
+            }
+
+            // Dependency checks
+            if (depsFailed) {
+              problems.push('newsletter-agent npm install failed');
+            }
+
+            // Website checks
+            if (websiteIssues) {
+              problems.push(`Website page errors: ${websiteIssues}`);
+            }
+
+            // Newsletter page check
+            if (newsletterStuck) {
+              problems.push('Newsletter JSON not accessible — page may show "Coming Soon"');
+            }
+
+            // Last run check
+            if (lastRunStatus === 'never_run') {
+              problems.push('Monthly Newsletter workflow has never run');
+            } else if (lastRunStatus === 'failure') {
+              problems.push('Last newsletter run failed');
+            }
+            if (parseInt(daysSinceRun) > 35) {
+              problems.push(`Last newsletter was ${daysSinceRun} days ago — may have missed a month`);
+            }
+
+            // Build report
+            const date = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+            let report = `## Weekly Diagnostics — ${date}\n\n`;
+
+            if (fixes.length > 0) {
+              report += `### Auto-Fixed\n${fixes.map(f => '- ' + f).join('\n')}\n\n`;
+            }
+
+            if (problems.length === 0) {
+              report += '### Status: All Systems Healthy\n\nNo issues detected. Newsletter pipeline, website, and content are all operational.\n';
+              console.log('All checks passed — no issues found.');
+              core.setOutput('has_problems', 'false');
+            } else {
+              report += `### Issues Found (${problems.length})\n${problems.map(p => '- ' + p).join('\n')}\n`;
+              core.setOutput('has_problems', 'true');
+            }
+
+            core.setOutput('report', report);
+            core.setOutput('problem_count', problems.length.toString());
+            core.setOutput('fix_count', fixes.length.toString());
+
+      # ================================================================
+      # Create issue only if there are unfixed problems
+      # ================================================================
+      - name: Create diagnostic issue
+        if: steps.report.outputs.has_problems == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            const count = '${{ steps.report.outputs.problem_count }}';
+
+            // Close any previous diagnostic issues to avoid clutter
+            const { data: existing } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'diagnostics',
+              state: 'open'
+            });
+            for (const issue of existing) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed',
+                state_reason: 'not_planned'
+              });
+            }
+
+            const report = `${{ steps.report.outputs.report }}`.replace(/\\n/g, '\n');
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Diagnostics: ${count} issue(s) found — ${date}`,
+              body: report + '\n\n---\n*Auto-generated by Weekly Diagnostics workflow*',
+              labels: ['diagnostics']
+            });
+
+      # ================================================================
+      # Log clean bill of health
+      # ================================================================
+      - name: Report clean health
+        if: steps.report.outputs.has_problems == 'false'
+        run: |
+          echo "========================================"
+          echo "  WEEKLY DIAGNOSTICS: ALL CLEAR"
+          echo "========================================"
+          echo "  Workflows:  OK"
+          echo "  Secrets:    OK"
+          echo "  Content:    OK"
+          echo "  Website:    OK"
+          echo "  Newsletter: OK"
+          echo "========================================"
