@@ -1062,7 +1062,7 @@
         // Fetch latest newsletter
         // Falls back gracefully to the "Coming Soon" state in the HTML
         // -----------------------------------------------------------------
-        fetch('content/newsletters/latest.json')
+        fetch('content/newsletters/latest.json?v=' + Date.now())
             .then(function(response) {
                 if (!response.ok) throw new Error('No latest newsletter found');
                 return response.json();
@@ -1082,7 +1082,7 @@
         // Fetch newsletter archive
         // Falls back gracefully to the "Coming Soon" state in the HTML
         // -----------------------------------------------------------------
-        fetch('content/newsletters/archive.json')
+        fetch('content/newsletters/archive.json?v=' + Date.now())
             .then(function(response) {
                 if (!response.ok) throw new Error('No archive found');
                 return response.json();
