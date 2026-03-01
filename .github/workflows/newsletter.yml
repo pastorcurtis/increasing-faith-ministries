@@ -38,6 +38,10 @@ on:
         type: boolean
         default: true
 
+permissions:
+  issues: write
+  contents: write
+
 concurrency:
   group: newsletter
   cancel-in-progress: false
