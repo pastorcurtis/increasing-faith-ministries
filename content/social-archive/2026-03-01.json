@@ -1,0 +1,63 @@
+{
+  "date": "2026-03-01",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "\"My dear brothers and sisters in Christ, I want to remind you that your identity is not defined by your circumstances, but by your relationship with the Father. You are beloved, chosen, and precious in His sight. Don't let the world's noise dictate your worth, but let the still, small voice of the Spirit remind you of your value and purpose. Stand firm in the knowledge of who you are in Christ, and watch the impossible become possible.\"",
+      "hashtags": [
+        "#KingdomLiving",
+        "#IFM",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "\"My dear brothers and sisters in Christ, I want to remind you that your identity is not defined by your circumstances, but by your relationship with the Father. You are beloved, chosen, and precious in His sight. Don't let the world's noise dictate your worth, but let the still, small voice of the Spirit remind you of your value and purpose. Stand firm in the knowledge of who you are in Christ, and watch the impossible become possible.\"\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#KingdomLiving #IFM #IncreasingFaith"
+    },
+    "instagram": {
+      "content": "\"My child, do not be tossed about by every wind of doctrine. Stand firm in your faith, rooted in the unshakeable truth of God's Word. You are a vessel of His Kingdom, chosen for greatness. Now go, be the light in the darkness, shine forth with confidence.\"",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#Faith",
+        "#Jesus",
+        "#KingdomLiving",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomCitizen",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"My child, do not be tossed about by every wind of doctrine. Stand firm in your faith, rooted in the unshakeable truth of God's Word. You are a vessel of His Kingdom, chosen for greatness. Now go, be the light in the darkness, shine forth with confidence.\"\n\nLearn more about our mission → Link in bio\n\n#KingdomOfGod #Faith #Jesus #KingdomLiving #IncreasingFaith #IFM #KingdomCitizen #JesusIsLord"
+    },
+    "tiktok": {
+      "content": "\"You are not struggling, you are being refined. Don't confuse the process with failure. You are being shaped for greater. I see the end from the beginning, and it's glorious. Press in, don't give up.\"",
+      "hashtags": [
+        "#Jesus",
+        "#KingdomCitizen",
+        "#KingdomOfGod",
+        "#KingdomLiving",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"You are not struggling, you are being refined. Don't confuse the process with failure. You are being shaped for greater. I see the end from the beginning, and it's glorious. Press in, don't give up.\"\n\nLearn more about our mission → Link in bio\n\n#Jesus #KingdomCitizen #KingdomOfGod #KingdomLiving #JesusIsLord"
+    }
+  },
+  "generatedAt": "2026-03-01T14:45:12.653Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1347389394091706"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-03-01T14:45:15.804Z",
+  "testMode": false
+}
