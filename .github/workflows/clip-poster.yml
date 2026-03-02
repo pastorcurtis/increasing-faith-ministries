@@ -1,0 +1,182 @@
+name: Post IFM Clips
+
+on:
+  schedule:
+    # 3 posts per day: 8AM, 12PM, 4PM EST (13:00, 17:00, 21:00 UTC)
+    - cron: '0 13 * * *'
+    - cron: '0 17 * * *'
+    - cron: '0 21 * * *'
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'Dry run (no actual post)'
+        type: boolean
+        default: false
+
+jobs:
+  post-clip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate secrets
+        run: |
+          if [ -z "${{ secrets.FACEBOOK_PAGE_TOKEN }}" ]; then
+            echo "ERROR: FACEBOOK_PAGE_TOKEN not set"
+            exit 1
+          fi
+          if [ -z "${{ secrets.FACEBOOK_PAGE_ID }}" ]; then
+            echo "ERROR: FACEBOOK_PAGE_ID not set"
+            exit 1
+          fi
+
+      - name: Find next clip to post
+        id: find-clip
+        run: |
+          QUEUE_FILE="clips/cloud/queue.json"
+          if [ ! -f "$QUEUE_FILE" ]; then
+            echo "No queue file found. Push clips first."
+            echo "has_clip=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Find next unposted clip
+          NEXT_CLIP=$(python3 -c "
+          import json
+          with open('$QUEUE_FILE') as f:
+              queue = json.load(f)
+          for clip in queue['clips']:
+              if not clip.get('posted', False):
+                  print(clip['file'])
+                  break
+          else:
+              print('')
+          ")
+
+          if [ -z "$NEXT_CLIP" ]; then
+            echo "All clips have been posted! Queue is empty."
+            echo "has_clip=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          CLIP_PATH="clips/cloud/$NEXT_CLIP"
+          if [ ! -f "$CLIP_PATH" ]; then
+            echo "ERROR: Clip file not found: $CLIP_PATH"
+            echo "has_clip=false" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+          FILE_SIZE=$(stat -c%s "$CLIP_PATH" 2>/dev/null || stat -f%z "$CLIP_PATH")
+          FILE_MB=$(echo "scale=1; $FILE_SIZE / 1048576" | bc)
+
+          echo "Next clip: $NEXT_CLIP ($FILE_MB MB)"
+          echo "has_clip=true" >> $GITHUB_OUTPUT
+          echo "clip_file=$NEXT_CLIP" >> $GITHUB_OUTPUT
+          echo "clip_path=$CLIP_PATH" >> $GITHUB_OUTPUT
+
+      - name: Post to Facebook
+        if: steps.find-clip.outputs.has_clip == 'true' && inputs.test_mode != true
+        id: post
+        run: |
+          CLIP_PATH="${{ steps.find-clip.outputs.clip_path }}"
+
+          CAPTION="Watch Hour of Power LIVE Mon-Fri 8:15 AM
+          increasingfaith.net
+
+          #HourOfPower #KingdomOfGod #IncreasingFaith #IFM #KingdomLiving #PastorCurtis"
+
+          echo "Posting ${{ steps.find-clip.outputs.clip_file }} to Facebook..."
+
+          RESPONSE=$(curl -s \
+            -X POST \
+            "https://graph.facebook.com/v19.0/${{ secrets.FACEBOOK_PAGE_ID }}/videos" \
+            -F "access_token=${{ secrets.FACEBOOK_PAGE_TOKEN }}" \
+            -F "description=$CAPTION" \
+            -F "source=@$CLIP_PATH")
+
+          echo "Response: $RESPONSE"
+
+          # Check for errors
+          ERROR=$(echo "$RESPONSE" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('error',{}).get('message',''))" 2>/dev/null || echo "")
+          if [ -n "$ERROR" ]; then
+            echo "ERROR: $ERROR"
+            exit 1
+          fi
+
+          VIDEO_ID=$(echo "$RESPONSE" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('id','') or d.get('video_id',''))" 2>/dev/null)
+          echo "Posted! Video ID: $VIDEO_ID"
+          echo "video_id=$VIDEO_ID" >> $GITHUB_OUTPUT
+
+      - name: Update queue
+        if: steps.find-clip.outputs.has_clip == 'true' && inputs.test_mode != true
+        run: |
+          python3 -c "
+          import json
+          from datetime import datetime
+
+          QUEUE_FILE = 'clips/cloud/queue.json'
+          clip_file = '${{ steps.find-clip.outputs.clip_file }}'
+          video_id = '${{ steps.post.outputs.video_id }}'
+
+          with open(QUEUE_FILE) as f:
+              queue = json.load(f)
+
+          for clip in queue['clips']:
+              if clip['file'] == clip_file:
+                  clip['posted'] = True
+                  clip['video_id'] = video_id
+                  clip['posted_at'] = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
+                  break
+
+          # Update stats
+          posted = sum(1 for c in queue['clips'] if c.get('posted'))
+          total = len(queue['clips'])
+          queue['stats'] = {
+              'total': total,
+              'posted': posted,
+              'remaining': total - posted,
+              'last_updated': datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
+          }
+
+          with open(QUEUE_FILE, 'w') as f:
+              json.dump(queue, f, indent=2)
+          "
+
+      - name: Remove posted clip file to save space
+        if: steps.find-clip.outputs.has_clip == 'true' && inputs.test_mode != true
+        run: |
+          rm -f "${{ steps.find-clip.outputs.clip_path }}"
+
+      - name: Commit queue update
+        if: steps.find-clip.outputs.has_clip == 'true' && inputs.test_mode != true
+        run: |
+          git config user.name "IFM Clip Bot"
+          git config user.email "bot@increasingfaith.net"
+          git add clips/cloud/queue.json
+          git add -u clips/cloud/  # stage deleted clip file
+          CLIP_NAME="${{ steps.find-clip.outputs.clip_file }}"
+          git commit -m "Posted clip: ${CLIP_NAME}" || echo "Nothing to commit"
+          git push
+
+      - name: Summary
+        if: always()
+        run: |
+          if [ "${{ steps.find-clip.outputs.has_clip }}" != "true" ]; then
+            echo "⏸️ No clips to post. Push more clips to refill the queue."
+          elif [ "${{ inputs.test_mode }}" == "true" ]; then
+            echo "🧪 TEST MODE — would have posted: ${{ steps.find-clip.outputs.clip_file }}"
+          else
+            echo "✅ Posted: ${{ steps.find-clip.outputs.clip_file }}"
+            echo "📹 Video ID: ${{ steps.post.outputs.video_id }}"
+            # Show remaining
+            python3 -c "
+          import json
+          with open('clips/cloud/queue.json') as f:
+              q = json.load(f)
+          remaining = sum(1 for c in q['clips'] if not c.get('posted'))
+          print(f'📋 Queue: {remaining} clips remaining')
+          " 2>/dev/null || true
+          fi
