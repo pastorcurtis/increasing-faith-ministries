@@ -2,8 +2,10 @@
   "clips": [
     {
       "file": "2_Pastors_Role_Faith_Not_Inheritance_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-01T19:59:15"
+      "posted": true,
+      "added_at": "2026-03-01T19:59:15",
+      "posted_at": "2026-03-02T15:06:00Z",
+      "video_id": "manually_marked_posted"
     },
     {
       "file": "2_STOP_Excessive_Giving_Dont_Go_BROKE_0m02s_square.mp4",
@@ -108,7 +110,7 @@
   ],
   "stats": {
     "total": 21,
-    "posted": 0,
-    "remaining": 21
+    "posted": 1,
+    "remaining": 20
   }
 }
