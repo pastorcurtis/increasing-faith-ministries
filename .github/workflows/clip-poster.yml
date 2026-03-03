@@ -16,6 +16,11 @@ on:
 permissions:
   contents: write
 
+# Prevent overlapping runs from posting the same clip twice
+concurrency:
+  group: clip-poster
+  cancel-in-progress: false
+
 jobs:
   post-clip:
     runs-on: ubuntu-latest
@@ -33,6 +38,22 @@ jobs:
             echo "ERROR: FACEBOOK_PAGE_ID not set"
             exit 1
           fi
+
+      - name: Pre-flight push check
+        run: |
+          # Verify we can push BEFORE posting to Facebook
+          # This catches permission issues early, preventing duplicate posts
+          git config user.name "IFM Clip Bot"
+          git config user.email "bot@increasingfaith.net"
+          git commit --allow-empty -m "pre-flight check (will be amended)"
+          git push || {
+            echo "ERROR: Cannot push to repo. Fix permissions before posting."
+            echo "This prevents clips from being posted without queue tracking."
+            exit 1
+          }
+          # Reset the test commit so we have a clean state
+          git reset HEAD~1
+          git push --force-with-lease
 
       - name: Find next clip to post
         id: find-clip
@@ -111,9 +132,10 @@ jobs:
           echo "Posted! Video ID: $VIDEO_ID"
           echo "video_id=$VIDEO_ID" >> $GITHUB_OUTPUT
 
-      - name: Update queue
+      - name: Update queue and push
         if: steps.find-clip.outputs.has_clip == 'true' && inputs.test_mode != true
         run: |
+          # Update queue.json to mark clip as posted
           python3 -c "
           import json
           from datetime import datetime, timezone
@@ -146,18 +168,15 @@ jobs:
               json.dump(queue, f, indent=2)
           "
 
-      - name: Remove posted clip file to save space
-        if: steps.find-clip.outputs.has_clip == 'true' && inputs.test_mode != true
-        run: |
+          # Remove posted clip file to save space
           rm -f "${{ steps.find-clip.outputs.clip_path }}"
 
-      - name: Commit queue update
-        if: steps.find-clip.outputs.has_clip == 'true' && inputs.test_mode != true
-        run: |
-          git config user.name "IFM Clip Bot"
-          git config user.email "bot@increasingfaith.net"
+          # Pull latest in case another run pushed while we were uploading
+          git pull --rebase origin main
+
+          # Commit and push
           git add clips/cloud/queue.json
-          git add -u clips/cloud/  # stage deleted clip file
+          git add -u clips/cloud/
           CLIP_NAME="${{ steps.find-clip.outputs.clip_file }}"
           git commit -m "Posted clip: ${CLIP_NAME}" || echo "Nothing to commit"
           git push
@@ -166,18 +185,18 @@ jobs:
         if: always()
         run: |
           if [ "${{ steps.find-clip.outputs.has_clip }}" != "true" ]; then
-            echo "⏸️ No clips to post. Push more clips to refill the queue."
+            echo "No clips to post. Push more clips to refill the queue."
           elif [ "${{ inputs.test_mode }}" == "true" ]; then
-            echo "🧪 TEST MODE — would have posted: ${{ steps.find-clip.outputs.clip_file }}"
+            echo "TEST MODE - would have posted: ${{ steps.find-clip.outputs.clip_file }}"
           else
-            echo "✅ Posted: ${{ steps.find-clip.outputs.clip_file }}"
-            echo "📹 Video ID: ${{ steps.post.outputs.video_id }}"
+            echo "Posted: ${{ steps.find-clip.outputs.clip_file }}"
+            echo "Video ID: ${{ steps.post.outputs.video_id }}"
             # Show remaining
             python3 -c "
           import json
           with open('clips/cloud/queue.json') as f:
               q = json.load(f)
           remaining = sum(1 for c in q['clips'] if not c.get('posted'))
-          print(f'📋 Queue: {remaining} clips remaining')
+          print(f'Queue: {remaining} clips remaining')
           " 2>/dev/null || true
           fi
