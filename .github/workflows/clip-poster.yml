@@ -13,14 +13,15 @@ on:
         type: boolean
         default: false
 
+permissions:
+  contents: write
+
 jobs:
   post-clip:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Validate secrets
         run: |
@@ -115,7 +116,7 @@ jobs:
         run: |
           python3 -c "
           import json
-          from datetime import datetime
+          from datetime import datetime, timezone
 
           QUEUE_FILE = 'clips/cloud/queue.json'
           clip_file = '${{ steps.find-clip.outputs.clip_file }}'
@@ -128,7 +129,7 @@ jobs:
               if clip['file'] == clip_file:
                   clip['posted'] = True
                   clip['video_id'] = video_id
-                  clip['posted_at'] = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
+                  clip['posted_at'] = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
                   break
 
           # Update stats
@@ -138,7 +139,7 @@ jobs:
               'total': total,
               'posted': posted,
               'remaining': total - posted,
-              'last_updated': datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
+              'last_updated': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
           }
 
           with open(QUEUE_FILE, 'w') as f:
