@@ -1,0 +1,63 @@
+{
+  "date": "2026-03-04",
+  "day": 3,
+  "theme": "Kingdom Question",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "Are you more committed to your faith journey than you are to your marriage or career?\n\nThis question matters because when our priorities are out of order, chaos can ensue in every area of life, including our relationships and our walk with God.",
+      "hashtags": [
+        "#KingdomLiving",
+        "#Detroit",
+        "#IFM"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "Are you more committed to your faith journey than you are to your marriage or career?\n\nThis question matters because when our priorities are out of order, chaos can ensue in every area of life, including our relationships and our walk with God.\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#KingdomLiving #Detroit #IFM"
+    },
+    "instagram": {
+      "content": "Are you building your life on the solid rock of God's Word or the shifting sands of external validation?\n\nAs believers, we're called to a life of integrity, where our identity and purpose are rooted in Christ, not in what others think of us. How can we break free from the approval of man and find our worth in God's eyes?",
+      "hashtags": [
+        "#Southfield",
+        "#KingdomLiving",
+        "#IFM",
+        "#ChurchFamily",
+        "#KingdomOfGod",
+        "#KingdomCommunity",
+        "#IncreasingFaith",
+        "#Detroit"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Are you building your life on the solid rock of God's Word or the shifting sands of external validation?\n\nAs believers, we're called to a life of integrity, where our identity and purpose are rooted in Christ, not in what others think of us. How can we break free from the approval of man and find our worth in God's eyes?\n\nJoin our community → Link in bio\n\n#Southfield #KingdomLiving #IFM #ChurchFamily #KingdomOfGod #KingdomCommunity #IncreasingFaith #Detroit"
+    },
+    "tiktok": {
+      "content": "Are your goals in life more about pleasing others or truly pleasing God?\n\nAs believers, we're often pressured to conform to societal expectations, but the Bible says we're to \"Live as children of light\" (Ephesians 5:8), not try to fit in with the world.",
+      "hashtags": [
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#ChurchFamily",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Are your goals in life more about pleasing others or truly pleasing God?\n\nAs believers, we're often pressured to conform to societal expectations, but the Bible says we're to \"Live as children of light\" (Ephesians 5:8), not try to fit in with the world.\n\nJoin our community → Link in bio\n\n#IFM #IncreasingFaith #KingdomOfGod #ChurchFamily #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-03-04T16:00:43.175Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1349904577173521"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-03-04T16:00:45.926Z",
+  "testMode": false
+}
