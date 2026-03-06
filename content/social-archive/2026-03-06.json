@@ -1,0 +1,63 @@
+{
+  "date": "2026-03-06",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "\"The Hidden Factor in Spiritual Decline: A New Study Reveals the Surprising Link Between Biblical Literacy and Church Attendance. We delve into the data and expose the startling truth that could revolutionize your understanding of discipleship. Read The Kingdom Report to learn more.\"",
+      "hashtags": [
+        "#KingdomLiving",
+        "#JesusIsLord",
+        "#IFM"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "\"The Hidden Factor in Spiritual Decline: A New Study Reveals the Surprising Link Between Biblical Literacy and Church Attendance. We delve into the data and expose the startling truth that could revolutionize your understanding of discipleship. Read The Kingdom Report to learn more.\"\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#KingdomLiving #JesusIsLord #IFM"
+    },
+    "instagram": {
+      "content": "\"The Kingdom is shifting. This season's unprecedented alignment of celestial bodies is triggering a divine reset, poised to shake the foundations of power structures worldwide. Get the inside intel in our latest Kingdom Report newsletter.\"",
+      "hashtags": [
+        "#KingdomLiving",
+        "#IFM",
+        "#KingdomOfGod",
+        "#JesusIsLord",
+        "#KingdomCitizen",
+        "#Faith",
+        "#IncreasingFaith",
+        "#Jesus"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "\"The Kingdom is shifting. This season's unprecedented alignment of celestial bodies is triggering a divine reset, poised to shake the foundations of power structures worldwide. Get the inside intel in our latest Kingdom Report newsletter.\"\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomLiving #IFM #KingdomOfGod #JesusIsLord #KingdomCitizen #Faith #IncreasingFaith #Jesus"
+    },
+    "tiktok": {
+      "content": "\"Unpack the hidden patterns driving America's spiritual shift. This month's Kingdom Report dives into the surprising correlations between societal trends and prophetic fulfillments. Read the inside story and gain insight into our nation's future.\"",
+      "hashtags": [
+        "#KingdomCitizen",
+        "#KingdomOfGod",
+        "#KingdomLiving",
+        "#JesusIsLord",
+        "#Jesus"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "\"Unpack the hidden patterns driving America's spiritual shift. This month's Kingdom Report dives into the surprising correlations between societal trends and prophetic fulfillments. Read the inside story and gain insight into our nation's future.\"\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomCitizen #KingdomOfGod #KingdomLiving #JesusIsLord #Jesus"
+    }
+  },
+  "generatedAt": "2026-03-06T15:55:18.651Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1351472277016751"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-03-06T15:55:20.675Z",
+  "testMode": false
+}
