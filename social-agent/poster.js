@@ -24,7 +24,7 @@ async function postToFacebook(content) {
     return { success: false, error: 'Missing FACEBOOK_PAGE_TOKEN or FACEBOOK_PAGE_ID' };
   }
 
-  const url = `https://graph.facebook.com/v19.0/${process.env.FACEBOOK_PAGE_ID}/feed`;
+  const url = `https://graph.facebook.com/v21.0/${process.env.FACEBOOK_PAGE_ID}/feed`;
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 30000);

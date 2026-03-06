@@ -114,7 +114,7 @@ jobs:
       # -- Send emails to subscribers --
       - name: Send newsletter to subscribers
         id: send
-        if: inputs.send_emails != false
+        if: ${{ github.event_name == 'schedule' || inputs.send_emails != false }}
         continue-on-error: true
         working-directory: newsletter-agent
         run: node send-newsletter.js
