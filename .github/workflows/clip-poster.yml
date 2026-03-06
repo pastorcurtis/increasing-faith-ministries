@@ -39,21 +39,10 @@ jobs:
             exit 1
           fi
 
-      - name: Pre-flight push check
+      - name: Configure git
         run: |
-          # Verify we can push BEFORE posting to Facebook
-          # This catches permission issues early, preventing duplicate posts
           git config user.name "IFM Clip Bot"
           git config user.email "bot@increasingfaith.net"
-          git commit --allow-empty -m "pre-flight check (will be amended)"
-          git push || {
-            echo "ERROR: Cannot push to repo. Fix permissions before posting."
-            echo "This prevents clips from being posted without queue tracking."
-            exit 1
-          }
-          # Reset the test commit so we have a clean state
-          git reset HEAD~1
-          git push --force-with-lease
 
       - name: Find next clip to post
         id: find-clip
@@ -114,7 +103,7 @@ jobs:
 
           RESPONSE=$(curl -s \
             -X POST \
-            "https://graph.facebook.com/v19.0/${{ secrets.FACEBOOK_PAGE_ID }}/videos" \
+            "https://graph.facebook.com/v21.0/${{ secrets.FACEBOOK_PAGE_ID }}/videos" \
             -F "access_token=${{ secrets.FACEBOOK_PAGE_TOKEN }}" \
             -F "description=$CAPTION" \
             -F "source=@$CLIP_PATH")
@@ -171,14 +160,15 @@ jobs:
           # Remove posted clip file to save space
           rm -f "${{ steps.find-clip.outputs.clip_path }}"
 
-          # Pull latest in case another run pushed while we were uploading
-          git pull --rebase origin main
-
-          # Commit and push
+          # Stage and commit changes FIRST (before pulling)
           git add clips/cloud/queue.json
           git add -u clips/cloud/
           CLIP_NAME="${{ steps.find-clip.outputs.clip_file }}"
           git commit -m "Posted clip: ${CLIP_NAME}" || echo "Nothing to commit"
+
+          # Pull with rebase to incorporate any changes, then push
+          # Now safe because our changes are committed
+          git pull --rebase origin main
           git push
 
       - name: Summary
