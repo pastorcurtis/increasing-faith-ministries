@@ -37,8 +37,10 @@
     },
     {
       "file": "4_Let_Go_to_Reign_Sacrifices_for_Your_Ri_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-01T19:59:15"
+      "posted": true,
+      "added_at": "2026-03-01T19:59:15",
+      "video_id": "1555004702232542",
+      "posted_at": "2026-03-06T21:55:12Z"
     },
     {
       "file": "5_Christ_Fulfilled_the_Law_Your_Path_to_0m10s_square.mp4",
@@ -118,8 +120,8 @@
   ],
   "stats": {
     "total": 21,
-    "posted": 5,
-    "remaining": 16,
-    "last_updated": "2026-03-06T18:05:22Z"
+    "posted": 6,
+    "remaining": 15,
+    "last_updated": "2026-03-06T21:55:12Z"
   }
 }
