@@ -23,8 +23,10 @@
     },
     {
       "file": "3_Awaken_Your_God_Class_Rise_Above_Relig_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-01T19:59:15"
+      "posted": true,
+      "added_at": "2026-03-01T19:59:15",
+      "video_id": "796315576269287",
+      "posted_at": "2026-03-06T15:01:43Z"
     },
     {
       "file": "4_God_Consciousness_Escaping_Hellish_Lif_0m03s_square.mp4",
@@ -114,8 +116,8 @@
   ],
   "stats": {
     "total": 21,
-    "posted": 3,
-    "remaining": 18,
-    "last_updated": "2026-03-06T02:29:41Z"
+    "posted": 4,
+    "remaining": 17,
+    "last_updated": "2026-03-06T15:01:43Z"
   }
 }
