@@ -58,8 +58,10 @@
     },
     {
       "file": "8_Joshua_Generation_Freedom_from_Old_Rul_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-01T19:59:15"
+      "posted": true,
+      "added_at": "2026-03-01T19:59:15",
+      "video_id": "1675599210473470",
+      "posted_at": "2026-03-07T21:18:08Z"
     },
     {
       "file": "God_isn_t_studying_your_past__it_s_been_0m05s_square.mp4",
@@ -124,8 +126,8 @@
   ],
   "stats": {
     "total": 21,
-    "posted": 8,
-    "remaining": 13,
-    "last_updated": "2026-03-07T17:47:26Z"
+    "posted": 9,
+    "remaining": 12,
+    "last_updated": "2026-03-07T21:18:08Z"
   }
 }
