@@ -1,0 +1,63 @@
+{
+  "date": "2026-03-07",
+  "day": 6,
+  "theme": "Worship Reminder",
+  "themeType": "event_reminder",
+  "targetPage": "https://increasingfaith.net/visit.html",
+  "posts": {
+    "facebook": {
+      "content": "\"Join us in the presence of God. If you're in the Southfield area, come worship with us in person on the First Saturday of each month at 12 Noon, 24301 Telegraph. If you can't make it in person, join us daily online for Hour of Power, Monday through Friday at 8:15 AM on Facebook Live. Let's unite in praise and adoration, seeking the face of Jesus together.\"",
+      "hashtags": [
+        "#KingdomLiving",
+        "#IFM",
+        "#Jesus"
+      ],
+      "cta": "\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html",
+      "fullPost": "\"Join us in the presence of God. If you're in the Southfield area, come worship with us in person on the First Saturday of each month at 12 Noon, 24301 Telegraph. If you can't make it in person, join us daily online for Hour of Power, Monday through Friday at 8:15 AM on Facebook Live. Let's unite in praise and adoration, seeking the face of Jesus together.\"\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html\n\n#KingdomLiving #IFM #Jesus"
+    },
+    "instagram": {
+      "content": "\"Join us for a time of divine connection. \n\nEvery First Saturday at 12 Noon, we gather in-person at 24301 Telegraph in Southfield, MI. Come experience the presence of God with us.\n\nOr, join us daily online from Monday to Friday at 8:15 AM on Facebook Live for our Hour of Power. Let's seek Him together.\"",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#KingdomLiving",
+        "#Jesus",
+        "#KingdomCitizen",
+        "#KingdomOfGod",
+        "#JesusIsLord",
+        "#Faith",
+        "#IFM"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "\"Join us for a time of divine connection. \n\nEvery First Saturday at 12 Noon, we gather in-person at 24301 Telegraph in Southfield, MI. Come experience the presence of God with us.\n\nOr, join us daily online from Monday to Friday at 8:15 AM on Facebook Live for our Hour of Power. Let's seek Him together.\"\n\nJoin us for worship → Link in bio\n\n#IncreasingFaith #KingdomLiving #Jesus #KingdomCitizen #KingdomOfGod #JesusIsLord #Faith #IFM"
+    },
+    "tiktok": {
+      "content": "\"It's time to draw near, friends. Join us in person on the 1st Saturday of every month at 12 Noon in Southfield, Michigan, or online with me every weekday at 8:15 AM on Facebook Live. Let's worship together.\"",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#KingdomCitizen",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "\"It's time to draw near, friends. Join us in person on the 1st Saturday of every month at 12 Noon in Southfield, Michigan, or online with me every weekday at 8:15 AM on Facebook Live. Let's worship together.\"\n\nJoin us for worship → Link in bio\n\n#KingdomOfGod #KingdomCitizen #IncreasingFaith #IFM #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-03-07T14:51:03.125Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1352198583610787"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-03-07T14:51:06.030Z",
+  "testMode": false
+}
