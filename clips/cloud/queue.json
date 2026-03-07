@@ -44,8 +44,10 @@
     },
     {
       "file": "5_Christ_Fulfilled_the_Law_Your_Path_to_0m10s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-01T19:59:15"
+      "posted": true,
+      "added_at": "2026-03-01T19:59:15",
+      "video_id": "1141350334724585",
+      "posted_at": "2026-03-07T13:58:14Z"
     },
     {
       "file": "5_John_3_16_Beyond_Belief_Understanding_0m02s_square.mp4",
@@ -120,8 +122,8 @@
   ],
   "stats": {
     "total": 21,
-    "posted": 6,
-    "remaining": 15,
-    "last_updated": "2026-03-06T21:55:12Z"
+    "posted": 7,
+    "remaining": 14,
+    "last_updated": "2026-03-07T13:58:14Z"
   }
 }
