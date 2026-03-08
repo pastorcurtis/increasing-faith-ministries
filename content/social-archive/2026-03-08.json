@@ -1,0 +1,63 @@
+{
+  "date": "2026-03-08",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "My friends, I want to remind you that your worth is not defined by your accomplishments or failures. You are a child of the King, dearly loved and cherished in His sight. Don't let the voices of doubt and condemnation whisper lies into your ear. Instead, listen to the voice of God, who reminds you that you are worthy in His eyes. You are His masterpiece, beloved and valued.\n\nRise up, dear ones, and walk in the confidence of your identity in Christ.",
+      "hashtags": [
+        "#KingdomLiving",
+        "#JesusIsLord",
+        "#Faith"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "My friends, I want to remind you that your worth is not defined by your accomplishments or failures. You are a child of the King, dearly loved and cherished in His sight. Don't let the voices of doubt and condemnation whisper lies into your ear. Instead, listen to the voice of God, who reminds you that you are worthy in His eyes. You are His masterpiece, beloved and valued.\n\nRise up, dear ones, and walk in the confidence of your identity in Christ.\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#KingdomLiving #JesusIsLord #Faith"
+    },
+    "instagram": {
+      "content": "\"My dear brothers and sisters, do not be shaken by the storms of life. Your faith is not in the wind, but in the Rock that is higher than your circumstances. Stand firm on the foundation of His promises and watch the Lord lift you above the chaos.\n\nYou are strong, you are courageous, and you are more than a conqueror.\n\nDeclare with me: 'I WILL NOT BE MOVED.'\"",
+      "hashtags": [
+        "#JesusIsLord",
+        "#Jesus",
+        "#IFM",
+        "#Faith",
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#KingdomCitizen",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"My dear brothers and sisters, do not be shaken by the storms of life. Your faith is not in the wind, but in the Rock that is higher than your circumstances. Stand firm on the foundation of His promises and watch the Lord lift you above the chaos.\n\nYou are strong, you are courageous, and you are more than a conqueror.\n\nDeclare with me: 'I WILL NOT BE MOVED.'\"\n\nLearn more about our mission → Link in bio\n\n#JesusIsLord #Jesus #IFM #Faith #IncreasingFaith #KingdomOfGod #KingdomCitizen #KingdomLiving"
+    },
+    "tiktok": {
+      "content": "\"Listen, son, it's time to stop wandering and start moving in the direction God's called you. You've been stuck in neutral long enough - it's time to engage the gear of purpose and press on. Your destiny is waiting.\"",
+      "hashtags": [
+        "#KingdomCitizen",
+        "#Faith",
+        "#KingdomLiving",
+        "#IFM",
+        "#Jesus"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"Listen, son, it's time to stop wandering and start moving in the direction God's called you. You've been stuck in neutral long enough - it's time to engage the gear of purpose and press on. Your destiny is waiting.\"\n\nLearn more about our mission → Link in bio\n\n#KingdomCitizen #Faith #KingdomLiving #IFM #Jesus"
+    }
+  },
+  "generatedAt": "2026-03-08T14:15:12.487Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1352964863534159"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-03-08T14:15:15.936Z",
+  "testMode": false
+}
