@@ -79,8 +79,10 @@
     },
     {
       "file": "Prayer_Helps__But_It_Can_t_Force_Change_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-01T19:59:15"
+      "posted": true,
+      "added_at": "2026-03-01T19:59:15",
+      "video_id": "1653712702745587",
+      "posted_at": "2026-03-08T21:20:05Z"
     },
     {
       "file": "Speak_to_the_atmosphere_faith_like_AI__c_0m05s_square.mp4",
@@ -130,8 +132,8 @@
   ],
   "stats": {
     "total": 21,
-    "posted": 11,
-    "remaining": 10,
-    "last_updated": "2026-03-08T17:24:47Z"
+    "posted": 12,
+    "remaining": 9,
+    "last_updated": "2026-03-08T21:20:05Z"
   }
 }
