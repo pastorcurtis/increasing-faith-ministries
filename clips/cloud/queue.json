@@ -72,8 +72,10 @@
     },
     {
       "file": "Kingdom_vs_Christianity__Free_Your_Mind_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-01T19:59:15"
+      "posted": true,
+      "added_at": "2026-03-01T19:59:15",
+      "video_id": "3797146547257160",
+      "posted_at": "2026-03-08T17:24:47Z"
     },
     {
       "file": "Prayer_Helps__But_It_Can_t_Force_Change_0m05s_square.mp4",
@@ -128,8 +130,8 @@
   ],
   "stats": {
     "total": 21,
-    "posted": 10,
-    "remaining": 11,
-    "last_updated": "2026-03-08T13:35:19Z"
+    "posted": 11,
+    "remaining": 10,
+    "last_updated": "2026-03-08T17:24:47Z"
   }
 }
