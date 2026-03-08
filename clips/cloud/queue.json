@@ -65,8 +65,10 @@
     },
     {
       "file": "God_isn_t_studying_your_past__it_s_been_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-01T19:59:15"
+      "posted": true,
+      "added_at": "2026-03-01T19:59:15",
+      "video_id": "1472885614209302",
+      "posted_at": "2026-03-08T13:35:19Z"
     },
     {
       "file": "Kingdom_vs_Christianity__Free_Your_Mind_0m02s_square.mp4",
@@ -126,8 +128,8 @@
   ],
   "stats": {
     "total": 21,
-    "posted": 9,
-    "remaining": 12,
-    "last_updated": "2026-03-07T21:18:08Z"
+    "posted": 10,
+    "remaining": 11,
+    "last_updated": "2026-03-08T13:35:19Z"
   }
 }
