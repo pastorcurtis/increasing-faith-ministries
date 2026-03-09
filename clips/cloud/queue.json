@@ -93,8 +93,10 @@
     },
     {
       "file": "Stay_ready_Joseph_s_consistency_before_h_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-01T19:59:15"
+      "posted": true,
+      "added_at": "2026-03-01T19:59:15",
+      "video_id": "1719960215652708",
+      "posted_at": "2026-03-09T17:48:05Z"
     },
     {
       "file": "The_blessing_makes_you_what_Be_fruitful_0m02s_square.mp4",
@@ -134,8 +136,8 @@
   ],
   "stats": {
     "total": 21,
-    "posted": 13,
-    "remaining": 8,
-    "last_updated": "2026-03-09T14:00:53Z"
+    "posted": 14,
+    "remaining": 7,
+    "last_updated": "2026-03-09T17:48:05Z"
   }
 }
