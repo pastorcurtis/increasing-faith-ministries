@@ -86,8 +86,10 @@
     },
     {
       "file": "Speak_to_the_atmosphere_faith_like_AI__c_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-01T19:59:15"
+      "posted": true,
+      "added_at": "2026-03-01T19:59:15",
+      "video_id": "1402220734548850",
+      "posted_at": "2026-03-09T14:00:53Z"
     },
     {
       "file": "Stay_ready_Joseph_s_consistency_before_h_0m02s_square.mp4",
@@ -132,8 +134,8 @@
   ],
   "stats": {
     "total": 21,
-    "posted": 12,
-    "remaining": 9,
-    "last_updated": "2026-03-08T21:20:05Z"
+    "posted": 13,
+    "remaining": 8,
+    "last_updated": "2026-03-09T14:00:53Z"
   }
 }
