@@ -121,8 +121,10 @@
     },
     {
       "file": "When_vows_mean_forever__real-life_tests_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-01T19:59:15"
+      "posted": true,
+      "added_at": "2026-03-01T19:59:15",
+      "video_id": "948841617564354",
+      "posted_at": "2026-03-10T21:26:37Z"
     },
     {
       "file": "Who_Told_You_You_re_Unworthy_0m02s_square.mp4",
@@ -142,8 +144,8 @@
   ],
   "stats": {
     "total": 21,
-    "posted": 17,
-    "remaining": 4,
-    "last_updated": "2026-03-10T17:47:19Z"
+    "posted": 18,
+    "remaining": 3,
+    "last_updated": "2026-03-10T21:26:37Z"
   }
 }
