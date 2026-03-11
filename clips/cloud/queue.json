@@ -135,8 +135,10 @@
     },
     {
       "file": "You_Only_Get_One_Shot__Stay_Ready_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-01T19:59:15"
+      "posted": true,
+      "added_at": "2026-03-01T19:59:15",
+      "video_id": "1469373254576803",
+      "posted_at": "2026-03-11T17:50:45Z"
     },
     {
       "file": "You_re_made_in_God_s_image__your_words_c_0m02s_square.mp4",
@@ -146,8 +148,8 @@
   ],
   "stats": {
     "total": 21,
-    "posted": 19,
-    "remaining": 2,
-    "last_updated": "2026-03-11T14:00:57Z"
+    "posted": 20,
+    "remaining": 1,
+    "last_updated": "2026-03-11T17:50:45Z"
   }
 }
