@@ -128,8 +128,10 @@
     },
     {
       "file": "Who_Told_You_You_re_Unworthy_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-01T19:59:15"
+      "posted": true,
+      "added_at": "2026-03-01T19:59:15",
+      "video_id": "1992068181522559",
+      "posted_at": "2026-03-11T14:00:57Z"
     },
     {
       "file": "You_Only_Get_One_Shot__Stay_Ready_0m05s_square.mp4",
@@ -144,8 +146,8 @@
   ],
   "stats": {
     "total": 21,
-    "posted": 18,
-    "remaining": 3,
-    "last_updated": "2026-03-10T21:26:37Z"
+    "posted": 19,
+    "remaining": 2,
+    "last_updated": "2026-03-11T14:00:57Z"
   }
 }
