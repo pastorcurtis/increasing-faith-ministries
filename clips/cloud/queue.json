@@ -149,8 +149,10 @@
     },
     {
       "file": "Malachi_vs_Joshua__Cursed_or_Accursed_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-14T20:02:27"
+      "posted": true,
+      "added_at": "2026-03-14T20:02:27",
+      "video_id": "2009536783104767",
+      "posted_at": "2026-03-15T13:41:21Z"
     },
     {
       "file": "No_Special_Prophetic_Anointing__The_Body_0m02s_square.mp4",
@@ -175,7 +177,8 @@
   ],
   "stats": {
     "total": 26,
-    "posted": 21,
-    "remaining": 5
+    "posted": 22,
+    "remaining": 4,
+    "last_updated": "2026-03-15T13:41:21Z"
   }
 }
