@@ -170,8 +170,10 @@
     },
     {
       "file": "Truth_vs_entertainment_the_problem_with_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-14T20:02:27"
+      "posted": true,
+      "added_at": "2026-03-14T20:02:27",
+      "video_id": "1693686388725519",
+      "posted_at": "2026-03-16T14:17:20Z"
     },
     {
       "file": "What_accursed_really_means_0m05s_square.mp4",
@@ -181,8 +183,8 @@
   ],
   "stats": {
     "total": 26,
-    "posted": 24,
-    "remaining": 2,
-    "last_updated": "2026-03-15T21:25:31Z"
+    "posted": 25,
+    "remaining": 1,
+    "last_updated": "2026-03-16T14:17:20Z"
   }
 }
