@@ -1,0 +1,63 @@
+{
+  "date": "2026-03-18",
+  "day": 3,
+  "theme": "Kingdom Question",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "Are you more committed to being right about your faith than being faithful in the midst of uncertainty?\n\nThis question matters because it gets to the heart of how we navigate the gray areas of life with unwavering trust in God's sovereignty. Do we prioritize being correct over being obedient, or can we find freedom in surrender to His ways?",
+      "hashtags": [
+        "#IFM",
+        "#KingdomLiving",
+        "#Southfield"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "Are you more committed to being right about your faith than being faithful in the midst of uncertainty?\n\nThis question matters because it gets to the heart of how we navigate the gray areas of life with unwavering trust in God's sovereignty. Do we prioritize being correct over being obedient, or can we find freedom in surrender to His ways?\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#IFM #KingdomLiving #Southfield"
+    },
+    "instagram": {
+      "content": "What is the most counterintuitive thing you've had to surrender to God in order to advance in your spiritual walk?\n\nAs we navigate the complexities of faith and kingdom living, surrender is often misunderstood as weakness instead of the catalyst for true strength and advancement.",
+      "hashtags": [
+        "#KingdomCommunity",
+        "#Detroit",
+        "#IFM",
+        "#KingdomLiving",
+        "#IncreasingFaith",
+        "#ChurchFamily",
+        "#KingdomOfGod",
+        "#Southfield"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "What is the most counterintuitive thing you've had to surrender to God in order to advance in your spiritual walk?\n\nAs we navigate the complexities of faith and kingdom living, surrender is often misunderstood as weakness instead of the catalyst for true strength and advancement.\n\nJoin our community → Link in bio\n\n#KingdomCommunity #Detroit #IFM #KingdomLiving #IncreasingFaith #ChurchFamily #KingdomOfGod #Southfield"
+    },
+    "tiktok": {
+      "content": "Are you living your life in alignment with God's assignment for your marriage, or are you following your own desires? Can a life of faith be lived in isolation from your spouse, or is marriage a fundamental part of God's plan for spiritual growth and Kingdom impact?",
+      "hashtags": [
+        "#KingdomCommunity",
+        "#Detroit",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Are you living your life in alignment with God's assignment for your marriage, or are you following your own desires? Can a life of faith be lived in isolation from your spouse, or is marriage a fundamental part of God's plan for spiritual growth and Kingdom impact?\n\nJoin our community → Link in bio\n\n#KingdomCommunity #Detroit #IncreasingFaith #IFM #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-03-18T14:55:46.810Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1361099799387332"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-03-18T14:55:50.156Z",
+  "testMode": false
+}
