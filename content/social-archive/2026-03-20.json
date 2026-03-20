@@ -1,0 +1,63 @@
+{
+  "date": "2026-03-20",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "The latest Kingdom Report drops tomorrow. We're about to reveal a shocking correlation between the Book of Revelation and current global events - a connection that's been hidden in plain sight. Don't miss our expert analysis of the prophetic indicators that are signaling a seismic shift in the world order.",
+      "hashtags": [
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "The latest Kingdom Report drops tomorrow. We're about to reveal a shocking correlation between the Book of Revelation and current global events - a connection that's been hidden in plain sight. Don't miss our expert analysis of the prophetic indicators that are signaling a seismic shift in the world order.\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#IFM #IncreasingFaith #KingdomCitizen"
+    },
+    "instagram": {
+      "content": "This week's Kingdom Report reveals a strategic shift in the enemy's attacks on our faith. We'll expose the underlying tactics, and provide a proven game plan for standing firm in the midst of chaos. Don't be caught off guard – be informed and empowered. Read the full report now.",
+      "hashtags": [
+        "#Jesus",
+        "#KingdomLiving",
+        "#KingdomOfGod",
+        "#JesusIsLord",
+        "#KingdomCitizen",
+        "#IncreasingFaith",
+        "#IFM",
+        "#Faith"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "This week's Kingdom Report reveals a strategic shift in the enemy's attacks on our faith. We'll expose the underlying tactics, and provide a proven game plan for standing firm in the midst of chaos. Don't be caught off guard – be informed and empowered. Read the full report now.\n\nRead the full Kingdom Report → Link in bio\n\n#Jesus #KingdomLiving #KingdomOfGod #JesusIsLord #KingdomCitizen #IncreasingFaith #IFM #Faith"
+    },
+    "tiktok": {
+      "content": "A breakthrough is unfolding in the realm of intercession. The Kingdom Report's latest edition reveals how prayer is shifting from petition to partnership with God's strategic movements. Don't miss the game-changing insight on how to align your prayers with the Lord's plans.",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#JesusIsLord",
+        "#KingdomLiving",
+        "#IFM"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "A breakthrough is unfolding in the realm of intercession. The Kingdom Report's latest edition reveals how prayer is shifting from petition to partnership with God's strategic movements. Don't miss the game-changing insight on how to align your prayers with the Lord's plans.\n\nRead the full Kingdom Report → Link in bio\n\n#IncreasingFaith #KingdomOfGod #JesusIsLord #KingdomLiving #IFM"
+    }
+  },
+  "generatedAt": "2026-03-20T14:35:20.931Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1362849012545744"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-03-20T14:35:23.525Z",
+  "testMode": false
+}
