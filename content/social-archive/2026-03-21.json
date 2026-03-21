@@ -1,0 +1,63 @@
+{
+  "date": "2026-03-21",
+  "day": 6,
+  "theme": "Worship Reminder",
+  "themeType": "event_reminder",
+  "targetPage": "https://increasingfaith.net/visit.html",
+  "posts": {
+    "facebook": {
+      "content": "\"We'd love for you to join us for an uplifting hour of worship and connection at Increasing Faith Ministries. Every First Saturday, meet us in person at 12 Noon at 24301 Telegraph in Southfield, MI. Daily, you're invited to join our Hour of Power, Monday through Friday at 8:15 AM, live on Facebook. Come share in the joy, let your spirit be lifted, and connect with the IFM family.\"",
+      "hashtags": [
+        "#KingdomCitizen",
+        "#KingdomLiving",
+        "#IFM"
+      ],
+      "cta": "\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html",
+      "fullPost": "\"We'd love for you to join us for an uplifting hour of worship and connection at Increasing Faith Ministries. Every First Saturday, meet us in person at 12 Noon at 24301 Telegraph in Southfield, MI. Daily, you're invited to join our Hour of Power, Monday through Friday at 8:15 AM, live on Facebook. Come share in the joy, let your spirit be lifted, and connect with the IFM family.\"\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html\n\n#KingdomCitizen #KingdomLiving #IFM"
+    },
+    "instagram": {
+      "content": "You're invited to join us in the Throne Room. \n\nMonthly, let's gather in-person, First Saturday at 12 Noon, 24301 Telegraph, Southfield MI. Let's lift our voices together in worship and praise.\n\nDaily, join us online for our Hour of Power, Monday through Friday, 8:15 AM on Facebook Live. Let the presence of the Lord fill your heart and home. \n\nCome one, come all, and let's worship together.",
+      "hashtags": [
+        "#Faith",
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomCitizen",
+        "#JesusIsLord",
+        "#KingdomLiving",
+        "#Jesus"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "You're invited to join us in the Throne Room. \n\nMonthly, let's gather in-person, First Saturday at 12 Noon, 24301 Telegraph, Southfield MI. Let's lift our voices together in worship and praise.\n\nDaily, join us online for our Hour of Power, Monday through Friday, 8:15 AM on Facebook Live. Let the presence of the Lord fill your heart and home. \n\nCome one, come all, and let's worship together.\n\nJoin us for worship → Link in bio\n\n#Faith #KingdomOfGod #IncreasingFaith #IFM #KingdomCitizen #JesusIsLord #KingdomLiving #Jesus"
+    },
+    "tiktok": {
+      "content": "\"Join us this Saturday at 12 Noon at 24301 Telegraph in Southfield for an outpouring of worship and a fresh encounter with God. Can't make it in person? Catch our Hour of Power from 8:15 AM Mon-Fri on Facebook Live.\"",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#JesusIsLord",
+        "#Jesus",
+        "#KingdomCitizen",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "\"Join us this Saturday at 12 Noon at 24301 Telegraph in Southfield for an outpouring of worship and a fresh encounter with God. Can't make it in person? Catch our Hour of Power from 8:15 AM Mon-Fri on Facebook Live.\"\n\nJoin us for worship → Link in bio\n\n#KingdomOfGod #JesusIsLord #Jesus #KingdomCitizen #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-03-21T14:16:12.344Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1363757145788264"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-03-21T14:16:15.113Z",
+  "testMode": false
+}
