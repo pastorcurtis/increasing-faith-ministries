@@ -2,9 +2,8 @@ name: Post IFM Clips
 
 on:
   schedule:
-    # 3 posts per day: 8AM, 12PM, 4PM EST (13:00, 17:00, 21:00 UTC)
-    - cron: '0 13 * * *'
-    - cron: '0 17 * * *'
+    # 2 posts per day: 9AM, 4PM EST (14:00, 21:00 UTC)
+    - cron: '0 14 * * *'
     - cron: '0 21 * * *'
   workflow_dispatch:
     inputs:

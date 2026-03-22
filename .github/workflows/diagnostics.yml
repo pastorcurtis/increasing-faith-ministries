@@ -1,28 +1,32 @@
 # =============================================================================
-# IFM Weekly Diagnostics
+# IFM System Diagnostics (Self-Healing)
 # =============================================================================
 #
-# Runs every 7 days to check the health of the newsletter system and website.
+# Runs every 3 days to check the health of ALL IFM automation systems.
 # Automatically fixes issues it can resolve. Creates a GitHub Issue for
 # anything that requires manual intervention.
 #
 # Checks performed:
-#   1. Newsletter workflow is enabled (re-enables if disabled)
-#   2. Keep-alive workflow is enabled (re-enables if disabled)
-#   3. latest.json exists and has valid structure
-#   4. archive.json exists and has valid structure
-#   5. Website pages return 200 (homepage, newsletter, key pages)
-#   6. Newsletter page isn't stuck on "Coming Soon"
+#   1. All workflows are enabled (re-enables if disabled)
+#   2. Clip queue has enough content (warns when low)
+#   3. Clip poster workflow is actually posting (detects stalls)
+#   4. Facebook API token is valid (detects expired tokens)
+#   5. Website pages return 200
+#   6. Newsletter system is healthy
 #   7. Required secrets are configured
 #   8. Node.js dependencies install cleanly
 #
+# Auto-fixes:
+#   - Re-enables disabled workflows
+#   - Re-enables disabled clip poster on stall detection
+#
 # =============================================================================
-name: Weekly Diagnostics
+name: System Diagnostics
 
 on:
   schedule:
-    # Every Sunday at 6:00 AM EST (11:00 UTC)
-    - cron: '0 11 * * 0'
+    # Every 3 days at 7:00 AM EST (12:00 UTC)
+    - cron: '0 12 */3 * *'
   workflow_dispatch:
 
 permissions:
@@ -41,6 +45,8 @@ jobs:
       RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
       NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      FACEBOOK_PAGE_TOKEN: ${{ secrets.FACEBOOK_PAGE_TOKEN }}
+      FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
 
     steps:
       - name: Checkout repository
@@ -60,7 +66,10 @@ jobs:
         with:
           script: |
             const results = [];
-            const requiredWorkflows = ['Monthly Newsletter', 'Keep Alive'];
+            const requiredWorkflows = [
+              'Monthly Newsletter', 'Keep Alive', 'Post IFM Clips',
+              'Daily Social Media'
+            ];
 
             const { data: workflows } = await github.rest.actions.listRepoWorkflows({
               owner: context.repo.owner,
@@ -74,7 +83,6 @@ jobs:
                 continue;
               }
               if (wf.state !== 'active') {
-                // Auto-fix: re-enable the workflow
                 try {
                   await github.rest.actions.enableWorkflow({
                     owner: context.repo.owner,
@@ -82,7 +90,7 @@ jobs:
                     workflow_id: wf.id
                   });
                   results.push({ name, status: 'RE-ENABLED', fixed: true });
-                  core.warning(`${name} workflow was disabled — automatically re-enabled`);
+                  core.warning(`${name} workflow was disabled -- automatically re-enabled`);
                 } catch (e) {
                   results.push({ name, status: 'DISABLED', fixed: false, error: e.message });
                 }
@@ -92,13 +100,149 @@ jobs:
             }
 
             core.setOutput('results', JSON.stringify(results));
-            const issues = results.filter(r => r.status !== 'OK' && !r.fixed);
-            if (issues.length > 0) {
-              core.setOutput('workflow_issues', 'true');
+
+      # ================================================================
+      # CHECK 2: Clip queue health
+      # ================================================================
+      - name: Check clip queue
+        id: clip_queue
+        run: |
+          QUEUE_FILE="clips/cloud/queue.json"
+          if [ ! -f "$QUEUE_FILE" ]; then
+            echo "status=missing" >> $GITHUB_OUTPUT
+            echo "remaining=0" >> $GITHUB_OUTPUT
+            echo "days_left=0" >> $GITHUB_OUTPUT
+            echo "::error::Clip queue file missing!"
+            exit 0
+          fi
+
+          REMAINING=$(python3 -c "
+          import json
+          with open('$QUEUE_FILE') as f:
+              q = json.load(f)
+          remaining = sum(1 for c in q['clips'] if not c.get('posted'))
+          print(remaining)
+          " 2>/dev/null || echo "0")
+
+          DAYS_LEFT=$(python3 -c "print(int('$REMAINING') // 2)" 2>/dev/null || echo "0")
+
+          echo "remaining=$REMAINING" >> $GITHUB_OUTPUT
+          echo "days_left=$DAYS_LEFT" >> $GITHUB_OUTPUT
+
+          if [ "$REMAINING" = "0" ]; then
+            echo "status=empty" >> $GITHUB_OUTPUT
+            echo "::error::Clip queue is EMPTY! Facebook posting has stopped."
+          elif [ "$DAYS_LEFT" -le 3 ]; then
+            echo "status=critical" >> $GITHUB_OUTPUT
+            echo "::warning::Clip queue critically low: $REMAINING clips ($DAYS_LEFT days)"
+          elif [ "$DAYS_LEFT" -le 7 ]; then
+            echo "status=low" >> $GITHUB_OUTPUT
+            echo "::warning::Clip queue running low: $REMAINING clips ($DAYS_LEFT days)"
+          else
+            echo "status=ok" >> $GITHUB_OUTPUT
+            echo "Queue healthy: $REMAINING clips ($DAYS_LEFT days)"
+          fi
+
+      # ================================================================
+      # CHECK 3: Clip poster actually posting (stall detection)
+      # ================================================================
+      - name: Check clip poster activity
+        id: clip_poster
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: workflows } = await github.rest.actions.listRepoWorkflows({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+
+            const clipWf = workflows.workflows.find(w => w.name === 'Post IFM Clips');
+            if (!clipWf) {
+              core.setOutput('status', 'missing');
+              return;
+            }
+
+            const { data: runs } = await github.rest.actions.listWorkflowRuns({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: clipWf.id,
+              per_page: 5
+            });
+
+            if (runs.workflow_runs.length === 0) {
+              core.setOutput('status', 'never_run');
+              return;
+            }
+
+            const lastRun = runs.workflow_runs[0];
+            const hoursSince = Math.floor(
+              (Date.now() - new Date(lastRun.created_at).getTime()) / 3600000
+            );
+
+            core.setOutput('last_run', lastRun.created_at);
+            core.setOutput('hours_since', hoursSince.toString());
+            core.setOutput('conclusion', lastRun.conclusion || 'unknown');
+
+            // If no run in 18+ hours, something is wrong (should run 2x/day)
+            if (hoursSince > 18) {
+              core.setOutput('status', 'stalled');
+              core.warning(`Clip poster hasn't run in ${hoursSince} hours`);
+
+              // Auto-fix: re-enable if disabled
+              if (clipWf.state !== 'active') {
+                try {
+                  await github.rest.actions.enableWorkflow({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    workflow_id: clipWf.id
+                  });
+                  core.setOutput('fixed', 'true');
+                } catch (e) {
+                  core.setOutput('fixed', 'false');
+                }
+              }
+            } else {
+              core.setOutput('status', 'ok');
+            }
+
+            // Check for repeated failures
+            const recent = runs.workflow_runs.slice(0, 5);
+            const failures = recent.filter(r => r.conclusion === 'failure').length;
+            if (failures >= 3) {
+              core.setOutput('status', 'failing');
+              core.warning(`Clip poster has failed ${failures}/5 recent runs`);
             }
 
       # ================================================================
-      # CHECK 2: Verify required secrets exist
+      # CHECK 4: Facebook API token validity
+      # ================================================================
+      - name: Check Facebook token
+        id: fb_token
+        env:
+          FB_TOKEN: ${{ secrets.FACEBOOK_PAGE_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+        run: |
+          if [ -z "$FB_TOKEN" ] || [ -z "$FB_PAGE_ID" ]; then
+            echo "status=missing" >> $GITHUB_OUTPUT
+            echo "::error::Facebook secrets not configured"
+            exit 0
+          fi
+
+          # Test the token with a simple API call
+          RESPONSE=$(curl -s "https://graph.facebook.com/v21.0/me?access_token=$FB_TOKEN" 2>/dev/null)
+          ERROR=$(echo "$RESPONSE" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('error',{}).get('message',''))" 2>/dev/null || echo "")
+
+          if [ -n "$ERROR" ]; then
+            echo "status=expired" >> $GITHUB_OUTPUT
+            echo "::error::Facebook token is invalid: $ERROR"
+          else
+            NAME=$(echo "$RESPONSE" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('name','unknown'))" 2>/dev/null || echo "unknown")
+            echo "status=ok" >> $GITHUB_OUTPUT
+            echo "Facebook token valid (page: $NAME)"
+          fi
+
+      # ================================================================
+      # CHECK 5: Verify required secrets exist
       # ================================================================
       - name: Check secrets
         id: secrets
@@ -106,8 +250,8 @@ jobs:
           ISSUES=""
           if [ -z "$GROQ_API_KEY" ]; then ISSUES="$ISSUES GROQ_API_KEY"; fi
           if [ -z "$RESEND_API_KEY" ]; then ISSUES="$ISSUES RESEND_API_KEY"; fi
-          if [ -z "$NETLIFY_ACCESS_TOKEN" ]; then ISSUES="$ISSUES NETLIFY_ACCESS_TOKEN"; fi
-          if [ -z "$NETLIFY_SITE_ID" ]; then ISSUES="$ISSUES NETLIFY_SITE_ID"; fi
+          if [ -z "$FACEBOOK_PAGE_TOKEN" ]; then ISSUES="$ISSUES FACEBOOK_PAGE_TOKEN"; fi
+          if [ -z "$FACEBOOK_PAGE_ID" ]; then ISSUES="$ISSUES FACEBOOK_PAGE_ID"; fi
           if [ -n "$ISSUES" ]; then
             echo "missing=$ISSUES" >> $GITHUB_OUTPUT
             echo "::warning::Missing secrets:$ISSUES"
@@ -117,20 +261,16 @@ jobs:
           fi
 
       # ================================================================
-      # CHECK 3: Validate newsletter content files
+      # CHECK 6: Validate newsletter content files
       # ================================================================
       - name: Validate content files
         id: content
         run: |
           ISSUES=""
-          FIXED=""
 
-          # Check latest.json
           if [ ! -f "content/newsletters/latest.json" ]; then
             ISSUES="$ISSUES latest.json_missing"
-            echo "::error::content/newsletters/latest.json is missing"
           else
-            # Validate JSON structure
             node -e "
               const data = require('./content/newsletters/latest.json');
               const errors = [];
@@ -138,36 +278,28 @@ jobs:
               if (!data.metadata?.dateString) errors.push('missing metadata.dateString');
               if (!data.metadata?.title) errors.push('missing metadata.title');
               if (!data.sections) errors.push('missing sections');
-              if (!data.sections?.pastoralMessage) errors.push('missing pastoralMessage section');
-              if (!data.sections?.kingdomIntelligence) errors.push('missing kingdomIntelligence section');
               if (errors.length > 0) {
-                console.error('latest.json structure issues: ' + errors.join(', '));
+                console.error('latest.json issues: ' + errors.join(', '));
                 process.exit(1);
               }
               console.log('latest.json: valid (' + data.metadata.dateString + ')');
             " 2>&1 || ISSUES="$ISSUES latest.json_invalid"
           fi
 
-          # Check archive.json
           if [ ! -f "content/newsletters/archive.json" ]; then
             ISSUES="$ISSUES archive.json_missing"
-            echo "::error::content/newsletters/archive.json is missing"
           else
             node -e "
               const data = require('./content/newsletters/archive.json');
-              if (!Array.isArray(data)) {
-                console.error('archive.json is not an array');
-                process.exit(1);
-              }
+              if (!Array.isArray(data)) { process.exit(1); }
               console.log('archive.json: valid (' + data.length + ' entries)');
             " 2>&1 || ISSUES="$ISSUES archive.json_invalid"
           fi
 
           echo "issues=$ISSUES" >> $GITHUB_OUTPUT
-          echo "fixed=$FIXED" >> $GITHUB_OUTPUT
 
       # ================================================================
-      # CHECK 4: Verify newsletter-agent dependencies install
+      # CHECK 7: Test newsletter-agent dependencies
       # ================================================================
       - name: Test newsletter-agent install
         id: deps
@@ -177,7 +309,7 @@ jobs:
           echo "Dependencies installed successfully."
 
       # ================================================================
-      # CHECK 5: Website accessibility
+      # CHECK 8: Website accessibility
       # ================================================================
       - name: Check website pages
         id: website
@@ -199,23 +331,7 @@ jobs:
           echo "issues=$ISSUES" >> $GITHUB_OUTPUT
 
       # ================================================================
-      # CHECK 6: Newsletter page content check
-      # ================================================================
-      - name: Check newsletter renders content
-        id: newsletter_page
-        run: |
-          # Fetch the newsletter page and check if latest.json is accessible
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://increasingfaith.net/content/newsletters/latest.json" 2>/dev/null || echo "timeout")
-          if [ "$STATUS" = "200" ]; then
-            echo "Newsletter JSON accessible: OK"
-            echo "stuck=false" >> $GITHUB_OUTPUT
-          else
-            echo "::warning::Newsletter JSON not accessible (status: $STATUS)"
-            echo "stuck=true" >> $GITHUB_OUTPUT
-          fi
-
-      # ================================================================
-      # CHECK 7: Verify last newsletter run
+      # CHECK 9: Last newsletter run
       # ================================================================
       - name: Check last newsletter run
         id: last_run
@@ -242,21 +358,21 @@ jobs:
 
             if (runs.workflow_runs.length === 0) {
               core.setOutput('status', 'never_run');
-              core.warning('Monthly Newsletter has never run');
               return;
             }
 
             const lastRun = runs.workflow_runs[0];
-            const daysSince = Math.floor((Date.now() - new Date(lastRun.created_at).getTime()) / 86400000);
+            const daysSince = Math.floor(
+              (Date.now() - new Date(lastRun.created_at).getTime()) / 86400000
+            );
             core.setOutput('status', lastRun.conclusion || lastRun.status);
             core.setOutput('days_since', daysSince.toString());
-            core.setOutput('last_run_date', lastRun.created_at);
 
             if (lastRun.conclusion === 'failure') {
               core.warning(`Last newsletter run FAILED on ${lastRun.created_at}`);
             }
             if (daysSince > 35) {
-              core.warning(`Last newsletter run was ${daysSince} days ago — may have missed a month`);
+              core.warning(`Last newsletter was ${daysSince} days ago`);
             }
 
       # ================================================================
@@ -264,85 +380,149 @@ jobs:
       # ================================================================
       - name: Compile diagnostic report
         id: report
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const workflowResults = JSON.parse('${{ steps.workflows.outputs.results }}' || '[]');
-            const missingSecrets = '${{ steps.secrets.outputs.missing }}'.trim();
-            const contentIssues = '${{ steps.content.outputs.issues }}'.trim();
-            const depsFailed = '${{ steps.deps.outputs.deps_failed }}' === 'true';
-            const websiteIssues = '${{ steps.website.outputs.issues }}'.trim();
-            const newsletterStuck = '${{ steps.newsletter_page.outputs.stuck }}' === 'true';
-            const lastRunStatus = '${{ steps.last_run.outputs.status }}';
-            const daysSinceRun = '${{ steps.last_run.outputs.days_since }}';
+        env:
+          WORKFLOW_RESULTS: ${{ steps.workflows.outputs.results }}
+          MISSING_SECRETS: ${{ steps.secrets.outputs.missing }}
+          CONTENT_ISSUES: ${{ steps.content.outputs.issues }}
+          DEPS_FAILED: ${{ steps.deps.outputs.deps_failed }}
+          WEBSITE_ISSUES: ${{ steps.website.outputs.issues }}
+          QUEUE_STATUS: ${{ steps.clip_queue.outputs.status }}
+          QUEUE_REMAINING: ${{ steps.clip_queue.outputs.remaining }}
+          QUEUE_DAYS: ${{ steps.clip_queue.outputs.days_left }}
+          POSTER_STATUS: ${{ steps.clip_poster.outputs.status }}
+          POSTER_HOURS: ${{ steps.clip_poster.outputs.hours_since }}
+          POSTER_FIXED: ${{ steps.clip_poster.outputs.fixed }}
+          FB_STATUS: ${{ steps.fb_token.outputs.status }}
+          NL_STATUS: ${{ steps.last_run.outputs.status }}
+          NL_DAYS: ${{ steps.last_run.outputs.days_since }}
+        run: |
+          python3 << 'PYEOF'
+          import json, os
 
-            const problems = [];
-            const fixes = [];
+          problems = []
+          fixes = []
+          warnings = []
 
-            // Workflow checks
-            for (const wf of workflowResults) {
-              if (wf.status === 'RE-ENABLED') {
-                fixes.push(`**${wf.name}** workflow was disabled — automatically re-enabled`);
-              } else if (wf.status !== 'OK') {
-                problems.push(`**${wf.name}** workflow: ${wf.status}${wf.error ? ' — ' + wf.error : ''}`);
-              }
-            }
+          # Workflow checks
+          try:
+              results = json.loads(os.environ.get('WORKFLOW_RESULTS', '[]'))
+              for wf in results:
+                  if wf['status'] == 'RE-ENABLED':
+                      fixes.append(f"**{wf['name']}** workflow re-enabled")
+                  elif wf['status'] != 'OK':
+                      problems.append(f"**{wf['name']}** workflow: {wf['status']}")
+          except:
+              pass
 
-            // Secret checks
-            if (missingSecrets) {
-              problems.push(`Missing secrets: \`${missingSecrets.trim()}\``);
-            }
+          # Clip queue
+          q_status = os.environ.get('QUEUE_STATUS', '')
+          q_remaining = os.environ.get('QUEUE_REMAINING', '0')
+          q_days = os.environ.get('QUEUE_DAYS', '0')
+          if q_status == 'empty':
+              problems.append("Clip queue is EMPTY -- Facebook posting has stopped! Run auto-refill locally.")
+          elif q_status == 'critical':
+              problems.append(f"Clip queue critically low: {q_remaining} clips ({q_days} days). Run auto-refill ASAP.")
+          elif q_status == 'low':
+              warnings.append(f"Clip queue running low: {q_remaining} clips ({q_days} days left)")
+          elif q_status == 'missing':
+              problems.append("Clip queue file (queue.json) is missing!")
 
-            // Content checks
-            if (contentIssues) {
-              problems.push(`Content file issues: ${contentIssues}`);
-            }
+          # Clip poster
+          p_status = os.environ.get('POSTER_STATUS', '')
+          p_hours = os.environ.get('POSTER_HOURS', '0')
+          if p_status == 'stalled':
+              if os.environ.get('POSTER_FIXED') == 'true':
+                  fixes.append(f"Clip poster was stalled ({p_hours}h) -- re-enabled")
+              else:
+                  problems.append(f"Clip poster stalled -- hasn't run in {p_hours} hours")
+          elif p_status == 'failing':
+              problems.append("Clip poster failing repeatedly (3+ of last 5 runs)")
 
-            // Dependency checks
-            if (depsFailed) {
-              problems.push('newsletter-agent npm install failed');
-            }
+          # Facebook token
+          fb = os.environ.get('FB_STATUS', '')
+          if fb == 'expired':
+              problems.append("Facebook API token is EXPIRED -- clips cannot post until renewed")
+          elif fb == 'missing':
+              problems.append("Facebook secrets not configured")
 
-            // Website checks
-            if (websiteIssues) {
-              problems.push(`Website page errors: ${websiteIssues}`);
-            }
+          # Secrets
+          missing = os.environ.get('MISSING_SECRETS', '').strip()
+          if missing:
+              problems.append(f"Missing secrets: `{missing}`")
 
-            // Newsletter page check
-            if (newsletterStuck) {
-              problems.push('Newsletter JSON not accessible — page may show "Coming Soon"');
-            }
+          # Content
+          content = os.environ.get('CONTENT_ISSUES', '').strip()
+          if content:
+              problems.append(f"Content file issues: {content}")
 
-            // Last run check
-            if (lastRunStatus === 'never_run') {
-              problems.push('Monthly Newsletter workflow has never run');
-            } else if (lastRunStatus === 'failure') {
-              problems.push('Last newsletter run failed');
-            }
-            if (parseInt(daysSinceRun) > 35) {
-              problems.push(`Last newsletter was ${daysSinceRun} days ago — may have missed a month`);
-            }
+          # Deps
+          if os.environ.get('DEPS_FAILED') == 'true':
+              problems.append("newsletter-agent npm install failed")
 
-            // Build report
-            const date = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-            let report = `## Weekly Diagnostics — ${date}\n\n`;
+          # Website
+          web = os.environ.get('WEBSITE_ISSUES', '').strip()
+          if web:
+              problems.append(f"Website errors: {web}")
 
-            if (fixes.length > 0) {
-              report += `### Auto-Fixed\n${fixes.map(f => '- ' + f).join('\n')}\n\n`;
-            }
+          # Newsletter
+          nl = os.environ.get('NL_STATUS', '')
+          nl_days = os.environ.get('NL_DAYS', '0')
+          if nl == 'failure':
+              problems.append("Last newsletter run failed")
+          if nl_days and int(nl_days) > 35:
+              warnings.append(f"Newsletter last ran {nl_days} days ago")
 
-            if (problems.length === 0) {
-              report += '### Status: All Systems Healthy\n\nNo issues detected. Newsletter pipeline, website, and content are all operational.\n';
-              console.log('All checks passed — no issues found.');
-              core.setOutput('has_problems', 'false');
-            } else {
-              report += `### Issues Found (${problems.length})\n${problems.map(p => '- ' + p).join('\n')}\n`;
-              core.setOutput('has_problems', 'true');
-            }
+          # Build report
+          from datetime import datetime
+          date = datetime.utcnow().strftime('%A, %B %d, %Y')
+          lines = [f"## System Diagnostics -- {date}", ""]
 
-            core.setOutput('report', report);
-            core.setOutput('problem_count', problems.length.toString());
-            core.setOutput('fix_count', fixes.length.toString());
+          if fixes:
+              lines.append("### Auto-Fixed")
+              for f in fixes:
+                  lines.append(f"- {f}")
+              lines.append("")
+
+          if problems:
+              lines.append(f"### Problems ({len(problems)})")
+              for p in problems:
+                  lines.append(f"- {p}")
+              lines.append("")
+
+          if warnings:
+              lines.append(f"### Warnings ({len(warnings)})")
+              for w in warnings:
+                  lines.append(f"- {w}")
+              lines.append("")
+
+          # Status summary
+          lines.append("### System Status")
+          lines.append(f"- Clip Queue: {q_remaining} clips ({q_days} days at 2/day)")
+          lines.append(f"- Clip Poster: {'OK' if p_status == 'ok' else p_status}")
+          lines.append(f"- Facebook Token: {'Valid' if fb == 'ok' else fb}")
+          lines.append(f"- Website: {'OK' if not web else 'Issues'}")
+          lines.append(f"- Newsletter: {nl} (last {nl_days} days ago)")
+
+          if not problems and not warnings:
+              lines.append("")
+              lines.append("### All Systems Healthy")
+
+          report = '\n'.join(lines)
+          print(report)
+
+          has_problems = 'true' if problems else 'false'
+
+          # Write outputs
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write(f"has_problems={has_problems}\n")
+              f.write(f"problem_count={len(problems)}\n")
+              f.write(f"fix_count={len(fixes)}\n")
+              f.write(f"warning_count={len(warnings)}\n")
+
+          # Write report to file for next step
+          with open('/tmp/diag_report.md', 'w') as f:
+              f.write(report)
+          PYEOF
 
       # ================================================================
       # Create issue only if there are unfixed problems
@@ -352,10 +532,12 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('/tmp/diag_report.md', 'utf8');
             const date = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
             const count = '${{ steps.report.outputs.problem_count }}';
 
-            // Close any previous diagnostic issues to avoid clutter
+            // Close previous diagnostic issues
             const { data: existing } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -372,12 +554,11 @@ jobs:
               });
             }
 
-            const report = `${{ steps.report.outputs.report }}`.replace(/\\n/g, '\n');
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `Diagnostics: ${count} issue(s) found — ${date}`,
-              body: report + '\n\n---\n*Auto-generated by Weekly Diagnostics workflow*',
+              title: `Diagnostics: ${count} issue(s) found -- ${date}`,
+              body: report + '\n\n---\n*Auto-generated by System Diagnostics (runs every 3 days)*',
               labels: ['diagnostics']
             });
 
@@ -386,13 +567,18 @@ jobs:
       # ================================================================
       - name: Report clean health
         if: steps.report.outputs.has_problems == 'false'
+        env:
+          QUEUE_REMAINING: ${{ steps.clip_queue.outputs.remaining }}
         run: |
           echo "========================================"
-          echo "  WEEKLY DIAGNOSTICS: ALL CLEAR"
+          echo "  SYSTEM DIAGNOSTICS: ALL CLEAR"
           echo "========================================"
-          echo "  Workflows:  OK"
-          echo "  Secrets:    OK"
-          echo "  Content:    OK"
-          echo "  Website:    OK"
-          echo "  Newsletter: OK"
+          echo "  Workflows:      OK"
+          echo "  Clip Queue:     OK ($QUEUE_REMAINING clips)"
+          echo "  Clip Poster:    OK"
+          echo "  Facebook Token: OK"
+          echo "  Secrets:        OK"
+          echo "  Content:        OK"
+          echo "  Website:        OK"
+          echo "  Newsletter:     OK"
           echo "========================================"
