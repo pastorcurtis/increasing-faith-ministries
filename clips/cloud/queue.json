@@ -184,8 +184,10 @@
     },
     {
       "file": "Breaking_Oppression_and_Depression_A_Str_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-22T19:50:00"
+      "posted": true,
+      "added_at": "2026-03-22T19:50:00",
+      "video_id": "707118705756349",
+      "posted_at": "2026-03-23T14:48:51Z"
     },
     {
       "file": "Calling_Out_False_Prophets_Boldness_from_0m05s_square.mp4",
@@ -310,7 +312,8 @@
   ],
   "stats": {
     "total": 51,
-    "posted": 26,
-    "remaining": 25
+    "posted": 27,
+    "remaining": 24,
+    "last_updated": "2026-03-23T14:48:51Z"
   }
 }
