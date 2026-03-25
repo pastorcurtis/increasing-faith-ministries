@@ -219,8 +219,10 @@
     },
     {
       "file": "Exalt_Wisdom_and_She_Will_Promote_You_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-22T19:50:00"
+      "posted": true,
+      "added_at": "2026-03-22T19:50:00",
+      "video_id": "2036973903558347",
+      "posted_at": "2026-03-25T21:35:54Z"
     },
     {
       "file": "Find_the_Table_in_the_Presence_of_Your_E_0m05s_square.mp4",
@@ -320,8 +322,8 @@
   ],
   "stats": {
     "total": 51,
-    "posted": 31,
-    "remaining": 20,
-    "last_updated": "2026-03-25T14:52:31Z"
+    "posted": 32,
+    "remaining": 19,
+    "last_updated": "2026-03-25T21:35:54Z"
   }
 }
