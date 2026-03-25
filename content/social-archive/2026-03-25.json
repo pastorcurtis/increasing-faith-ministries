@@ -1,0 +1,63 @@
+{
+  "date": "2026-03-25",
+  "day": 3,
+  "theme": "Kingdom Question",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "What if your identity is rooted in your past accomplishments, rather than your true identity as a son of God?\n\nThis question matters because our identity in Christ is often overshadowed by our achievements, leading to a fragile sense of self that can be shaken by setbacks and failures.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#ChurchFamily"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "What if your identity is rooted in your past accomplishments, rather than your true identity as a son of God?\n\nThis question matters because our identity in Christ is often overshadowed by our achievements, leading to a fragile sense of self that can be shaken by setbacks and failures.\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#KingdomOfGod #IncreasingFaith #ChurchFamily"
+    },
+    "instagram": {
+      "content": "Is your pursuit of spiritual maturity more about personal growth or Kingdom expansion?\n\nAs we seek to deepen our walk with God, we must consider whether our focus is on individual transformation or unleashing the power of the Gospel in our communities.",
+      "hashtags": [
+        "#KingdomLiving",
+        "#ChurchFamily",
+        "#Detroit",
+        "#IFM",
+        "#KingdomCommunity",
+        "#IncreasingFaith",
+        "#Southfield",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Is your pursuit of spiritual maturity more about personal growth or Kingdom expansion?\n\nAs we seek to deepen our walk with God, we must consider whether our focus is on individual transformation or unleashing the power of the Gospel in our communities.\n\nJoin our community → Link in bio\n\n#KingdomLiving #ChurchFamily #Detroit #IFM #KingdomCommunity #IncreasingFaith #Southfield #KingdomOfGod"
+    },
+    "tiktok": {
+      "content": "Can you genuinely follow Jesus and still achieve worldly success? \n\nWhat if the pursuit of success is a spiritual obstacle that keeps you from truly living for Him?",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#KingdomLiving",
+        "#KingdomCommunity",
+        "#Southfield",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Can you genuinely follow Jesus and still achieve worldly success? \n\nWhat if the pursuit of success is a spiritual obstacle that keeps you from truly living for Him?\n\nJoin our community → Link in bio\n\n#IncreasingFaith #KingdomLiving #KingdomCommunity #Southfield #KingdomOfGod"
+    }
+  },
+  "generatedAt": "2026-03-25T14:52:14.712Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1367314828765829"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-03-25T14:52:18.754Z",
+  "testMode": false
+}
