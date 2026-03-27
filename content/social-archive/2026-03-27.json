@@ -1,0 +1,63 @@
+{
+  "date": "2026-03-27",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "This month's Kingdom Report offers insider analysis on a looming storm in the global spiritual landscape - a shift that could upend traditional church structures and empower the authentic church. Get ahead of the curve and learn how this seismic change is an opportunity for your faith to flourish.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#IFM"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "This month's Kingdom Report offers insider analysis on a looming storm in the global spiritual landscape - a shift that could upend traditional church structures and empower the authentic church. Get ahead of the curve and learn how this seismic change is an opportunity for your faith to flourish.\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#KingdomOfGod #IncreasingFaith #IFM"
+    },
+    "instagram": {
+      "content": "A Major Shift is Coming to the Church \n\nAs we prepare to release our latest edition of The Kingdom Report, we're seeing a significant paradigm shift in the spiritual landscape. The era of \"church as usual\" is giving way to a new era of Kingdom expansion and transformation. In this month's issue, learn how to position yourself for the wave of breakthrough that's on the horizon.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#JesusIsLord",
+        "#IncreasingFaith",
+        "#Faith",
+        "#KingdomCitizen",
+        "#KingdomLiving",
+        "#Jesus",
+        "#IFM"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "A Major Shift is Coming to the Church \n\nAs we prepare to release our latest edition of The Kingdom Report, we're seeing a significant paradigm shift in the spiritual landscape. The era of \"church as usual\" is giving way to a new era of Kingdom expansion and transformation. In this month's issue, learn how to position yourself for the wave of breakthrough that's on the horizon.\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomOfGod #JesusIsLord #IncreasingFaith #Faith #KingdomCitizen #KingdomLiving #Jesus #IFM"
+    },
+    "tiktok": {
+      "content": "\"Breaking news from The Kingdom Report: an emerging apostolic movement in Africa is rapidly expanding its influence into global decision-making circles - get the details in our latest issue, out tomorrow.\"",
+      "hashtags": [
+        "#KingdomCitizen",
+        "#KingdomOfGod",
+        "#JesusIsLord",
+        "#IncreasingFaith",
+        "#IFM"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "\"Breaking news from The Kingdom Report: an emerging apostolic movement in Africa is rapidly expanding its influence into global decision-making circles - get the details in our latest issue, out tomorrow.\"\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomCitizen #KingdomOfGod #JesusIsLord #IncreasingFaith #IFM"
+    }
+  },
+  "generatedAt": "2026-03-27T14:42:39.374Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1369295481901097"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-03-27T14:42:42.313Z",
+  "testMode": false
+}
