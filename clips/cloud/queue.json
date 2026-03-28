@@ -261,8 +261,10 @@
     },
     {
       "file": "How_your_words_steer_your_life_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-22T19:50:00"
+      "posted": true,
+      "added_at": "2026-03-22T19:50:00",
+      "video_id": "1609442450135929",
+      "posted_at": "2026-03-28T21:27:11Z"
     },
     {
       "file": "Know_When_to_Move_On__When_Your_Brook_Dr_0m05s_square.mp4",
@@ -332,8 +334,8 @@
   ],
   "stats": {
     "total": 51,
-    "posted": 37,
-    "remaining": 14,
-    "last_updated": "2026-03-28T14:22:54Z"
+    "posted": 38,
+    "remaining": 13,
+    "last_updated": "2026-03-28T21:27:11Z"
   }
 }
