@@ -1,0 +1,63 @@
+{
+  "date": "2026-03-29",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "\"My dear brothers and sisters in Christ, \n\nI want you to know that you are seen, you are known, and you are loved by your Heavenly Father. His eyes are upon you, and His hand is guiding you through every season of life. Don't lose heart when the road ahead seems uncertain - your faith is not just a feeling, but a foundation that will weather every storm. Stand firm on the Rock of Jesus, and watch Him work miracles in your life. You are chosen, you are called, and you are equipped for greatness.\"",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#Jesus"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "\"My dear brothers and sisters in Christ, \n\nI want you to know that you are seen, you are known, and you are loved by your Heavenly Father. His eyes are upon you, and His hand is guiding you through every season of life. Don't lose heart when the road ahead seems uncertain - your faith is not just a feeling, but a foundation that will weather every storm. Stand firm on the Rock of Jesus, and watch Him work miracles in your life. You are chosen, you are called, and you are equipped for greatness.\"\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#KingdomOfGod #IncreasingFaith #Jesus"
+    },
+    "instagram": {
+      "content": "\"As you walk through life's challenges, remember that your strength is not in your own resilience but in the unshakeable anchor that is Jesus Christ. He is your Rock, your Refuge, and your Source of hope. Fix your eyes on Him, and press forward with faith. You are not alone, and you are not forgotten. You are seen, you are heard, and you are loved.",
+      "hashtags": [
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomCitizen",
+        "#KingdomOfGod",
+        "#Jesus",
+        "#JesusIsLord",
+        "#KingdomLiving",
+        "#Faith"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"As you walk through life's challenges, remember that your strength is not in your own resilience but in the unshakeable anchor that is Jesus Christ. He is your Rock, your Refuge, and your Source of hope. Fix your eyes on Him, and press forward with faith. You are not alone, and you are not forgotten. You are seen, you are heard, and you are loved.\n\nLearn more about our mission → Link in bio\n\n#IFM #IncreasingFaith #KingdomCitizen #KingdomOfGod #Jesus #JesusIsLord #KingdomLiving #Faith"
+    },
+    "tiktok": {
+      "content": "Listen, son/daughter, you've been through battles. You've seen the enemy's schemes, but you must remember: God is greater than your giants. Don't let what's behind you define what's ahead. Rise up, take the land, and claim your inheritance.",
+      "hashtags": [
+        "#IFM",
+        "#IncreasingFaith",
+        "#JesusIsLord",
+        "#Faith",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "Listen, son/daughter, you've been through battles. You've seen the enemy's schemes, but you must remember: God is greater than your giants. Don't let what's behind you define what's ahead. Rise up, take the land, and claim your inheritance.\n\nLearn more about our mission → Link in bio\n\n#IFM #IncreasingFaith #JesusIsLord #Faith #KingdomOfGod"
+    }
+  },
+  "generatedAt": "2026-03-29T14:24:00.252Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1370958701734775"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-03-29T14:24:03.798Z",
+  "testMode": false
+}
