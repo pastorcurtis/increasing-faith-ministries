@@ -289,8 +289,10 @@
     },
     {
       "file": "Rapture_redefined_become_conscious_of_Go_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-22T19:50:00"
+      "posted": true,
+      "added_at": "2026-03-22T19:50:00",
+      "video_id": "1271342264974658",
+      "posted_at": "2026-03-30T21:38:56Z"
     },
     {
       "file": "Revive_what_s_dead_Elijah_s_relentless_p_0m05s_square.mp4",
@@ -340,8 +342,8 @@
   ],
   "stats": {
     "total": 51,
-    "posted": 41,
-    "remaining": 10,
-    "last_updated": "2026-03-30T14:56:21Z"
+    "posted": 42,
+    "remaining": 9,
+    "last_updated": "2026-03-30T21:38:56Z"
   }
 }
