@@ -296,8 +296,10 @@
     },
     {
       "file": "Revive_what_s_dead_Elijah_s_relentless_p_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-22T20:17:04"
+      "posted": true,
+      "added_at": "2026-03-22T20:17:04",
+      "video_id": "2808850472790422",
+      "posted_at": "2026-03-31T14:53:38Z"
     },
     {
       "file": "Stop_Leaning_on_Flawed_Leaders__Run_to_G_0m02s_square.mp4",
@@ -342,8 +344,8 @@
   ],
   "stats": {
     "total": 51,
-    "posted": 42,
-    "remaining": 9,
-    "last_updated": "2026-03-30T21:38:56Z"
+    "posted": 43,
+    "remaining": 8,
+    "last_updated": "2026-03-31T14:53:38Z"
   }
 }
