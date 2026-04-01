@@ -317,8 +317,10 @@
     },
     {
       "file": "The_Brook_Cherith_Season_God_Cuts_Away_t_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-22T20:17:04"
+      "posted": true,
+      "added_at": "2026-03-22T20:17:04",
+      "video_id": "829628192802489",
+      "posted_at": "2026-04-01T21:38:20Z"
     },
     {
       "file": "Trust_the_Process_The_Widow_Fear_and_Obe_0m05s_square.mp4",
@@ -348,8 +350,8 @@
   ],
   "stats": {
     "total": 51,
-    "posted": 45,
-    "remaining": 6,
-    "last_updated": "2026-04-01T14:57:08Z"
+    "posted": 46,
+    "remaining": 5,
+    "last_updated": "2026-04-01T21:38:20Z"
   }
 }
