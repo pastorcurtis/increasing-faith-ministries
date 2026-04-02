@@ -324,8 +324,10 @@
     },
     {
       "file": "Trust_the_Process_The_Widow_Fear_and_Obe_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-22T20:17:04"
+      "posted": true,
+      "added_at": "2026-03-22T20:17:04",
+      "video_id": "921832227285923",
+      "posted_at": "2026-04-02T14:46:10Z"
     },
     {
       "file": "We_Are_Coming_Back__This_Is_Our_Territor_0m05s_square.mp4",
@@ -350,8 +352,8 @@
   ],
   "stats": {
     "total": 51,
-    "posted": 46,
-    "remaining": 5,
-    "last_updated": "2026-04-01T21:38:20Z"
+    "posted": 47,
+    "remaining": 4,
+    "last_updated": "2026-04-02T14:46:10Z"
   }
 }
