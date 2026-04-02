@@ -331,8 +331,10 @@
     },
     {
       "file": "We_Are_Coming_Back__This_Is_Our_Territor_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-22T20:17:04"
+      "posted": true,
+      "added_at": "2026-03-22T20:17:04",
+      "video_id": "902729459262042",
+      "posted_at": "2026-04-02T21:34:08Z"
     },
     {
       "file": "When_Elijah_Prayed__Fire_Fell_and_God_An_0m05s_square.mp4",
@@ -352,8 +354,8 @@
   ],
   "stats": {
     "total": 51,
-    "posted": 47,
-    "remaining": 4,
-    "last_updated": "2026-04-02T14:46:10Z"
+    "posted": 48,
+    "remaining": 3,
+    "last_updated": "2026-04-02T21:34:08Z"
   }
 }
