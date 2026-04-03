@@ -345,8 +345,10 @@
     },
     {
       "file": "Wisdom_Is_the_Principal_Thing__Get_Wisdo_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-03-22T20:17:04"
+      "posted": true,
+      "added_at": "2026-03-22T20:17:04",
+      "video_id": "1186377700112593",
+      "posted_at": "2026-04-03T21:30:31Z"
     },
     {
       "file": "You_Are_a_Gate_and_Everlasting_Door_0m05s_square.mp4",
@@ -356,8 +358,8 @@
   ],
   "stats": {
     "total": 51,
-    "posted": 49,
-    "remaining": 2,
-    "last_updated": "2026-04-03T14:35:24Z"
+    "posted": 50,
+    "remaining": 1,
+    "last_updated": "2026-04-03T21:30:31Z"
   }
 }
