@@ -29,7 +29,7 @@ function pickHashtags(theme, platform) {
         theme.type.includes('marriage') ? 'marriage' :
         theme.type.includes('teaching') ? 'teaching' :
         theme.type.includes('scripture') ? 'faith' :
-        theme.type.includes('engagement') ? 'community' : 'faith'] || []),
+        theme.type.includes('engagement') ? 'engagement' : 'faith'] || []),
   ];
   // Shuffle and pick
   const shuffled = pool.sort(() => 0.5 - Math.random());

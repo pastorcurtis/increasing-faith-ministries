@@ -93,12 +93,37 @@ jobs:
         run: |
           CLIP_PATH="${{ steps.find-clip.outputs.clip_path }}"
 
-          CAPTION="Watch Hour of Power LIVE Mon-Fri 8:15 AM
-          increasingfaith.net
+          # Rotating engagement captions — different hook each post
+          CAPTIONS=(
+            "This word right here. Who needed to hear this today?"
+            "Watch this and tell me it did not shift something in you."
+            "If this spoke to your spirit, share it with someone who needs it."
+            "Real Kingdom teaching. Drop an AMEN if you receive this."
+            "This is the word for somebody today. Tag them below."
+            "Stop scrolling. This is for you. What stood out?"
+            "Most people will scroll past this. Kingdom citizens will not."
+            "How many of you have been believing the wrong thing about this?"
+            "Listen to this twice. Then tell me what the Spirit revealed to you."
+            "This changes everything once you understand it. Agree or disagree?"
+            "Somebody in your circle needs this word today. Share it."
+            "This is not church as usual. This is Kingdom."
+            "Play this for someone who thinks they know the Bible."
+            "The truth cuts deep, but it sets you free. Who felt that?"
+            "I challenge you to listen to this and not be changed."
+          )
+          # Pick a caption based on current hour + minute for variety
+          INDEX=$(( ($(date +%s) / 60) % ${#CAPTIONS[@]} ))
+          HOOK="${CAPTIONS[$INDEX]}"
 
-          #HourOfPower #KingdomOfGod #IncreasingFaith #IFM #KingdomLiving #PastorCurtis"
+          CAPTION="$HOOK
+
+Watch Hour of Power LIVE Mon-Fri 8:15 AM
+increasingfaith.net
+
+#HourOfPower #KingdomOfGod #IncreasingFaith #IFM #KingdomLiving #PastorCurtis"
 
           echo "Posting ${{ steps.find-clip.outputs.clip_file }} to Facebook..."
+          echo "Caption hook: $HOOK"
 
           RESPONSE=$(curl -s \
             -X POST \
