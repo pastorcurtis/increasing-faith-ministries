@@ -1,0 +1,63 @@
+{
+  "date": "2026-04-08",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "Real talk: What's one thing you wish your church or faith community understood about your faith struggle, but haven't asked yet?\n\nWe want to hear from you. Share your thoughts and let's create a space for honest conversation about the realities of Kingdom living.",
+      "hashtags": [
+        "#RealTalk",
+        "#KingdomConversation",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "Real talk: What's one thing you wish your church or faith community understood about your faith struggle, but haven't asked yet?\n\nWe want to hear from you. Share your thoughts and let's create a space for honest conversation about the realities of Kingdom living.\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#RealTalk #KingdomConversation #KingdomLiving"
+    },
+    "instagram": {
+      "content": "Do you believe faith is about waiting on God's timing or taking bold action in obedience?\nIn Isaiah 28:16, the Bible says, \"Behold, I lay in Zion a stone of stumbling and a rock of offense, and he who believes in him will not be dismayed.\" \n\nFinish this sentence: Faith is taking bold action even when I don't feel like God has given me a green light...",
+      "hashtags": [
+        "#RealTalk",
+        "#FaithTalk",
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#KingdomMindset",
+        "#KingdomConversation",
+        "#IFM",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Do you believe faith is about waiting on God's timing or taking bold action in obedience?\nIn Isaiah 28:16, the Bible says, \"Behold, I lay in Zion a stone of stumbling and a rock of offense, and he who believes in him will not be dismayed.\" \n\nFinish this sentence: Faith is taking bold action even when I don't feel like God has given me a green light...\n\nJoin our community → Link in bio\n\n#RealTalk #FaithTalk #KingdomOfGod #IncreasingFaith #KingdomMindset #KingdomConversation #IFM #KingdomLiving"
+    },
+    "tiktok": {
+      "content": "\"Unpopular opinion: You don't have to 'feel' like praying to pray. It's not about emotions, but obedience to God's Word - what do you think?\"",
+      "hashtags": [
+        "#KingdomConversation",
+        "#KingdomLiving",
+        "#FaithTalk",
+        "#KingdomMindset",
+        "#IFM"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "\"Unpopular opinion: You don't have to 'feel' like praying to pray. It's not about emotions, but obedience to God's Word - what do you think?\"\n\nJoin our community → Link in bio\n\n#KingdomConversation #KingdomLiving #FaithTalk #KingdomMindset #IFM"
+    }
+  },
+  "generatedAt": "2026-04-08T15:00:12.915Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1380094924154486"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-04-08T15:00:18.547Z",
+  "testMode": false
+}
