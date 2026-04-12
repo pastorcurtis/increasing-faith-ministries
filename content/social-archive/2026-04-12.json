@@ -1,0 +1,63 @@
+{
+  "date": "2026-04-12",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "\"My dear brothers and sisters in Christ, I want to remind you that the battle for surrender and faith is an ongoing one. We will face trials that test our resolve and our trust in God. But let me tell you this: the God who walked with the Israelites through the Red Sea is the same God who walks with you today. He is faithful, and He will see you through the darkest of nights. So, I charge you: stand firm in your faith, and watch the Lord work wonders in your life.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#Jesus"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "\"My dear brothers and sisters in Christ, I want to remind you that the battle for surrender and faith is an ongoing one. We will face trials that test our resolve and our trust in God. But let me tell you this: the God who walked with the Israelites through the Red Sea is the same God who walks with you today. He is faithful, and He will see you through the darkest of nights. So, I charge you: stand firm in your faith, and watch the Lord work wonders in your life.\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#KingdomOfGod #IncreasingFaith #Jesus"
+    },
+    "instagram": {
+      "content": "You are not broken, you are being refined.\n\nJust as gold is tested in fire to remove its impurities, God is working to purify your heart, stripping away what's holding you back.\n\nDo not despise the process, it's a mark of His love and desire for intimacy with you.\n\nWill you trust Him in the fire, knowing He is working a masterpiece in you?",
+      "hashtags": [
+        "#KingdomCitizen",
+        "#Jesus",
+        "#Faith",
+        "#KingdomLiving",
+        "#JesusIsLord",
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "You are not broken, you are being refined.\n\nJust as gold is tested in fire to remove its impurities, God is working to purify your heart, stripping away what's holding you back.\n\nDo not despise the process, it's a mark of His love and desire for intimacy with you.\n\nWill you trust Him in the fire, knowing He is working a masterpiece in you?\n\nLearn more about our mission → Link in bio\n\n#KingdomCitizen #Jesus #Faith #KingdomLiving #JesusIsLord #IFM #IncreasingFaith #KingdomOfGod"
+    },
+    "tiktok": {
+      "content": "\"You're not just fighting for survival, you're fighting for significance. Your life has a purpose that's not about your circumstances, but about the God who's living through you. Don't let the world define your value; the Bible does.",
+      "hashtags": [
+        "#IFM",
+        "#IncreasingFaith",
+        "#JesusIsLord",
+        "#KingdomCitizen",
+        "#Faith"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"You're not just fighting for survival, you're fighting for significance. Your life has a purpose that's not about your circumstances, but about the God who's living through you. Don't let the world define your value; the Bible does.\n\nLearn more about our mission → Link in bio\n\n#IFM #IncreasingFaith #JesusIsLord #KingdomCitizen #Faith"
+    }
+  },
+  "generatedAt": "2026-04-12T14:31:47.787Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1383311477166164"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-04-12T14:31:51.159Z",
+  "testMode": false
+}
