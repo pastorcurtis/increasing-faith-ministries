@@ -1,0 +1,63 @@
+{
+  "date": "2026-04-15",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "\"The Kingdom life isn't about earning God's love, but about being loved unconditionally into obedience. It's not about performance, but about participation in His perfect plan. Which resonates more with you: living in guilt until you get it right, or resting in God's love and moving forward in faith?\"",
+      "hashtags": [
+        "#FaithTalk",
+        "#KingdomLiving",
+        "#IFM"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "\"The Kingdom life isn't about earning God's love, but about being loved unconditionally into obedience. It's not about performance, but about participation in His perfect plan. Which resonates more with you: living in guilt until you get it right, or resting in God's love and moving forward in faith?\"\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#FaithTalk #KingdomLiving #IFM"
+    },
+    "instagram": {
+      "content": "Finish this sentence: \"The moment I surrendered to God's plans was when I realized ______\"\n\nDo you find it easy to trust God's timing or do you prefer to try and control the outcome? Share your story with us!\n\nWhat's the moment you finally let go?",
+      "hashtags": [
+        "#KingdomLiving",
+        "#RealTalk",
+        "#IFM",
+        "#KingdomConversation",
+        "#FaithTalk",
+        "#KingdomOfGod",
+        "#KingdomMindset",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Finish this sentence: \"The moment I surrendered to God's plans was when I realized ______\"\n\nDo you find it easy to trust God's timing or do you prefer to try and control the outcome? Share your story with us!\n\nWhat's the moment you finally let go?\n\nJoin our community → Link in bio\n\n#KingdomLiving #RealTalk #IFM #KingdomConversation #FaithTalk #KingdomOfGod #KingdomMindset #IncreasingFaith"
+    },
+    "tiktok": {
+      "content": "When we seek God's presence in worship, is it just about feeling His Spirit or actually hearing His voice? Can you really worship God without a personal revelation?",
+      "hashtags": [
+        "#FaithTalk",
+        "#KingdomLiving",
+        "#KingdomMindset",
+        "#KingdomConversation",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "When we seek God's presence in worship, is it just about feeling His Spirit or actually hearing His voice? Can you really worship God without a personal revelation?\n\nJoin our community → Link in bio\n\n#FaithTalk #KingdomLiving #KingdomMindset #KingdomConversation #KingdomOfGod"
+    }
+  },
+  "generatedAt": "2026-04-15T14:58:20.259Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1385785440252101"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-04-15T14:58:23.283Z",
+  "testMode": false
+}
