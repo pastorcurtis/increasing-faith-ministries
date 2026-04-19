@@ -1,0 +1,63 @@
+{
+  "date": "2026-04-19",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "As I reflect on the journey of faith, I'm reminded that it's not about how we begin - it's about how we persevere. The trials, the doubts, the fears - they're all part of the path to growth and maturity. But it's in those moments that we're forced to choose: will we cling to the Rock, or will we let the waves of uncertainty consume us? The choice is ours, always.\n\n",
+      "hashtags": [
+        "#JesusIsLord",
+        "#IncreasingFaith",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "As I reflect on the journey of faith, I'm reminded that it's not about how we begin - it's about how we persevere. The trials, the doubts, the fears - they're all part of the path to growth and maturity. But it's in those moments that we're forced to choose: will we cling to the Rock, or will we let the waves of uncertainty consume us? The choice is ours, always.\n\n\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#JesusIsLord #IncreasingFaith #KingdomLiving"
+    },
+    "instagram": {
+      "content": "\"My dear brothers and sisters, I want you to remember that you are not just loved, you are cherished. You are not just forgiven, you are redeemed. You are not just saved, you are royalty in the Kingdom of God. \n\nSo I ask you, what does it look like for you to live as the beloved child of God today?\"",
+      "hashtags": [
+        "#Faith",
+        "#JesusIsLord",
+        "#KingdomCitizen",
+        "#KingdomLiving",
+        "#Jesus",
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#IFM"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"My dear brothers and sisters, I want you to remember that you are not just loved, you are cherished. You are not just forgiven, you are redeemed. You are not just saved, you are royalty in the Kingdom of God. \n\nSo I ask you, what does it look like for you to live as the beloved child of God today?\"\n\nLearn more about our mission → Link in bio\n\n#Faith #JesusIsLord #KingdomCitizen #KingdomLiving #Jesus #KingdomOfGod #IncreasingFaith #IFM"
+    },
+    "tiktok": {
+      "content": "\"My sons and daughters, don't let the voices of rejection define your worth. God's Word declares you are a beloved child, chosen for greatness. Don't compare your beginning to someone else's middle. Trust the master Weaver, He's working all things together for your good.",
+      "hashtags": [
+        "#JesusIsLord",
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomLiving",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"My sons and daughters, don't let the voices of rejection define your worth. God's Word declares you are a beloved child, chosen for greatness. Don't compare your beginning to someone else's middle. Trust the master Weaver, He's working all things together for your good.\n\nLearn more about our mission → Link in bio\n\n#JesusIsLord #IFM #IncreasingFaith #KingdomLiving #KingdomCitizen"
+    }
+  },
+  "generatedAt": "2026-04-19T14:32:57.015Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1389222909908354"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-04-19T14:32:59.676Z",
+  "testMode": false
+}
