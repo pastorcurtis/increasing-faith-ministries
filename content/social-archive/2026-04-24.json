@@ -1,0 +1,63 @@
+{
+  "date": "2026-04-24",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "In our upcoming Kingdom Report newsletter, we're diving deep into the growing trend of \"Christian consumerism\" and its impact on the Church's integrity. Did you know that a recent study shows that 75% of professing Christians in the United States prioritize personal comfort and convenience over spiritual disciplines and community? What are your thoughts on this disturbing trend - do you think it's a sign of a deeper issue within the Church, or simply a reflection of a society that values comfort",
+      "hashtags": [
+        "#JesusIsLord",
+        "#IFM",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "In our upcoming Kingdom Report newsletter, we're diving deep into the growing trend of \"Christian consumerism\" and its impact on the Church's integrity. Did you know that a recent study shows that 75% of professing Christians in the United States prioritize personal comfort and convenience over spiritual disciplines and community? What are your thoughts on this disturbing trend - do you think it's a sign of a deeper issue within the Church, or simply a reflection of a society that values comfort\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#JesusIsLord #IFM #IncreasingFaith"
+    },
+    "instagram": {
+      "content": "A Shift in the Global Church\n\nAs The Kingdom Report goes live, we're unpacking the growing trend of 'spiritual entrepreneurship'. With millions investing in divine business ventures, what does this mean for the Church's definition of success?\n\nCan a kingdom ministry truly thrive outside traditional models of giving and leadership?\n\nDouble tap if you're considering the business of the Church...",
+      "hashtags": [
+        "#KingdomCitizen",
+        "#KingdomLiving",
+        "#Jesus",
+        "#Faith",
+        "#JesusIsLord",
+        "#IFM",
+        "#KingdomOfGod",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "A Shift in the Global Church\n\nAs The Kingdom Report goes live, we're unpacking the growing trend of 'spiritual entrepreneurship'. With millions investing in divine business ventures, what does this mean for the Church's definition of success?\n\nCan a kingdom ministry truly thrive outside traditional models of giving and leadership?\n\nDouble tap if you're considering the business of the Church...\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomCitizen #KingdomLiving #Jesus #Faith #JesusIsLord #IFM #KingdomOfGod #IncreasingFaith"
+    },
+    "tiktok": {
+      "content": "\"Did you know that the same Greek word for 'authority' in Romans 13:1 is also used for 'rule' in the Septuagint? This subtle shift in meaning reveals the King's design for governing the nations - not just our individual lives.",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#Jesus",
+        "#Faith",
+        "#KingdomOfGod",
+        "#IFM"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "\"Did you know that the same Greek word for 'authority' in Romans 13:1 is also used for 'rule' in the Septuagint? This subtle shift in meaning reveals the King's design for governing the nations - not just our individual lives.\n\nRead the full Kingdom Report → Link in bio\n\n#IncreasingFaith #Jesus #Faith #KingdomOfGod #IFM"
+    }
+  },
+  "generatedAt": "2026-04-24T14:59:44.155Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1393866696110642"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-04-24T14:59:47.836Z",
+  "testMode": false
+}
