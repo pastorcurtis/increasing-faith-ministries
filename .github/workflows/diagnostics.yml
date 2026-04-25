@@ -66,9 +66,12 @@ jobs:
         with:
           script: |
             const results = [];
+            // Map display name -> filename fallback (GitHub sometimes caches the path as the name)
             const requiredWorkflows = [
-              'Monthly Newsletter', 'Keep Alive', 'Post IFM Clips',
-              'Daily Social Media'
+              { name: 'Monthly Newsletter', file: 'newsletter.yml' },
+              { name: 'Keep Alive', file: 'keepalive.yml' },
+              { name: 'Post IFM Clips', file: 'clip-poster.yml' },
+              { name: 'Daily Social Media', file: 'social-media.yml' }
             ];
 
             const { data: workflows } = await github.rest.actions.listRepoWorkflows({
@@ -76,8 +79,10 @@ jobs:
               repo: context.repo.repo
             });
 
-            for (const name of requiredWorkflows) {
-              const wf = workflows.workflows.find(w => w.name === name);
+            for (const { name, file } of requiredWorkflows) {
+              // Search by name first, then fall back to matching the filename in the path
+              const wf = workflows.workflows.find(w => w.name === name)
+                || workflows.workflows.find(w => w.path && w.path.endsWith(file));
               if (!wf) {
                 results.push({ name, status: 'MISSING', fixed: false });
                 continue;
