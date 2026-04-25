@@ -1,4 +1,5 @@
 name: Post IFM Clips
+# Posts sermon clips from the cloud queue to Facebook
 
 on:
   schedule:
