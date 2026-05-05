@@ -149,74 +149,119 @@ jobs:
           fi
 
       # ================================================================
-      # CHECK 3: Clip poster actually posting (stall detection)
+      # CHECK 3: Per-workflow scheduled-run health
       # ================================================================
-      - name: Check clip poster activity
-        id: clip_poster
+      # Watches each scheduled workflow for the failure modes that bit us
+      # 2026-04-05 → 2026-05-04 (clip-poster silent for 9 days):
+      #   - Schedule throttled by GitHub after repeated failures (state stays "active")
+      #   - YAML startup_failure (jobs.total_count === 0, no logs)
+      #   - Last *successful scheduled* run too old (any other recent run masks it)
+      - name: Check scheduled workflow health
+        id: sched_health
         uses: actions/github-script@v7
         with:
           script: |
+            // Workflows that MUST fire on schedule. stale_hours = max gap before alert.
+            const targets = [
+              { name: 'Post IFM Clips',     file: 'clip-poster.yml',  stale_hours: 14 },
+              { name: 'Daily Social Media', file: 'social-media.yml', stale_hours: 28 }
+            ];
+
             const { data: workflows } = await github.rest.actions.listRepoWorkflows({
               owner: context.repo.owner,
               repo: context.repo.repo
             });
 
-            const clipWf = workflows.workflows.find(w => w.name === 'Post IFM Clips');
-            if (!clipWf) {
-              core.setOutput('status', 'missing');
-              return;
-            }
+            const findWf = (t) => workflows.workflows.find(w => w.name === t.name)
+              || workflows.workflows.find(w => w.path && w.path.endsWith(t.file));
 
-            const { data: runs } = await github.rest.actions.listWorkflowRuns({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: clipWf.id,
-              per_page: 5
-            });
+            const results = [];
 
-            if (runs.workflow_runs.length === 0) {
-              core.setOutput('status', 'never_run');
-              return;
-            }
+            for (const target of targets) {
+              const wf = findWf(target);
+              if (!wf) {
+                results.push({ name: target.name, file: target.file, status: 'missing' });
+                continue;
+              }
 
-            const lastRun = runs.workflow_runs[0];
-            const hoursSince = Math.floor(
-              (Date.now() - new Date(lastRun.created_at).getTime()) / 3600000
-            );
+              const { data: runs } = await github.rest.actions.listWorkflowRuns({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                workflow_id: wf.id,
+                per_page: 10
+              });
 
-            core.setOutput('last_run', lastRun.created_at);
-            core.setOutput('hours_since', hoursSince.toString());
-            core.setOutput('conclusion', lastRun.conclusion || 'unknown');
+              if (runs.workflow_runs.length === 0) {
+                results.push({ name: target.name, file: target.file, status: 'never_run' });
+                continue;
+              }
 
-            // If no run in 18+ hours, something is wrong (should run 2x/day)
-            if (hoursSince > 18) {
-              core.setOutput('status', 'stalled');
-              core.warning(`Clip poster hasn't run in ${hoursSince} hours`);
+              const now = Date.now();
+              const hoursSince = (run) =>
+                Math.floor((now - new Date(run.created_at).getTime()) / 3600000);
 
-              // Auto-fix: re-enable if disabled
-              if (clipWf.state !== 'active') {
+              // Last *successful scheduled* run — the metric that actually matters.
+              const lastSchedSuccess = runs.workflow_runs.find(
+                r => r.event === 'schedule' && r.conclusion === 'success'
+              );
+              const lastSchedSuccessAge = lastSchedSuccess ? hoursSince(lastSchedSuccess) : null;
+
+              // Startup failures (YAML rejected) — fingerprint: jobs.total_count === 0.
+              // Only check the most recent few runs to limit API calls.
+              let startupFailureCount = 0;
+              for (const r of runs.workflow_runs.slice(0, 5)) {
+                if (r.conclusion !== 'failure') continue;
                 try {
-                  await github.rest.actions.enableWorkflow({
+                  const { data: jobs } = await github.rest.actions.listJobsForWorkflowRun({
                     owner: context.repo.owner,
                     repo: context.repo.repo,
-                    workflow_id: clipWf.id
+                    run_id: r.id
                   });
-                  core.setOutput('fixed', 'true');
-                } catch (e) {
-                  core.setOutput('fixed', 'false');
-                }
+                  if (jobs.total_count === 0) startupFailureCount++;
+                } catch (_) { /* ignore */ }
               }
-            } else {
-              core.setOutput('status', 'ok');
+
+              const recentFailures = runs.workflow_runs
+                .slice(0, 5)
+                .filter(r => r.conclusion === 'failure').length;
+
+              // Decide overall status (most severe wins).
+              let status = 'ok';
+              const issues = [];
+              if (startupFailureCount > 0) {
+                status = 'startup_failure';
+                issues.push(`${startupFailureCount} startup_failure run(s) — workflow YAML did not parse`);
+              }
+              if (lastSchedSuccessAge === null) {
+                status = status === 'ok' ? 'no_scheduled_success' : status;
+                issues.push('No successful scheduled run on record (last 10 runs)');
+              } else if (lastSchedSuccessAge > target.stale_hours) {
+                status = status === 'ok' ? 'schedule_stalled' : status;
+                issues.push(`Last successful scheduled run was ${lastSchedSuccessAge}h ago (threshold ${target.stale_hours}h)`);
+              }
+              if (recentFailures >= 3) {
+                status = 'failing';
+                issues.push(`${recentFailures} of last 5 runs failed`);
+              }
+
+              if (status !== 'ok') {
+                core.warning(`${target.name}: ${issues.join('; ')}`);
+              }
+
+              results.push({
+                name: target.name,
+                file: target.file,
+                state: wf.state,
+                status,
+                issues,
+                last_sched_success_age_h: lastSchedSuccessAge,
+                startup_failures: startupFailureCount,
+                recent_failures: recentFailures,
+                threshold_h: target.stale_hours
+              });
             }
 
-            // Check for repeated failures
-            const recent = runs.workflow_runs.slice(0, 5);
-            const failures = recent.filter(r => r.conclusion === 'failure').length;
-            if (failures >= 3) {
-              core.setOutput('status', 'failing');
-              core.warning(`Clip poster has failed ${failures}/5 recent runs`);
-            }
+            core.setOutput('results', JSON.stringify(results));
 
       # ================================================================
       # CHECK 4: Facebook API token validity
@@ -394,9 +439,7 @@ jobs:
           QUEUE_STATUS: ${{ steps.clip_queue.outputs.status }}
           QUEUE_REMAINING: ${{ steps.clip_queue.outputs.remaining }}
           QUEUE_DAYS: ${{ steps.clip_queue.outputs.days_left }}
-          POSTER_STATUS: ${{ steps.clip_poster.outputs.status }}
-          POSTER_HOURS: ${{ steps.clip_poster.outputs.hours_since }}
-          POSTER_FIXED: ${{ steps.clip_poster.outputs.fixed }}
+          SCHED_HEALTH: ${{ steps.sched_health.outputs.results }}
           FB_STATUS: ${{ steps.fb_token.outputs.status }}
           NL_STATUS: ${{ steps.last_run.outputs.status }}
           NL_DAYS: ${{ steps.last_run.outputs.days_since }}
@@ -432,16 +475,45 @@ jobs:
           elif q_status == 'missing':
               problems.append("Clip queue file (queue.json) is missing!")
 
-          # Clip poster
-          p_status = os.environ.get('POSTER_STATUS', '')
-          p_hours = os.environ.get('POSTER_HOURS', '0')
-          if p_status == 'stalled':
-              if os.environ.get('POSTER_FIXED') == 'true':
-                  fixes.append(f"Clip poster was stalled ({p_hours}h) -- re-enabled")
-              else:
-                  problems.append(f"Clip poster stalled -- hasn't run in {p_hours} hours")
-          elif p_status == 'failing':
-              problems.append("Clip poster failing repeatedly (3+ of last 5 runs)")
+          # Per-workflow scheduled-run health (clip-poster, social-media)
+          sched_summary = []
+          try:
+              sched_results = json.loads(os.environ.get('SCHED_HEALTH', '[]'))
+          except Exception:
+              sched_results = []
+          for wf in sched_results:
+              name = wf.get('name', '?')
+              status = wf.get('status', '?')
+              age = wf.get('last_sched_success_age_h')
+              age_str = f"{age}h ago" if age is not None else "never"
+              sched_summary.append(f"  - {name}: {status} (last scheduled success: {age_str})")
+              if status == 'startup_failure':
+                  problems.append(
+                      f"**{name}**: workflow YAML failed to parse "
+                      f"(startup_failure × {wf.get('startup_failures',0)}). "
+                      f"Inspect `.github/workflows/{wf.get('file','?')}` — common cause is "
+                      f"a multiline bash string in `run: |` whose continuation lines are not "
+                      f"indented to the block's base. Fix and push to re-register."
+                  )
+              elif status == 'schedule_stalled':
+                  problems.append(
+                      f"**{name}**: schedule dormant — last successful scheduled run was "
+                      f"{age}h ago (alert threshold {wf.get('threshold_h','?')}h). "
+                      f"Trigger a manual `workflow_dispatch` run to re-arm GitHub's scheduler."
+                  )
+              elif status == 'no_scheduled_success':
+                  problems.append(
+                      f"**{name}**: no successful scheduled run in last 10 attempts. "
+                      f"Schedule may be throttled. Manually dispatch to re-arm."
+                  )
+              elif status == 'failing':
+                  problems.append(
+                      f"**{name}**: failing — {wf.get('recent_failures',0)} of last 5 runs failed."
+                  )
+              elif status == 'missing':
+                  problems.append(f"**{name}**: workflow not found in repo!")
+              elif status == 'never_run':
+                  warnings.append(f"**{name}**: has never run yet")
 
           # Facebook token
           fb = os.environ.get('FB_STATUS', '')
@@ -503,7 +575,11 @@ jobs:
           # Status summary
           lines.append("### System Status")
           lines.append(f"- Clip Queue: {q_remaining} clips ({q_days} days at 2/day)")
-          lines.append(f"- Clip Poster: {'OK' if p_status == 'ok' else p_status}")
+          lines.append(f"- Scheduled workflows:")
+          if sched_summary:
+              lines.extend(sched_summary)
+          else:
+              lines.append("  - (no data)")
           lines.append(f"- Facebook Token: {'Valid' if fb == 'ok' else fb}")
           lines.append(f"- Website: {'OK' if not web else 'Issues'}")
           lines.append(f"- Newsletter: {nl} (last {nl_days} days ago)")
