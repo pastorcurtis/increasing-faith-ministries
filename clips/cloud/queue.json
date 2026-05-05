@@ -9,8 +9,10 @@
     },
     {
       "file": "2_STOP_Excessive_Giving_Dont_Go_BROKE_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:56"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:56",
+      "video_id": "988464160386161",
+      "posted_at": "2026-05-05T15:57:56Z"
     },
     {
       "file": "2_Unlock_Your_God_Consciousness_You_Are_0m10s_square.mp4",
@@ -280,8 +282,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 1,
-    "remaining": 54,
-    "last_updated": "2026-05-05T02:47:52Z"
+    "posted": 2,
+    "remaining": 53,
+    "last_updated": "2026-05-05T15:57:56Z"
   }
 }
