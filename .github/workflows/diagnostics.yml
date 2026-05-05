@@ -225,24 +225,28 @@ jobs:
                 .slice(0, 5)
                 .filter(r => r.conclusion === 'failure').length;
 
-              // Decide overall status (most severe wins).
-              let status = 'ok';
+              // Collect all observed issues, then pick the *most specific* status.
+              // Specificity ranking (most → least): startup_failure > no_scheduled_success
+              // > schedule_stalled > failing > ok. The most specific diagnosis is the
+              // most actionable, so it wins and drives the report's remediation hint.
               const issues = [];
               if (startupFailureCount > 0) {
-                status = 'startup_failure';
                 issues.push(`${startupFailureCount} startup_failure run(s) — workflow YAML did not parse`);
               }
               if (lastSchedSuccessAge === null) {
-                status = status === 'ok' ? 'no_scheduled_success' : status;
                 issues.push('No successful scheduled run on record (last 10 runs)');
               } else if (lastSchedSuccessAge > target.stale_hours) {
-                status = status === 'ok' ? 'schedule_stalled' : status;
                 issues.push(`Last successful scheduled run was ${lastSchedSuccessAge}h ago (threshold ${target.stale_hours}h)`);
               }
               if (recentFailures >= 3) {
-                status = 'failing';
                 issues.push(`${recentFailures} of last 5 runs failed`);
               }
+
+              let status = 'ok';
+              if (startupFailureCount > 0) status = 'startup_failure';
+              else if (lastSchedSuccessAge === null) status = 'no_scheduled_success';
+              else if (lastSchedSuccessAge > target.stale_hours) status = 'schedule_stalled';
+              else if (recentFailures >= 3) status = 'failing';
 
               if (status !== 'ok') {
                 core.warning(`${target.name}: ${issues.join('; ')}`);
