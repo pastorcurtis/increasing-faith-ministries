@@ -116,12 +116,7 @@ jobs:
           INDEX=$(( ($(date +%s) / 60) % ${#CAPTIONS[@]} ))
           HOOK="${CAPTIONS[$INDEX]}"
 
-          CAPTION="$HOOK
-
-Watch Hour of Power LIVE Mon-Fri 8:15 AM
-increasingfaith.net
-
-#HourOfPower #KingdomOfGod #IncreasingFaith #IFM #KingdomLiving #PastorCurtis"
+          CAPTION=$(printf '%s\n\nWatch Hour of Power LIVE Mon-Fri 8:15 AM\nincreasingfaith.net\n\n#HourOfPower #KingdomOfGod #IncreasingFaith #IFM #KingdomLiving #PastorCurtis' "$HOOK")
 
           echo "Posting ${{ steps.find-clip.outputs.clip_file }} to Facebook..."
           echo "Caption hook: $HOOK"
