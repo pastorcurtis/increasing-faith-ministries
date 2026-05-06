@@ -30,8 +30,10 @@
     },
     {
       "file": "4_God_Consciousness_Escaping_Hellish_Lif_0m03s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:56"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:56",
+      "video_id": "1680742806271457",
+      "posted_at": "2026-05-06T21:53:17Z"
     },
     {
       "file": "4_Let_Go_to_Reign_Sacrifices_for_Your_Ri_0m02s_square.mp4",
@@ -286,8 +288,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 4,
-    "remaining": 51,
-    "last_updated": "2026-05-06T16:02:14Z"
+    "posted": 5,
+    "remaining": 50,
+    "last_updated": "2026-05-06T21:53:17Z"
   }
 }
