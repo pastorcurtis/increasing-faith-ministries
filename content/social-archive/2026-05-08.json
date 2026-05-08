@@ -1,0 +1,63 @@
+{
+  "date": "2026-05-08",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "In our upcoming Kingdom Report newsletter, we're shedding light on the critical phenomenon of \"Spiritual Idolatry in the Digital Age.\" Have you ever noticed how easily social media can distract us from our walk with God? A recent survey revealed that 75% of Christians say they spend more time on social media than in prayer. What are you doing to protect your faith from the digital influences that surround you?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "In our upcoming Kingdom Report newsletter, we're shedding light on the critical phenomenon of \"Spiritual Idolatry in the Digital Age.\" Have you ever noticed how easily social media can distract us from our walk with God? A recent survey revealed that 75% of Christians say they spend more time on social media than in prayer. What are you doing to protect your faith from the digital influences that surround you?\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#KingdomOfGod #IncreasingFaith #KingdomCitizen"
+    },
+    "instagram": {
+      "content": "\"A New Mandate for the Marketplace\n\nIn our upcoming Kingdom Report, we're going to expose the hidden spiritual forces driving today's business landscape. You'll learn how to identify and overcome these subtle deceptions, and how to claim your rightful place as a Kingdom entrepreneur.\n\nAre you aware of the spiritual battles raging in the workplace? Share your experiences with us.",
+      "hashtags": [
+        "#Faith",
+        "#KingdomOfGod",
+        "#KingdomCitizen",
+        "#IncreasingFaith",
+        "#IFM",
+        "#JesusIsLord",
+        "#KingdomLiving",
+        "#Jesus"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "\"A New Mandate for the Marketplace\n\nIn our upcoming Kingdom Report, we're going to expose the hidden spiritual forces driving today's business landscape. You'll learn how to identify and overcome these subtle deceptions, and how to claim your rightful place as a Kingdom entrepreneur.\n\nAre you aware of the spiritual battles raging in the workplace? Share your experiences with us.\n\nRead the full Kingdom Report → Link in bio\n\n#Faith #KingdomOfGod #KingdomCitizen #IncreasingFaith #IFM #JesusIsLord #KingdomLiving #Jesus"
+    },
+    "tiktok": {
+      "content": "\"A fresh analysis of Scripture reveals the Church in America is at a crossroads - will we prioritize faithfulness or influence? In this week's Kingdom Report, we dive into a provocative trend: how our cultural relevance might be undermining our spiritual authority.",
+      "hashtags": [
+        "#Jesus",
+        "#KingdomLiving",
+        "#Faith",
+        "#IncreasingFaith",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "\"A fresh analysis of Scripture reveals the Church in America is at a crossroads - will we prioritize faithfulness or influence? In this week's Kingdom Report, we dive into a provocative trend: how our cultural relevance might be undermining our spiritual authority.\n\nRead the full Kingdom Report → Link in bio\n\n#Jesus #KingdomLiving #Faith #IncreasingFaith #KingdomOfGod"
+    }
+  },
+  "generatedAt": "2026-05-08T15:12:24.068Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1406580621505916"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-05-08T15:12:26.738Z",
+  "testMode": false
+}
