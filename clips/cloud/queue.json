@@ -51,8 +51,10 @@
     },
     {
       "file": "5_John_3_16_Beyond_Belief_Understanding_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:56"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:56",
+      "video_id": "1090972580771794",
+      "posted_at": "2026-05-08T15:22:07Z"
     },
     {
       "file": "8_Joshua_Generation_Freedom_from_Old_Rul_0m02s_square.mp4",
@@ -292,8 +294,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 7,
-    "remaining": 48,
-    "last_updated": "2026-05-07T21:53:18Z"
+    "posted": 8,
+    "remaining": 47,
+    "last_updated": "2026-05-08T15:22:07Z"
   }
 }
