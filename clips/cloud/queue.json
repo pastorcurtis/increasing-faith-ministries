@@ -72,8 +72,10 @@
     },
     {
       "file": "Arise_shift_and_take_up_your_bed__3_step_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:56"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:56",
+      "video_id": "1548331853487880",
+      "posted_at": "2026-05-09T21:38:45Z"
     },
     {
       "file": "Be_flexible_let_God_change_your_sermon_0m05s_square.mp4",
@@ -298,8 +300,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 10,
-    "remaining": 45,
-    "last_updated": "2026-05-09T14:50:40Z"
+    "posted": 11,
+    "remaining": 44,
+    "last_updated": "2026-05-09T21:38:45Z"
   }
 }
