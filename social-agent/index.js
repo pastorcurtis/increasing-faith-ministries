@@ -13,6 +13,10 @@ const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
 const config = require('./config');
+const { renderQuoteGraphic } = require('./graphic');
+
+const BIBLE_BOOKS = '(?:Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|Samuel|Kings|Chronicles|Ezra|Nehemiah|Esther|Job|Psalms?|Proverbs|Ecclesiastes|Song|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|Corinthians|Galatians|Ephesians|Philippians|Colossians|Thessalonians|Timothy|Titus|Philemon|Hebrews|James|Peter|Jude|Revelation)';
+const SCRIPTURE_REGEX = new RegExp(`\\b(?:[123]\\s)?${BIBLE_BOOKS}\\s+\\d+:\\d+(?:-\\d+)?\\b`, 'i');
 
 // ── Helpers ────────────────────────────────────────────
 
@@ -124,6 +128,90 @@ async function generateContent(theme, platform) {
   }
 }
 
+// ── Pull Quote + Attribution ───────────────────────────
+
+async function extractPullQuote(postText) {
+  const systemPrompt = [
+    'You extract the single most quotable, screenshot-worthy sentence from a piece of writing.',
+    'Return ONLY the sentence text. No quotation marks. No commentary. No labels. No explanation.',
+    'Maximum 90 characters. Prefer short, declarative statements with conviction.',
+    'Avoid questions. Avoid sentences starting with "But", "And", or "So".',
+    'Choose the line that would make someone stop scrolling and screenshot it.',
+  ].join('\n');
+
+  const userPrompt = `Post:\n${postText}\n\nMost quotable sentence (max 90 chars, no quotes):`;
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 20000);
+
+  try {
+    const response = await fetch(config.ai.baseUrl, {
+      method: 'POST',
+      signal: controller.signal,
+      headers: {
+        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: config.ai.model,
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userPrompt },
+        ],
+        max_tokens: 80,
+        temperature: 0.3,
+      }),
+    });
+
+    clearTimeout(timeout);
+    if (!response.ok) throw new Error(`Groq pull-quote ${response.status}`);
+
+    const data = await response.json();
+    let quote = data.choices?.[0]?.message?.content?.trim() || '';
+
+    quote = sanitizeForGraphic(quote);
+
+    // Hard cap at 100 chars (give a bit of headroom)
+    if (quote.length > 100) {
+      const trimmed = quote.substring(0, 100);
+      const lastSpace = trimmed.lastIndexOf(' ');
+      quote = (lastSpace > 50 ? trimmed.substring(0, lastSpace) : trimmed) + '.';
+    }
+
+    return quote;
+  } catch (err) {
+    clearTimeout(timeout);
+    // Fallback: heuristic — first declarative sentence under 90 chars
+    return sanitizeForGraphic(heuristicPullQuote(postText));
+  }
+}
+
+function sanitizeForGraphic(text) {
+  return text
+    // Remove emoji + pictographs (unsupported by brand fonts)
+    .replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2B00}-\u{2BFF}]/gu, '')
+    // Strip wrapping quotation marks of any style
+    .replace(/^["“”'`]|["“”'`]$/g, '')
+    // Collapse all whitespace (including newlines) to single spaces
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function heuristicPullQuote(postText) {
+  const sentences = postText.match(/[^.!?]+[.!?]+/g) || [postText];
+  const declarative = sentences
+    .map(s => s.trim())
+    .filter(s => s.length > 20 && s.length <= 90 && !s.endsWith('?'))
+    .sort((a, b) => b.length - a.length); // prefer longer/meatier
+  return declarative[0] || sentences[0]?.trim() || postText.substring(0, 90);
+}
+
+function pickAttribution(postText, themeLabel) {
+  const m = postText.match(SCRIPTURE_REGEX);
+  if (m) return m[0].trim();
+  return themeLabel;
+}
+
 // ── Retry Wrapper ──────────────────────────────────────
 
 async function generateWithRetry(theme, platform) {
@@ -187,6 +275,32 @@ async function main() {
     } catch (err) {
       console.error(` ✗ FAILED: ${err.message}`);
       results[platform] = { error: err.message };
+    }
+  }
+
+  // -- Generate quote graphic (uses Facebook content as the source) --
+  let graphicPath = null;
+  let pullQuote = null;
+  let attribution = null;
+  if (results.facebook && !results.facebook.error) {
+    process.stdout.write('  Extracting pull quote...');
+    pullQuote = await extractPullQuote(results.facebook.content);
+    attribution = pickAttribution(results.facebook.content, theme.label);
+    console.log(` ✓ "${pullQuote}" — ${attribution}`);
+
+    process.stdout.write('  Rendering graphic...');
+    try {
+      const outDir = path.join(__dirname, 'output');
+      fs.mkdirSync(outDir, { recursive: true });
+      graphicPath = path.join(outDir, `${todayDateString()}.png`);
+      await renderQuoteGraphic({ quote: pullQuote, attribution, outputPath: graphicPath });
+      console.log(` ✓ ${graphicPath}`);
+      results.facebook.graphicPath = graphicPath;
+      results.facebook.pullQuote = pullQuote;
+      results.facebook.attribution = attribution;
+    } catch (err) {
+      console.error(` ✗ FAILED: ${err.message}`);
+      // Non-fatal — text-only post will still go out
     }
   }
 
