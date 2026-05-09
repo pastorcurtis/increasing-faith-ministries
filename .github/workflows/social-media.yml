@@ -64,6 +64,16 @@ jobs:
           fi
           node index.js $ARGS
 
+      # -- Upload generated graphic as artifact (always, for visual review) --
+      - name: Upload preview graphic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-graphic
+          path: social-agent/output/*.png
+          if-no-files-found: ignore
+          retention-days: 7
+
       # -- Post to Facebook --
       - name: Post to Facebook
         if: ${{ github.event.inputs.preview_only != 'true' }}

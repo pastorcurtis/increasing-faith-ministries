@@ -14,18 +14,14 @@
 
 require('dotenv').config();
 const fetch = require('node-fetch');
+const FormData = require('form-data');
 const fs = require('fs');
 const path = require('path');
 
 // -- Platform Posting Functions ---
 
-async function postToFacebook(content) {
-  if (!process.env.FACEBOOK_PAGE_TOKEN || !process.env.FACEBOOK_PAGE_ID) {
-    return { success: false, error: 'Missing FACEBOOK_PAGE_TOKEN or FACEBOOK_PAGE_ID' };
-  }
-
+async function postToFacebookText(content) {
   const url = `https://graph.facebook.com/v21.0/${process.env.FACEBOOK_PAGE_ID}/feed`;
-
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 30000);
 
@@ -42,15 +38,50 @@ async function postToFacebook(content) {
 
     clearTimeout(timeout);
     const data = await response.json();
-
-    if (data.error) {
-      return { success: false, error: data.error.message };
-    }
-    return { success: true, postId: data.id };
+    if (data.error) return { success: false, error: data.error.message };
+    return { success: true, postId: data.id, mode: 'text' };
   } catch (err) {
     clearTimeout(timeout);
     return { success: false, error: err.message };
   }
+}
+
+async function postToFacebookPhoto(imagePath, caption) {
+  const url = `https://graph.facebook.com/v21.0/${process.env.FACEBOOK_PAGE_ID}/photos`;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 60000);
+
+  try {
+    const form = new FormData();
+    form.append('source', fs.createReadStream(imagePath));
+    form.append('caption', caption);
+    form.append('access_token', process.env.FACEBOOK_PAGE_TOKEN);
+
+    const response = await fetch(url, {
+      method: 'POST',
+      signal: controller.signal,
+      body: form,
+      headers: form.getHeaders(),
+    });
+
+    clearTimeout(timeout);
+    const data = await response.json();
+    if (data.error) return { success: false, error: data.error.message };
+    return { success: true, postId: data.post_id || data.id, mode: 'photo' };
+  } catch (err) {
+    clearTimeout(timeout);
+    return { success: false, error: err.message };
+  }
+}
+
+async function postToFacebook(content, imagePath) {
+  if (!process.env.FACEBOOK_PAGE_TOKEN || !process.env.FACEBOOK_PAGE_ID) {
+    return { success: false, error: 'Missing FACEBOOK_PAGE_TOKEN or FACEBOOK_PAGE_ID' };
+  }
+  if (imagePath && fs.existsSync(imagePath)) {
+    return postToFacebookPhoto(imagePath, content);
+  }
+  return postToFacebookText(content);
 }
 
 // -- Main Pipeline ---
@@ -83,14 +114,17 @@ async function main() {
   // Post to Facebook
   if (content.posts.facebook && !content.posts.facebook.error) {
     const fbContent = content.posts.facebook.fullPost;
-    console.log(`  Facebook: ${fbContent.length} chars`);
+    const graphicPath = content.posts.facebook.graphicPath;
+    const hasGraphic = graphicPath && fs.existsSync(graphicPath);
+    const mode = hasGraphic ? 'PHOTO' : 'TEXT';
+    console.log(`  Facebook (${mode}): ${fbContent.length} chars${hasGraphic ? ` + ${path.basename(graphicPath)}` : ''}`);
     if (testMode) {
-      console.log('  -> [TEST] Would post to Facebook');
-      results.facebook = { success: true, test: true };
+      console.log(`  -> [TEST] Would post to Facebook as ${mode}`);
+      results.facebook = { success: true, test: true, mode };
     } else {
-      const result = await postToFacebook(fbContent);
+      const result = await postToFacebook(fbContent, hasGraphic ? graphicPath : null);
       results.facebook = result;
-      console.log(`  -> ${result.success ? 'Posted' : 'FAILED: ' + result.error}`);
+      console.log(`  -> ${result.success ? `Posted (${result.mode})` : 'FAILED: ' + result.error}`);
     }
   }
 
