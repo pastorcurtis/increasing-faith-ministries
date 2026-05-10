@@ -79,8 +79,10 @@
     },
     {
       "file": "Be_flexible_let_God_change_your_sermon_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:56"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:56",
+      "video_id": "1981221062521242",
+      "posted_at": "2026-05-10T14:52:40Z"
     },
     {
       "file": "Be_of_good_cheer__bring_hope_to_the_hurt_0m05s_square.mp4",
@@ -300,8 +302,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 11,
-    "remaining": 44,
-    "last_updated": "2026-05-09T21:38:45Z"
+    "posted": 12,
+    "remaining": 43,
+    "last_updated": "2026-05-10T14:52:40Z"
   }
 }
