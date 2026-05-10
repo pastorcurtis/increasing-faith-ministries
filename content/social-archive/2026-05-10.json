@@ -1,0 +1,67 @@
+{
+  "date": "2026-05-10",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "\"My dear brothers and sisters in Christ,\n\nI want to remind you today that the power of God's presence is not limited by your circumstances. In fact, it's often when we're walking through the darkest valleys that God's glory is revealed in the most profound ways.\n\nRemember, you are not alone. You are not abandoned. You are not forgotten. The Holy Spirit is with you, guiding and empowering you every step of the way.\n\n",
+      "hashtags": [
+        "#Faith",
+        "#KingdomLiving",
+        "#IFM"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "\"My dear brothers and sisters in Christ,\n\nI want to remind you today that the power of God's presence is not limited by your circumstances. In fact, it's often when we're walking through the darkest valleys that God's glory is revealed in the most profound ways.\n\nRemember, you are not alone. You are not abandoned. You are not forgotten. The Holy Spirit is with you, guiding and empowering you every step of the way.\n\n\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#Faith #KingdomLiving #IFM",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-05-10.png",
+      "pullQuote": "You are not alone.",
+      "attribution": "Pastoral Word"
+    },
+    "instagram": {
+      "content": "\"Dear ones, \nI want to remind you that God's power is not in overwhelming circumstances, but in the depths of your trust in Him. Remember the Psalmist's words: 'The Lord will fulfill his purpose for me.' He is weaving a tapestry of triumph in the midst of trials. Trust Him to complete what He has started in you.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IFM",
+        "#KingdomLiving",
+        "#IncreasingFaith",
+        "#KingdomCitizen",
+        "#Faith",
+        "#JesusIsLord",
+        "#Jesus"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"Dear ones, \nI want to remind you that God's power is not in overwhelming circumstances, but in the depths of your trust in Him. Remember the Psalmist's words: 'The Lord will fulfill his purpose for me.' He is weaving a tapestry of triumph in the midst of trials. Trust Him to complete what He has started in you.\n\nLearn more about our mission → Link in bio\n\n#KingdomOfGod #IFM #KingdomLiving #IncreasingFaith #KingdomCitizen #Faith #JesusIsLord #Jesus"
+    },
+    "tiktok": {
+      "content": "\"You are not defined by your struggles, son or daughter. In the midst of trials, remember that God's power is made perfect in weakness. What area of your life are you trusting God to strengthen you in today?\"",
+      "hashtags": [
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomCitizen",
+        "#KingdomLiving",
+        "#Faith"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"You are not defined by your struggles, son or daughter. In the midst of trials, remember that God's power is made perfect in weakness. What area of your life are you trusting God to strengthen you in today?\"\n\nLearn more about our mission → Link in bio\n\n#IFM #IncreasingFaith #KingdomCitizen #KingdomLiving #Faith"
+    }
+  },
+  "generatedAt": "2026-05-10T14:42:34.118Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1408305688000076",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-05-10T14:42:40.267Z",
+  "testMode": false
+}
