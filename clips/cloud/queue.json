@@ -86,8 +86,10 @@
     },
     {
       "file": "Be_of_good_cheer__bring_hope_to_the_hurt_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:56"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:56",
+      "video_id": "929230033426019",
+      "posted_at": "2026-05-10T21:42:44Z"
     },
     {
       "file": "Breaking_Oppression_and_Depression_A_Str_0m05s_square.mp4",
@@ -302,8 +304,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 12,
-    "remaining": 43,
-    "last_updated": "2026-05-10T14:52:40Z"
+    "posted": 13,
+    "remaining": 42,
+    "last_updated": "2026-05-10T21:42:44Z"
   }
 }
