@@ -1,0 +1,67 @@
+{
+  "date": "2026-05-11",
+  "day": 1,
+  "theme": "Kingdom Teaching",
+  "themeType": "kingdom_teaching",
+  "targetPage": "https://increasingfaith.net/teachings.html",
+  "posts": {
+    "facebook": {
+      "content": "Marriage is built on the foundation of spiritual unity, not emotional connection. When we prioritize spiritual oneness, our relationships become a reflection of the Trinity's harmony - Father, Son, and Holy Spirit in perfect sync.\n\n\"For where two or three are gathered together in My name, I am there in the midst of them.\" Matthew 18:20\n\n",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#SpiritualGrowth"
+      ],
+      "cta": "\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html",
+      "fullPost": "Marriage is built on the foundation of spiritual unity, not emotional connection. When we prioritize spiritual oneness, our relationships become a reflection of the Trinity's harmony - Father, Son, and Holy Spirit in perfect sync.\n\n\"For where two or three are gathered together in My name, I am there in the midst of them.\" Matthew 18:20\n\n\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html\n\n#KingdomOfGod #IncreasingFaith #SpiritualGrowth",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-05-11.png",
+      "pullQuote": "For where two or three are gathered together in My name, I am there in the midst of them.",
+      "attribution": "Matthew 18:20"
+    },
+    "instagram": {
+      "content": "Discipleship is not about being good, it's about being gone.\nAs Jesus said, 'Whoever loses his life for me will find it' (Matthew 10:39).\n\nWhat areas of your life are you trying to \"keep\" that need to be surrendered for His sake? \n\nDouble tap if you're ready to let go and find life in its fullness",
+      "hashtags": [
+        "#KingdomLiving",
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomTeaching",
+        "#Discipleship",
+        "#KingdomOfGod",
+        "#SpiritualGrowth",
+        "#BibleTeaching"
+      ],
+      "cta": "\n\nWatch the full teaching → Link in bio",
+      "fullPost": "Discipleship is not about being good, it's about being gone.\nAs Jesus said, 'Whoever loses his life for me will find it' (Matthew 10:39).\n\nWhat areas of your life are you trying to \"keep\" that need to be surrendered for His sake? \n\nDouble tap if you're ready to let go and find life in its fullness\n\nWatch the full teaching → Link in bio\n\n#KingdomLiving #IFM #IncreasingFaith #KingdomTeaching #Discipleship #KingdomOfGod #SpiritualGrowth #BibleTeaching"
+    },
+    "tiktok": {
+      "content": "You think being a leader is about getting what you want, but Jesus says being a leader is about serving others. \"You know that the rulers of the Gentiles lord it over them, and their great men exercise authority over them. But it shall not be so among you.\" - Matthew 20:25.\n\n",
+      "hashtags": [
+        "#KingdomTeaching",
+        "#KingdomLiving",
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nWatch the full teaching → Link in bio",
+      "fullPost": "You think being a leader is about getting what you want, but Jesus says being a leader is about serving others. \"You know that the rulers of the Gentiles lord it over them, and their great men exercise authority over them. But it shall not be so among you.\" - Matthew 20:25.\n\n\n\nWatch the full teaching → Link in bio\n\n#KingdomTeaching #KingdomLiving #IFM #IncreasingFaith #KingdomOfGod"
+    }
+  },
+  "generatedAt": "2026-05-11T16:22:20.281Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1409297291234249",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-05-11T16:22:31.942Z",
+  "testMode": false
+}
