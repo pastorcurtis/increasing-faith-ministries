@@ -107,8 +107,10 @@
     },
     {
       "file": "Can_you_handle_money_that_gives_you_opti_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:56"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:56",
+      "video_id": "805561512389531",
+      "posted_at": "2026-05-12T16:19:00Z"
     },
     {
       "file": "Don_t_support_them__demand_honesty_and_a_0m02s_square.mp4",
@@ -308,8 +310,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 15,
-    "remaining": 40,
-    "last_updated": "2026-05-11T22:02:29Z"
+    "posted": 16,
+    "remaining": 39,
+    "last_updated": "2026-05-12T16:19:00Z"
   }
 }
