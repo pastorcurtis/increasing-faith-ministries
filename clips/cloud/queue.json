@@ -114,8 +114,10 @@
     },
     {
       "file": "Don_t_support_them__demand_honesty_and_a_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:56"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:56",
+      "video_id": "1726704381889357",
+      "posted_at": "2026-05-12T22:08:18Z"
     },
     {
       "file": "Don_t_walk_away_from_God__even_when_lead_0m05s_square.mp4",
@@ -310,8 +312,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 16,
-    "remaining": 39,
-    "last_updated": "2026-05-12T16:19:00Z"
+    "posted": 17,
+    "remaining": 38,
+    "last_updated": "2026-05-12T22:08:18Z"
   }
 }
