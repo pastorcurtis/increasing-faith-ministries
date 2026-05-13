@@ -1,0 +1,67 @@
+{
+  "date": "2026-05-13",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "Faith is built in the storm vs. Faith is built in the stillness – which has been true for you?\n\nFor too many of us, faith is often tested in the midst of chaos, not calm. But what if I told you that faith grows stronger in the quiet moments, waiting for the storm to pass? Which perspective resonates more with you?\n\n Share your own story and let's discuss!",
+      "hashtags": [
+        "#KingdomLiving",
+        "#IFM",
+        "#KingdomMindset"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "Faith is built in the storm vs. Faith is built in the stillness – which has been true for you?\n\nFor too many of us, faith is often tested in the midst of chaos, not calm. But what if I told you that faith grows stronger in the quiet moments, waiting for the storm to pass? Which perspective resonates more with you?\n\n Share your own story and let's discuss!\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#KingdomLiving #IFM #KingdomMindset",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-05-13.png",
+      "pullQuote": "Faith grows stronger in the quiet moments, waiting for the storm to pass.",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Faith is built in the storm vs. Faith is built in the stillness — which has been true for you? Do you find yourself growing in trust during periods of turmoil or quiet reflection? Let us know in the comments below!\n\nDouble tap if you're currently facing a storm.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#RealTalk",
+        "#KingdomLiving",
+        "#KingdomMindset",
+        "#IncreasingFaith",
+        "#IFM",
+        "#FaithTalk",
+        "#KingdomConversation"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Faith is built in the storm vs. Faith is built in the stillness — which has been true for you? Do you find yourself growing in trust during periods of turmoil or quiet reflection? Let us know in the comments below!\n\nDouble tap if you're currently facing a storm.\n\nJoin our community → Link in bio\n\n#KingdomOfGod #RealTalk #KingdomLiving #KingdomMindset #IncreasingFaith #IFM #FaithTalk #KingdomConversation"
+    },
+    "tiktok": {
+      "content": "Do you trust God more with His plan or your plan?",
+      "hashtags": [
+        "#KingdomMindset",
+        "#RealTalk",
+        "#KingdomConversation",
+        "#IFM",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Do you trust God more with His plan or your plan?\n\nJoin our community → Link in bio\n\n#KingdomMindset #RealTalk #KingdomConversation #IFM #IncreasingFaith"
+    }
+  },
+  "generatedAt": "2026-05-13T16:12:25.655Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1411289437701701",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-05-13T16:12:36.192Z",
+  "testMode": false
+}
