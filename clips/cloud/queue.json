@@ -121,8 +121,10 @@
     },
     {
       "file": "Don_t_walk_away_from_God__even_when_lead_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:56"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:56",
+      "video_id": "910336165399629",
+      "posted_at": "2026-05-13T16:19:09Z"
     },
     {
       "file": "Exalt_Wisdom_and_She_Will_Promote_You_0m05s_square.mp4",
@@ -312,8 +314,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 17,
-    "remaining": 38,
-    "last_updated": "2026-05-12T22:08:18Z"
+    "posted": 18,
+    "remaining": 37,
+    "last_updated": "2026-05-13T16:19:09Z"
   }
 }
