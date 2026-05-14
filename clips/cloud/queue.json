@@ -142,8 +142,10 @@
     },
     {
       "file": "Get_rid_of_Baal_and_expect_an_abundance_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:56"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:56",
+      "video_id": "823433943786171",
+      "posted_at": "2026-05-14T22:05:50Z"
     },
     {
       "file": "God_Isn_t_Complicated__Know_the_Simplici_0m02s_square.mp4",
@@ -318,8 +320,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 20,
-    "remaining": 35,
-    "last_updated": "2026-05-14T16:09:38Z"
+    "posted": 21,
+    "remaining": 34,
+    "last_updated": "2026-05-14T22:05:50Z"
   }
 }
