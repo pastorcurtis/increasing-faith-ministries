@@ -135,8 +135,10 @@
     },
     {
       "file": "Find_the_Table_in_the_Presence_of_Your_E_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:56"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:56",
+      "video_id": "1603705790713675",
+      "posted_at": "2026-05-14T16:09:38Z"
     },
     {
       "file": "Get_rid_of_Baal_and_expect_an_abundance_0m05s_square.mp4",
@@ -316,8 +318,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 19,
-    "remaining": 36,
-    "last_updated": "2026-05-13T22:06:37Z"
+    "posted": 20,
+    "remaining": 35,
+    "last_updated": "2026-05-14T16:09:38Z"
   }
 }
