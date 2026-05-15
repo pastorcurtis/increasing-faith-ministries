@@ -1,0 +1,67 @@
+{
+  "date": "2026-05-15",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "This Month's Kingdom Report is packed with game-changing insights on how to navigate the spiritual battles ahead. One key takeaway: the lines between good and evil are growing increasingly blurred in the realms of politics, finance, and entertainment - it's becoming harder to distinguish false light from true light. How are you cultivating discernment in your life to cut through the deception and stay aligned with Kingdom truth?",
+      "hashtags": [
+        "#Jesus",
+        "#KingdomLiving",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "This Month's Kingdom Report is packed with game-changing insights on how to navigate the spiritual battles ahead. One key takeaway: the lines between good and evil are growing increasingly blurred in the realms of politics, finance, and entertainment - it's becoming harder to distinguish false light from true light. How are you cultivating discernment in your life to cut through the deception and stay aligned with Kingdom truth?\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#Jesus #KingdomLiving #JesusIsLord",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-05-15.png",
+      "pullQuote": "the lines between good and evil are growing increasingly blurred.",
+      "attribution": "Kingdom Intelligence"
+    },
+    "instagram": {
+      "content": "\"Get ready for The Kingdom Report this week. A major shift is underway in the Church - and not everyone is prepared. As apostles and prophetic voices align, a new era of Kingdom collaboration is dawning. But what are the implications for your ministry or personal life? Can you adapt to the changing landscape?\"",
+      "hashtags": [
+        "#KingdomLiving",
+        "#JesusIsLord",
+        "#IFM",
+        "#KingdomCitizen",
+        "#Faith",
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#Jesus"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "\"Get ready for The Kingdom Report this week. A major shift is underway in the Church - and not everyone is prepared. As apostles and prophetic voices align, a new era of Kingdom collaboration is dawning. But what are the implications for your ministry or personal life? Can you adapt to the changing landscape?\"\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomLiving #JesusIsLord #IFM #KingdomCitizen #Faith #IncreasingFaith #KingdomOfGod #Jesus"
+    },
+    "tiktok": {
+      "content": "New intel just in: the church must reevaluate its stance on spiritual warfare - are we engaging the enemy with our words or wielding the Word against them? How would you counsel someone struggling with demonic opposition?",
+      "hashtags": [
+        "#KingdomCitizen",
+        "#Jesus",
+        "#Faith",
+        "#JesusIsLord",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "New intel just in: the church must reevaluate its stance on spiritual warfare - are we engaging the enemy with our words or wielding the Word against them? How would you counsel someone struggling with demonic opposition?\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomCitizen #Jesus #Faith #JesusIsLord #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-05-15T15:54:16.692Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1413136104183701",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-05-15T15:54:23.534Z",
+  "testMode": false
+}
