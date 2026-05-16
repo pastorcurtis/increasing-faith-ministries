@@ -1,0 +1,67 @@
+{
+  "date": "2026-05-16",
+  "day": 6,
+  "theme": "Worship Reminder",
+  "themeType": "event_reminder",
+  "targetPage": "https://increasingfaith.net/visit.html",
+  "posts": {
+    "facebook": {
+      "content": "It's time to come together and lift up His name. At IFM, we believe worship is not just something we do, but a key to unlocking breakthrough and transformation in our lives. We'd love to have you with us in person, every First Saturday at 12 Noon, at 24301 Telegraph in Southfield, MI. And if you can't make it in person, join us online for the Hour of Power, Monday through Friday at 8:15 AM, right here on Facebook Live.\n\n",
+      "hashtags": [
+        "#KingdomLiving",
+        "#KingdomOfGod",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html",
+      "fullPost": "It's time to come together and lift up His name. At IFM, we believe worship is not just something we do, but a key to unlocking breakthrough and transformation in our lives. We'd love to have you with us in person, every First Saturday at 12 Noon, at 24301 Telegraph in Southfield, MI. And if you can't make it in person, join us online for the Hour of Power, Monday through Friday at 8:15 AM, right here on Facebook Live.\n\n\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html\n\n#KingdomLiving #KingdomOfGod #JesusIsLord",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-05-16.png",
+      "pullQuote": "Worship is not just something we do, but a key to unlocking breakthrough and transformation in our.",
+      "attribution": "Worship Reminder"
+    },
+    "instagram": {
+      "content": "As we journey together, let's not forget the power of corporate worship.\nJoin us in-person on the 1st Saturday, Noon at 24301 Telegraph, Southfield MI, for a time of prayer, praise, and community.\nOr, catch our Hour of Power online, Mon-Fri at 8:15 AM on Facebook Live. A fresh word awaits you there.\n\nWho's joining us in worship this month?",
+      "hashtags": [
+        "#Jesus",
+        "#KingdomLiving",
+        "#IFM",
+        "#Faith",
+        "#JesusIsLord",
+        "#IncreasingFaith",
+        "#KingdomCitizen",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "As we journey together, let's not forget the power of corporate worship.\nJoin us in-person on the 1st Saturday, Noon at 24301 Telegraph, Southfield MI, for a time of prayer, praise, and community.\nOr, catch our Hour of Power online, Mon-Fri at 8:15 AM on Facebook Live. A fresh word awaits you there.\n\nWho's joining us in worship this month?\n\nJoin us for worship → Link in bio\n\n#Jesus #KingdomLiving #IFM #Faith #JesusIsLord #IncreasingFaith #KingdomCitizen #KingdomOfGod"
+    },
+    "tiktok": {
+      "content": "\"There's a place where Heaven touches Earth. Join us in person on the 1st Sat of each month, 12 Noon at 24301 Telegraph in Southfield, MI. Or, start your day with us online, Mon-Fri at 8:15 AM on Facebook Live. Who's joining us?\"",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#Faith",
+        "#JesusIsLord",
+        "#IFM"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "\"There's a place where Heaven touches Earth. Join us in person on the 1st Sat of each month, 12 Noon at 24301 Telegraph in Southfield, MI. Or, start your day with us online, Mon-Fri at 8:15 AM on Facebook Live. Who's joining us?\"\n\nJoin us for worship → Link in bio\n\n#KingdomOfGod #IncreasingFaith #Faith #JesusIsLord #IFM"
+    }
+  },
+  "generatedAt": "2026-05-16T14:46:09.561Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1413955707435074",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-05-16T14:46:16.880Z",
+  "testMode": false
+}
