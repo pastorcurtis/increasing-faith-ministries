@@ -170,8 +170,10 @@
     },
     {
       "file": "How_to_kill_lying_prophets_stop_supporti_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:56"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:56",
+      "video_id": "1856838451918032",
+      "posted_at": "2026-05-16T21:42:52Z"
     },
     {
       "file": "How_your_words_steer_your_life_0m02s_square.mp4",
@@ -326,8 +328,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 24,
-    "remaining": 31,
-    "last_updated": "2026-05-16T14:56:06Z"
+    "posted": 25,
+    "remaining": 30,
+    "last_updated": "2026-05-16T21:42:52Z"
   }
 }
