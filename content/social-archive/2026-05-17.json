@@ -1,0 +1,67 @@
+{
+  "date": "2026-05-17",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "\"My dear brothers and sisters, \n\nI want you to know that you are not alone in this journey. The Lord is with you, working in you, and guiding you every step of the way. Don't forget that your trials and struggles are opportunities for growth and refinement, not weaknesses or failures.\n\nYou are being transformed into the likeness of Christ, and it's a process that requires faith, patience, and perseverance. Keep pressing forward, even when the road ahead seems uncertain.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#Faith",
+        "#Jesus"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "\"My dear brothers and sisters, \n\nI want you to know that you are not alone in this journey. The Lord is with you, working in you, and guiding you every step of the way. Don't forget that your trials and struggles are opportunities for growth and refinement, not weaknesses or failures.\n\nYou are being transformed into the likeness of Christ, and it's a process that requires faith, patience, and perseverance. Keep pressing forward, even when the road ahead seems uncertain.\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#KingdomOfGod #Faith #Jesus",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-05-17.png",
+      "pullQuote": "Your trials and struggles are opportunities for growth and refinement.",
+      "attribution": "Pastoral Word"
+    },
+    "instagram": {
+      "content": "\"My child, do not lose heart when the road ahead seems uncertain. You are not defined by your circumstances, but by the unshakeable promises of God's Word. His love is stronger than your fears, His faithfulness greater than your doubts. You are beloved, chosen, and equipped for this journey. \n\n",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#Faith",
+        "#KingdomCitizen",
+        "#Jesus",
+        "#IFM",
+        "#KingdomLiving",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"My child, do not lose heart when the road ahead seems uncertain. You are not defined by your circumstances, but by the unshakeable promises of God's Word. His love is stronger than your fears, His faithfulness greater than your doubts. You are beloved, chosen, and equipped for this journey. \n\n\n\nLearn more about our mission → Link in bio\n\n#KingdomOfGod #IncreasingFaith #Faith #KingdomCitizen #Jesus #IFM #KingdomLiving #JesusIsLord"
+    },
+    "tiktok": {
+      "content": "\"You're not alone in the dark moments. You're not a failure when you stumble. God's power is made perfect in weakness. His strength is your inheritance. Don't trade it for a temporary fix. What is the one weakness you're still trying to overcome, and how has God's presence helped you?\"",
+      "hashtags": [
+        "#Faith",
+        "#KingdomLiving",
+        "#IFM",
+        "#Jesus",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"You're not alone in the dark moments. You're not a failure when you stumble. God's power is made perfect in weakness. His strength is your inheritance. Don't trade it for a temporary fix. What is the one weakness you're still trying to overcome, and how has God's presence helped you?\"\n\nLearn more about our mission → Link in bio\n\n#Faith #KingdomLiving #IFM #Jesus #JesusIsLord"
+    }
+  },
+  "generatedAt": "2026-05-17T14:48:20.861Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1414817837348861",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-05-17T14:48:31.801Z",
+  "testMode": false
+}
