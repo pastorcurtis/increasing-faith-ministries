@@ -121,19 +121,42 @@ jobs:
           echo "Posting ${{ steps.find-clip.outputs.clip_file }} to Facebook..."
           echo "Caption hook: $HOOK"
 
-          RESPONSE=$(curl -s \
-            -X POST \
-            "https://graph.facebook.com/v21.0/${{ secrets.FACEBOOK_PAGE_ID }}/videos" \
-            -F "access_token=${{ secrets.FACEBOOK_PAGE_TOKEN }}" \
-            -F "description=$CAPTION" \
-            -F "source=@$CLIP_PATH")
+          # Retry up to 3 times — Facebook Graph occasionally returns transient
+          # "error code 1" (API Unknown) on video uploads; a short backoff usually clears it.
+          MAX_ATTEMPTS=3
+          ATTEMPT=1
+          SUCCESS=false
+          ERROR=""
+          RESPONSE=""
+          while [ $ATTEMPT -le $MAX_ATTEMPTS ]; do
+            echo "Upload attempt $ATTEMPT of $MAX_ATTEMPTS..."
+            RESPONSE=$(curl -s \
+              -X POST \
+              "https://graph.facebook.com/v21.0/${{ secrets.FACEBOOK_PAGE_ID }}/videos" \
+              -F "access_token=${{ secrets.FACEBOOK_PAGE_TOKEN }}" \
+              -F "description=$CAPTION" \
+              -F "source=@$CLIP_PATH")
 
-          echo "Response: $RESPONSE"
+            echo "Response: $RESPONSE"
 
-          # Check for errors
-          ERROR=$(echo "$RESPONSE" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('error',{}).get('message',''))" 2>/dev/null || echo "")
-          if [ -n "$ERROR" ]; then
-            echo "ERROR: $ERROR"
+            # Treat empty/non-JSON responses as retryable failures
+            ERROR=$(echo "$RESPONSE" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('error',{}).get('message',''))" 2>/dev/null || echo "Invalid or empty response from Facebook")
+
+            if [ -z "$ERROR" ]; then
+              SUCCESS=true
+              break
+            fi
+
+            echo "Attempt $ATTEMPT failed: $ERROR"
+            if [ $ATTEMPT -lt $MAX_ATTEMPTS ]; then
+              echo "Waiting 30s before retry..."
+              sleep 30
+            fi
+            ATTEMPT=$((ATTEMPT + 1))
+          done
+
+          if [ "$SUCCESS" != "true" ]; then
+            echo "ERROR: All $MAX_ATTEMPTS attempts failed. Last error: $ERROR"
             exit 1
           fi
 
