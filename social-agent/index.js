@@ -52,6 +52,70 @@ function todayDateString() {
   return new Date().toISOString().split('T')[0];
 }
 
+// ── AI Provider Chain ──────────────────────────────────
+// Tries each provider in config.ai.providers in order. Skips any whose API
+// key env var is unset. Eliminates Groq as a single point of failure: when
+// Groq has an outage, we automatically fall through to OpenRouter.
+
+async function callChatAPI({ messages, maxTokens, temperature, timeoutMs = 30000 }) {
+  const providers = config.ai.providers || [];
+  const errors = [];
+
+  for (const provider of providers) {
+    const apiKey = process.env[provider.envVar];
+    if (!apiKey) {
+      errors.push(`${provider.name}: ${provider.envVar} not set`);
+      continue;
+    }
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+    try {
+      const response = await fetch(provider.url, {
+        method: 'POST',
+        signal: controller.signal,
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+          ...provider.extraHeaders,
+        },
+        body: JSON.stringify({
+          model: provider.model,
+          messages,
+          max_tokens: maxTokens,
+          temperature,
+        }),
+      });
+      clearTimeout(timeout);
+
+      if (!response.ok) {
+        const errBody = await response.text();
+        throw new Error(`${provider.name} ${response.status}: ${errBody.slice(0, 200)}`);
+      }
+
+      const data = await response.json();
+      const content = data.choices?.[0]?.message?.content?.trim();
+      if (!content) throw new Error(`${provider.name} returned empty content`);
+
+      // Visible breadcrumb when we fall back — makes Groq outages obvious in logs
+      if (provider !== providers[0]) {
+        console.log(`  [ai] Fallback provider succeeded: ${provider.name}`);
+      }
+      return content;
+    } catch (err) {
+      clearTimeout(timeout);
+      const reason = err.name === 'AbortError'
+        ? `timeout after ${timeoutMs}ms`
+        : err.message;
+      console.warn(`  [ai] ${provider.name} failed: ${reason}`);
+      errors.push(`${provider.name}: ${reason}`);
+    }
+  }
+
+  throw new Error(`All AI providers failed.\n  - ${errors.join('\n  - ')}`);
+}
+
 // ── AI Content Generation ──────────────────────────────
 
 async function generateContent(theme, platform) {
@@ -73,59 +137,28 @@ async function generateContent(theme, platform) {
     `\nWrite one ${platform} post. Stay under ${platformConfig.maxLength} characters.`,
   ].join('\n');
 
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 30000);
+  let content = await callChatAPI({
+    messages: [
+      { role: 'system', content: systemPrompt },
+      { role: 'user', content: userPrompt },
+    ],
+    maxTokens: config.ai.maxTokens,
+    temperature: config.ai.temperature,
+    timeoutMs: 30000,
+  });
 
-  try {
-    const response = await fetch(config.ai.baseUrl, {
-      method: 'POST',
-      signal: controller.signal,
-      headers: {
-        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: config.ai.model,
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: userPrompt },
-        ],
-        max_tokens: config.ai.maxTokens,
-        temperature: config.ai.temperature,
-      }),
-    });
-
-    clearTimeout(timeout);
-
-    if (!response.ok) {
-      const errBody = await response.text();
-      throw new Error(`Groq API ${response.status}: ${errBody}`);
-    }
-
-    const data = await response.json();
-    let content = data.choices?.[0]?.message?.content?.trim();
-
-    if (!content) throw new Error('Empty response from Groq API');
-
-    // Enforce character limit (trim gracefully at last sentence)
-    if (content.length > platformConfig.maxLength) {
-      const trimmed = content.substring(0, platformConfig.maxLength);
-      const lastPeriod = trimmed.lastIndexOf('.');
-      const lastNewline = trimmed.lastIndexOf('\n');
-      const cutPoint = Math.max(lastPeriod, lastNewline);
-      content = cutPoint > platformConfig.maxLength * 0.5
-        ? trimmed.substring(0, cutPoint + 1)
-        : trimmed;
-    }
-
-    return content;
-  } catch (err) {
-    clearTimeout(timeout);
-    if (err.name === 'AbortError') {
-      throw new Error('Groq API request timed out after 30 seconds');
-    }
-    throw err;
+  // Enforce character limit (trim gracefully at last sentence)
+  if (content.length > platformConfig.maxLength) {
+    const trimmed = content.substring(0, platformConfig.maxLength);
+    const lastPeriod = trimmed.lastIndexOf('.');
+    const lastNewline = trimmed.lastIndexOf('\n');
+    const cutPoint = Math.max(lastPeriod, lastNewline);
+    content = cutPoint > platformConfig.maxLength * 0.5
+      ? trimmed.substring(0, cutPoint + 1)
+      : trimmed;
   }
+
+  return content;
 }
 
 // ── Pull Quote + Attribution ───────────────────────────
@@ -141,33 +174,16 @@ async function extractPullQuote(postText) {
 
   const userPrompt = `Post:\n${postText}\n\nMost quotable sentence (max 90 chars, no quotes):`;
 
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 20000);
-
   try {
-    const response = await fetch(config.ai.baseUrl, {
-      method: 'POST',
-      signal: controller.signal,
-      headers: {
-        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: config.ai.model,
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: userPrompt },
-        ],
-        max_tokens: 80,
-        temperature: 0.3,
-      }),
+    let quote = await callChatAPI({
+      messages: [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: userPrompt },
+      ],
+      maxTokens: 80,
+      temperature: 0.3,
+      timeoutMs: 20000,
     });
-
-    clearTimeout(timeout);
-    if (!response.ok) throw new Error(`Groq pull-quote ${response.status}`);
-
-    const data = await response.json();
-    let quote = data.choices?.[0]?.message?.content?.trim() || '';
 
     quote = sanitizeForGraphic(quote);
 
@@ -180,7 +196,6 @@ async function extractPullQuote(postText) {
 
     return quote;
   } catch (err) {
-    clearTimeout(timeout);
     // Fallback: heuristic — first declarative sentence under 90 chars
     return sanitizeForGraphic(heuristicPullQuote(postText));
   }

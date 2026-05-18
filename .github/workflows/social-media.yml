@@ -54,6 +54,8 @@ jobs:
         working-directory: social-agent
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          # Optional fallback provider; agent runs Groq-only if this is unset.
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           ARGS=""
           if [ "${{ github.event.inputs.day_override }}" != "" ]; then
