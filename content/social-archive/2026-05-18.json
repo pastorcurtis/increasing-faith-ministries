@@ -1,0 +1,54 @@
+{
+  "date": "2026-05-18",
+  "day": 1,
+  "theme": "Kingdom Teaching",
+  "themeType": "kingdom_teaching",
+  "targetPage": "https://increasingfaith.net/teachings.html",
+  "posts": {
+    "facebook": {
+      "content": "You know what they say: \"behind every successful person, there's a person behind them.\" But what if I told you that's not entirely true? You are not beholden to someone else's opinion or support to achieve your purpose. Your worth and value come from being a child of the Most High God.\n\nThe scripture says, \"I can do all things through Christ who strengthens me.\" - Philippians 4:13\n\nYou don't need someone's permission to be successful.",
+      "hashtags": [
+        "#IFM",
+        "#IncreasingFaith",
+        "#BibleTeaching"
+      ],
+      "cta": "\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html",
+      "fullPost": "You know what they say: \"behind every successful person, there's a person behind them.\" But what if I told you that's not entirely true? You are not beholden to someone else's opinion or support to achieve your purpose. Your worth and value come from being a child of the Most High God.\n\nThe scripture says, \"I can do all things through Christ who strengthens me.\" - Philippians 4:13\n\nYou don't need someone's permission to be successful.\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html\n\n#IFM #IncreasingFaith #BibleTeaching",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-05-18.png",
+      "pullQuote": "You are not beholden to someone else's opinion or support to achieve your purpose.",
+      "attribution": "Philippians 4:13"
+    },
+    "instagram": {
+      "content": "You were created to bear fruit, but fruit doesn't grow in a sterile environment. To bear fruit in your life and marriage, you must first create a fertile soil for God's presence to rest. Psalms 132:13 - \"For the Lord hath chosen Zion; he hath desired it for his habitation.\"\n\n",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#KingdomTeaching",
+        "#SpiritualGrowth",
+        "#KingdomOfGod",
+        "#KingdomLiving",
+        "#Discipleship",
+        "#IFM",
+        "#BibleTeaching"
+      ],
+      "cta": "\n\nWatch the full teaching → Link in bio",
+      "fullPost": "You were created to bear fruit, but fruit doesn't grow in a sterile environment. To bear fruit in your life and marriage, you must first create a fertile soil for God's presence to rest. Psalms 132:13 - \"For the Lord hath chosen Zion; he hath desired it for his habitation.\"\n\n\n\nWatch the full teaching → Link in bio\n\n#IncreasingFaith #KingdomTeaching #SpiritualGrowth #KingdomOfGod #KingdomLiving #Discipleship #IFM #BibleTeaching"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4450, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-05-18T16:42:21.450Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1415816737248971",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-05-18T16:42:29.484Z",
+  "testMode": false
+}
