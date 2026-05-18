@@ -161,11 +161,37 @@ module.exports = {
   },
 
   ai: {
+    // Legacy single-provider fields (still read by some callers). Mirror the
+    // first entry in `providers` below to keep behavior consistent.
     model: 'llama-3.1-8b-instant',
     baseUrl: 'https://api.groq.com/openai/v1/chat/completions',
     maxTokens: 1024,
     temperature: 0.85, // Slightly higher for more creative, varied content
     maxRetries: 3,
     retryDelayMs: 3000,
+
+    // Provider chain — tried in order. Skip any entry whose env var is unset.
+    // Add new providers by appending here; no code changes required.
+    providers: [
+      {
+        name: 'Groq',
+        url: 'https://api.groq.com/openai/v1/chat/completions',
+        envVar: 'GROQ_API_KEY',
+        model: 'llama-3.1-8b-instant',
+        extraHeaders: {},
+      },
+      {
+        name: 'OpenRouter',
+        url: 'https://openrouter.ai/api/v1/chat/completions',
+        envVar: 'OPENROUTER_API_KEY',
+        // Larger model on OpenRouter free tier — 70B vs Groq's 8B. Slower but
+        // higher quality, acceptable for an outage fallback.
+        model: 'meta-llama/llama-3.3-70b-instruct:free',
+        extraHeaders: {
+          'HTTP-Referer': 'https://increasingfaith.net',
+          'X-Title': 'IFM Social Agent',
+        },
+      },
+    ],
   },
 };
