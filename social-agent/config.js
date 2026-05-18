@@ -3,10 +3,49 @@
  * Content strategy, brand voice, and platform settings
  */
 
+const fs = require('fs');
+const path = require('path');
+
+// Load curated sermon excerpts as few-shot voice examples.
+// First chunk is the file header (comments); real passages follow each --- separator.
+function loadSermonCorpus() {
+  try {
+    const raw = fs.readFileSync(path.join(__dirname, 'sermon_corpus.txt'), 'utf-8');
+    return raw.split(/\n---\n/).slice(1).map(s => s.trim()).filter(Boolean);
+  } catch (e) {
+    console.warn('[config] sermon_corpus.txt not found — using rules-only brand voice');
+    return [];
+  }
+}
+
+const sermonExamples = loadSermonCorpus();
+
+const brandVoiceRules = [
+  'Tone: Calm but commanding. Direct but not emotional. Strong but not theatrical.',
+  'Language: Intelligent, scripture-backed, authoritative clarity.',
+  'NEVER use: "smash the like button", generic church cliches, emotional hype, influencer language.',
+  'NEVER use: "in these uncertain times", "more than ever", "I just want to encourage you".',
+  'NEVER use: "let me know in the comments" — instead use natural conversation starters.',
+  'DO use: Declarative statements, Kingdom authority, prophetic confidence.',
+  'DO use: Direct questions that challenge the reader to reflect and respond.',
+  'Write as a spiritually grounded, biblically literate, direct-speaking leader.',
+  'Every post should position Pastor Curtis, Pastor Tammy, and IFM as THE authority on Kingdom living.',
+  'Every post should feel like a CONVERSATION, not a broadcast. Invite the reader into dialogue.',
+].join('\n');
+
+const brandVoiceWithExamples = sermonExamples.length === 0
+  ? brandVoiceRules
+  : [
+      brandVoiceRules,
+      '',
+      'VOICE EXAMPLES — real IFM sermon passages. Match this rhythm, direct address, and how scripture is applied immediately to the listener. Absorb the cadence; do NOT copy the wording:',
+      ...sermonExamples.map((ex, i) => `<example ${i + 1}>\n${ex}\n</example ${i + 1}>`),
+    ].join('\n');
+
 module.exports = {
   ministry: {
     name: 'Increasing Faith Ministries',
-    pastor: 'Pastor Curtis Stephens Jr.',
+    pastor: 'Pastor Curtis Stephens Jr. and Pastor Tammy Stephens',
     website: 'https://increasingfaith.net',
     location: 'Southfield, MI',
     tagline: 'Advancing the Reign of God',
@@ -87,19 +126,9 @@ module.exports = {
     },
   },
 
-  // Brand voice guidelines injected into every AI prompt
-  brandVoice: [
-    'Tone: Calm but commanding. Direct but not emotional. Strong but not theatrical.',
-    'Language: Intelligent, scripture-backed, masculine clarity.',
-    'NEVER use: "smash the like button", generic church cliches, emotional hype, influencer language.',
-    'NEVER use: "in these uncertain times", "more than ever", "I just want to encourage you".',
-    'NEVER use: "let me know in the comments" — instead use natural conversation starters.',
-    'DO use: Declarative statements, Kingdom authority, prophetic confidence.',
-    'DO use: Direct questions that challenge the reader to reflect and respond.',
-    'Write as a spiritually grounded, biblically literate, direct-speaking leader.',
-    'Every post should position Pastor Curtis and IFM as THE authority on Kingdom living.',
-    'Every post should feel like a CONVERSATION, not a broadcast. Invite the reader into dialogue.',
-  ].join('\n'),
+  // Brand voice rules + sermon few-shot examples injected into every AI prompt.
+  // See loadSermonCorpus() at top of file. Refresh examples via sermon_corpus.txt.
+  brandVoice: brandVoiceWithExamples,
 
   // Engagement hooks — randomly appended to clip posts for variety
   clipCaptions: [
