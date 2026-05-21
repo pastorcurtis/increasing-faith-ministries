@@ -1,0 +1,67 @@
+{
+  "date": "2026-05-21",
+  "day": 4,
+  "theme": "Prayer Focus",
+  "themeType": "prayer_focus",
+  "targetPage": "https://increasingfaith.net/prayer.html",
+  "posts": {
+    "facebook": {
+      "content": "Prayer Focus: Family\n\nMany families are struggling with generational curses and patterns of behavior that hinder their progress.\n\nLord, we declare that every family in our city is breaking free from generational curses and patterns of behavior that hinder their progress. We declare that our children and grandchildren will walk in the ways of the Lord, and that every family will be a blessing to their communities.",
+      "hashtags": [
+        "#PrayerFocus",
+        "#KingdomPrayer",
+        "#IFM"
+      ],
+      "cta": "\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html",
+      "fullPost": "Prayer Focus: Family\n\nMany families are struggling with generational curses and patterns of behavior that hinder their progress.\n\nLord, we declare that every family in our city is breaking free from generational curses and patterns of behavior that hinder their progress. We declare that our children and grandchildren will walk in the ways of the Lord, and that every family will be a blessing to their communities.\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html\n\n#PrayerFocus #KingdomPrayer #IFM",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-05-21.png",
+      "pullQuote": "Our children and grandchildren will walk in the ways of the Lord.",
+      "attribution": "Prayer Focus"
+    },
+    "instagram": {
+      "content": "Family Focus\n\nWe are the vessels of influence in our homes, shaping the next generation.\n\n\"May my family be a vessel of love, demonstrating the love of Christ in every interaction.\"\n\nDear Heavenly Father, I declare my family be a safe and loving environment, where Your presence is deeply felt and Your love is clearly lived out.",
+      "hashtags": [
+        "#KingdomLiving",
+        "#KingdomOfGod",
+        "#Intercession",
+        "#Prayer",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomPrayer",
+        "#PrayerFocus"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Family Focus\n\nWe are the vessels of influence in our homes, shaping the next generation.\n\n\"May my family be a vessel of love, demonstrating the love of Christ in every interaction.\"\n\nDear Heavenly Father, I declare my family be a safe and loving environment, where Your presence is deeply felt and Your love is clearly lived out.\n\nSubmit your prayer request → Link in bio\n\n#KingdomLiving #KingdomOfGod #Intercession #Prayer #IncreasingFaith #IFM #KingdomPrayer #PrayerFocus"
+    },
+    "tiktok": {
+      "content": "Family\nIn the midst of chaos, my family needs God's supernatural peace.\n\nWe thank You, Father, for your peace that passes all understanding. We declare Your presence and power in our homes, silencing every voice of fear and anxiety.",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#IFM",
+        "#Intercession",
+        "#Prayer",
+        "#PrayerFocus"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Family\nIn the midst of chaos, my family needs God's supernatural peace.\n\nWe thank You, Father, for your peace that passes all understanding. We declare Your presence and power in our homes, silencing every voice of fear and anxiety.\n\nSubmit your prayer request → Link in bio\n\n#IncreasingFaith #IFM #Intercession #Prayer #PrayerFocus"
+    }
+  },
+  "generatedAt": "2026-05-21T16:32:24.287Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1418621686968476",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-05-21T16:32:35.861Z",
+  "testMode": false
+}
