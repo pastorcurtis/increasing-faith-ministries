@@ -1,0 +1,54 @@
+{
+  "date": "2026-05-22",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "We're on the cusp of a major shift in the economy of faith. Coming in The Kingdom Report, our upcoming newsletter, we'll reveal how the latest breakthroughs in the realm of blessings and prosperity are not just for the few, but for anyone who operates in the Kingdom system. \n\nAs Pastor Curtis says, \"When you make sure God's business is taken care of, God will always make sure that your business is taken care of.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "We're on the cusp of a major shift in the economy of faith. Coming in The Kingdom Report, our upcoming newsletter, we'll reveal how the latest breakthroughs in the realm of blessings and prosperity are not just for the few, but for anyone who operates in the Kingdom system. \n\nAs Pastor Curtis says, \"When you make sure God's business is taken care of, God will always make sure that your business is taken care of.\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#KingdomOfGod #IncreasingFaith #KingdomCitizen",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-05-22.png",
+      "pullQuote": "When you make sure God's business is taken care of, God will always make sure that your business is.",
+      "attribution": "Kingdom Intelligence"
+    },
+    "instagram": {
+      "content": "\"Breaking News: Recent prophetic revelations indicate a major shift in the global economy. Are you prepared to navigate the changes ahead? The latest Kingdom Report goes in-depth on the strategies to secure your finances and position yourself for prosperity. Do you have a contingency plan in place for the economic shifts coming your way? #TheKingdomReport #EconomicShifts #KingdomIntelligence\"",
+      "hashtags": [
+        "#Jesus",
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomCitizen",
+        "#JesusIsLord",
+        "#Faith",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "\"Breaking News: Recent prophetic revelations indicate a major shift in the global economy. Are you prepared to navigate the changes ahead? The latest Kingdom Report goes in-depth on the strategies to secure your finances and position yourself for prosperity. Do you have a contingency plan in place for the economic shifts coming your way? #TheKingdomReport #EconomicShifts #KingdomIntelligence\"\n\nRead the full Kingdom Report → Link in bio\n\n#Jesus #KingdomOfGod #IncreasingFaith #IFM #KingdomCitizen #JesusIsLord #Faith #KingdomLiving"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4381, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-05-22T16:12:52.627Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1419463613550950",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-05-22T16:12:59.938Z",
+  "testMode": false
+}
