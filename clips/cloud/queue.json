@@ -247,8 +247,10 @@
     },
     {
       "file": "Revive_what_s_dead_Elijah_s_relentless_p_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:56"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:56",
+      "video_id": "979142271138159",
+      "posted_at": "2026-05-22T16:25:44Z"
     },
     {
       "file": "Speak_to_the_atmosphere_faith_like_AI__c_0m05s_square.mp4",
@@ -348,8 +350,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 35,
-    "remaining": 20,
-    "last_updated": "2026-05-21T22:16:27Z"
+    "posted": 36,
+    "remaining": 19,
+    "last_updated": "2026-05-22T16:25:44Z"
   }
 }
