@@ -261,8 +261,10 @@
     },
     {
       "file": "Stay_ready_Joseph_s_consistency_before_h_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:57"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:57",
+      "video_id": "1725570575283259",
+      "posted_at": "2026-05-23T15:00:09Z"
     },
     {
       "file": "Stop_Leaning_on_Flawed_Leaders__Run_to_G_0m02s_square.mp4",
@@ -352,8 +354,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 37,
-    "remaining": 18,
-    "last_updated": "2026-05-22T22:03:25Z"
+    "posted": 38,
+    "remaining": 17,
+    "last_updated": "2026-05-23T15:00:09Z"
   }
 }
