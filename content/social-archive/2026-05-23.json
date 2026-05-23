@@ -1,0 +1,67 @@
+{
+  "date": "2026-05-23",
+  "day": 6,
+  "theme": "Worship Reminder",
+  "themeType": "event_reminder",
+  "targetPage": "https://increasingfaith.net/visit.html",
+  "posts": {
+    "facebook": {
+      "content": "Hey friends, I want to remind you that worship is not just a feeling, it's a lifestyle. It's a choice to praise God in every moment, no matter what's happening around us. Join us this Saturday at 12 Noon at 24301 Telegraph, Southfield MI, for a powerful time of praise and worship. Or, join us daily online for our Hour of Power, Monday through Friday at 8:15 AM on Facebook Live. Where will you choose to worship today?\n\nWho's joining us this Saturday?",
+      "hashtags": [
+        "#JesusIsLord",
+        "#Jesus",
+        "#Faith"
+      ],
+      "cta": "\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html",
+      "fullPost": "Hey friends, I want to remind you that worship is not just a feeling, it's a lifestyle. It's a choice to praise God in every moment, no matter what's happening around us. Join us this Saturday at 12 Noon at 24301 Telegraph, Southfield MI, for a powerful time of praise and worship. Or, join us daily online for our Hour of Power, Monday through Friday at 8:15 AM on Facebook Live. Where will you choose to worship today?\n\nWho's joining us this Saturday?\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html\n\n#JesusIsLord #Jesus #Faith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-05-23.png",
+      "pullQuote": "Hey friends, I want to remind you that worship is not just a feeling, it's a lifestyle.",
+      "attribution": "Worship Reminder"
+    },
+    "instagram": {
+      "content": "Join us for a moment of pure worship. Our monthly in-person gathering is this Saturday at 12 Noon at 24301 Telegraph in Southfield, MI. But don't think you have to miss it – join us daily online for Hour of Power, Monday through Friday at 8:15 AM on Facebook Live. Come and breathe in the presence of God. Who's joining us in spirit?",
+      "hashtags": [
+        "#KingdomLiving",
+        "#IFM",
+        "#Jesus",
+        "#KingdomOfGod",
+        "#KingdomCitizen",
+        "#Faith",
+        "#IncreasingFaith",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "Join us for a moment of pure worship. Our monthly in-person gathering is this Saturday at 12 Noon at 24301 Telegraph in Southfield, MI. But don't think you have to miss it – join us daily online for Hour of Power, Monday through Friday at 8:15 AM on Facebook Live. Come and breathe in the presence of God. Who's joining us in spirit?\n\nJoin us for worship → Link in bio\n\n#KingdomLiving #IFM #Jesus #KingdomOfGod #KingdomCitizen #Faith #IncreasingFaith #JesusIsLord"
+    },
+    "tiktok": {
+      "content": "You know what's better than a good morning? Starting the day with God. Our Hour of Power is on Facebook Live, M-F at 8:15 AM. Join us in person this Saturday at 12 Noon at 24301 Telegraph in Southfield, MI, for a powerful time of worship and connection. Who's joining us?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#Jesus",
+        "#IncreasingFaith",
+        "#Faith",
+        "#IFM"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "You know what's better than a good morning? Starting the day with God. Our Hour of Power is on Facebook Live, M-F at 8:15 AM. Join us in person this Saturday at 12 Noon at 24301 Telegraph in Southfield, MI, for a powerful time of worship and connection. Who's joining us?\n\nJoin us for worship → Link in bio\n\n#KingdomOfGod #Jesus #IncreasingFaith #Faith #IFM"
+    }
+  },
+  "generatedAt": "2026-05-23T14:52:40.499Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1420265310137447",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-05-23T14:52:51.382Z",
+  "testMode": false
+}
