@@ -275,8 +275,10 @@
     },
     {
       "file": "Stop_preaching_hell__teach_new_creation_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:57"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:57",
+      "video_id": "2473987083024805",
+      "posted_at": "2026-05-24T15:03:22Z"
     },
     {
       "file": "The_Brook_Cherith_Season_God_Cuts_Away_t_0m05s_square.mp4",
@@ -356,8 +358,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 39,
-    "remaining": 16,
-    "last_updated": "2026-05-23T21:50:28Z"
+    "posted": 40,
+    "remaining": 15,
+    "last_updated": "2026-05-24T15:03:22Z"
   }
 }
