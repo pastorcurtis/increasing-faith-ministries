@@ -1,0 +1,67 @@
+{
+  "date": "2026-05-25",
+  "day": 1,
+  "theme": "Kingdom Teaching",
+  "themeType": "kingdom_teaching",
+  "targetPage": "https://increasingfaith.net/teachings.html",
+  "posts": {
+    "facebook": {
+      "content": "Do you know what's holding you back from experiencing more of God's presence in your life? It's not your past, your present struggles, or your lack of faith. It's your mindset. The Bible says, \"We look not at the things which are seen, but at the things which are not seen, for the things which are seen are temporal, but the things which are not seen are eternal\" (2 Corinthians 4:18).\n\nThink about it, when you're focused on what you can see, you're limited to the physical realm.",
+      "hashtags": [
+        "#KingdomLiving",
+        "#KingdomOfGod",
+        "#KingdomTeaching"
+      ],
+      "cta": "\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html",
+      "fullPost": "Do you know what's holding you back from experiencing more of God's presence in your life? It's not your past, your present struggles, or your lack of faith. It's your mindset. The Bible says, \"We look not at the things which are seen, but at the things which are not seen, for the things which are seen are temporal, but the things which are not seen are eternal\" (2 Corinthians 4:18).\n\nThink about it, when you're focused on what you can see, you're limited to the physical realm.\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html\n\n#KingdomLiving #KingdomOfGod #KingdomTeaching",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-05-25.png",
+      "pullQuote": "You're limited to the physical realm.",
+      "attribution": "2 Corinthians 4:18"
+    },
+    "instagram": {
+      "content": "Your identity isn't a reflection of your past, but a declaration of your faith.\n\n\"Behold, I make all things new.\" Revelation 21:5\n\nJust because things used to be one way, doesn't mean they have to be that way now. What area of your life are you ready to renew by faith?",
+      "hashtags": [
+        "#BibleTeaching",
+        "#SpiritualGrowth",
+        "#Discipleship",
+        "#KingdomOfGod",
+        "#KingdomTeaching",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nWatch the full teaching → Link in bio",
+      "fullPost": "Your identity isn't a reflection of your past, but a declaration of your faith.\n\n\"Behold, I make all things new.\" Revelation 21:5\n\nJust because things used to be one way, doesn't mean they have to be that way now. What area of your life are you ready to renew by faith?\n\nWatch the full teaching → Link in bio\n\n#BibleTeaching #SpiritualGrowth #Discipleship #KingdomOfGod #KingdomTeaching #IncreasingFaith #IFM #KingdomLiving"
+    },
+    "tiktok": {
+      "content": "\"I'm not waiting on you to love me, I'm waiting on you to understand that God already loves me. That's the game-changer. - Pastor Curtis\n\n'Herefore by this shall the children of God know that they are true disciples, by their love for one another.' 1 John 3:16\n\n",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#Discipleship",
+        "#KingdomLiving",
+        "#BibleTeaching",
+        "#IFM"
+      ],
+      "cta": "\n\nWatch the full teaching → Link in bio",
+      "fullPost": "\"I'm not waiting on you to love me, I'm waiting on you to understand that God already loves me. That's the game-changer. - Pastor Curtis\n\n'Herefore by this shall the children of God know that they are true disciples, by their love for one another.' 1 John 3:16\n\n\n\nWatch the full teaching → Link in bio\n\n#KingdomOfGod #Discipleship #KingdomLiving #BibleTeaching #IFM"
+    }
+  },
+  "generatedAt": "2026-05-25T16:13:32.771Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1422046809959297",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-05-25T16:13:38.072Z",
+  "testMode": false
+}
