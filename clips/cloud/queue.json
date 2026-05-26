@@ -303,8 +303,10 @@
     },
     {
       "file": "Trust_the_Process_The_Widow_Fear_and_Obe_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:57"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:57",
+      "video_id": "1547428446556611",
+      "posted_at": "2026-05-26T17:26:29Z"
     },
     {
       "file": "Truth_vs_entertainment_the_problem_with_0m05s_square.mp4",
@@ -364,8 +366,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 43,
-    "remaining": 12,
-    "last_updated": "2026-05-25T22:04:23Z"
+    "posted": 44,
+    "remaining": 11,
+    "last_updated": "2026-05-26T17:26:29Z"
   }
 }
