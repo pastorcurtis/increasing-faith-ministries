@@ -324,8 +324,10 @@
     },
     {
       "file": "What_a_wedding_ring_really_means_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:57"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:57",
+      "video_id": "1425816029230673",
+      "posted_at": "2026-05-27T22:28:37Z"
     },
     {
       "file": "What_accursed_really_means_0m05s_square.mp4",
@@ -370,8 +372,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 46,
-    "remaining": 9,
-    "last_updated": "2026-05-27T17:18:42Z"
+    "posted": 47,
+    "remaining": 8,
+    "last_updated": "2026-05-27T22:28:37Z"
   }
 }
