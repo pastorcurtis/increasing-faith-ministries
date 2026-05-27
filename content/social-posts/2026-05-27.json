@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-27",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "\"Faith is not about feeling, it's about functioning. It's not about being moved by emotions, but being moved by truth. When I'm faced with uncertainty, do I try to reason my way through it or trust God's sovereignty? Which approach works best for you?\"",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#IFM"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "\"Faith is not about feeling, it's about functioning. It's not about being moved by emotions, but being moved by truth. When I'm faced with uncertainty, do I try to reason my way through it or trust God's sovereignty? Which approach works best for you?\"\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#IncreasingFaith #KingdomOfGod #IFM",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-05-27.png",
+      "pullQuote": "Faith is not about feeling, it's about functioning.",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "When you're in a season of waiting, do you:\n\nA) Try to make God move on your timeline, or \nB) Trust that He's working behind the scenes and wait with expectation?\n\nDouble tap if you're a \"wait with expectation\" kind of person!",
+      "hashtags": [
+        "#FaithTalk",
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomMindset",
+        "#KingdomLiving",
+        "#KingdomConversation",
+        "#RealTalk"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "When you're in a season of waiting, do you:\n\nA) Try to make God move on your timeline, or \nB) Trust that He's working behind the scenes and wait with expectation?\n\nDouble tap if you're a \"wait with expectation\" kind of person!\n\nJoin our community → Link in bio\n\n#FaithTalk #KingdomOfGod #IncreasingFaith #IFM #KingdomMindset #KingdomLiving #KingdomConversation #RealTalk"
+    },
+    "tiktok": {
+      "content": "Real talk: When life throws your plan out the window, do you panic or pivot straight into the presence of God? Be honest with yourself.",
+      "hashtags": [
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomMindset",
+        "#RealTalk",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Real talk: When life throws your plan out the window, do you panic or pivot straight into the presence of God? Be honest with yourself.\n\nJoin our community → Link in bio\n\n#IFM #IncreasingFaith #KingdomMindset #RealTalk #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-05-27T16:56:22.852Z"
+}
