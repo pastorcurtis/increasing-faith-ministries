@@ -317,8 +317,10 @@
     },
     {
       "file": "We_Are_Coming_Back__This_Is_Our_Territor_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:57"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:57",
+      "video_id": "849666097688723",
+      "posted_at": "2026-05-27T17:18:42Z"
     },
     {
       "file": "What_a_wedding_ring_really_means_0m02s_square.mp4",
@@ -368,8 +370,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 45,
-    "remaining": 10,
-    "last_updated": "2026-05-26T22:17:30Z"
+    "posted": 46,
+    "remaining": 9,
+    "last_updated": "2026-05-27T17:18:42Z"
   }
 }
