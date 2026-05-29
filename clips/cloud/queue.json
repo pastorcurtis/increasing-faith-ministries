@@ -352,8 +352,10 @@
     },
     {
       "file": "Who_Told_You_You_re_Unworthy_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-04-25T11:37:57"
+      "posted": true,
+      "added_at": "2026-04-25T11:37:57",
+      "video_id": "951476607935931",
+      "posted_at": "2026-05-29T22:25:59Z"
     },
     {
       "file": "Wisdom_Is_the_Principal_Thing__Get_Wisdo_0m05s_square.mp4",
@@ -378,8 +380,8 @@
   ],
   "stats": {
     "total": 55,
-    "posted": 50,
-    "remaining": 5,
-    "last_updated": "2026-05-29T17:33:10Z"
+    "posted": 51,
+    "remaining": 4,
+    "last_updated": "2026-05-29T22:25:59Z"
   }
 }
