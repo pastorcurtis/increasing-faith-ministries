@@ -1,0 +1,67 @@
+{
+  "date": "2026-05-30",
+  "day": 6,
+  "theme": "Worship Reminder",
+  "themeType": "event_reminder",
+  "targetPage": "https://increasingfaith.net/visit.html",
+  "posts": {
+    "facebook": {
+      "content": "Hey loved ones, it's time to come together and lift our voices in praise. Our in-person worship takes place on the First Saturday of every month at 12 Noon at 24301 Telegraph, Southfield MI. If you can't join us in person, don't worry - we've got you covered. Join us on Facebook Live, Mon-Fri at 8:15 AM for an Hour of Power. It's a time of worship, prayer, and connection with God and each other. Who's joining us this month?",
+      "hashtags": [
+        "#Faith",
+        "#KingdomOfGod",
+        "#Jesus"
+      ],
+      "cta": "\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html",
+      "fullPost": "Hey loved ones, it's time to come together and lift our voices in praise. Our in-person worship takes place on the First Saturday of every month at 12 Noon at 24301 Telegraph, Southfield MI. If you can't join us in person, don't worry - we've got you covered. Join us on Facebook Live, Mon-Fri at 8:15 AM for an Hour of Power. It's a time of worship, prayer, and connection with God and each other. Who's joining us this month?\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html\n\n#Faith #KingdomOfGod #Jesus",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-05-30.png",
+      "pullQuote": "Hey loved ones, it's time to come together and lift our voices in praise.",
+      "attribution": "Worship Reminder"
+    },
+    "instagram": {
+      "content": "\"Come and experience the presence of God with us at IFM. Join us in-person on the First Saturday of every month at 12 Noon, 24301 Telegraph, Southfield, MI. Or, tune in daily online to the Hour of Power, Monday through Friday at 8:15 AM on Facebook Live.\n\nThese are sacred spaces where we come to encounter His love, peace, and power. Don't miss it. \n\nWho's joining us?\"",
+      "hashtags": [
+        "#Faith",
+        "#JesusIsLord",
+        "#Jesus",
+        "#KingdomLiving",
+        "#KingdomCitizen",
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "\"Come and experience the presence of God with us at IFM. Join us in-person on the First Saturday of every month at 12 Noon, 24301 Telegraph, Southfield, MI. Or, tune in daily online to the Hour of Power, Monday through Friday at 8:15 AM on Facebook Live.\n\nThese are sacred spaces where we come to encounter His love, peace, and power. Don't miss it. \n\nWho's joining us?\"\n\nJoin us for worship → Link in bio\n\n#Faith #JesusIsLord #Jesus #KingdomLiving #KingdomCitizen #IFM #IncreasingFaith #KingdomOfGod"
+    },
+    "tiktok": {
+      "content": "Hey fam, don't forget to lift your voice with us. Monthly worship gatherings happen the first Saturday at 12 Noon @ 24301 Telegraph Rd, Southfield MI. But you can join in every day with me and Pastor Tammy on Hour of Power, 8:15 AM, Monday to Friday on Facebook Live. Who's joining us this Saturday?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomLiving",
+        "#Faith"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "Hey fam, don't forget to lift your voice with us. Monthly worship gatherings happen the first Saturday at 12 Noon @ 24301 Telegraph Rd, Southfield MI. But you can join in every day with me and Pastor Tammy on Hour of Power, 8:15 AM, Monday to Friday on Facebook Live. Who's joining us this Saturday?\n\nJoin us for worship → Link in bio\n\n#KingdomOfGod #IncreasingFaith #IFM #KingdomLiving #Faith"
+    }
+  },
+  "generatedAt": "2026-05-30T14:57:20.509Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1426716306159014",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-05-30T14:57:27.788Z",
+  "testMode": false
+}
