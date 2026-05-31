@@ -1,0 +1,67 @@
+{
+  "date": "2026-05-31",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "I want to remind you that you are not defined by your past. You were born again to have a new life, a life that's filled with purpose and potential. The old has gone, the new has come. Don't let the weights of yesterday hold you back from moving forward today.\n\nYou see, when you were saved, God didn't just forgive your sins, he also gave you a new heart and a new mind.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#Faith"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "I want to remind you that you are not defined by your past. You were born again to have a new life, a life that's filled with purpose and potential. The old has gone, the new has come. Don't let the weights of yesterday hold you back from moving forward today.\n\nYou see, when you were saved, God didn't just forgive your sins, he also gave you a new heart and a new mind.\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#KingdomOfGod #IncreasingFaith #Faith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-05-31.png",
+      "pullQuote": "The old has gone, the new has come.",
+      "attribution": "Pastoral Word"
+    },
+    "instagram": {
+      "content": "\"My dear child, I see the weight you're carrying. I hear the whispers of doubt. But I want you to know, you are strong, you are capable, and you are loved. Don't let the enemy dictate your worth. You are a child of God, born for greatness. \n\nYou are destined to thrive, not just survive. So I charge you: rise up, take back your ground, and declare your victory. \n\n",
+      "hashtags": [
+        "#Jesus",
+        "#KingdomCitizen",
+        "#Faith",
+        "#KingdomOfGod",
+        "#JesusIsLord",
+        "#IncreasingFaith",
+        "#KingdomLiving",
+        "#IFM"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"My dear child, I see the weight you're carrying. I hear the whispers of doubt. But I want you to know, you are strong, you are capable, and you are loved. Don't let the enemy dictate your worth. You are a child of God, born for greatness. \n\nYou are destined to thrive, not just survive. So I charge you: rise up, take back your ground, and declare your victory. \n\n\n\nLearn more about our mission → Link in bio\n\n#Jesus #KingdomCitizen #Faith #KingdomOfGod #JesusIsLord #IncreasingFaith #KingdomLiving #IFM"
+    },
+    "tiktok": {
+      "content": "\"Child, you've been carrying the weight of other people's expectations for far too long. It's time to remember who you are - a child of the Most High, beloved and cherished. Don't let what others think define your path. You're not bound by their opinions, you're free in Christ.",
+      "hashtags": [
+        "#JesusIsLord",
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#IFM",
+        "#Jesus"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"Child, you've been carrying the weight of other people's expectations for far too long. It's time to remember who you are - a child of the Most High, beloved and cherished. Don't let what others think define your path. You're not bound by their opinions, you're free in Christ.\n\nLearn more about our mission → Link in bio\n\n#JesusIsLord #KingdomOfGod #IncreasingFaith #IFM #Jesus"
+    }
+  },
+  "generatedAt": "2026-05-31T15:08:52.579Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1427668439397134",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-05-31T15:08:59.222Z",
+  "testMode": false
+}
