@@ -1,0 +1,67 @@
+{
+  "date": "2026-06-01",
+  "day": 1,
+  "theme": "Kingdom Teaching",
+  "themeType": "kingdom_teaching",
+  "targetPage": "https://increasingfaith.net/teachings.html",
+  "posts": {
+    "facebook": {
+      "content": "We've got a mindset that's been holding us back from walking in our true identity. We've been thinking that our value and worth are based on what we do, but scripture says otherwise. \"You are a chosen people, a royal priesthood, a holy nation, God's special possession, that you may declare the praises of him who called you out of darkness into his wonderful light.\" (1 Peter 2:9) \n\n",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#KingdomLiving",
+        "#BibleTeaching"
+      ],
+      "cta": "\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html",
+      "fullPost": "We've got a mindset that's been holding us back from walking in our true identity. We've been thinking that our value and worth are based on what we do, but scripture says otherwise. \"You are a chosen people, a royal priesthood, a holy nation, God's special possession, that you may declare the praises of him who called you out of darkness into his wonderful light.\" (1 Peter 2:9) \n\n\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html\n\n#KingdomOfGod #KingdomLiving #BibleTeaching",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-01.png",
+      "pullQuote": "Our value and worth are based on who we are, not what we do.",
+      "attribution": "1 Peter 2:9"
+    },
+    "instagram": {
+      "content": "When God calls you to something, He doesn't call the qualified, He qualifies the called. \n2 Corinthians 12:9 says, \"My power is made perfect in weakness.\" \nNot your strength, not your skill, but your willingness to do what He's told you. \n\nDouble tap if you're ready to step out of your own abilities and into His strength.",
+      "hashtags": [
+        "#BibleTeaching",
+        "#KingdomOfGod",
+        "#KingdomTeaching",
+        "#Discipleship",
+        "#KingdomLiving",
+        "#IncreasingFaith",
+        "#SpiritualGrowth",
+        "#IFM"
+      ],
+      "cta": "\n\nWatch the full teaching → Link in bio",
+      "fullPost": "When God calls you to something, He doesn't call the qualified, He qualifies the called. \n2 Corinthians 12:9 says, \"My power is made perfect in weakness.\" \nNot your strength, not your skill, but your willingness to do what He's told you. \n\nDouble tap if you're ready to step out of your own abilities and into His strength.\n\nWatch the full teaching → Link in bio\n\n#BibleTeaching #KingdomOfGod #KingdomTeaching #Discipleship #KingdomLiving #IncreasingFaith #SpiritualGrowth #IFM"
+    },
+    "tiktok": {
+      "content": "You think you're in control of your finances, but are you operating with the mindset of a steward or an owner? The Bible says, \"It is required in stewards that one be found faithful.\" (1 Corinthians 4:2) When you view your money as God's, not yours, everything changes.",
+      "hashtags": [
+        "#KingdomLiving",
+        "#Discipleship",
+        "#IFM",
+        "#KingdomTeaching",
+        "#BibleTeaching"
+      ],
+      "cta": "\n\nWatch the full teaching → Link in bio",
+      "fullPost": "You think you're in control of your finances, but are you operating with the mindset of a steward or an owner? The Bible says, \"It is required in stewards that one be found faithful.\" (1 Corinthians 4:2) When you view your money as God's, not yours, everything changes.\n\nWatch the full teaching → Link in bio\n\n#KingdomLiving #Discipleship #IFM #KingdomTeaching #BibleTeaching"
+    }
+  },
+  "generatedAt": "2026-06-01T19:14:50.013Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1428836415947003",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-06-01T19:14:59.523Z",
+  "testMode": false
+}
