@@ -1,0 +1,54 @@
+{
+  "date": "2026-06-04",
+  "day": 4,
+  "theme": "Prayer Focus",
+  "themeType": "prayer_focus",
+  "targetPage": "https://increasingfaith.net/prayer.html",
+  "posts": {
+    "facebook": {
+      "content": "**Declaring God's Sovereignty in My Family**\n\nAs I reflect on the blessings in my life, I'm reminded that my family is a blessing from God. I want to make sure that we're all protected by His love and provision.\n\n\"Lord, I declare that Your presence is at the center of my family's life. You are our rock, our shelter, and our guiding light. Protect us from every evil influence and surround us with Your goodness, wisdom, and love. May Your Word be the standard by which we live and make decisions.",
+      "hashtags": [
+        "#Intercession",
+        "#PrayerFocus",
+        "#KingdomPrayer"
+      ],
+      "cta": "\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html",
+      "fullPost": "**Declaring God's Sovereignty in My Family**\n\nAs I reflect on the blessings in my life, I'm reminded that my family is a blessing from God. I want to make sure that we're all protected by His love and provision.\n\n\"Lord, I declare that Your presence is at the center of my family's life. You are our rock, our shelter, and our guiding light. Protect us from every evil influence and surround us with Your goodness, wisdom, and love. May Your Word be the standard by which we live and make decisions.\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html\n\n#Intercession #PrayerFocus #KingdomPrayer",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-04.png",
+      "pullQuote": "You are our rock, our shelter, and our guiding light.",
+      "attribution": "Prayer Focus"
+    },
+    "instagram": {
+      "content": "Family Matters\n\nAs we navigate relationships, may our homes be a reflection of the love and unity of the Godhead.\n\n\"I pray for families to be saturated with love, kindness, and wisdom, that our children will grow up to be mighty in faith and courage, and that our homes will be a place of refuge and strength for all who enter.",
+      "hashtags": [
+        "#Intercession",
+        "#KingdomLiving",
+        "#IFM",
+        "#KingdomPrayer",
+        "#IncreasingFaith",
+        "#Prayer",
+        "#PrayerFocus",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Family Matters\n\nAs we navigate relationships, may our homes be a reflection of the love and unity of the Godhead.\n\n\"I pray for families to be saturated with love, kindness, and wisdom, that our children will grow up to be mighty in faith and courage, and that our homes will be a place of refuge and strength for all who enter.\n\nSubmit your prayer request → Link in bio\n\n#Intercession #KingdomLiving #IFM #KingdomPrayer #IncreasingFaith #Prayer #PrayerFocus #KingdomOfGod"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4445, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-06-04T16:42:21.420Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1431702555660389",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-06-04T16:42:28.971Z",
+  "testMode": false
+}
