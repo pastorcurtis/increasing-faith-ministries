@@ -1,0 +1,41 @@
+{
+  "date": "2026-06-06",
+  "day": 6,
+  "theme": "Worship Reminder",
+  "themeType": "event_reminder",
+  "targetPage": "https://increasingfaith.net/visit.html",
+  "posts": {
+    "facebook": {
+      "content": "Hey friends, I want to remind you to set aside time to worship in spirit and truth. At IFM, we believe that our gatherings are a sacred space to connect with God and with one another. Join us in-person on the FIRST SATURDAY OF THE MONTH at 12 Noon at 24301 Telegraph in Southfield, MI, or tune in daily online for our Hour of Power, Monday - Friday at 8:15 AM on Facebook Live. Let's come together, lift our voices, and let the presence of the Lord fall upon us. Who's joining us this month?",
+      "hashtags": [
+        "#JesusIsLord",
+        "#KingdomOfGod",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html",
+      "fullPost": "Hey friends, I want to remind you to set aside time to worship in spirit and truth. At IFM, we believe that our gatherings are a sacred space to connect with God and with one another. Join us in-person on the FIRST SATURDAY OF THE MONTH at 12 Noon at 24301 Telegraph in Southfield, MI, or tune in daily online for our Hour of Power, Monday - Friday at 8:15 AM on Facebook Live. Let's come together, lift our voices, and let the presence of the Lord fall upon us. Who's joining us this month?\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html\n\n#JesusIsLord #KingdomOfGod #KingdomCitizen",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-06.png",
+      "pullQuote": "Let the presence of the Lord fall upon us.",
+      "attribution": "Worship Reminder"
+    },
+    "instagram": {
+      "content": "Worship Time is Coming!\n\nSaddle up, Church! It's that time again to gather in His presence and let the fire fall!\n\nJoin us this First Saturday at 12 Noon at 24301 Telegraph in Southfield, MI for our in-person worship gathering.\n\nOr, if you can't make it in person, join us daily online for our Hour of Power from Monday to Friday at 8:15 AM on Facebook Live.\n\n",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomCitizen",
+        "#JesusIsLord",
+        "#Jesus",
+        "#KingdomOfGod",
+        "#Faith",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "Worship Time is Coming!\n\nSaddle up, Church! It's that time again to gather in His presence and let the fire fall!\n\nJoin us this First Saturday at 12 Noon at 24301 Telegraph in Southfield, MI for our in-person worship gathering.\n\nOr, if you can't make it in person, join us daily online for our Hour of Power from Monday to Friday at 8:15 AM on Facebook Live.\n\n\n\nJoin us for worship → Link in bio\n\n#IncreasingFaith #IFM #KingdomCitizen #JesusIsLord #Jesus #KingdomOfGod #Faith #KingdomLiving"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4429, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-06-06T15:03:43.174Z"
+}
