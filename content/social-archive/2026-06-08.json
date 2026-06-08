@@ -1,0 +1,67 @@
+{
+  "date": "2026-06-08",
+  "day": 1,
+  "theme": "Kingdom Teaching",
+  "themeType": "kingdom_teaching",
+  "targetPage": "https://increasingfaith.net/teachings.html",
+  "posts": {
+    "facebook": {
+      "content": "When we struggle to receive God's gifts, it's often not because He's holding out, but because we're not releasing our control. \"Do not be conformed to this world, but be transformed by the renewal of your mind, that by testing you may discern what is the will of God, what is good and acceptable and perfect.\" Romans 12:2. What areas of your life are you holding onto tight, refusing to let God's goodness flow in?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#BibleTeaching",
+        "#Discipleship"
+      ],
+      "cta": "\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html",
+      "fullPost": "When we struggle to receive God's gifts, it's often not because He's holding out, but because we're not releasing our control. \"Do not be conformed to this world, but be transformed by the renewal of your mind, that by testing you may discern what is the will of God, what is good and acceptable and perfect.\" Romans 12:2. What areas of your life are you holding onto tight, refusing to let God's goodness flow in?\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html\n\n#KingdomOfGod #BibleTeaching #Discipleship",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-08.png",
+      "pullQuote": "When we struggle to receive God's gifts, it's often not because He's holding out, but because we're not releasing our control.",
+      "attribution": "Romans 12:2"
+    },
+    "instagram": {
+      "content": "You're operating in the wrong currency.\n\nWe're not wired to live paycheck to paycheck, but we're often trying to survive on the wrong kind of money. \n\nGod's economy is not about how much we have, but who we are. \"Love is patient, love is kind...\" (1 Cor 13:4). Your worth isn't in your bank account, it's in your capacity to love.\n\nSo I ask you: What are you trading in for love today?",
+      "hashtags": [
+        "#KingdomTeaching",
+        "#IFM",
+        "#IncreasingFaith",
+        "#BibleTeaching",
+        "#Discipleship",
+        "#SpiritualGrowth",
+        "#KingdomOfGod",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nWatch the full teaching → Link in bio",
+      "fullPost": "You're operating in the wrong currency.\n\nWe're not wired to live paycheck to paycheck, but we're often trying to survive on the wrong kind of money. \n\nGod's economy is not about how much we have, but who we are. \"Love is patient, love is kind...\" (1 Cor 13:4). Your worth isn't in your bank account, it's in your capacity to love.\n\nSo I ask you: What are you trading in for love today?\n\nWatch the full teaching → Link in bio\n\n#KingdomTeaching #IFM #IncreasingFaith #BibleTeaching #Discipleship #SpiritualGrowth #KingdomOfGod #KingdomLiving"
+    },
+    "tiktok": {
+      "content": "\"Your marriage doesn't need perfection, it needs partnership. Just like David and Jonathan, their bond was not based on their weaknesses, but their shared vision. \"I love you as is\" - 1 Samuel 18:1. Can you accept your spouse's unpolished edges as a strength, not a liability?\"",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#SpiritualGrowth",
+        "#Discipleship",
+        "#BibleTeaching"
+      ],
+      "cta": "\n\nWatch the full teaching → Link in bio",
+      "fullPost": "\"Your marriage doesn't need perfection, it needs partnership. Just like David and Jonathan, their bond was not based on their weaknesses, but their shared vision. \"I love you as is\" - 1 Samuel 18:1. Can you accept your spouse's unpolished edges as a strength, not a liability?\"\n\nWatch the full teaching → Link in bio\n\n#KingdomOfGod #IncreasingFaith #SpiritualGrowth #Discipleship #BibleTeaching"
+    }
+  },
+  "generatedAt": "2026-06-08T16:59:48.792Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1435392105291434",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-06-08T16:59:56.418Z",
+  "testMode": false
+}
