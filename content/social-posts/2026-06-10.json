@@ -1,0 +1,41 @@
+{
+  "date": "2026-06-10",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "Real Talk: What's holding you back from fully surrendering to God's plan for your life? Is it fear, doubt, or something else? Be honest with us - we want to hear from you. Share with us what's keeping you from fully stepping into God's will. Your honesty could be a game-changer for someone else in the comment section below.",
+      "hashtags": [
+        "#FaithTalk",
+        "#KingdomMindset",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "Real Talk: What's holding you back from fully surrendering to God's plan for your life? Is it fear, doubt, or something else? Be honest with us - we want to hear from you. Share with us what's keeping you from fully stepping into God's will. Your honesty could be a game-changer for someone else in the comment section below.\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#FaithTalk #KingdomMindset #IncreasingFaith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-10.png",
+      "pullQuote": "Your honesty could be a game-changer for someone else.",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Finish this sentence: \"The moment I began to believe my worth wasn't based on what others think, I ______\"\n\nDouble tap if this resonates with you!",
+      "hashtags": [
+        "#KingdomLiving",
+        "#KingdomMindset",
+        "#IFM",
+        "#RealTalk",
+        "#KingdomConversation",
+        "#IncreasingFaith",
+        "#FaithTalk",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Finish this sentence: \"The moment I began to believe my worth wasn't based on what others think, I ______\"\n\nDouble tap if this resonates with you!\n\nJoin our community → Link in bio\n\n#KingdomLiving #KingdomMindset #IFM #RealTalk #KingdomConversation #IncreasingFaith #FaithTalk #KingdomOfGod"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4424, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-06-10T16:52:59.722Z"
+}
