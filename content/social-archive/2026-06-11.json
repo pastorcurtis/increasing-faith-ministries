@@ -1,0 +1,54 @@
+{
+  "date": "2026-06-11",
+  "day": 4,
+  "theme": "Prayer Focus",
+  "themeType": "prayer_focus",
+  "targetPage": "https://increasingfaith.net/prayer.html",
+  "posts": {
+    "facebook": {
+      "content": "Prayer Focus: Protecting Our Children's Minds\n\nAs we raise our kids in a world filled with distractions and temptations, we need to pray for their minds to be shielded from the negative influences that seek to undermine their faith.\n\nFather, we declare a hedge of protection around the minds of our children, that they may think Your thoughts, believe Your promises, and be filled with Your wisdom and understanding. May their minds be fertile ground for Your seed of truth to take root and flourish.",
+      "hashtags": [
+        "#Intercession",
+        "#KingdomPrayer",
+        "#Prayer"
+      ],
+      "cta": "\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html",
+      "fullPost": "Prayer Focus: Protecting Our Children's Minds\n\nAs we raise our kids in a world filled with distractions and temptations, we need to pray for their minds to be shielded from the negative influences that seek to undermine their faith.\n\nFather, we declare a hedge of protection around the minds of our children, that they may think Your thoughts, believe Your promises, and be filled with Your wisdom and understanding. May their minds be fertile ground for Your seed of truth to take root and flourish.\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html\n\n#Intercession #KingdomPrayer #Prayer",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-11.png",
+      "pullQuote": "May their minds be fertile ground for Your seed of truth to take root and flourish.",
+      "attribution": "Prayer Focus"
+    },
+    "instagram": {
+      "content": "Protecting Our Families\n\nAs a child of God, we have the power to decree a shield of protection around our loved ones.\n\nLet's pray: \"Lord, I decree that my family is surrounded by Your loving presence and Your mighty angels, protecting them from harm and evil. I thank You for watching over them and keeping them safe.\" \n\nStand with us in agreement: 🙏",
+      "hashtags": [
+        "#PrayerFocus",
+        "#Prayer",
+        "#KingdomOfGod",
+        "#KingdomPrayer",
+        "#IncreasingFaith",
+        "#KingdomLiving",
+        "#Intercession",
+        "#IFM"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Protecting Our Families\n\nAs a child of God, we have the power to decree a shield of protection around our loved ones.\n\nLet's pray: \"Lord, I decree that my family is surrounded by Your loving presence and Your mighty angels, protecting them from harm and evil. I thank You for watching over them and keeping them safe.\" \n\nStand with us in agreement: 🙏\n\nSubmit your prayer request → Link in bio\n\n#PrayerFocus #Prayer #KingdomOfGod #KingdomPrayer #IncreasingFaith #KingdomLiving #Intercession #IFM"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4453, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-06-11T17:30:26.486Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1438301905000454",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-06-11T17:30:32.229Z",
+  "testMode": false
+}
