@@ -1,0 +1,67 @@
+{
+  "date": "2026-06-12",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "Have you ever wondered what's the key to navigating life's storms without getting shipwrecked? Our latest issue of The Kingdom Report dives into the often-overlooked yet critically important principle of discerning between \"your\" harvest and \"someone else's.\" \n\nIn this issue, Pastor Curtis shares a groundbreaking revelation that will transform your perspective on prosperity, relationships, and the very definition of success.",
+      "hashtags": [
+        "#IFM",
+        "#KingdomOfGod",
+        "#Jesus"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "Have you ever wondered what's the key to navigating life's storms without getting shipwrecked? Our latest issue of The Kingdom Report dives into the often-overlooked yet critically important principle of discerning between \"your\" harvest and \"someone else's.\" \n\nIn this issue, Pastor Curtis shares a groundbreaking revelation that will transform your perspective on prosperity, relationships, and the very definition of success.\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#IFM #KingdomOfGod #Jesus",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-12.png",
+      "pullQuote": "Discerning between your harvest and someone else's is the key to navigating life's storms.",
+      "attribution": "Kingdom Intelligence"
+    },
+    "instagram": {
+      "content": "The Kingdom is not just a place, it's a reality that we're called to create.\n\nDid you know that the biblical concept of \"dwelling\" is not just about location, but about living in the presence of God? In our upcoming Kingdom Report, we'll explore the 3 essential habits of dwelling in the presence of God and how it unlocks supernatural favor in your life.\n\n",
+      "hashtags": [
+        "#KingdomCitizen",
+        "#JesusIsLord",
+        "#IncreasingFaith",
+        "#IFM",
+        "#Faith",
+        "#Jesus",
+        "#KingdomLiving",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The Kingdom is not just a place, it's a reality that we're called to create.\n\nDid you know that the biblical concept of \"dwelling\" is not just about location, but about living in the presence of God? In our upcoming Kingdom Report, we'll explore the 3 essential habits of dwelling in the presence of God and how it unlocks supernatural favor in your life.\n\n\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomCitizen #JesusIsLord #IncreasingFaith #IFM #Faith #Jesus #KingdomLiving #KingdomOfGod"
+    },
+    "tiktok": {
+      "content": "\"Did you know that every major move of God has been preceded by a season of spiritual silence? In our latest Kingdom Report, we're shedding light on the often-overlooked link between quietness and breakthrough. Are you listening for the still voice of the Lord amidst the chaos?\"",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#JesusIsLord",
+        "#Jesus",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "\"Did you know that every major move of God has been preceded by a season of spiritual silence? In our latest Kingdom Report, we're shedding light on the often-overlooked link between quietness and breakthrough. Are you listening for the still voice of the Lord amidst the chaos?\"\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomOfGod #IncreasingFaith #JesusIsLord #Jesus #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-06-12T16:36:13.127Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1439174314913213",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-06-12T16:36:17.637Z",
+  "testMode": false
+}
