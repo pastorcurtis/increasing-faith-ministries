@@ -1,0 +1,67 @@
+{
+  "date": "2026-06-13",
+  "day": 6,
+  "theme": "Worship Reminder",
+  "themeType": "event_reminder",
+  "targetPage": "https://increasingfaith.net/visit.html",
+  "posts": {
+    "facebook": {
+      "content": "It's time to come together in worship! I want to encourage you to join us this Saturday at 12 Noon in-person at 24301 Telegraph in Southfield, MI. Let's lift our voices and give God the glory He deserves. Or if you can't make it in-person, join us daily online for Hour of Power, Monday through Friday at 8:15 AM on Facebook Live. Let's worship together and experience the presence of the Lord! Who's joining us?",
+      "hashtags": [
+        "#KingdomCitizen",
+        "#KingdomOfGod",
+        "#Jesus"
+      ],
+      "cta": "\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html",
+      "fullPost": "It's time to come together in worship! I want to encourage you to join us this Saturday at 12 Noon in-person at 24301 Telegraph in Southfield, MI. Let's lift our voices and give God the glory He deserves. Or if you can't make it in-person, join us daily online for Hour of Power, Monday through Friday at 8:15 AM on Facebook Live. Let's worship together and experience the presence of the Lord! Who's joining us?\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html\n\n#KingdomCitizen #KingdomOfGod #Jesus",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-13.png",
+      "pullQuote": "Let's worship together and experience the presence of the Lord!",
+      "attribution": "Worship Reminder"
+    },
+    "instagram": {
+      "content": "Sisters and brothers, don't forget where your strength comes from. \n\nCome join us for our in-person worship gathering on the 1st Saturday of every month. We gather at 12 Noon, 24301 Telegraph, Southfield MI.\n\nAnd for those who can't join us in person, join us online every Mon-Fri at 8:15 AM on Facebook Live for our Hour of Power.\n\nLet's raise our voices in praise and thanksgiving together.",
+      "hashtags": [
+        "#KingdomLiving",
+        "#IFM",
+        "#IncreasingFaith",
+        "#Jesus",
+        "#Faith",
+        "#KingdomOfGod",
+        "#KingdomCitizen",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "Sisters and brothers, don't forget where your strength comes from. \n\nCome join us for our in-person worship gathering on the 1st Saturday of every month. We gather at 12 Noon, 24301 Telegraph, Southfield MI.\n\nAnd for those who can't join us in person, join us online every Mon-Fri at 8:15 AM on Facebook Live for our Hour of Power.\n\nLet's raise our voices in praise and thanksgiving together.\n\nJoin us for worship → Link in bio\n\n#KingdomLiving #IFM #IncreasingFaith #Jesus #Faith #KingdomOfGod #KingdomCitizen #JesusIsLord"
+    },
+    "tiktok": {
+      "content": "\"Y'all know how I love spending time with YHWH. He meets me at the altar, every time. Join me this First Saturday at 12 Noon at 24301 Telegraph in Southfield, MI. We'll sing, we'll dance, we'll encounter the Presence.",
+      "hashtags": [
+        "#Faith",
+        "#JesusIsLord",
+        "#Jesus",
+        "#KingdomCitizen",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "\"Y'all know how I love spending time with YHWH. He meets me at the altar, every time. Join me this First Saturday at 12 Noon at 24301 Telegraph in Southfield, MI. We'll sing, we'll dance, we'll encounter the Presence.\n\nJoin us for worship → Link in bio\n\n#Faith #JesusIsLord #Jesus #KingdomCitizen #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-06-13T15:23:44.312Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1440016228162355",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-06-13T15:23:49.665Z",
+  "testMode": false
+}
