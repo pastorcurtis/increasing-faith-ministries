@@ -1,0 +1,67 @@
+{
+  "date": "2026-06-17",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "When challenges come, do you withdraw and pray or move forward in obedience, believing God is with you? Faith is built in the storm or faith is built in the stillness – which has been true for you? Can you share a time when you chose to act in faith despite uncertainty?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#RealTalk"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "When challenges come, do you withdraw and pray or move forward in obedience, believing God is with you? Faith is built in the storm or faith is built in the stillness – which has been true for you? Can you share a time when you chose to act in faith despite uncertainty?\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#KingdomOfGod #IncreasingFaith #RealTalk",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-17.png",
+      "pullQuote": "Faith is built in the storm or faith is built in the stillness.",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Kingdom Conversation\n\nFaith is not always about feeling the presence of God, \nbut about trusting His promise in your absence. \nCan you relate to trusting God's word when you don't feel His presence?\n\nDouble tap if this resonates with you.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomMindset",
+        "#FaithTalk",
+        "#KingdomLiving",
+        "#KingdomConversation",
+        "#RealTalk"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Kingdom Conversation\n\nFaith is not always about feeling the presence of God, \nbut about trusting His promise in your absence. \nCan you relate to trusting God's word when you don't feel His presence?\n\nDouble tap if this resonates with you.\n\nJoin our community → Link in bio\n\n#KingdomOfGod #IncreasingFaith #IFM #KingdomMindset #FaithTalk #KingdomLiving #KingdomConversation #RealTalk"
+    },
+    "tiktok": {
+      "content": "Do you think faith is built in the storm, where we're forced to trust God, or in the stillness, where we have the space to reflect on His goodness? Which has been true for you?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#KingdomMindset",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Do you think faith is built in the storm, where we're forced to trust God, or in the stillness, where we have the space to reflect on His goodness? Which has been true for you?\n\nJoin our community → Link in bio\n\n#KingdomOfGod #KingdomMindset #IncreasingFaith #IFM #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-06-17T16:49:26.335Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1443721824458462",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-06-17T16:49:32.380Z",
+  "testMode": false
+}
