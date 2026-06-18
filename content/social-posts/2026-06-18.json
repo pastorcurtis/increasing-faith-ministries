@@ -1,0 +1,41 @@
+{
+  "date": "2026-06-18",
+  "day": 4,
+  "theme": "Prayer Focus",
+  "themeType": "prayer_focus",
+  "targetPage": "https://increasingfaith.net/prayer.html",
+  "posts": {
+    "facebook": {
+      "content": "Family Prayers\n\nAs we pray for our families, let's ask God to strengthen their bonds and foundations, that they may be a source of hope and light in the world.\n\n\"Family members are called to be a reflection of God's love and character in the world.\"\n\nFather, I declare that you are establishing strong, loving relationships in every family that comes under our care. You are guiding them through the challenges and joys of life, teaching them to rely on you and trust in your goodness.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#KingdomPrayer",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html",
+      "fullPost": "Family Prayers\n\nAs we pray for our families, let's ask God to strengthen their bonds and foundations, that they may be a source of hope and light in the world.\n\n\"Family members are called to be a reflection of God's love and character in the world.\"\n\nFather, I declare that you are establishing strong, loving relationships in every family that comes under our care. You are guiding them through the challenges and joys of life, teaching them to rely on you and trust in your goodness.\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html\n\n#KingdomOfGod #KingdomPrayer #IncreasingFaith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-18.png",
+      "pullQuote": "Family members are called to be a reflection of God's love and character in the world.",
+      "attribution": "Prayer Focus"
+    },
+    "instagram": {
+      "content": "Prayer Focus: The Family Unit\n\nThe family is the foundation of our society, and our children are the future leaders and influencers of our world.\n\n\"Lord, I declare that every family will be filled with love, unity, and purpose, producing fruit that brings glory to Your name. Every child will be discipled, and every adult will be a strong, godly leader, making wise decisions that honor You.",
+      "hashtags": [
+        "#Prayer",
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomLiving",
+        "#KingdomOfGod",
+        "#Intercession",
+        "#PrayerFocus",
+        "#KingdomPrayer"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Prayer Focus: The Family Unit\n\nThe family is the foundation of our society, and our children are the future leaders and influencers of our world.\n\n\"Lord, I declare that every family will be filled with love, unity, and purpose, producing fruit that brings glory to Your name. Every child will be discipled, and every adult will be a strong, godly leader, making wise decisions that honor You.\n\nSubmit your prayer request → Link in bio\n\n#Prayer #IFM #IncreasingFaith #KingdomLiving #KingdomOfGod #Intercession #PrayerFocus #KingdomPrayer"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4453, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-06-18T16:49:27.695Z"
+}
