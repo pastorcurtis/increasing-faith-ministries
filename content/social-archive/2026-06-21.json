@@ -1,0 +1,67 @@
+{
+  "date": "2026-06-21",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "My beloved child, I want you to know that God has not forgotten about you. He is always working on your behalf, even when it feels like things aren't moving. His presence is always near, and His power is always active. \n\nYou don't have to try so hard to figure it out. You don't have to strive to make it happen. God is already doing it. Your job is to trust and obey Him. To wait on Him and to see the goodness He has already prepared for you.\n\nYour breakthrough is coming. Your miracle is near.",
+      "hashtags": [
+        "#KingdomLiving",
+        "#KingdomOfGod",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "My beloved child, I want you to know that God has not forgotten about you. He is always working on your behalf, even when it feels like things aren't moving. His presence is always near, and His power is always active. \n\nYou don't have to try so hard to figure it out. You don't have to strive to make it happen. God is already doing it. Your job is to trust and obey Him. To wait on Him and to see the goodness He has already prepared for you.\n\nYour breakthrough is coming. Your miracle is near.\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#KingdomLiving #KingdomOfGod #JesusIsLord",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-21.png",
+      "pullQuote": "God is already doing it.",
+      "attribution": "Pastoral Word"
+    },
+    "instagram": {
+      "content": "\"You know what time it is? It's time to trust that God has already prepared the way for you. When you can't see the path, don't get anxious, just stay in faith. He's already made the way, now it's time to walk it. Double tap if you're ready to trust Him like never before. What's one area in your life where you need to trust God's preparation?\"",
+      "hashtags": [
+        "#IFM",
+        "#Faith",
+        "#JesusIsLord",
+        "#Jesus",
+        "#IncreasingFaith",
+        "#KingdomLiving",
+        "#KingdomCitizen",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"You know what time it is? It's time to trust that God has already prepared the way for you. When you can't see the path, don't get anxious, just stay in faith. He's already made the way, now it's time to walk it. Double tap if you're ready to trust Him like never before. What's one area in your life where you need to trust God's preparation?\"\n\nLearn more about our mission → Link in bio\n\n#IFM #Faith #JesusIsLord #Jesus #IncreasingFaith #KingdomLiving #KingdomCitizen #KingdomOfGod"
+    },
+    "tiktok": {
+      "content": "\"Listen, I want you to know that you're not alone in this process. I know it feels like you're in it by yourself, but you're not. God walks with you and He's got a plan for your life. You're not just drifting through, you're being led. So, don't give up.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#Faith",
+        "#IFM",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"Listen, I want you to know that you're not alone in this process. I know it feels like you're in it by yourself, but you're not. God walks with you and He's got a plan for your life. You're not just drifting through, you're being led. So, don't give up.\n\nLearn more about our mission → Link in bio\n\n#KingdomOfGod #IncreasingFaith #Faith #IFM #KingdomCitizen"
+    }
+  },
+  "generatedAt": "2026-06-21T15:43:30.760Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1447188180778493",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-06-21T15:43:38.115Z",
+  "testMode": false
+}
