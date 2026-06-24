@@ -1,0 +1,41 @@
+{
+  "date": "2026-06-24",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "\"Faith is built in the storm vs. Faith is built in the stillness — which has been true for you? Have you found that your trust in God grows stronger in times of uncertainty or in moments of quiet reflection? We'd love to hear your perspective on this!\"",
+      "hashtags": [
+        "#RealTalk",
+        "#KingdomOfGod",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "\"Faith is built in the storm vs. Faith is built in the stillness — which has been true for you? Have you found that your trust in God grows stronger in times of uncertainty or in moments of quiet reflection? We'd love to hear your perspective on this!\"\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#RealTalk #KingdomOfGod #KingdomLiving",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-24.png",
+      "pullQuote": "Faith is built in the storm vs the stillness.",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Faith is built in the storm vs. Faith is built in the stillness — which has been true for you? Do the fiercest battles of your faith forge you, or do calm moments of surrender shape your trust? Share with us.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomConversation",
+        "#KingdomMindset",
+        "#KingdomLiving",
+        "#FaithTalk",
+        "#RealTalk"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Faith is built in the storm vs. Faith is built in the stillness — which has been true for you? Do the fiercest battles of your faith forge you, or do calm moments of surrender shape your trust? Share with us.\n\nJoin our community → Link in bio\n\n#KingdomOfGod #IncreasingFaith #IFM #KingdomConversation #KingdomMindset #KingdomLiving #FaithTalk #RealTalk"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4493, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-06-24T16:06:07.636Z"
+}
