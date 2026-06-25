@@ -1,0 +1,67 @@
+{
+  "date": "2026-06-25",
+  "day": 4,
+  "theme": "Prayer Focus",
+  "themeType": "prayer_focus",
+  "targetPage": "https://increasingfaith.net/prayer.html",
+  "posts": {
+    "facebook": {
+      "content": "Prayer Focus: Family Protection\n\nAs we navigate the complexities of family relationships, we must stand firm on the promises of God's protection and provision. Let us declare His faithfulness and power in our families today.\n\nWe pray a hedge of protection around our families, Pastor Curtis and Pastor Tammy prayed. \"Lord, we speak to Your Word, saying 'You are a shield for those who take refuge in you.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#KingdomPrayer"
+      ],
+      "cta": "\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html",
+      "fullPost": "Prayer Focus: Family Protection\n\nAs we navigate the complexities of family relationships, we must stand firm on the promises of God's protection and provision. Let us declare His faithfulness and power in our families today.\n\nWe pray a hedge of protection around our families, Pastor Curtis and Pastor Tammy prayed. \"Lord, we speak to Your Word, saying 'You are a shield for those who take refuge in you.\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html\n\n#KingdomOfGod #IncreasingFaith #KingdomPrayer",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-25.png",
+      "pullQuote": "You are a shield for those who take refuge in you.",
+      "attribution": "Prayer Focus"
+    },
+    "instagram": {
+      "content": "Faith that Overflows\n\nToday's Focus: Family\n\nIn a world where relationships can be tested, may our families be a reflection of the unbreakable love of Christ.\n\nI declare: My family is a stronghold of faith, where God's love reigns supreme. \n\nI call forth: Love, joy, and peace to dwell in every home, every heart, and every interaction.\n\nStand with us in agreement, drop a prayer emoji 💪.",
+      "hashtags": [
+        "#PrayerFocus",
+        "#IFM",
+        "#IncreasingFaith",
+        "#Prayer",
+        "#KingdomOfGod",
+        "#KingdomPrayer",
+        "#Intercession",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Faith that Overflows\n\nToday's Focus: Family\n\nIn a world where relationships can be tested, may our families be a reflection of the unbreakable love of Christ.\n\nI declare: My family is a stronghold of faith, where God's love reigns supreme. \n\nI call forth: Love, joy, and peace to dwell in every home, every heart, and every interaction.\n\nStand with us in agreement, drop a prayer emoji 💪.\n\nSubmit your prayer request → Link in bio\n\n#PrayerFocus #IFM #IncreasingFaith #Prayer #KingdomOfGod #KingdomPrayer #Intercession #KingdomLiving"
+    },
+    "tiktok": {
+      "content": "Family Prayer Focus\n\nToday, I'm praying for protection and provision for my family. We're calling forth a season of peace and prosperity over our households.\n\n\"I command peace to reside in every home, and I declare financial blessings to flow freely to my loved ones.",
+      "hashtags": [
+        "#IFM",
+        "#PrayerFocus",
+        "#Prayer",
+        "#KingdomPrayer",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Family Prayer Focus\n\nToday, I'm praying for protection and provision for my family. We're calling forth a season of peace and prosperity over our households.\n\n\"I command peace to reside in every home, and I declare financial blessings to flow freely to my loved ones.\n\nSubmit your prayer request → Link in bio\n\n#IFM #PrayerFocus #Prayer #KingdomPrayer #KingdomOfGod"
+    }
+  },
+  "generatedAt": "2026-06-25T16:12:23.561Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1450865643744080",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-06-25T16:12:30.414Z",
+  "testMode": false
+}
