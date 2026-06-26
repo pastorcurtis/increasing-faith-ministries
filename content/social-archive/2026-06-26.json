@@ -1,0 +1,67 @@
+{
+  "date": "2026-06-26",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "Exclusive Insights from The Kingdom Report: \n\nIn our upcoming issue, you'll discover how the 'Seed Principle' can transform your relationships and finances – by understanding the hidden dynamics of giving and receiving. You'll learn how to identify and interrupt patterns of scarcity, and unlock the divine flow of abundance in your life.\n\n",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#IFM"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "Exclusive Insights from The Kingdom Report: \n\nIn our upcoming issue, you'll discover how the 'Seed Principle' can transform your relationships and finances – by understanding the hidden dynamics of giving and receiving. You'll learn how to identify and interrupt patterns of scarcity, and unlock the divine flow of abundance in your life.\n\n\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#KingdomOfGod #IncreasingFaith #IFM",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-26.png",
+      "pullQuote": "Unlock the divine flow of abundance in your life.",
+      "attribution": "Kingdom Intelligence"
+    },
+    "instagram": {
+      "content": "\"The Coming Shift in Kingdom Economics\n\nDid you know that the Lord is about to realign the values of the world, making the invisible visible, and the spiritual a priority over the physical? Get ready for a new era of Kingdom economics where God's wealth is released, not just received.\n\nDouble tap if you're ready to align your finances with God's kingdom agenda.\"",
+      "hashtags": [
+        "#KingdomLiving",
+        "#IFM",
+        "#KingdomCitizen",
+        "#Jesus",
+        "#JesusIsLord",
+        "#Faith",
+        "#IncreasingFaith",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "\"The Coming Shift in Kingdom Economics\n\nDid you know that the Lord is about to realign the values of the world, making the invisible visible, and the spiritual a priority over the physical? Get ready for a new era of Kingdom economics where God's wealth is released, not just received.\n\nDouble tap if you're ready to align your finances with God's kingdom agenda.\"\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomLiving #IFM #KingdomCitizen #Jesus #JesusIsLord #Faith #IncreasingFaith #KingdomOfGod"
+    },
+    "tiktok": {
+      "content": "Just received intel that the enemy's strategy to silence our voices is shifting. He's no longer attacking our faith, but our finances. Are you prepared for the economic storm coming our way?",
+      "hashtags": [
+        "#KingdomCitizen",
+        "#IFM",
+        "#KingdomOfGod",
+        "#Faith",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "Just received intel that the enemy's strategy to silence our voices is shifting. He's no longer attacking our faith, but our finances. Are you prepared for the economic storm coming our way?\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomCitizen #IFM #KingdomOfGod #Faith #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-06-26T16:05:18.565Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1451798196984158",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-06-26T16:05:27.850Z",
+  "testMode": false
+}
