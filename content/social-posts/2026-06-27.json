@@ -1,0 +1,50 @@
+{
+  "date": "2026-06-27",
+  "day": 6,
+  "theme": "Worship Reminder",
+  "themeType": "event_reminder",
+  "targetPage": "https://increasingfaith.net/visit.html",
+  "posts": {
+    "facebook": {
+      "content": "Hey friends, it's Pastor Tammy here. I want to remind you that our lives are a worship. Every moment, every breath, every choice is an opportunity to give thanks and praise to God. \n\nJoin me in-person on the first Saturday of each month at 12 Noon at our Southfield location. We'd love to have you there, lifting our voices and hands together in worship.\n\nOr, if you can't make it in person, join me daily online during our Hour of Power, Monday to Friday at 8:15 AM on Facebook Live.",
+      "hashtags": [
+        "#Faith",
+        "#KingdomLiving",
+        "#Jesus"
+      ],
+      "cta": "\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html",
+      "fullPost": "Hey friends, it's Pastor Tammy here. I want to remind you that our lives are a worship. Every moment, every breath, every choice is an opportunity to give thanks and praise to God. \n\nJoin me in-person on the first Saturday of each month at 12 Noon at our Southfield location. We'd love to have you there, lifting our voices and hands together in worship.\n\nOr, if you can't make it in person, join me daily online during our Hour of Power, Monday to Friday at 8:15 AM on Facebook Live.\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html\n\n#Faith #KingdomLiving #Jesus",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-27.png",
+      "pullQuote": "We'd love to have you there, lifting our voices and hands together in worship.",
+      "attribution": "Worship Reminder"
+    },
+    "instagram": {
+      "content": "Come join the worship experience at IFM. It's where you can let go of everything and just be still. In-person, every First Saturday at 12 Noon, Southfield. Join us online, Monday to Friday at 8:15 AM on Facebook Live - just press play and let the worship begin.\n\nWho's joining us next Saturday?",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#KingdomLiving",
+        "#Faith",
+        "#IFM",
+        "#KingdomCitizen",
+        "#Jesus",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "Come join the worship experience at IFM. It's where you can let go of everything and just be still. In-person, every First Saturday at 12 Noon, Southfield. Join us online, Monday to Friday at 8:15 AM on Facebook Live - just press play and let the worship begin.\n\nWho's joining us next Saturday?\n\nJoin us for worship → Link in bio\n\n#IncreasingFaith #KingdomOfGod #KingdomLiving #Faith #IFM #KingdomCitizen #Jesus #JesusIsLord"
+    },
+    "tiktok": {
+      "content": "\"Hey family, just a friendly reminder: every First Saturday at 12 Noon, we gather in person at 24301 Telegraph in Southfield, MI, to worship and connect with God. And if you can't make it in person, join us daily online at 8:15 AM on Facebook Live! Who's joining us?\"",
+      "hashtags": [
+        "#JesusIsLord",
+        "#Jesus",
+        "#Faith",
+        "#KingdomLiving",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "\"Hey family, just a friendly reminder: every First Saturday at 12 Noon, we gather in person at 24301 Telegraph in Southfield, MI, to worship and connect with God. And if you can't make it in person, join us daily online at 8:15 AM on Facebook Live! Who's joining us?\"\n\nJoin us for worship → Link in bio\n\n#JesusIsLord #Jesus #Faith #KingdomLiving #KingdomCitizen"
+    }
+  },
+  "generatedAt": "2026-06-27T15:06:24.624Z"
+}
