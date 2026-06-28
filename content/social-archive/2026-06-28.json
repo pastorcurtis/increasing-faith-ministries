@@ -1,0 +1,54 @@
+{
+  "date": "2026-06-28",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "\"My dear ones, I want to remind you that your faithfulness to God is not about what you can do for Him, but about who He is to you. He is your rock, your shelter, your deliverer. Don't let anything make you think otherwise.\n\nYou are more than enough in Christ, just as you are. Don't try to be someone you're not or do something you can't do. Be you, with all your flaws and fears. Because in Christ, you are enough.\n\n",
+      "hashtags": [
+        "#Jesus",
+        "#JesusIsLord",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "\"My dear ones, I want to remind you that your faithfulness to God is not about what you can do for Him, but about who He is to you. He is your rock, your shelter, your deliverer. Don't let anything make you think otherwise.\n\nYou are more than enough in Christ, just as you are. Don't try to be someone you're not or do something you can't do. Be you, with all your flaws and fears. Because in Christ, you are enough.\n\n\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#Jesus #JesusIsLord #IncreasingFaith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-28.png",
+      "pullQuote": "You are more than enough in Christ, just as you are.",
+      "attribution": "Pastoral Word"
+    },
+    "instagram": {
+      "content": "\"You can't see what I see. You can't feel what I feel. But what I want you to know is that God has already taken care of you. Every need, every fear, every doubt has been addressed by Him. You just gotta walk into it. Walk into His goodness and mercy. Declare with me: 'I am seen, I am known, I am loved.'\"\n\n",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IFM",
+        "#Jesus",
+        "#Faith",
+        "#KingdomLiving",
+        "#IncreasingFaith",
+        "#JesusIsLord",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"You can't see what I see. You can't feel what I feel. But what I want you to know is that God has already taken care of you. Every need, every fear, every doubt has been addressed by Him. You just gotta walk into it. Walk into His goodness and mercy. Declare with me: 'I am seen, I am known, I am loved.'\"\n\n\n\nLearn more about our mission → Link in bio\n\n#KingdomOfGod #IFM #Jesus #Faith #KingdomLiving #IncreasingFaith #JesusIsLord #KingdomCitizen"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4407, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-06-28T15:09:22.727Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1453475446816433",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-06-28T15:09:30.320Z",
+  "testMode": false
+}
