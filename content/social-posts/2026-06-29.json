@@ -1,0 +1,41 @@
+{
+  "date": "2026-06-29",
+  "day": 1,
+  "theme": "Kingdom Teaching",
+  "themeType": "kingdom_teaching",
+  "targetPage": "https://increasingfaith.net/teachings.html",
+  "posts": {
+    "facebook": {
+      "content": "When you operate in your true identity, you'll always be on the offense in life. You won't be reacting to circumstances, you'll be creating your own opportunities.\n\nThe Bible says, \"You are a chosen people, a royal priesthood, a holy nation, God's special possession, that you may declare the praises of him who called you out of darkness into his wonderful light.\" (1 Peter 2:9)\n\n",
+      "hashtags": [
+        "#KingdomLiving",
+        "#IncreasingFaith",
+        "#BibleTeaching"
+      ],
+      "cta": "\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html",
+      "fullPost": "When you operate in your true identity, you'll always be on the offense in life. You won't be reacting to circumstances, you'll be creating your own opportunities.\n\nThe Bible says, \"You are a chosen people, a royal priesthood, a holy nation, God's special possession, that you may declare the praises of him who called you out of darkness into his wonderful light.\" (1 Peter 2:9)\n\n\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html\n\n#KingdomLiving #IncreasingFaith #BibleTeaching",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-06-29.png",
+      "pullQuote": "You are a chosen people, a royal priesthood, a holy nation.",
+      "attribution": "1 Peter 2:9"
+    },
+    "instagram": {
+      "content": "When you're fighting for God's best in your marriage, don't try to fight your spouse, fight the spirit behind the issue. \n1 Corinthians 2:12 - \"Now we have received, not the spirit of the world, but the spirit which is of God.\" \n\nYou can't change your spouse, but you can change how you respond to the enemy's influence.",
+      "hashtags": [
+        "#KingdomLiving",
+        "#IFM",
+        "#BibleTeaching",
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#KingdomTeaching",
+        "#Discipleship",
+        "#SpiritualGrowth"
+      ],
+      "cta": "\n\nWatch the full teaching → Link in bio",
+      "fullPost": "When you're fighting for God's best in your marriage, don't try to fight your spouse, fight the spirit behind the issue. \n1 Corinthians 2:12 - \"Now we have received, not the spirit of the world, but the spirit which is of God.\" \n\nYou can't change your spouse, but you can change how you respond to the enemy's influence.\n\nWatch the full teaching → Link in bio\n\n#KingdomLiving #IFM #BibleTeaching #IncreasingFaith #KingdomOfGod #KingdomTeaching #Discipleship #SpiritualGrowth"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4378, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-06-29T16:48:11.426Z"
+}
