@@ -1,5 +1,14 @@
 [
   {
+    "dateKey": "2026-07",
+    "title": "The Kingdom Report",
+    "dateString": "July 2026",
+    "theme": "Kingdom Freedom",
+    "generatedAt": "2026-07-01T16:35:31.559Z",
+    "jsonFile": "2026-07.json",
+    "htmlFile": "2026-07.html"
+  },
+  {
     "dateKey": "2026-06",
     "title": "The Kingdom Report",
     "dateString": "June 2026",
