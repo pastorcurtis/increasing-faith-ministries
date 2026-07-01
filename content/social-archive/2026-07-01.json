@@ -1,0 +1,54 @@
+{
+  "date": "2026-07-01",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "\"I've come to realize that the greatest battles in my life aren't against people or circumstances, but against my own mindset. The question is, which mindset do you live by: the one that says I am enough, or the one that says I need more? Which one is your default? Share with us which one resonates more with you.\"",
+      "hashtags": [
+        "#KingdomLiving",
+        "#IFM",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "\"I've come to realize that the greatest battles in my life aren't against people or circumstances, but against my own mindset. The question is, which mindset do you live by: the one that says I am enough, or the one that says I need more? Which one is your default? Share with us which one resonates more with you.\"\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#KingdomLiving #IFM #IncreasingFaith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-01.png",
+      "pullQuote": "The greatest battles in my life aren't against people or circumstances, but against my own mindset.",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Faith is not just about believing God can, it's about trusting God will. When life gets hard, do you:\nTrust God will show up and make it right?\nTrust God is already working everything out for your good?\n\nWhich one is your heart leaning towards?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#KingdomLiving",
+        "#RealTalk",
+        "#IncreasingFaith",
+        "#IFM",
+        "#FaithTalk",
+        "#KingdomMindset",
+        "#KingdomConversation"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Faith is not just about believing God can, it's about trusting God will. When life gets hard, do you:\nTrust God will show up and make it right?\nTrust God is already working everything out for your good?\n\nWhich one is your heart leaning towards?\n\nJoin our community → Link in bio\n\n#KingdomOfGod #KingdomLiving #RealTalk #IncreasingFaith #IFM #FaithTalk #KingdomMindset #KingdomConversation"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4527, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-07-01T16:13:59.333Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1456490773181567",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-07-01T16:14:07.043Z",
+  "testMode": false
+}
