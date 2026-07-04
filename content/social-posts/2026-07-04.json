@@ -1,0 +1,41 @@
+{
+  "date": "2026-07-04",
+  "day": 6,
+  "theme": "Worship Reminder",
+  "themeType": "event_reminder",
+  "targetPage": "https://increasingfaith.net/visit.html",
+  "posts": {
+    "facebook": {
+      "content": "Friends, it's that time again. We're just a few days away from our next in-person worship gathering at IFM. Join us this Saturday at 12 Noon at 24301 Telegraph in Southfield, MI, as we come together to praise and worship the Lord.\n\nIf you can't be with us in person, don't worry – we've got you covered. Every Monday through Friday at 8:15 AM, we'll be taking to the Hour of Power on Facebook Live, spreading God's love and presence to anyone who will receive it.\n\nWho's joining us?",
+      "hashtags": [
+        "#KingdomLiving",
+        "#IFM",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html",
+      "fullPost": "Friends, it's that time again. We're just a few days away from our next in-person worship gathering at IFM. Join us this Saturday at 12 Noon at 24301 Telegraph in Southfield, MI, as we come together to praise and worship the Lord.\n\nIf you can't be with us in person, don't worry – we've got you covered. Every Monday through Friday at 8:15 AM, we'll be taking to the Hour of Power on Facebook Live, spreading God's love and presence to anyone who will receive it.\n\nWho's joining us?\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html\n\n#KingdomLiving #IFM #KingdomCitizen",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-04.png",
+      "pullQuote": "We'll be taking to the Hour of Power on Facebook Live.",
+      "attribution": "Worship Reminder"
+    },
+    "instagram": {
+      "content": "\"Come, join us in the joy of worship! Wherever you are, whatever your day looks like, we want you to know you're not alone. Every first Saturday at 12 Noon, we gather in Southfield, MI - 24301 Telegraph - and on Facebook Live, Monday to Friday at 8:15 AM. Join the Hour of Power and let His presence fill your heart. Who's joining us this month?\"",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#JesusIsLord",
+        "#IFM",
+        "#Faith",
+        "#KingdomCitizen",
+        "#KingdomLiving",
+        "#Jesus"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "\"Come, join us in the joy of worship! Wherever you are, whatever your day looks like, we want you to know you're not alone. Every first Saturday at 12 Noon, we gather in Southfield, MI - 24301 Telegraph - and on Facebook Live, Monday to Friday at 8:15 AM. Join the Hour of Power and let His presence fill your heart. Who's joining us this month?\"\n\nJoin us for worship → Link in bio\n\n#IncreasingFaith #KingdomOfGod #JesusIsLord #IFM #Faith #KingdomCitizen #KingdomLiving #Jesus"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4421, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-07-04T14:56:23.919Z"
+}
