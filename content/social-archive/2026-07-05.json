@@ -1,0 +1,54 @@
+{
+  "date": "2026-07-05",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "\"My children, I want to remind you that God's presence is not dependent on our circumstances. His favor is not bound by our performance. He is always near, always faithful, always working for our good. Don't let the world distract you from who you are in Him. You are loved, you are valued, you are enough. Declare His goodness over your life today and watch Him show up in ways you never thought possible. What area of your life do you need to see God's goodness shine through?\"",
+      "hashtags": [
+        "#JesusIsLord",
+        "#KingdomLiving",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "\"My children, I want to remind you that God's presence is not dependent on our circumstances. His favor is not bound by our performance. He is always near, always faithful, always working for our good. Don't let the world distract you from who you are in Him. You are loved, you are valued, you are enough. Declare His goodness over your life today and watch Him show up in ways you never thought possible. What area of your life do you need to see God's goodness shine through?\"\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#JesusIsLord #KingdomLiving #KingdomCitizen",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-05.png",
+      "pullQuote": "You are loved, you are valued, you are enough.",
+      "attribution": "Pastoral Word"
+    },
+    "instagram": {
+      "content": "\"My son/daughter in the Lord, I want you to know that you are loved, you are seen, and you are valued. No matter what the enemy throws your way, don't lose faith in the goodness of God. You are His masterpiece, a work in progress, but a masterpiece nonetheless. I declare over you: \"You are more than a conqueror\".\n\nWhat area of your life do you need to see a breakthrough in today?\"",
+      "hashtags": [
+        "#KingdomLiving",
+        "#Jesus",
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomCitizen",
+        "#KingdomOfGod",
+        "#Faith",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"My son/daughter in the Lord, I want you to know that you are loved, you are seen, and you are valued. No matter what the enemy throws your way, don't lose faith in the goodness of God. You are His masterpiece, a work in progress, but a masterpiece nonetheless. I declare over you: \"You are more than a conqueror\".\n\nWhat area of your life do you need to see a breakthrough in today?\"\n\nLearn more about our mission → Link in bio\n\n#KingdomLiving #Jesus #IFM #IncreasingFaith #KingdomCitizen #KingdomOfGod #Faith #JesusIsLord"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4357, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-07-05T15:03:58.897Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1460142842816360",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-07-05T15:04:03.556Z",
+  "testMode": false
+}
