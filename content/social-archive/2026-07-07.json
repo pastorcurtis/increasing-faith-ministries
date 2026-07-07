@@ -1,0 +1,54 @@
+{
+  "date": "2026-07-07",
+  "day": 2,
+  "theme": "Scripture of the Day",
+  "themeType": "scripture_reflection",
+  "targetPage": "https://increasingfaith.net/journey.html",
+  "posts": {
+    "facebook": {
+      "content": "\"The Lord has established His throne in heaven, and His kingdom rules over all.\" - Psalm 103:19\n\nThis verse isn't just a historical fact; it's a present reality. The Kingdom of God is not some distant utopia; it's the established authority in our lives today. What does it mean to you to have the Kingdom of God as your established authority?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#KingdomCitizen",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nStart your Kingdom journey\nhttps://increasingfaith.net/journey.html",
+      "fullPost": "\"The Lord has established His throne in heaven, and His kingdom rules over all.\" - Psalm 103:19\n\nThis verse isn't just a historical fact; it's a present reality. The Kingdom of God is not some distant utopia; it's the established authority in our lives today. What does it mean to you to have the Kingdom of God as your established authority?\n\nStart your Kingdom journey\nhttps://increasingfaith.net/journey.html\n\n#KingdomOfGod #KingdomCitizen #JesusIsLord",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-07.png",
+      "pullQuote": "The Kingdom of God is not some distant utopia; it's the established authority in our lives today.",
+      "attribution": "Psalm 103:19"
+    },
+    "instagram": {
+      "content": "\"Isaiah 9:7 — Of the increase of his government and peace there will be no end. \nWe live in a world seeking stability and control, but the Kingdom of God offers a different kind of peace. It's a peace that comes from a government that is limitless and unstoppable.\n\nWhat area of your life do you need to surrender to God's limitless government?",
+      "hashtags": [
+        "#IFM",
+        "#IncreasingFaith",
+        "#Faith",
+        "#KingdomOfGod",
+        "#KingdomLiving",
+        "#JesusIsLord",
+        "#KingdomCitizen",
+        "#Jesus"
+      ],
+      "cta": "\n\nStart your Kingdom journey → Link in bio",
+      "fullPost": "\"Isaiah 9:7 — Of the increase of his government and peace there will be no end. \nWe live in a world seeking stability and control, but the Kingdom of God offers a different kind of peace. It's a peace that comes from a government that is limitless and unstoppable.\n\nWhat area of your life do you need to surrender to God's limitless government?\n\nStart your Kingdom journey → Link in bio\n\n#IFM #IncreasingFaith #Faith #KingdomOfGod #KingdomLiving #JesusIsLord #KingdomCitizen #Jesus"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4340, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-07-07T16:14:52.308Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1462105202620124",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-07-07T16:15:01.515Z",
+  "testMode": false
+}
