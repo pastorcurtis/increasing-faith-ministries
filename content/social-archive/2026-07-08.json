@@ -1,0 +1,67 @@
+{
+  "date": "2026-07-08",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "Finish this sentence: \"The moment I understood that God's favor is not based on my performance but on my position in Christ is when ______\"\n\nLet us know how this truth has impacted your life in the comments below. Share with someone who needs to hear this reminder today!",
+      "hashtags": [
+        "#KingdomMindset",
+        "#RealTalk",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "Finish this sentence: \"The moment I understood that God's favor is not based on my performance but on my position in Christ is when ______\"\n\nLet us know how this truth has impacted your life in the comments below. Share with someone who needs to hear this reminder today!\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#KingdomMindset #RealTalk #IncreasingFaith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-08.png",
+      "pullQuote": "Share with someone who needs to hear this reminder today!",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Finish this sentence with me...\n\n\"The moment I finally understood that my worth and identity isn't tied to my performance or my failures was when _______. Share your story with us.",
+      "hashtags": [
+        "#IFM",
+        "#KingdomOfGod",
+        "#FaithTalk",
+        "#KingdomLiving",
+        "#KingdomMindset",
+        "#IncreasingFaith",
+        "#KingdomConversation",
+        "#RealTalk"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Finish this sentence with me...\n\n\"The moment I finally understood that my worth and identity isn't tied to my performance or my failures was when _______. Share your story with us.\n\nJoin our community → Link in bio\n\n#IFM #KingdomOfGod #FaithTalk #KingdomLiving #KingdomMindset #IncreasingFaith #KingdomConversation #RealTalk"
+    },
+    "tiktok": {
+      "content": "You think faith is a feeling, but what if it's not? What if faith is actually trusting God's plan even when everything is going wrong? Has there been a time in your life where trusting God felt stronger than trusting your feelings?",
+      "hashtags": [
+        "#FaithTalk",
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomMindset",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "You think faith is a feeling, but what if it's not? What if faith is actually trusting God's plan even when everything is going wrong? Has there been a time in your life where trusting God felt stronger than trusting your feelings?\n\nJoin our community → Link in bio\n\n#FaithTalk #IFM #IncreasingFaith #KingdomMindset #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-07-08T15:55:48.742Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1463065762524068",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-07-08T15:55:55.628Z",
+  "testMode": false
+}
