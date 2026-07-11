@@ -1,0 +1,50 @@
+{
+  "date": "2026-07-11",
+  "day": 6,
+  "theme": "Worship Reminder",
+  "themeType": "event_reminder",
+  "targetPage": "https://increasingfaith.net/visit.html",
+  "posts": {
+    "facebook": {
+      "content": "We're gearing up for a powerful worship session this Saturday at 12 Noon at our Southfield location! Come and join us for a mid-month reset. We'll be lifting our voices in praise, seeking the presence of the Lord, and allowing His love to ignite our spirits. Don't miss out on the opportunity to be in His presence with us. Tag someone who needs this encounter with God, and let's get ready to ignite our lives together!",
+      "hashtags": [
+        "#KingdomCitizen",
+        "#IFM",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html",
+      "fullPost": "We're gearing up for a powerful worship session this Saturday at 12 Noon at our Southfield location! Come and join us for a mid-month reset. We'll be lifting our voices in praise, seeking the presence of the Lord, and allowing His love to ignite our spirits. Don't miss out on the opportunity to be in His presence with us. Tag someone who needs this encounter with God, and let's get ready to ignite our lives together!\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html\n\n#KingdomCitizen #IFM #IncreasingFaith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-11.png",
+      "pullQuote": "Don't miss out on the opportunity to be in His presence with us.",
+      "attribution": "Worship Reminder"
+    },
+    "instagram": {
+      "content": "\"Come breathe with us. \nIn-person worship gatherings: 1st Saturday, 12 Noon, 24301 Telegraph, Southfield MI. \nDaily lift: Hour of Power, Mon-Fri 8:15 AM on Facebook Live. \nA place to let your heart be still and know you're not alone. \nTag someone who needs this word today...\"",
+      "hashtags": [
+        "#JesusIsLord",
+        "#Jesus",
+        "#Faith",
+        "#KingdomLiving",
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomCitizen",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "\"Come breathe with us. \nIn-person worship gatherings: 1st Saturday, 12 Noon, 24301 Telegraph, Southfield MI. \nDaily lift: Hour of Power, Mon-Fri 8:15 AM on Facebook Live. \nA place to let your heart be still and know you're not alone. \nTag someone who needs this word today...\"\n\nJoin us for worship → Link in bio\n\n#JesusIsLord #Jesus #Faith #KingdomLiving #IFM #IncreasingFaith #KingdomCitizen #KingdomOfGod"
+    },
+    "tiktok": {
+      "content": "I want to remind you of the power of gathered worship. On the First Saturday of every month, join us in-person at 12 Noon at 24301 Telegraph in Southfield, MI. But it's not just a monthly thing, we're also meeting daily online.",
+      "hashtags": [
+        "#Faith",
+        "#KingdomLiving",
+        "#Jesus",
+        "#IncreasingFaith",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "I want to remind you of the power of gathered worship. On the First Saturday of every month, join us in-person at 12 Noon at 24301 Telegraph in Southfield, MI. But it's not just a monthly thing, we're also meeting daily online.\n\nJoin us for worship → Link in bio\n\n#Faith #KingdomLiving #Jesus #IncreasingFaith #KingdomCitizen"
+    }
+  },
+  "generatedAt": "2026-07-11T14:42:56.132Z"
+}
