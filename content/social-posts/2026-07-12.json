@@ -1,0 +1,41 @@
+{
+  "date": "2026-07-12",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "My child, I want you to know that you're not alone in the struggles you're facing. The enemy will always try to isolate you, but God's word promises that He is near to the brokenhearted and saves the crushed in spirit.\n\nYou don't have to face the dark night by yourself. You can hold on to God's light, even when it feels like everything around you is shrouded in darkness.\n\nWhen the weight of the world is pressing in, remember that God's strength is made perfect in your weakness.",
+      "hashtags": [
+        "#Jesus",
+        "#JesusIsLord",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "My child, I want you to know that you're not alone in the struggles you're facing. The enemy will always try to isolate you, but God's word promises that He is near to the brokenhearted and saves the crushed in spirit.\n\nYou don't have to face the dark night by yourself. You can hold on to God's light, even when it feels like everything around you is shrouded in darkness.\n\nWhen the weight of the world is pressing in, remember that God's strength is made perfect in your weakness.\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#Jesus #JesusIsLord #KingdomOfGod",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-12.png",
+      "pullQuote": "God's strength is made perfect in your weakness.",
+      "attribution": "Pastoral Word"
+    },
+    "instagram": {
+      "content": "\"My son, don't let the doubts of yesterday define your tomorrow. The Lord has already given you the victory. You don't have to see it to believe it. You just have to believe it to see it. Declare your victory out loud and watch it unfold. I decree it for you now.\n\nWhat's one thing you're believing God for? Share it with us in the comments!\"",
+      "hashtags": [
+        "#KingdomLiving",
+        "#Jesus",
+        "#IFM",
+        "#KingdomOfGod",
+        "#Faith",
+        "#KingdomCitizen",
+        "#IncreasingFaith",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"My son, don't let the doubts of yesterday define your tomorrow. The Lord has already given you the victory. You don't have to see it to believe it. You just have to believe it to see it. Declare your victory out loud and watch it unfold. I decree it for you now.\n\nWhat's one thing you're believing God for? Share it with us in the comments!\"\n\nLearn more about our mission → Link in bio\n\n#KingdomLiving #Jesus #IFM #KingdomOfGod #Faith #KingdomCitizen #IncreasingFaith #JesusIsLord"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4438, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-07-12T14:45:42.085Z"
+}
