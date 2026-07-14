@@ -1,0 +1,54 @@
+{
+  "date": "2026-07-14",
+  "day": 2,
+  "theme": "Scripture of the Day",
+  "themeType": "scripture_reflection",
+  "targetPage": "https://increasingfaith.net/journey.html",
+  "posts": {
+    "facebook": {
+      "content": "\"But if serving the Lord seems undesirable to you, then choose for yourselves this day whom you will serve... But as for me and my household, we will serve the Lord.\" - Joshua 24:15\n\nThis is not a choice to be taken lightly. Who you serve determines the kind of kingdom living you experience. Will you serve the things of this world or will you commit to serving the Lord?\n\nWhat kingdom commitments are you making today?",
+      "hashtags": [
+        "#IFM",
+        "#IncreasingFaith",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nStart your Kingdom journey\nhttps://increasingfaith.net/journey.html",
+      "fullPost": "\"But if serving the Lord seems undesirable to you, then choose for yourselves this day whom you will serve... But as for me and my household, we will serve the Lord.\" - Joshua 24:15\n\nThis is not a choice to be taken lightly. Who you serve determines the kind of kingdom living you experience. Will you serve the things of this world or will you commit to serving the Lord?\n\nWhat kingdom commitments are you making today?\n\nStart your Kingdom journey\nhttps://increasingfaith.net/journey.html\n\n#IFM #IncreasingFaith #JesusIsLord",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-14.png",
+      "pullQuote": "Who you serve determines the kind of kingdom living you experience.",
+      "attribution": "Joshua 24:15"
+    },
+    "instagram": {
+      "content": "\"He that dwelleth in the secret place of the most high shall abide under the shadow of the Almighty.\"\n\nYou can't let circumstances around you dictate your life. When the storms of life rise, it's time to go to the secret place and dwell in the shadow of the Almighty. What's the secret place for you today?",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#KingdomCitizen",
+        "#KingdomLiving",
+        "#Jesus",
+        "#Faith",
+        "#JesusIsLord",
+        "#KingdomOfGod",
+        "#IFM"
+      ],
+      "cta": "\n\nStart your Kingdom journey → Link in bio",
+      "fullPost": "\"He that dwelleth in the secret place of the most high shall abide under the shadow of the Almighty.\"\n\nYou can't let circumstances around you dictate your life. When the storms of life rise, it's time to go to the secret place and dwell in the shadow of the Almighty. What's the secret place for you today?\n\nStart your Kingdom journey → Link in bio\n\n#IncreasingFaith #KingdomCitizen #KingdomLiving #Jesus #Faith #JesusIsLord #KingdomOfGod #IFM"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4348, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-07-14T15:14:17.865Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1467999608697350",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-07-14T15:14:23.970Z",
+  "testMode": false
+}
