@@ -1,0 +1,54 @@
+{
+  "date": "2026-07-15",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "\"Life's not always about what happens to you, but about how you respond. When the enemy tries to make you think your circumstances are bigger than God, which is more true in your life: \n\nYou are bigger than your situation,\nor\n\nYour situation is bigger than you?\"\n\nShare your thoughts in the comments below.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#KingdomMindset",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "\"Life's not always about what happens to you, but about how you respond. When the enemy tries to make you think your circumstances are bigger than God, which is more true in your life: \n\nYou are bigger than your situation,\nor\n\nYour situation is bigger than you?\"\n\nShare your thoughts in the comments below.\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#KingdomOfGod #KingdomMindset #IncreasingFaith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-15.png",
+      "pullQuote": "You are bigger than your situation.",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Faith is built in the storm vs. Faith is built in the stillness — which has been true for you? When we're face to face with uncertainty, do we find God's strength in turmoil or in quiet trust? Double tap if you resonate with one over the other!",
+      "hashtags": [
+        "#RealTalk",
+        "#KingdomLiving",
+        "#KingdomConversation",
+        "#KingdomOfGod",
+        "#FaithTalk",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomMindset"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Faith is built in the storm vs. Faith is built in the stillness — which has been true for you? When we're face to face with uncertainty, do we find God's strength in turmoil or in quiet trust? Double tap if you resonate with one over the other!\n\nJoin our community → Link in bio\n\n#RealTalk #KingdomLiving #KingdomConversation #KingdomOfGod #FaithTalk #IncreasingFaith #IFM #KingdomMindset"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4487, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-07-15T15:15:41.886Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1468899088607402",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-07-15T15:15:52.873Z",
+  "testMode": false
+}
