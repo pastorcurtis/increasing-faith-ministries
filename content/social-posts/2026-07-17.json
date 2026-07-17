@@ -1,0 +1,41 @@
+{
+  "date": "2026-07-17",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "Our next issue of The Kingdom Report is packed with exclusive insights on navigating the intersection of faith and finance. Here's a sneak peek: did you know that according to scripture, the Lord is the one who supplies all our needs, but our part is to be good stewards of what He's entrusted to us?\n\nWhat's one area of your finances where you feel like you're not living up to God's expectation for you?",
+      "hashtags": [
+        "#KingdomLiving",
+        "#JesusIsLord",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "Our next issue of The Kingdom Report is packed with exclusive insights on navigating the intersection of faith and finance. Here's a sneak peek: did you know that according to scripture, the Lord is the one who supplies all our needs, but our part is to be good stewards of what He's entrusted to us?\n\nWhat's one area of your finances where you feel like you're not living up to God's expectation for you?\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#KingdomLiving #JesusIsLord #IncreasingFaith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-17.png",
+      "pullQuote": "The Lord is the one who supplies all our needs.",
+      "attribution": "Kingdom Intelligence"
+    },
+    "instagram": {
+      "content": "\"Something is shifting in the spiritual atmosphere. As we've studied the ancient Jewish Festival of Tabernacles, we've discovered a powerful connection between this 7-day celebration and the 7-year cycle of spiritual revival in the Bible. Find out how the cycles of heaven are influencing your life and what you can do to align with the next move of God in The Kingdom Report newsletter.",
+      "hashtags": [
+        "#KingdomLiving",
+        "#JesusIsLord",
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#KingdomCitizen",
+        "#Jesus",
+        "#Faith"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "\"Something is shifting in the spiritual atmosphere. As we've studied the ancient Jewish Festival of Tabernacles, we've discovered a powerful connection between this 7-day celebration and the 7-year cycle of spiritual revival in the Bible. Find out how the cycles of heaven are influencing your life and what you can do to align with the next move of God in The Kingdom Report newsletter.\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomLiving #JesusIsLord #IFM #IncreasingFaith #KingdomOfGod #KingdomCitizen #Jesus #Faith"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4376, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-07-17T15:03:54.386Z"
+}
