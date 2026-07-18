@@ -1,0 +1,54 @@
+{
+  "date": "2026-07-18",
+  "day": 6,
+  "theme": "Worship Reminder",
+  "themeType": "event_reminder",
+  "targetPage": "https://increasingfaith.net/visit.html",
+  "posts": {
+    "facebook": {
+      "content": "Hey church family, \n\nI want to remind you of this precious time we get to spend together in worship. Every first Saturday of the month, we gather in person at 12 Noon, at our Southfield campus, 24301 Telegraph. It's an hour of pure praise and adoration, where we connect with the heart of God. \n\nAnd, if you can't make it in person, don't worry. Our online community comes together daily at 8:15 AM, Monday through Friday, on Facebook Live.",
+      "hashtags": [
+        "#Faith",
+        "#KingdomLiving",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html",
+      "fullPost": "Hey church family, \n\nI want to remind you of this precious time we get to spend together in worship. Every first Saturday of the month, we gather in person at 12 Noon, at our Southfield campus, 24301 Telegraph. It's an hour of pure praise and adoration, where we connect with the heart of God. \n\nAnd, if you can't make it in person, don't worry. Our online community comes together daily at 8:15 AM, Monday through Friday, on Facebook Live.\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html\n\n#Faith #KingdomLiving #JesusIsLord",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-18.png",
+      "pullQuote": "It's an hour of pure praise and adoration, where we connect with the heart of God.",
+      "attribution": "Worship Reminder"
+    },
+    "instagram": {
+      "content": "Come join us in worship! \n\nEvery 1st Saturday, 12 Noon at 24301 Telegraph, Southfield MI, we gather in person to lift up the Name above all names.\n\nOr, if you can't join us in person, join us online!\n\nDaily Hour of Power, Mon-Fri at 8:15 AM on Facebook Live. Let's worship together!\n\nWho's joining us this month?",
+      "hashtags": [
+        "#JesusIsLord",
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomLiving",
+        "#KingdomCitizen",
+        "#Faith",
+        "#Jesus"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "Come join us in worship! \n\nEvery 1st Saturday, 12 Noon at 24301 Telegraph, Southfield MI, we gather in person to lift up the Name above all names.\n\nOr, if you can't join us in person, join us online!\n\nDaily Hour of Power, Mon-Fri at 8:15 AM on Facebook Live. Let's worship together!\n\nWho's joining us this month?\n\nJoin us for worship → Link in bio\n\n#JesusIsLord #KingdomOfGod #IncreasingFaith #IFM #KingdomLiving #KingdomCitizen #Faith #Jesus"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4430, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-07-18T14:42:52.427Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1471454481685196",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-07-18T14:43:00.324Z",
+  "testMode": false
+}
