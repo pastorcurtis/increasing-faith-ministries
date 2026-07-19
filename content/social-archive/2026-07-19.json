@@ -1,0 +1,67 @@
+{
+  "date": "2026-07-19",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "My dear child, I want you to remember that you are not defined by your circumstances. You are a beloved child of God, and His love for you is not dependent on your success or failure. Your worth is not determined by the opinions of others, but by the fact that you carry the image of God within you.\n\nYou are a masterpiece, created to bring glory to the One who formed you. Don't let the enemy whisper lies into your ear, telling you that you're not enough.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#Jesus"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "My dear child, I want you to remember that you are not defined by your circumstances. You are a beloved child of God, and His love for you is not dependent on your success or failure. Your worth is not determined by the opinions of others, but by the fact that you carry the image of God within you.\n\nYou are a masterpiece, created to bring glory to the One who formed you. Don't let the enemy whisper lies into your ear, telling you that you're not enough.\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#KingdomOfGod #IncreasingFaith #Jesus",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-19.png",
+      "pullQuote": "My dear child, I want you to remember that you are not defined by your circumstances.",
+      "attribution": "Pastoral Word"
+    },
+    "instagram": {
+      "content": "Son or daughter, when the storms of life rage against you, remember: your strength isn't in the calm, it's in the One who calms the storm. You don't have to be strong, you just have to be still. Trust in the Lord, and He will be your peace.\n\nYou are not alone, and you are not a stranger to the heart of God. He knows you, He loves you, and He will carry you through every trial.\n\n",
+      "hashtags": [
+        "#KingdomLiving",
+        "#KingdomOfGod",
+        "#IFM",
+        "#JesusIsLord",
+        "#Faith",
+        "#KingdomCitizen",
+        "#IncreasingFaith",
+        "#Jesus"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "Son or daughter, when the storms of life rage against you, remember: your strength isn't in the calm, it's in the One who calms the storm. You don't have to be strong, you just have to be still. Trust in the Lord, and He will be your peace.\n\nYou are not alone, and you are not a stranger to the heart of God. He knows you, He loves you, and He will carry you through every trial.\n\n\n\nLearn more about our mission → Link in bio\n\n#KingdomLiving #KingdomOfGod #IFM #JesusIsLord #Faith #KingdomCitizen #IncreasingFaith #Jesus"
+    },
+    "tiktok": {
+      "content": "\"When you feel like giving up, I want you to remember this: God's got you in the process of completion. He's not done with you yet. You ain't seen nothin' yet. Comment below, what's the thing you thought you'd never see God do in your life?\"",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#JesusIsLord",
+        "#KingdomCitizen",
+        "#Jesus"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"When you feel like giving up, I want you to remember this: God's got you in the process of completion. He's not done with you yet. You ain't seen nothin' yet. Comment below, what's the thing you thought you'd never see God do in your life?\"\n\nLearn more about our mission → Link in bio\n\n#KingdomOfGod #IncreasingFaith #JesusIsLord #KingdomCitizen #Jesus"
+    }
+  },
+  "generatedAt": "2026-07-19T14:44:59.036Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1472229171607727",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-07-19T14:45:04.532Z",
+  "testMode": false
+}
