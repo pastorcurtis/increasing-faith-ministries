@@ -1,0 +1,54 @@
+{
+  "date": "2026-07-21",
+  "day": 2,
+  "theme": "Scripture of the Day",
+  "themeType": "scripture_reflection",
+  "targetPage": "https://increasingfaith.net/journey.html",
+  "posts": {
+    "facebook": {
+      "content": "\"And he gave some, apostles; and some, prophets; and some, evangelists; and some, pastors and teachers; \n\nFor the equipping of the saints for the work of ministry, for the edifying of the body of Christ.\"\n\n(Ephesians 4:11-12)\n\nWe need these spiritual gifts in our lives, brothers and sisters. They're not just for the leaders or the special ones. They're for every believer, every child of God.\n\nWhat spiritual gift do you sense the Lord has given you to equip others?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#Jesus",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nStart your Kingdom journey\nhttps://increasingfaith.net/journey.html",
+      "fullPost": "\"And he gave some, apostles; and some, prophets; and some, evangelists; and some, pastors and teachers; \n\nFor the equipping of the saints for the work of ministry, for the edifying of the body of Christ.\"\n\n(Ephesians 4:11-12)\n\nWe need these spiritual gifts in our lives, brothers and sisters. They're not just for the leaders or the special ones. They're for every believer, every child of God.\n\nWhat spiritual gift do you sense the Lord has given you to equip others?\n\nStart your Kingdom journey\nhttps://increasingfaith.net/journey.html\n\n#KingdomOfGod #Jesus #JesusIsLord",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-21.png",
+      "pullQuote": "They're for every believer, every child of God.",
+      "attribution": "Ephesians 4:11-12"
+    },
+    "instagram": {
+      "content": "\"Jesus came to his hometown, and they put faith to the test... \n\nIs anyone willing to take a step of faith in Jesus' name?\n\nFor he said to them, \"A prophet is not respected in his hometown.\" (Luke 4:24)\n\nWhat does it mean for you to take a stand for Jesus in your own town? #IFMBlessed #JesusLordship #KingdomAuthority\"",
+      "hashtags": [
+        "#KingdomCitizen",
+        "#KingdomLiving",
+        "#Faith",
+        "#IFM",
+        "#Jesus",
+        "#IncreasingFaith",
+        "#JesusIsLord",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nStart your Kingdom journey → Link in bio",
+      "fullPost": "\"Jesus came to his hometown, and they put faith to the test... \n\nIs anyone willing to take a step of faith in Jesus' name?\n\nFor he said to them, \"A prophet is not respected in his hometown.\" (Luke 4:24)\n\nWhat does it mean for you to take a stand for Jesus in your own town? #IFMBlessed #JesusLordship #KingdomAuthority\"\n\nStart your Kingdom journey → Link in bio\n\n#KingdomCitizen #KingdomLiving #Faith #IFM #Jesus #IncreasingFaith #JesusIsLord #KingdomOfGod"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4371, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-07-21T15:27:08.440Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1473988831431761",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-07-21T15:27:13.285Z",
+  "testMode": false
+}
