@@ -1,0 +1,67 @@
+{
+  "date": "2026-07-22",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "You're living a life of abundance, but your bank account is telling a different story. Is it possible that your finances would change if you changed your definition of wealth? Do you see wealth as money, success, or power, or does it mean something more in the Kingdom?",
+      "hashtags": [
+        "#KingdomConversation",
+        "#IFM",
+        "#FaithTalk"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "You're living a life of abundance, but your bank account is telling a different story. Is it possible that your finances would change if you changed your definition of wealth? Do you see wealth as money, success, or power, or does it mean something more in the Kingdom?\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#KingdomConversation #IFM #FaithTalk",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-22.png",
+      "pullQuote": "You're living a life of abundance, but your bank account is telling a different story.",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Real Talk: \"When faced with uncertainty, do I lean on God's promises or try to control every outcome?\" Your answer speaks volumes about your faith. Double tap if you can relate.",
+      "hashtags": [
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomLiving",
+        "#KingdomMindset",
+        "#KingdomConversation",
+        "#FaithTalk",
+        "#RealTalk",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Real Talk: \"When faced with uncertainty, do I lean on God's promises or try to control every outcome?\" Your answer speaks volumes about your faith. Double tap if you can relate.\n\nJoin our community → Link in bio\n\n#IFM #IncreasingFaith #KingdomLiving #KingdomMindset #KingdomConversation #FaithTalk #RealTalk #KingdomOfGod"
+    },
+    "tiktok": {
+      "content": "Your faith is not built by what God can do for you, but what you can do with what God has already given you. This is the difference between living in faith and living in doubt. Do you operate in the power of what's already been given, or wait for more to be given?",
+      "hashtags": [
+        "#KingdomConversation",
+        "#KingdomLiving",
+        "#KingdomMindset",
+        "#FaithTalk",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Your faith is not built by what God can do for you, but what you can do with what God has already given you. This is the difference between living in faith and living in doubt. Do you operate in the power of what's already been given, or wait for more to be given?\n\nJoin our community → Link in bio\n\n#KingdomConversation #KingdomLiving #KingdomMindset #FaithTalk #KingdomOfGod"
+    }
+  },
+  "generatedAt": "2026-07-22T15:24:33.143Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1474859521344692",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-07-22T15:24:40.584Z",
+  "testMode": false
+}
