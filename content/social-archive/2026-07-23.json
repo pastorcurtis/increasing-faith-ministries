@@ -1,0 +1,54 @@
+{
+  "date": "2026-07-23",
+  "day": 4,
+  "theme": "Prayer Focus",
+  "themeType": "prayer_focus",
+  "targetPage": "https://increasingfaith.net/prayer.html",
+  "posts": {
+    "facebook": {
+      "content": "Family Prayer Focus\n\nAs we continue to build strong families that honor God, I want to emphasize the importance of setting boundaries.\n\nLord, we decree that families will know how to set healthy boundaries, honoring Your original design for marriage and family. Grant us wisdom to communicate lovingly and effectively, protecting our loved ones from the world's influences and preserving our relationships for Your glory. We will not let the world dictate our family dynamics.",
+      "hashtags": [
+        "#Intercession",
+        "#KingdomOfGod",
+        "#PrayerFocus"
+      ],
+      "cta": "\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html",
+      "fullPost": "Family Prayer Focus\n\nAs we continue to build strong families that honor God, I want to emphasize the importance of setting boundaries.\n\nLord, we decree that families will know how to set healthy boundaries, honoring Your original design for marriage and family. Grant us wisdom to communicate lovingly and effectively, protecting our loved ones from the world's influences and preserving our relationships for Your glory. We will not let the world dictate our family dynamics.\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html\n\n#Intercession #KingdomOfGod #PrayerFocus",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-23.png",
+      "pullQuote": "We will not let the world dictate our family dynamics.",
+      "attribution": "Prayer Focus"
+    },
+    "instagram": {
+      "content": "Family Prayer Focus\n\nThis month, I want us to focus on praying for our families to be blessed with wisdom and unity.\n\nLord, I declare Your wisdom and presence in every family who is struggling. Let Your peace and love guide them, and let them walk in unity and harmony. Let this be a season of healing and restoration, not just for the family, but for generations to come.\n\n",
+      "hashtags": [
+        "#PrayerFocus",
+        "#KingdomOfGod",
+        "#KingdomPrayer",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomLiving",
+        "#Prayer",
+        "#Intercession"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Family Prayer Focus\n\nThis month, I want us to focus on praying for our families to be blessed with wisdom and unity.\n\nLord, I declare Your wisdom and presence in every family who is struggling. Let Your peace and love guide them, and let them walk in unity and harmony. Let this be a season of healing and restoration, not just for the family, but for generations to come.\n\n\n\nSubmit your prayer request → Link in bio\n\n#PrayerFocus #KingdomOfGod #KingdomPrayer #IncreasingFaith #IFM #KingdomLiving #Prayer #Intercession"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4348, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-07-23T15:46:01.692Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1475771824586795",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-07-23T15:46:07.751Z",
+  "testMode": false
+}
