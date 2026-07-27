@@ -1,0 +1,67 @@
+{
+  "date": "2026-07-27",
+  "day": 1,
+  "theme": "Kingdom Teaching",
+  "themeType": "kingdom_teaching",
+  "targetPage": "https://increasingfaith.net/teachings.html",
+  "posts": {
+    "facebook": {
+      "content": "We often talk about being a light in the darkness, but have you ever stopped to think about what that means for your marriage? \n\nWhen you're in a relationship, there will always be challenges that come to test your commitment to each other. But what if I told you that those challenges aren't about your spouse, they're about your willingness to operate in divine love? \n\nScripture says, \"Love is patient, love is kind...\" (1 Corinthians 13:4).",
+      "hashtags": [
+        "#Discipleship",
+        "#IncreasingFaith",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html",
+      "fullPost": "We often talk about being a light in the darkness, but have you ever stopped to think about what that means for your marriage? \n\nWhen you're in a relationship, there will always be challenges that come to test your commitment to each other. But what if I told you that those challenges aren't about your spouse, they're about your willingness to operate in divine love? \n\nScripture says, \"Love is patient, love is kind...\" (1 Corinthians 13:4).\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html\n\n#Discipleship #IncreasingFaith #KingdomOfGod",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-27.png",
+      "pullQuote": "Scripture says, \"Love is patient, love is kind...",
+      "attribution": "1 Corinthians 13:4"
+    },
+    "instagram": {
+      "content": "You can't make someone love you or want you, but you can be the person that makes them know they're loved and wanted.\n\nYour value isn't based on someone's response, it's based on God's call.\n\n\"Love must be sincere. Hate what is evil; cling to what is good.\" - Romans 12:9\n\nAre you waiting on someone to give you worth, or are you walking in the worth that God has given you?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#KingdomTeaching",
+        "#IncreasingFaith",
+        "#BibleTeaching",
+        "#Discipleship",
+        "#SpiritualGrowth",
+        "#IFM",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nWatch the full teaching → Link in bio",
+      "fullPost": "You can't make someone love you or want you, but you can be the person that makes them know they're loved and wanted.\n\nYour value isn't based on someone's response, it's based on God's call.\n\n\"Love must be sincere. Hate what is evil; cling to what is good.\" - Romans 12:9\n\nAre you waiting on someone to give you worth, or are you walking in the worth that God has given you?\n\nWatch the full teaching → Link in bio\n\n#KingdomOfGod #KingdomTeaching #IncreasingFaith #BibleTeaching #Discipleship #SpiritualGrowth #IFM #KingdomLiving"
+    },
+    "tiktok": {
+      "content": "You're letting your circumstances dictate your expectations instead of God's Word. But what if your expectations were rooted in His promises, like Jeremiah 29:11, \"I know the plans I have for you...",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#Discipleship",
+        "#IncreasingFaith",
+        "#IFM",
+        "#SpiritualGrowth"
+      ],
+      "cta": "\n\nWatch the full teaching → Link in bio",
+      "fullPost": "You're letting your circumstances dictate your expectations instead of God's Word. But what if your expectations were rooted in His promises, like Jeremiah 29:11, \"I know the plans I have for you...\n\nWatch the full teaching → Link in bio\n\n#KingdomOfGod #Discipleship #IncreasingFaith #IFM #SpiritualGrowth"
+    }
+  },
+  "generatedAt": "2026-07-27T16:05:31.853Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1479296330901011",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-07-27T16:05:38.002Z",
+  "testMode": false
+}
