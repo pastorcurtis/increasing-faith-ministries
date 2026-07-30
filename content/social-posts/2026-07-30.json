@@ -1,0 +1,41 @@
+{
+  "date": "2026-07-30",
+  "day": 4,
+  "theme": "Prayer Focus",
+  "themeType": "prayer_focus",
+  "targetPage": "https://increasingfaith.net/prayer.html",
+  "posts": {
+    "facebook": {
+      "content": "Today, let's focus on interceding for our nation. Our nation is facing a crisis of leadership and values. Let's pray for a shift in the hearts and minds of those in power.\n\n\"Lord, raise up leaders who will govern with integrity, justice, and righteousness. Give them wisdom and discernment to make decisions that honor you and benefit all citizens.\"\n\nJoin me in praying for this shift. Drop a ✝️ if you're standing in agreement. Share your own prayer request in the comments below.",
+      "hashtags": [
+        "#KingdomPrayer",
+        "#IncreasingFaith",
+        "#PrayerFocus"
+      ],
+      "cta": "\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html",
+      "fullPost": "Today, let's focus on interceding for our nation. Our nation is facing a crisis of leadership and values. Let's pray for a shift in the hearts and minds of those in power.\n\n\"Lord, raise up leaders who will govern with integrity, justice, and righteousness. Give them wisdom and discernment to make decisions that honor you and benefit all citizens.\"\n\nJoin me in praying for this shift. Drop a ✝️ if you're standing in agreement. Share your own prayer request in the comments below.\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html\n\n#KingdomPrayer #IncreasingFaith #PrayerFocus",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-30.png",
+      "pullQuote": "Lord, raise up leaders who will govern with integrity, justice, and righteousness.",
+      "attribution": "Prayer Focus"
+    },
+    "instagram": {
+      "content": "**Family**\n\nMy home is the foundation of my faith, and I want to see a new level of faith rise up within our families. I declare that our families will be vessels of God's presence and power.\n\n\"I call upon the Lord to bring revival to our homes, to ignite a fire of faith that will burn brightly for generations to come.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#PrayerFocus",
+        "#KingdomPrayer",
+        "#Intercession",
+        "#Prayer",
+        "#IFM",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "**Family**\n\nMy home is the foundation of my faith, and I want to see a new level of faith rise up within our families. I declare that our families will be vessels of God's presence and power.\n\n\"I call upon the Lord to bring revival to our homes, to ignite a fire of faith that will burn brightly for generations to come.\n\nSubmit your prayer request → Link in bio\n\n#KingdomOfGod #IncreasingFaith #PrayerFocus #KingdomPrayer #Intercession #Prayer #IFM #KingdomLiving"
+    },
+    "tiktok": {
+      "error": "All AI providers failed.\n  - Groq: Groq 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kgqaahxef13rjpcba47gf41e` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4428, Re\n  - OpenRouter: OPENROUTER_API_KEY not set"
+    }
+  },
+  "generatedAt": "2026-07-30T15:44:18.746Z"
+}
