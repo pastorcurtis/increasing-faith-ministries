@@ -1,0 +1,67 @@
+{
+  "date": "2026-07-31",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "Get ready to gain an edge in the Kingdom. In this week's The Kingdom Report, Pastor Curtis shares a powerful revelation on how to access the unseen realm, where every need is met before it's even requested. Discover the secret to operating from a place of faith, not fears, and receive the breakthrough you've been waiting for.\n\nHow do you currently navigate the space between faith and fear in your life? Share your insights below.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#KingdomLiving",
+        "#Faith"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "Get ready to gain an edge in the Kingdom. In this week's The Kingdom Report, Pastor Curtis shares a powerful revelation on how to access the unseen realm, where every need is met before it's even requested. Discover the secret to operating from a place of faith, not fears, and receive the breakthrough you've been waiting for.\n\nHow do you currently navigate the space between faith and fear in your life? Share your insights below.\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#KingdomOfGod #KingdomLiving #Faith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-07-31.png",
+      "pullQuote": "Every need is met before it's even requested.",
+      "attribution": "Kingdom Intelligence"
+    },
+    "instagram": {
+      "content": "The enemy has been trying to starve the believer of truth. But we have news: a major operation to release prophetic declarations and biblical strategies to overcome deception is about to unfold.\n\nWill you be positioned for the breakthrough?",
+      "hashtags": [
+        "#JesusIsLord",
+        "#IFM",
+        "#Faith",
+        "#Jesus",
+        "#KingdomOfGod",
+        "#KingdomLiving",
+        "#IncreasingFaith",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The enemy has been trying to starve the believer of truth. But we have news: a major operation to release prophetic declarations and biblical strategies to overcome deception is about to unfold.\n\nWill you be positioned for the breakthrough?\n\nRead the full Kingdom Report → Link in bio\n\n#JesusIsLord #IFM #Faith #Jesus #KingdomOfGod #KingdomLiving #IncreasingFaith #KingdomCitizen"
+    },
+    "tiktok": {
+      "content": "\"Your spiritual life is about to shift gears. Did you know that the same Hebrew word for 'harvest' in Matthew 9:37 also means 'to reap what you sow'? The kingdom is about to show you what you've been investing in. Are you ready for the return on your spiritual investment?\"",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomCitizen",
+        "#Faith",
+        "#Jesus"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "\"Your spiritual life is about to shift gears. Did you know that the same Hebrew word for 'harvest' in Matthew 9:37 also means 'to reap what you sow'? The kingdom is about to show you what you've been investing in. Are you ready for the return on your spiritual investment?\"\n\nRead the full Kingdom Report → Link in bio\n\n#IncreasingFaith #IFM #KingdomCitizen #Faith #Jesus"
+    }
+  },
+  "generatedAt": "2026-07-31T15:51:52.618Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1483029600527684",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-07-31T15:51:58.657Z",
+  "testMode": false
+}
