@@ -32,7 +32,9 @@ on:
 permissions:
   issues: write
   actions: write
-  contents: read
+  # write (not read): the run persists problem-age state to
+  # .github/diagnostics-state.json so alert duration survives across runs.
+  contents: write
 
 jobs:
   diagnose:
@@ -133,6 +135,27 @@ jobs:
 
           echo "remaining=$REMAINING" >> $GITHUB_OUTPUT
           echo "days_left=$DAYS_LEFT" >> $GITHUB_OUTPUT
+
+          # Age of the last ACTUAL post. Catches the inverse failure of an empty
+          # queue: clips available, workflow green, but nothing going out.
+          # stats.last_updated is rewritten by clip-poster on every real post.
+          STALE_DAYS=$(python3 -c "
+          import json
+          from datetime import datetime, timezone
+          try:
+              with open('$QUEUE_FILE') as f:
+                  q = json.load(f)
+              ts = q.get('stats', {}).get('last_updated')
+              d = datetime.strptime(ts, '%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=timezone.utc)
+              print((datetime.now(timezone.utc) - d).days)
+          except Exception:
+              print(-1)
+          " 2>/dev/null || echo "-1")
+
+          echo "stale_days=$STALE_DAYS" >> $GITHUB_OUTPUT
+          if [ "$STALE_DAYS" -ge 3 ] && [ "$REMAINING" != "0" ]; then
+            echo "::error::No clip has posted in $STALE_DAYS days despite $REMAINING clips in queue."
+          fi
 
           if [ "$REMAINING" = "0" ]; then
             echo "status=empty" >> $GITHUB_OUTPUT
@@ -441,6 +464,7 @@ jobs:
           DEPS_FAILED: ${{ steps.deps.outputs.deps_failed }}
           WEBSITE_ISSUES: ${{ steps.website.outputs.issues }}
           QUEUE_STATUS: ${{ steps.clip_queue.outputs.status }}
+          QUEUE_STALE_DAYS: ${{ steps.clip_queue.outputs.stale_days }}
           QUEUE_REMAINING: ${{ steps.clip_queue.outputs.remaining }}
           QUEUE_DAYS: ${{ steps.clip_queue.outputs.days_left }}
           SCHED_HEALTH: ${{ steps.sched_health.outputs.results }}
@@ -478,6 +502,17 @@ jobs:
               warnings.append(f"Clip queue running low: {q_remaining} clips ({q_days} days left)")
           elif q_status == 'missing':
               problems.append("Clip queue file (queue.json) is missing!")
+
+          # Clips available but nothing going out — posting stalled, not starved.
+          try:
+              stale_days = int(os.environ.get('QUEUE_STALE_DAYS', '-1'))
+          except ValueError:
+              stale_days = -1
+          if stale_days >= 3 and q_status not in ('empty', 'missing'):
+              problems.append(
+                  f"No clip has posted in {stale_days} days despite {q_remaining} clips in the queue "
+                  "-- posting is stalled, not starved."
+              )
 
           # Per-workflow scheduled-run health (clip-poster, social-media)
           sched_summary = []
@@ -592,10 +627,119 @@ jobs:
               lines.append("")
               lines.append("### All Systems Healthy")
 
+          # ============================================================
+          # Persistence tracking
+          # ============================================================
+          # Why this exists: before 2026-08-01 every run closed the previous
+          # diagnostics issue and opened a fresh one. The repo therefore always
+          # showed exactly ONE open issue with an identical title, whether the
+          # problem was 3 days old or 62. The clip queue sat empty for two
+          # months while this alarm faithfully reset itself every 3 days.
+          #
+          # We now remember when each distinct problem was FIRST seen, so the
+          # issue title can escalate and stop reading as routine noise.
+          import re
+          from datetime import datetime, timezone
+
+          STATE_FILE = '.github/diagnostics-state.json'
+
+          def problem_key(text):
+              """Stable signature for a problem, ignoring volatile numbers.
+
+              '...last successful run was 15h ago' and '...was 39h ago' are the
+              same ongoing problem, so digits are stripped before hashing.
+              """
+              t = re.sub(r'\d+', '', text.lower())
+              t = re.sub(r'[^a-z ]', ' ', t)
+              return '-'.join(t.split()[:6])
+
+          now = datetime.now(timezone.utc)
+
+          state = {'problems': {}}
+          if os.path.exists(STATE_FILE):
+              try:
+                  with open(STATE_FILE) as f:
+                      state = json.load(f)
+              except Exception:
+                  pass
+          state.setdefault('problems', {})
+
+          current = {problem_key(p): p for p in problems}
+          # Snapshot the prior problems before state['problems'] is rebuilt below,
+          # otherwise the resolved-items report has nothing left to look up.
+          previous = dict(state['problems'])
+          resolved = [k for k in previous if k not in current]
+
+          tracked = {}
+          for key, text in current.items():
+              prior = state['problems'].get(key)
+              first_seen = prior['first_seen'] if prior else now.isoformat()
+              try:
+                  age_days = (now - datetime.fromisoformat(first_seen)).days
+              except Exception:
+                  first_seen, age_days = now.isoformat(), 0
+              tracked[key] = {
+                  'first_seen': first_seen,
+                  'text': text,
+                  'detections': (prior['detections'] + 1) if prior else 1,
+                  'age_days': age_days,
+              }
+
+          state['problems'] = {k: {key: v[key] for key in ('first_seen', 'text', 'detections')}
+                               for k, v in tracked.items()}
+          state['last_run'] = now.isoformat()
+
+          os.makedirs(os.path.dirname(STATE_FILE), exist_ok=True)
+          with open(STATE_FILE, 'w') as f:
+              json.dump(state, f, indent=2)
+
+          max_age = max((v['age_days'] for v in tracked.values()), default=0)
+          new_problems = [v['text'] for v in tracked.values() if v['detections'] == 1]
+
+          # Escalation banner — the part that makes a stale alarm impossible to
+          # mistake for a fresh one.
+          if tracked:
+              banner = []
+              if max_age >= 14:
+                  banner.append(f"## UNRESOLVED FOR {max_age} DAYS -- PLEASE ACT")
+              elif max_age >= 7:
+                  banner.append(f"## Unresolved for {max_age} days")
+              if banner:
+                  banner.append("")
+                  lines = banner + lines
+
+              lines.append("")
+              lines.append("### How long each problem has been open")
+              for v in sorted(tracked.values(), key=lambda x: -x['age_days']):
+                  age = "first seen this run" if v['age_days'] == 0 else f"{v['age_days']}d ago"
+                  lines.append(f"- ({age}, {v['detections']} detections) {v['text']}")
+
+          if resolved:
+              lines.append("")
+              lines.append("### Resolved since last run")
+              for k in resolved:
+                  lines.append(f"- {previous.get(k, {}).get('text', k)}")
+
           report = '\n'.join(lines)
           print(report)
 
           has_problems = 'true' if problems else 'false'
+
+          # Title carries the actual severity now, not just a count.
+          if problems:
+              if max_age >= 14:
+                  title = f"CRITICAL: {problems[0][:60]} -- unresolved {max_age} days"
+              elif max_age >= 7:
+                  title = f"{len(problems)} issue(s) -- oldest {max_age} days old"
+              else:
+                  title = f"Diagnostics: {len(problems)} issue(s) found"
+          else:
+              title = "Diagnostics: all clear"
+
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write(f"issue_title={title}\n")
+              f.write(f"max_age_days={max_age}\n")
+              f.write(f"new_problem_count={len(new_problems)}\n")
 
           # Write outputs
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
@@ -612,17 +756,95 @@ jobs:
       # ================================================================
       # Create issue only if there are unfixed problems
       # ================================================================
-      - name: Create diagnostic issue
+      - name: Create or update diagnostic issue
         if: steps.report.outputs.has_problems == 'true'
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
             const report = fs.readFileSync('/tmp/diag_report.md', 'utf8');
-            const date = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-            const count = '${{ steps.report.outputs.problem_count }}';
+            const title = `${{ steps.report.outputs.issue_title }}`;
+            const maxAge = parseInt('${{ steps.report.outputs.max_age_days }}' || '0', 10);
+            const newCount = parseInt('${{ steps.report.outputs.new_problem_count }}' || '0', 10);
+            const body = report + '\n\n---\n*Auto-generated by System Diagnostics (runs every 3 days)*';
 
-            // Close previous diagnostic issues
+            const { data: existing } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'diagnostics',
+              state: 'open'
+            });
+
+            // Keep ONE long-lived issue and update it in place. Closing and
+            // recreating (the old behaviour) destroyed all sense of duration
+            // and let a 62-day outage keep looking like a brand new report.
+            if (existing.length > 0) {
+              const issue = existing[0];
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                title: title,
+                body: body
+              });
+
+              // Comment only on genuine changes — a comment every 3 days is
+              // exactly the noise that trained everyone to ignore this.
+              const milestones = [3, 7, 14, 30, 60];
+              const shouldComment = newCount > 0 || milestones.includes(maxAge);
+              if (shouldComment) {
+                const note = newCount > 0
+                  ? `${newCount} new problem(s) detected.`
+                  : `Still unresolved after ${maxAge} days.`;
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  body: `${note}\n\n${body}`
+                });
+              }
+
+              // Stale critical problems get pinned so they surface above noise.
+              if (maxAge >= 14) {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  labels: ['critical']
+                }).catch(() => {});
+              }
+
+              // Re-assign if it ever lost its assignee — no assignee, no email.
+              if (!issue.assignees || issue.assignees.length === 0) {
+                await github.rest.issues.addAssignees({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  assignees: ['pastorcurtis']
+                }).catch(() => {});
+              }
+            } else {
+              // Assigned, not just labelled: assignment is what actually sends
+              // Curtis an email. The old unassigned issues generated no push
+              // notification at all, which is how 21 of them went unread.
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: title,
+                body: body,
+                labels: ['diagnostics'],
+                assignees: ['pastorcurtis']
+              });
+            }
+
+      # ================================================================
+      # Close the tracking issue when everything actually recovers
+      # ================================================================
+      - name: Resolve diagnostic issue
+        if: steps.report.outputs.has_problems == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
             const { data: existing } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -630,22 +852,37 @@ jobs:
               state: 'open'
             });
             for (const issue of existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: 'All checks passing. Closing automatically.'
+              });
               await github.rest.issues.update({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issue.number,
                 state: 'closed',
-                state_reason: 'not_planned'
+                state_reason: 'completed'
               });
             }
 
-            await github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: `Diagnostics: ${count} issue(s) found -- ${date}`,
-              body: report + '\n\n---\n*Auto-generated by System Diagnostics (runs every 3 days)*',
-              labels: ['diagnostics']
-            });
+      # ================================================================
+      # Persist problem-age state so duration survives across runs
+      # ================================================================
+      - name: Commit diagnostics state
+        if: always()
+        run: |
+          if [ -n "$(git status --porcelain .github/diagnostics-state.json)" ]; then
+            git config user.name "IFM Diagnostics Bot"
+            git config user.email "bot@increasingfaith.net"
+            git add .github/diagnostics-state.json
+            git commit -m "Diagnostics: update problem-age state"
+            git pull --rebase origin main
+            git push
+          else
+            echo "No state change to commit."
+          fi
 
       # ================================================================
       # Log clean bill of health
