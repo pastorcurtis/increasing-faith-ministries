@@ -387,8 +387,10 @@
     },
     {
       "file": "My_people_perish_the_Bible_on_lacking_kn_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:31Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:31Z",
+      "video_id": "1759905785080906",
+      "posted_at": "2026-08-02T02:08:03Z"
     },
     {
       "file": "Ministry_means_supply__did_you_get_equip_0m05s_square.mp4",
@@ -688,8 +690,8 @@
   ],
   "stats": {
     "total": 115,
-    "posted": 55,
-    "remaining": 60,
-    "last_updated": "2026-08-02T01:53:34Z"
+    "posted": 56,
+    "remaining": 59,
+    "last_updated": "2026-08-02T02:08:03Z"
   }
 }
