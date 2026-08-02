@@ -465,7 +465,7 @@
                     <a href="https://www.tiktok.com/@hourofpower4" target="_blank" rel="noopener noreferrer" class="social-tt" title="TikTok">&#9835;</a>
                     <a href="https://giv.li/129ina" target="_blank" rel="noopener noreferrer" class="social-give" title="Give with Givelify">$</a>
                 </div>
-                <!-- Footer Email Signup - Netlify Forms -->
+                <!-- Footer Email Signup (FormSubmit.co) -->
                 <div class="email-signup">
                     <h4>Stay Connected</h4>
                     <p>Get Kingdom teachings delivered to your inbox</p>
@@ -1101,7 +1101,7 @@
 
         // ===================================================================
         // SUBSCRIBE FORM HANDLER
-        // Submits via Netlify Forms and shows a success/error message
+        // Submits via FormSubmit.co and shows a success/error message
         // ===================================================================
         var subscribeForm = document.getElementById('subscribe-form');
         if (subscribeForm) {
@@ -1115,8 +1115,9 @@
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
                     body: new URLSearchParams(formData).toString()
                 })
-                .then(function(response) {
-                    if (response.ok) {
+                .then(function(response) { return response.json().catch(function() { return { success: 'false' }; }); })
+                .then(function(data) {
+                    if (String(data.success) === 'true') {
                         formMessage.className = 'form-message success';
                         formMessage.textContent = 'Welcome to The Kingdom Report! You have been subscribed successfully.';
                         subscribeForm.reset();
@@ -1131,7 +1132,7 @@
             });
         }
 
-        // Footer newsletter form handler - Netlify Forms
+        // Footer newsletter form handler (FormSubmit.co)
         var footerForm = document.getElementById('footer-newsletter-form');
         if (footerForm) {
             footerForm.addEventListener('submit', function(e) {
@@ -1143,8 +1144,9 @@
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
                     body: new URLSearchParams(formData).toString()
                 })
-                .then(function(response) {
-                    if (response.ok) {
+                .then(function(response) { return response.json().catch(function() { return { success: 'false' }; }); })
+                .then(function(data) {
+                    if (String(data.success) === 'true') {
                         var btn = footerForm.querySelector('button');
                         btn.textContent = 'Subscribed!';
                         btn.style.background = 'rgba(40, 167, 69, 0.6)';

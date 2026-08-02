@@ -317,8 +317,9 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
                 body: new URLSearchParams(formData).toString()
-            }).then(r => {
-                if (!r.ok) throw new Error('Submission failed');
+            }).then(r => r.json().catch(() => ({ success: 'false' })))
+            .then(data => {
+                if (String(data.success) !== 'true') throw new Error(data.message || 'Submission failed');
             }).then(() => {
                 const msg = document.getElementById('prayer-form-message');
                 msg.textContent = 'Your prayer request has been submitted. We stand with you in faith.';
@@ -342,8 +343,9 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
                 body: new URLSearchParams(formData).toString()
-            }).then(r => {
-                if (!r.ok) throw new Error('Submission failed');
+            }).then(r => r.json().catch(() => ({ success: 'false' })))
+            .then(data => {
+                if (String(data.success) !== 'true') throw new Error(data.message || 'Submission failed');
             }).then(() => {
                 form.innerHTML = '<p style="text-align:center; color:var(--success, #10b981); font-size:1.1rem;">Message sent! We\'ll get back to you soon.</p>';
             }).catch(() => {
@@ -361,8 +363,9 @@
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
                     body: new URLSearchParams(formData).toString()
-                }).then(r => {
-                    if (!r.ok) throw new Error('Submission failed');
+                }).then(r => r.json().catch(() => ({ success: 'false' })))
+                .then(data => {
+                    if (String(data.success) !== 'true') throw new Error(data.message || 'Submission failed');
                 }).then(() => {
                     newsletterForm.style.display = 'none';
                     document.getElementById('signup-success').style.display = 'block';
