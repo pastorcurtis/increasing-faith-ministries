@@ -65,8 +65,9 @@ jobs:
           MISSING=""
           if [ -z "$GROQ_API_KEY" ]; then MISSING="$MISSING GROQ_API_KEY"; fi
           if [ -z "$RESEND_API_KEY" ]; then MISSING="$MISSING RESEND_API_KEY"; fi
-          if [ -z "$NETLIFY_ACCESS_TOKEN" ]; then MISSING="$MISSING NETLIFY_ACCESS_TOKEN"; fi
-          if [ -z "$NETLIFY_SITE_ID" ]; then MISSING="$MISSING NETLIFY_SITE_ID"; fi
+          # NETLIFY_ACCESS_TOKEN / NETLIFY_SITE_ID are no longer required: the
+          # subscriber list moved from the Netlify Forms API to
+          # newsletter-agent/subscribers.json when the site went to GitHub Pages.
           if [ -n "$MISSING" ]; then
             echo "::error::Missing required secrets:$MISSING"
             echo "Configure these in Settings > Secrets > Actions"
@@ -117,7 +118,13 @@ jobs:
         if: ${{ github.event_name == 'schedule' || inputs.send_emails != false }}
         continue-on-error: true
         working-directory: newsletter-agent
-        run: node send-newsletter.js
+        # Output is captured so a failure issue can quote the REAL error.
+        # The previous issue template guessed at "Resend API key expired" while
+        # the actual fault was a Netlify 401, sending five months of readers
+        # down the wrong trail.
+        run: |
+          set -o pipefail
+          node send-newsletter.js 2>&1 | tee /tmp/send-output.log
 
       # -- Status report --
       - name: Report status
@@ -155,12 +162,70 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
+            const fs = require('fs');
             const month = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
             const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
-            await github.rest.issues.create({
+
+            // Quote what actually happened. A generic checklist of guesses sent
+            // five months of these issues to the wrong system entirely.
+            let actualError = '(no output captured)';
+            try {
+              const log = fs.readFileSync('/tmp/send-output.log', 'utf8').trim();
+              actualError = log.split('\n').slice(-25).join('\n');
+            } catch (e) {}
+
+            const body = [
+              '## Email Sending Failed',
+              '',
+              'The newsletter was **generated and committed**, but email delivery failed.',
+              '',
+              `**Run:** [View logs](${runUrl})`,
+              '',
+              '### Actual error',
+              '```',
+              actualError,
+              '```',
+              '',
+              '### Where to look',
+              'Read the error above first -- it names the failing system. Only then check:',
+              '- **Resend**: key valid at resend.com, domain still verified',
+              '- **Subscribers**: `newsletter-agent/subscribers.json` present and valid JSON',
+              '- **Groq**: 429 rate limits during generation are retried automatically',
+              '',
+              'Manual send: `cd newsletter-agent && node send-newsletter.js`'
+            ].join('\n');
+
+            // Reuse an open newsletter issue instead of stacking a new one each
+            // month -- five separate issues (#3, #14, #28, #40, #52) for one
+            // unchanged root cause is what made them easy to scroll past.
+            const { data: open } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `Newsletter email sending failed - ${month}`,
-              body: `## Email Sending Failed\n\nThe newsletter was **generated and committed**, but email delivery failed.\n\n**Run:** [View logs](${runUrl})\n\n### Common fixes\n- **Resend API key expired**: Update RESEND_API_KEY in Secrets\n- **Domain verification lost**: Check resend.com dashboard\n- You can manually send: cd newsletter-agent && node send-newsletter.js`,
-              labels: ['bug', 'newsletter']
+              labels: 'newsletter',
+              state: 'open'
             });
+
+            if (open.length > 0) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: open[0].number,
+                title: `Newsletter email sending failed - ${month} (recurring)`,
+                body: body
+              });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: open[0].number,
+                body: `Failed again for ${month}.\n\n\`\`\`\n${actualError}\n\`\`\``
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `Newsletter email sending failed - ${month}`,
+                body: body,
+                labels: ['bug', 'newsletter'],
+                assignees: ['pastorcurtis']
+              });
+            }

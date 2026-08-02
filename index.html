@@ -428,9 +428,11 @@
                 <div class="email-signup">
                     <h4>Stay Connected</h4>
                     <p>Get Kingdom teachings delivered to your inbox</p>
-                    <form class="signup-form" id="newsletter-form" name="newsletter-subscribers" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                        <input type="hidden" name="form-name" value="newsletter-subscribers">
-                        <p style="display:none"><input name="bot-field"></p>
+                    <form class="signup-form" id="newsletter-form" name="newsletter-subscribers" action="https://formsubmit.co/ajax/curtisstephensjr@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New Newsletter Subscriber - The Kingdom Report">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="text" name="_honey" style="display:none">
                         <input type="email" name="email" placeholder="Enter your email" required>
                         <button type="submit">Subscribe</button>
                     </form>
@@ -467,6 +469,7 @@
     </footer>
 
     <script>
+        const FORM_ENDPOINT = 'https://formsubmit.co/ajax/curtisstephensjr@gmail.com';
         // Navigation scroll effect
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
@@ -501,22 +504,26 @@
             alert('Connect form coming soon! Email: increasingfaithministry@gmail.com');
         }
 
-        // Newsletter form handler with Netlify Forms
+        // Newsletter form handler (FormSubmit.co)
         const newsletterForm = document.getElementById('newsletter-form');
         if (newsletterForm) {
             newsletterForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const formData = new FormData(newsletterForm);
-                fetch('/', {
+                fetch(FORM_ENDPOINT, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
                     body: new URLSearchParams(formData).toString()
+                }).then(r => {
+                    if (!r.ok) throw new Error('Submission failed');
                 }).then(() => {
                     newsletterForm.style.display = 'none';
                     document.getElementById('signup-success').style.display = 'block';
                 }).catch(() => {
-                    newsletterForm.style.display = 'none';
-                    document.getElementById('signup-success').style.display = 'block';
+                    const err = document.getElementById('signup-success');
+                    err.textContent = 'Sorry, that did not go through. Please email curtisstephensjr@gmail.com';
+                    err.style.color = '#ef4444';
+                    err.style.display = 'block';
                 });
             });
         }

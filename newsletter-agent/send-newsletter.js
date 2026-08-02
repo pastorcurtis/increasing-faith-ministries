@@ -86,10 +86,13 @@ async function main() {
   if (testEmail) {
     subscribers = [{ name: 'Test Subscriber', email: testEmail }];
   } else {
-    console.log('\nFetching subscribers from Netlify...');
+    console.log('\nReading subscribers from subscribers.json...');
     subscribers = await getSubscribers();
     if (!subscribers || subscribers.length === 0) {
-      console.log('No subscribers found. Exiting.');
+      // Not an error: an empty list is a legitimate state. Exiting non-zero here
+      // would file a "sending failed" issue every month for a healthy system.
+      console.log('No subscribers yet. Nothing to send.');
+      console.log('Add one with: node add-subscriber.js "Jane Smith" jane@example.com');
       return;
     }
   }

@@ -1,0 +1,4 @@
+{
+  "_comment": "Newsletter subscriber list for The Kingdom Report. Signups arrive by email from FormSubmit.co; add them here with: node add-subscriber.js \"Name\" email@example.com. Set \"unsubscribed\": true on an entry to stop sending without losing the record.",
+  "subscribers": []
+}

@@ -167,9 +167,11 @@
                 <h2>Submit Your Request</h2>
                 <p>Let us join you in bringing your needs before the King.</p>
             </div>
-            <form id="prayerForm" name="prayer-requests" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="prayer-requests">
-                <p style="display:none"><input name="bot-field"></p>
+            <form id="prayerForm" name="prayer-requests" action="https://formsubmit.co/ajax/curtisstephensjr@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Prayer Request - increasingfaith.net">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="text" name="_honey" style="display:none">
                 <div class="form-group">
                     <label for="name">Name <span class="optional">(optional)</span></label>
                     <input type="text" id="name" name="name" placeholder="Your name">
@@ -220,9 +222,11 @@
                 <h2>Contact Us</h2>
                 <p>Have a question or want to connect? Send us a message.</p>
             </div>
-            <form id="contactForm" name="contact-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="contact-form">
-                <p style="display:none"><input name="bot-field"></p>
+            <form id="contactForm" name="contact-form" action="https://formsubmit.co/ajax/curtisstephensjr@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Contact Message - increasingfaith.net">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="text" name="_honey" style="display:none">
                 <div class="form-group">
                     <label for="contact-name">Name <span style="color: var(--magenta);">*</span></label>
                     <input type="text" id="contact-name" name="name" placeholder="Your name" required>
@@ -262,9 +266,11 @@
                 <div class="email-signup">
                     <h4>Stay Connected</h4>
                     <p>Get Kingdom teachings delivered to your inbox</p>
-                    <form class="signup-form" id="newsletter-form" name="newsletter-subscribers" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                        <input type="hidden" name="form-name" value="newsletter-subscribers">
-                        <p style="display:none"><input name="bot-field"></p>
+                    <form class="signup-form" id="newsletter-form" name="newsletter-subscribers" action="https://formsubmit.co/ajax/curtisstephensjr@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New Newsletter Subscriber - The Kingdom Report">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="text" name="_honey" style="display:none">
                         <input type="email" name="email" placeholder="Enter your email" required>
                         <button type="submit">Subscribe</button>
                     </form>
@@ -301,15 +307,18 @@
     </footer>
 
     <script>
-        // Prayer form handler with Netlify Forms
+        const FORM_ENDPOINT = 'https://formsubmit.co/ajax/curtisstephensjr@gmail.com';
+        // Prayer form handler (FormSubmit.co)
         document.getElementById('prayerForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const form = e.target;
             const formData = new FormData(form);
-            fetch('/', {
+            fetch(FORM_ENDPOINT, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
                 body: new URLSearchParams(formData).toString()
+            }).then(r => {
+                if (!r.ok) throw new Error('Submission failed');
             }).then(() => {
                 const msg = document.getElementById('prayer-form-message');
                 msg.textContent = 'Your prayer request has been submitted. We stand with you in faith.';
@@ -324,15 +333,17 @@
             });
         });
 
-        // Contact form handler with Netlify Forms
+        // Contact form handler (FormSubmit.co)
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const form = e.target;
             const formData = new FormData(form);
-            fetch('/', {
+            fetch(FORM_ENDPOINT, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
                 body: new URLSearchParams(formData).toString()
+            }).then(r => {
+                if (!r.ok) throw new Error('Submission failed');
             }).then(() => {
                 form.innerHTML = '<p style="text-align:center; color:var(--success, #10b981); font-size:1.1rem;">Message sent! We\'ll get back to you soon.</p>';
             }).catch(() => {
@@ -340,22 +351,26 @@
             });
         });
 
-        // Newsletter form handler with Netlify Forms
+        // Newsletter form handler (FormSubmit.co)
         const newsletterForm = document.getElementById('newsletter-form');
         if (newsletterForm) {
             newsletterForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const formData = new FormData(newsletterForm);
-                fetch('/', {
+                fetch(FORM_ENDPOINT, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
                     body: new URLSearchParams(formData).toString()
+                }).then(r => {
+                    if (!r.ok) throw new Error('Submission failed');
                 }).then(() => {
                     newsletterForm.style.display = 'none';
                     document.getElementById('signup-success').style.display = 'block';
                 }).catch(() => {
-                    newsletterForm.style.display = 'none';
-                    document.getElementById('signup-success').style.display = 'block';
+                    const err = document.getElementById('signup-success');
+                    err.textContent = 'Sorry, that did not go through. Please email curtisstephensjr@gmail.com';
+                    err.style.color = '#ef4444';
+                    err.style.display = 'block';
                 });
             });
         }

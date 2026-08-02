@@ -415,9 +415,11 @@
             <p>Receive monthly Kingdom-centered news, teachings from Pastor Curtis, and practical insights for living under the reign of God.</p>
         </div>
         <div class="subscribe-form-container reveal">
-            <form name="newsletter-subscribers" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="subscribe-form">
-                <input type="hidden" name="form-name" value="newsletter-subscribers">
-                <p class="hidden" style="display:none"><input name="bot-field"></p>
+            <form name="newsletter-subscribers" action="https://formsubmit.co/ajax/curtisstephensjr@gmail.com" method="POST" id="subscribe-form">
+                <input type="hidden" name="_subject" value="New Newsletter Subscriber - The Kingdom Report">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="text" name="_honey" style="display:none">
                 <div class="form-group">
                     <label for="subscriber-name">Your Name</label>
                     <input type="text" id="subscriber-name" name="name" placeholder="Enter your name" required>
@@ -467,9 +469,11 @@
                 <div class="email-signup">
                     <h4>Stay Connected</h4>
                     <p>Get Kingdom teachings delivered to your inbox</p>
-                    <form name="footer-newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="signup-form" id="footer-newsletter-form">
-                        <input type="hidden" name="form-name" value="footer-newsletter">
-                        <p class="hidden" style="display:none"><input name="bot-field"></p>
+                    <form name="footer-newsletter" action="https://formsubmit.co/ajax/curtisstephensjr@gmail.com" method="POST" class="signup-form" id="footer-newsletter-form">
+                        <input type="hidden" name="_subject" value="New Newsletter Subscriber - The Kingdom Report">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="text" name="_honey" style="display:none">
                         <input type="email" name="email" placeholder="Enter your email" required>
                         <button type="submit">Subscribe</button>
                     </form>
@@ -505,6 +509,7 @@
     </footer>
 
     <script>
+        const FORM_ENDPOINT = 'https://formsubmit.co/ajax/curtisstephensjr@gmail.com';
         // ===================================================================
         // NEWSLETTER CONTENT LOADING
         // Fetches JSON data from content/newsletters/ and renders dynamically.
@@ -1105,9 +1110,9 @@
                 var formMessage = document.getElementById('form-message');
                 var formData = new FormData(subscribeForm);
 
-                fetch('/', {
+                fetch(FORM_ENDPOINT, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
                     body: new URLSearchParams(formData).toString()
                 })
                 .then(function(response) {
@@ -1133,9 +1138,9 @@
                 e.preventDefault();
                 var formData = new FormData(footerForm);
 
-                fetch('/', {
+                fetch(FORM_ENDPOINT, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
                     body: new URLSearchParams(formData).toString()
                 })
                 .then(function(response) {
