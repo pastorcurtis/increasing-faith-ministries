@@ -1,0 +1,67 @@
+{
+  "date": "2026-08-02",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "My dear people, I want to remind you that your worth is not determined by your past. You are not defined by what others say about you. The Lord says you are a new creation, old things are passed away, behold all things are become new. Don't let what you've been through dictate your present.\n\nYou are made to thrive, not just survive. You are made to walk in the light of God's presence. Not just in a moment of darkness, but in the midst of it.\n\n",
+      "hashtags": [
+        "#JesusIsLord",
+        "#KingdomOfGod",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "My dear people, I want to remind you that your worth is not determined by your past. You are not defined by what others say about you. The Lord says you are a new creation, old things are passed away, behold all things are become new. Don't let what you've been through dictate your present.\n\nYou are made to thrive, not just survive. You are made to walk in the light of God's presence. Not just in a moment of darkness, but in the midst of it.\n\n\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#JesusIsLord #KingdomOfGod #KingdomCitizen",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-08-02.png",
+      "pullQuote": "You are made to thrive, not just survive.",
+      "attribution": "Pastoral Word"
+    },
+    "instagram": {
+      "content": "My child, don't let the noise of the world drown out the gentle whisper of God's love in your heart. You are seen, you are heard, and you are loved. In the midst of chaos, remember that peace is your birthright – claim it, receive it, and walk in it.\n\nI charge you now: rise above the noise, and shine with the light of His love in the world.\n\n",
+      "hashtags": [
+        "#JesusIsLord",
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#Faith",
+        "#KingdomCitizen",
+        "#IFM",
+        "#KingdomLiving",
+        "#Jesus"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "My child, don't let the noise of the world drown out the gentle whisper of God's love in your heart. You are seen, you are heard, and you are loved. In the midst of chaos, remember that peace is your birthright – claim it, receive it, and walk in it.\n\nI charge you now: rise above the noise, and shine with the light of His love in the world.\n\n\n\nLearn more about our mission → Link in bio\n\n#JesusIsLord #IncreasingFaith #KingdomOfGod #Faith #KingdomCitizen #IFM #KingdomLiving #Jesus"
+    },
+    "tiktok": {
+      "content": "You're going through a storm right now, but the Bible says the Lord is your peace. He's the calm in the middle of the chaos, the anchor that holds you steady. You don't have to be tossed around by the waves of doubt and fear. I want you to know, child of God, you are strong. You are capable.",
+      "hashtags": [
+        "#Faith",
+        "#Jesus",
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "You're going through a storm right now, but the Bible says the Lord is your peace. He's the calm in the middle of the chaos, the anchor that holds you steady. You don't have to be tossed around by the waves of doubt and fear. I want you to know, child of God, you are strong. You are capable.\n\nLearn more about our mission → Link in bio\n\n#Faith #Jesus #IFM #IncreasingFaith #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-08-02T02:17:13.328Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1484259430404701",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-08-02T02:17:19.767Z",
+  "testMode": false
+}
