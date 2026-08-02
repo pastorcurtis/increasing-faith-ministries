@@ -84,7 +84,10 @@
         }
         .methods-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* min() keeps the 300px floor on wide screens but lets a column
+               shrink to the container on phones narrower than 300px + padding,
+               which otherwise forces horizontal scrolling. */
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
             gap: 2rem;
             max-width: 1000px;
             margin: 0 auto;

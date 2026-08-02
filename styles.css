@@ -954,11 +954,23 @@ section {
     flex-wrap: wrap;
 }
 
+/* Long unbreakable strings -- email addresses like
+   increasingfaithministry@gmail.com (33 chars) -- cannot wrap by default and
+   push narrow phone layouts sideways. Let them break rather than overflow. */
+p, li, a, td, dd, figcaption, blockquote {
+    overflow-wrap: break-word;
+}
+
 /* CTA Section variant */
 .cta-section {
     text-align: center;
     padding: 120px 5%;
     position: relative;
+    /* Contains the ::before glow below, which is 600px wide and animates to
+       scale(1.2) -- far wider than a phone screen. Without this the glow widens
+       the whole document and every page using .cta-section scrolls sideways on
+       mobile. The glow is a radial fade, so clipping its edges is invisible. */
+    overflow: hidden;
 }
 
 .cta-section::before {
@@ -1008,6 +1020,11 @@ section {
     max-width: 1400px;
     margin: 0 auto 4rem;
 }
+
+/* Grid items default to min-width:auto and will not shrink below their content's
+   intrinsic width. The newsletter signup inside the footer has a wide intrinsic
+   minimum, which pushed the footer past the viewport on small phones. */
+.footer-content > * { min-width: 0; }
 
 .footer-brand p {
     color: var(--white-dim);
@@ -1091,10 +1108,16 @@ section {
 .signup-form {
     display: flex;
     gap: 0.5rem;
+    /* Let the field and button stack rather than force the footer wider than
+       the screen on very narrow phones. */
+    flex-wrap: wrap;
 }
 
 .signup-form input {
     flex: 1;
+    /* Flex items also default to min-width:auto. Without this the email field
+       holds its intrinsic width (~200px) and cannot compress. */
+    min-width: 0;
     padding: 0.75rem 1rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;

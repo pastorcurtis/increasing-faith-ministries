@@ -86,6 +86,12 @@
             gap: 2.5rem;
         }
 
+        /* Grid items default to min-width:auto, so they refuse to shrink below
+           their content's intrinsic width. Combined with the 3rem card padding
+           that forced this section wider than a phone screen and made the page
+           scroll sideways. */
+        .location-grid > * { min-width: 0; }
+
         .info-card {
             background: linear-gradient(135deg, rgba(45, 27, 78, 0.8), rgba(26, 10, 46, 0.9));
             padding: 3rem;
@@ -272,6 +278,12 @@
             .location-grid { grid-template-columns: 1fr; }
             .map-container { min-height: 300px; }
             .map-container iframe { min-height: 300px; }
+        }
+
+        /* 3rem of padding each side leaves too little room for the address and
+           map on a phone. */
+        @media (max-width: 600px) {
+            .info-card, .map-card { padding: 1.75rem; }
         }
 
         /* Speed optimizations */
