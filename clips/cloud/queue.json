@@ -415,8 +415,10 @@
     },
     {
       "file": "Let_God_Put_His_Super_on_Your_Natural_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:31Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:31Z",
+      "video_id": "1911599716485567",
+      "posted_at": "2026-08-03T22:03:17Z"
     },
     {
       "file": "Knowing_God_s_will_makes_you_unstoppable_0m02s_square.mp4",
@@ -711,8 +713,8 @@
   ],
   "stats": {
     "total": 118,
-    "posted": 59,
-    "remaining": 59,
-    "last_updated": "2026-08-03T16:24:15Z"
+    "posted": 60,
+    "remaining": 58,
+    "last_updated": "2026-08-03T22:03:17Z"
   }
 }
