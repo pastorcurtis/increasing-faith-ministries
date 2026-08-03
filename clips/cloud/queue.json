@@ -408,8 +408,10 @@
     },
     {
       "file": "Love_who_you_love__out_loud_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:31Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:31Z",
+      "video_id": "2254484591980730",
+      "posted_at": "2026-08-03T16:24:15Z"
     },
     {
       "file": "Let_God_Put_His_Super_on_Your_Natural_0m02s_square.mp4",
@@ -709,7 +711,8 @@
   ],
   "stats": {
     "total": 118,
-    "posted": 58,
-    "remaining": 60
+    "posted": 59,
+    "remaining": 59,
+    "last_updated": "2026-08-03T16:24:15Z"
   }
 }
