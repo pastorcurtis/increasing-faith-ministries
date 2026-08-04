@@ -185,9 +185,28 @@ jobs:
         with:
           script: |
             // Workflows that MUST fire on schedule. stale_hours = max gap before alert.
+            //
+            // Calibrating stale_hours: it must exceed the LARGEST *natural* gap
+            // between scheduled runs, plus headroom for GitHub's cron delay.
+            // GitHub Actions cron is best-effort; runs here land 1h-2.5h late
+            // routinely. Set it too tight and every healthy night trips the alarm.
+            //
+            //   clip-poster.yml   crons 14:00 + 21:00 UTC
+            //                     -> gaps are 7h (day) and 17h (overnight)
+            //                     -> 17h natural + ~2.5h delay = ~19.5h real max
+            //                     -> 26h leaves margin and still catches a dead cron
+            //                        within about a day. (Was 14h, which is BELOW the
+            //                        normal 17h overnight gap, so it false-alarmed
+            //                        every time diagnostics ran before the 14:00 post
+            //                        landed. Fixed 2026-08-04, see issue #51.)
+            //
+            //   social-media.yml  cron 14:00 UTC only
+            //                     -> 24h natural + ~2.5h delay = ~26.5h real max
+            //                     -> 30h. (Was 28h — only 1.5h of headroom, which is
+            //                        less than the delays we actually see.)
             const targets = [
-              { name: 'Post IFM Clips',     file: 'clip-poster.yml',  stale_hours: 14 },
-              { name: 'Daily Social Media', file: 'social-media.yml', stale_hours: 28 }
+              { name: 'Post IFM Clips',     file: 'clip-poster.yml',  stale_hours: 26 },
+              { name: 'Daily Social Media', file: 'social-media.yml', stale_hours: 30 }
             ];
 
             const { data: workflows } = await github.rest.actions.listRepoWorkflows({
