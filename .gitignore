@@ -1,2 +1,13 @@
 node_modules/
 .env
+
+# Generated output -- regenerable, so it does not belong in history.
+# This repo already carries ~900 MB because video clips live in git;
+# keep everything else that is machine-produced out of it.
+
+# Written by IFM-Assets/IFM-Overlay/save-pastors-png.js, which targets the
+# Desktop. Copies that end up in the repo root are strays.
+IFM-Pastors-Overlay.png
+
+# Dated preview renders from the social agent. No workflow reads these.
+social-agent/preview-artifact/
