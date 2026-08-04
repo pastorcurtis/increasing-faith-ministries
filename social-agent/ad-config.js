@@ -141,5 +141,9 @@ module.exports = {
     // The Facebook caption body (excludes hook, link line, and hashtags).
     bodyMaxChars: 320,
     hashtagCount: 3,
+    // Higher than the teaching post's retry count because the register guard
+    // in ad.js rejects on tone, not just on malformed output. A rejection is
+    // an ordinary event here, not an error.
+    maxAttempts: 5,
   },
 };

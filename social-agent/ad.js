@@ -74,6 +74,34 @@ function extractJSON(raw) {
 
 // ── Copy Generation ────────────────────────────────────
 
+// The prompt asks the model to avoid consumer-marketing register; this is the
+// enforcement. A hit here throws, which generateWithRetry turns into another
+// attempt, and a total failure falls through to the day's static copy. Rules in
+// a prompt are a request — this is the guarantee.
+const BANNED_TERMS = [
+  'unleash', 'kickstart', 'kick-start', 'supercharge', 'ignite', 'elevate',
+  'empower', 'transform', 'life-changing', 'life changing', 'game-chang',
+  'instant access', 'dive in', 'level up', 'next level', 'unlock',
+  'fuel your', 'start strong', "don't miss", 'do not miss', 'act now',
+  'tap into', 'incredible', 'amazing', 'powerful',
+];
+
+function findBannedTerms(copy) {
+  const haystack = [copy.headline, copy.subhead, copy.hook, copy.body]
+    .join(' ')
+    .toLowerCase();
+  return BANNED_TERMS.filter(term => haystack.includes(term));
+}
+
+// Title Case reads as advertising; sentence case reads as speech. Flag a
+// headline where most words are capitalized.
+function looksTitleCased(headline) {
+  const words = headline.split(/\s+/).filter(w => /^[A-Za-z]/.test(w));
+  if (words.length < 4) return false;
+  const capped = words.filter(w => /^[A-Z]/.test(w)).length;
+  return capped / words.length > 0.7;
+}
+
 async function generateAdCopy(ad) {
   const { headlineMaxChars, subheadMaxChars, bodyMaxChars } = adConfig.copy;
 
@@ -84,6 +112,32 @@ async function generateAdCopy(ad) {
     'This is an ADVERTISEMENT, not a teaching post. Its single job is to make one specific person',
     'click through to the website today. Do not teach a full lesson. Do not open with a greeting.',
     'Do not mention the day of the week. Do not write hashtags, links, emoji, or labels.',
+    '',
+    'REGISTER — this is the part models get wrong. You are NOT writing consumer marketing.',
+    'You are writing the way a pastor speaks from the pulpit: plain, declarative, unhurried, and',
+    'willing to name something uncomfortable. Short words. Concrete nouns. No sales energy.',
+    '',
+    'BANNED — do not use these words or any close variant:',
+    '  unleash, kickstart, supercharge, ignite, elevate, empower, empowering, transform,',
+    '  life-changing, game-changing, instant access, dive in, level up, unlock, discover,',
+    '  journey, fuel your, start strong, don\'t miss, act now, tap into, take it to the next level.',
+    'BANNED — do not use hype punctuation or ALL CAPS for emphasis. No exclamation marks.',
+    'BANNED — do not describe the ministry\'s own material with praise words ("powerful",',
+    '  "incredible", "amazing", "life-giving"). Let the reader judge it. State what it IS.',
+    '',
+    'Write the headline in sentence case, not Title Case. It should be a complete sentence',
+    'or a pair of short sentences — something a person would actually say out loud.',
+    '',
+    'WEAK (never write like this):',
+    '  headline: "Fuel Your Week with Kingdom Authority"',
+    '  subhead:  "Unleash faith and momentum in just minutes a day"',
+    'Why it fails: title case, two banned words, promises a feeling instead of naming a real thing.',
+    '',
+    'STRONG (match this register):',
+    '  headline: "You went into this week empty. That was avoidable."',
+    '  subhead:  "The teaching library is free, and it is already waiting on you."',
+    '  hook:     "Monday exposes what you did not build on Sunday."',
+    'Why it works: names a real condition, no hype, and the offer is a fact rather than a promise.',
     '',
     'Return ONLY a JSON object with exactly these four string keys:',
     '  "headline" — the bold line on the ad image. A complete, arresting statement.',
@@ -113,7 +167,10 @@ async function generateAdCopy(ad) {
       { role: 'user', content: userPrompt },
     ],
     maxTokens: 700,
-    temperature: 0.85,
+    // Lower than the teaching post's 0.85 — ad copy needs register discipline
+    // more than it needs novelty, and high temperature is what let the
+    // marketing-speak in.
+    temperature: 0.7,
     timeoutMs: 30000,
   });
 
@@ -122,6 +179,14 @@ async function generateAdCopy(ad) {
     if (typeof parsed[key] !== 'string' || !parsed[key].trim()) {
       throw new Error(`Model response missing "${key}"`);
     }
+  }
+
+  const banned = findBannedTerms(parsed);
+  if (banned.length) {
+    throw new Error(`Marketing register rejected — banned terms: ${banned.join(', ')}`);
+  }
+  if (looksTitleCased(parsed.headline)) {
+    throw new Error(`Headline is Title Cased: "${parsed.headline}"`);
   }
 
   return {
@@ -197,7 +262,7 @@ async function main() {
   } else {
     try {
       process.stdout.write('  Generating ad copy...');
-      copy = await generateWithRetry(ad, adConfig.ai.maxRetries);
+      copy = await generateWithRetry(ad, adConfig.copy.maxAttempts);
       console.log(' ok');
     } catch (err) {
       // A failed generator must not mean a silent no-post day. Static copy is
@@ -286,4 +351,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { main, generateAdCopy, buildCaption };
+module.exports = { main, generateAdCopy, buildCaption, findBannedTerms, looksTitleCased };
