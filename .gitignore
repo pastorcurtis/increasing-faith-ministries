@@ -11,3 +11,7 @@ IFM-Pastors-Overlay.png
 
 # Dated preview renders from the social agent. No workflow reads these.
 social-agent/preview-artifact/
+
+# Clip binaries live on the "clip-queue" GitHub release, not in git.
+# See .github/workflows/clip-poster.yml for how they are fetched.
+clips/cloud/*.mp4

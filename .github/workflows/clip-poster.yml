@@ -46,6 +46,8 @@ jobs:
 
       - name: Find next clip to post
         id: find-clip
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           QUEUE_FILE="clips/cloud/queue.json"
           if [ ! -f "$QUEUE_FILE" ]; then
@@ -73,9 +75,27 @@ jobs:
             exit 0
           fi
 
-          CLIP_PATH="clips/cloud/$NEXT_CLIP"
+          # Clips live as assets on the 'clip-queue' release, NOT in git.
+          # Committing them bloated the repo permanently: every posted-and-
+          # deleted clip stayed in history forever (906 MB by 2026-08-04).
+          # Release assets never enter history, so the queue can turn over
+          # indefinitely at a flat repo size. queue.json stays in git as the
+          # state file, since it is small and must be committed per post.
+          mkdir -p /tmp/clip
+          if ! gh release download clip-queue \
+                 --repo "$GITHUB_REPOSITORY" \
+                 --pattern "$NEXT_CLIP" \
+                 --dir /tmp/clip --clobber; then
+            echo "ERROR: clip asset not found on clip-queue release: $NEXT_CLIP"
+            echo "The queue lists a clip that was never uploaded, or the asset"
+            echo "was deleted. Run auto-refill locally to repopulate."
+            echo "has_clip=false" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+          CLIP_PATH="/tmp/clip/$NEXT_CLIP"
           if [ ! -f "$CLIP_PATH" ]; then
-            echo "ERROR: Clip file not found: $CLIP_PATH"
+            echo "ERROR: download reported success but file is missing: $CLIP_PATH"
             echo "has_clip=false" >> $GITHUB_OUTPUT
             exit 1
           fi
@@ -166,6 +186,8 @@ jobs:
 
       - name: Update queue and push
         if: steps.find-clip.outputs.has_clip == 'true' && inputs.test_mode != true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Update queue.json to mark clip as posted
           python3 -c "
@@ -200,13 +222,21 @@ jobs:
               json.dump(queue, f, indent=2)
           "
 
-          # Remove posted clip file to save space
-          rm -f "${{ steps.find-clip.outputs.clip_path }}"
-
-          # Stage and commit changes FIRST (before pulling)
-          git add clips/cloud/queue.json
-          git add -u clips/cloud/
           CLIP_NAME="${{ steps.find-clip.outputs.clip_file }}"
+
+          # Drop the posted clip from the release so the queue does not grow
+          # without bound. Deliberately non-fatal: the post already succeeded,
+          # and failing here would mark the clip unposted and repost it next
+          # run. A stray asset is harmless; a duplicate Facebook post is not.
+          if ! gh release delete-asset clip-queue "$CLIP_NAME" \
+                 --repo "$GITHUB_REPOSITORY" --yes; then
+            echo "WARNING: could not delete asset $CLIP_NAME from clip-queue."
+            echo "The post succeeded. Remove the asset manually when convenient."
+          fi
+
+          # Stage and commit changes FIRST (before pulling).
+          # Only queue.json now — clip binaries no longer live in git.
+          git add clips/cloud/queue.json
           git commit -m "Posted clip: ${CLIP_NAME}" || echo "Nothing to commit"
 
           # Pull with rebase to incorporate any changes, then push
