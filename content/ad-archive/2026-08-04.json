@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-04",
+  "day": 1,
+  "label": "Teachings",
+  "destination": "https://increasingfaith.net/teachings.html",
+  "button": "WATCH THE TEACHING",
+  "copy": {
+    "headline": "Monday exposes what you did not build on Sunday.",
+    "subhead": "The teaching library is free, and it is already waiting on you.",
+    "hook": "You went into this week empty. That was avoidable.",
+    "body": "Pastor Curtis and Pastor Tammy have taught on the very things you need to build a strong foundation. Their teachings are available now, on the Increasing Faith website."
+  },
+  "caption": "You went into this week empty. That was avoidable.\n\n→ https://increasingfaith.net/teachings.html\n\nPastor Curtis and Pastor Tammy have taught on the very things you need to build a strong foundation. Their teachings are available now, on the Increasing Faith website.\n\n#BibleTeaching #IncreasingFaith #KingdomTeaching",
+  "hashtags": [
+    "#BibleTeaching",
+    "#IncreasingFaith",
+    "#KingdomTeaching"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-08-04.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1486001020230542",
+    "mode": "photo"
+  },
+  "postedAt": "2026-08-04T01:00:12.486Z",
+  "testMode": false
+}
