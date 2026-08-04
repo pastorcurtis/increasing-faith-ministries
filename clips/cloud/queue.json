@@ -422,8 +422,10 @@
     },
     {
       "file": "Knowing_God_s_will_makes_you_unstoppable_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:31Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:31Z",
+      "video_id": "1405545201437415",
+      "posted_at": "2026-08-04T15:09:16Z"
     },
     {
       "file": "Jesus_never_taught_scaring_people_with_h_0m02s_square.mp4",
@@ -713,8 +715,8 @@
   ],
   "stats": {
     "total": 118,
-    "posted": 60,
-    "remaining": 58,
-    "last_updated": "2026-08-03T22:03:17Z"
+    "posted": 61,
+    "remaining": 57,
+    "last_updated": "2026-08-04T15:09:16Z"
   }
 }
