@@ -1,28 +1,28 @@
 {
   "date": "2026-08-04",
-  "day": 1,
-  "label": "Teachings",
-  "destination": "https://increasingfaith.net/teachings.html",
-  "button": "WATCH THE TEACHING",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
   "copy": {
-    "headline": "Monday exposes what you did not build on Sunday.",
-    "subhead": "The teaching library is free, and it is already waiting on you.",
-    "hook": "You went into this week empty. That was avoidable.",
-    "body": "Pastor Curtis and Pastor Tammy have taught on the very things you need to build a strong foundation. Their teachings are available now, on the Increasing Faith website."
+    "headline": "You carry it in silence, but God's people are ready to pray.",
+    "subhead": "No appointment, no membership. Just send your request and we pray.",
+    "hook": "There's something you've been carrying that you haven't said out loud.",
+    "body": "You don't have to pretend or perform for us. We're here to pray for you. Our team receives your request and prays over it, asking God to move in your life."
   },
-  "caption": "You went into this week empty. That was avoidable.\n\n→ https://increasingfaith.net/teachings.html\n\nPastor Curtis and Pastor Tammy have taught on the very things you need to build a strong foundation. Their teachings are available now, on the Increasing Faith website.\n\n#BibleTeaching #IncreasingFaith #KingdomTeaching",
+  "caption": "There's something you've been carrying that you haven't said out loud.\n\n→ https://increasingfaith.net/prayer.html\n\nYou don't have to pretend or perform for us. We're here to pray for you. Our team receives your request and prays over it, asking God to move in your life.\n\n#IFM #IncreasingFaith #KingdomPrayer",
   "hashtags": [
-    "#BibleTeaching",
+    "#IFM",
     "#IncreasingFaith",
-    "#KingdomTeaching"
+    "#KingdomPrayer"
   ],
   "usedFallback": false,
   "graphic": "ad-2026-08-04.png",
   "postingResult": {
     "success": true,
-    "postId": "93332671526_1486001020230542",
+    "postId": "93332671526_1486696620160982",
     "mode": "photo"
   },
-  "postedAt": "2026-08-04T01:00:12.486Z",
+  "postedAt": "2026-08-04T18:39:36.755Z",
   "testMode": false
 }
