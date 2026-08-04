@@ -472,11 +472,49 @@ jobs:
             }
 
       # ================================================================
+      # CHECK 10: Repository size
+      # ================================================================
+      # Clips are committed to git, so every posted-and-deleted clip stays in
+      # history forever. As of 2026-08-04 the repo is ~906 MB, of which ~443 MB
+      # is dead weight (176 blobs for clips already posted and removed from the
+      # tree). It grows roughly 40 MB/month. GitHub recommends staying under
+      # 1 GB and blocks pushes past 5 GB -- if that wall is ever hit, the Sunday
+      # refill can no longer push and Facebook posting starves a month later.
+      # This check makes an otherwise invisible, slow problem visible early.
+      - name: Check repository size
+        id: repo_size
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: repo } = await github.rest.repos.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+
+            // repo.size is in KB and reflects GitHub's server-side estimate.
+            const sizeMb = Math.round(repo.size / 1024);
+            core.setOutput('size_mb', sizeMb.toString());
+
+            const WARN_MB = 1024;      // GitHub's recommended maximum
+            const CRITICAL_MB = 2048;  // halfway to the 5 GB hard push limit
+
+            let status = 'ok';
+            if (sizeMb >= CRITICAL_MB) status = 'critical';
+            else if (sizeMb >= WARN_MB) status = 'warn';
+            core.setOutput('status', status);
+
+            if (status !== 'ok') {
+              core.warning(`Repository is ${sizeMb} MB (warn at ${WARN_MB} MB)`);
+            }
+
+      # ================================================================
       # REPORT: Compile results and create issue if needed
       # ================================================================
       - name: Compile diagnostic report
         id: report
         env:
+          REPO_SIZE_MB: ${{ steps.repo_size.outputs.size_mb }}
+          REPO_SIZE_STATUS: ${{ steps.repo_size.outputs.status }}
           WORKFLOW_RESULTS: ${{ steps.workflows.outputs.results }}
           MISSING_SECRETS: ${{ steps.secrets.outputs.missing }}
           CONTENT_ISSUES: ${{ steps.content.outputs.issues }}
@@ -531,6 +569,24 @@ jobs:
               problems.append(
                   f"No clip has posted in {stale_days} days despite {q_remaining} clips in the queue "
                   "-- posting is stalled, not starved."
+              )
+
+          # Repository size. Warning (not problem) at 1 GB: nothing is broken
+          # yet at that point, but shrinking it requires a history rewrite and
+          # a coordinated force-push, so it needs lead time -- not a surprise
+          # the week the push limit is hit.
+          repo_size_mb = os.environ.get('REPO_SIZE_MB', '?')
+          repo_size_status = os.environ.get('REPO_SIZE_STATUS', '')
+          if repo_size_status == 'critical':
+              problems.append(
+                  f"Repository is {repo_size_mb} MB -- past 2 GB, headed for GitHub's 5 GB "
+                  "push limit. Clips in git history are the cause. Plan a history rewrite "
+                  "or move clips out of git."
+              )
+          elif repo_size_status == 'warn':
+              warnings.append(
+                  f"Repository is {repo_size_mb} MB, over GitHub's recommended 1 GB. "
+                  "Growth is ~40 MB/month from clips kept in git history."
               )
 
           # Per-workflow scheduled-run health (clip-poster, social-media)
@@ -641,6 +697,7 @@ jobs:
           lines.append(f"- Facebook Token: {'Valid' if fb == 'ok' else fb}")
           lines.append(f"- Website: {'OK' if not web else 'Issues'}")
           lines.append(f"- Newsletter: {nl} (last {nl_days} days ago)")
+          lines.append(f"- Repo Size: {repo_size_mb} MB ({repo_size_status or 'unknown'}; warn at 1024 MB)")
 
           if not problems and not warnings:
               lines.append("")
