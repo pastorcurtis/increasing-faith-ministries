@@ -1,10 +1,10 @@
 {
   "problems": {
-    "daily-social-media-schedule-dormant-last": {
-      "first_seen": "2026-08-02T02:15:55.016522+00:00",
-      "text": "**Daily Social Media**: schedule dormant \u2014 last successful scheduled run was 35h ago (alert threshold 28h). Trigger a manual `workflow_dispatch` run to re-arm GitHub's scheduler.",
-      "detections": 3
+    "post-ifm-clips-schedule-dormant-last": {
+      "first_seen": "2026-08-04T14:11:01.101869+00:00",
+      "text": "**Post IFM Clips**: schedule dormant \u2014 last successful scheduled run was 16h ago (alert threshold 14h). Trigger a manual `workflow_dispatch` run to re-arm GitHub's scheduler.",
+      "detections": 1
     }
   },
-  "last_run": "2026-08-02T02:51:44.161686+00:00"
+  "last_run": "2026-08-04T14:11:01.101869+00:00"
 }
