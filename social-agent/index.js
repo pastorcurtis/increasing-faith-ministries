@@ -366,4 +366,6 @@ if (require.main === module) {
   });
 }
 
-module.exports = { main, generateContent, generateWithRetry };
+// callChatAPI and sanitizeForGraphic are exported so ad.js reuses the same
+// provider fallback chain and text cleanup rather than duplicating them.
+module.exports = { main, generateContent, generateWithRetry, callChatAPI, sanitizeForGraphic };

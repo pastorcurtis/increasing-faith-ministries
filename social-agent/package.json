@@ -6,7 +6,11 @@
     "generate": "node index.js",
     "generate:preview": "node index.js --preview",
     "post": "node poster.js",
-    "post:test": "node poster.js --test"
+    "post:test": "node poster.js --test",
+    "ad": "node ad.js",
+    "ad:preview": "node ad.js --preview",
+    "ad:test": "node ad.js --test",
+    "ad:fallback": "node ad.js --preview --fallback"
   },
   "dependencies": {
     "@napi-rs/canvas": "^1.0.0",
