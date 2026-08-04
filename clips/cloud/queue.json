@@ -429,8 +429,10 @@
     },
     {
       "file": "Jesus_never_taught_scaring_people_with_h_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:31Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:31Z",
+      "video_id": "1465812242256500",
+      "posted_at": "2026-08-04T22:10:05Z"
     },
     {
       "file": "Jesus_never_preached_hell__why_that_matt_0m02s_square.mp4",
@@ -745,7 +747,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 61,
-    "remaining": 63
+    "posted": 62,
+    "remaining": 62,
+    "last_updated": "2026-08-04T22:10:05Z"
   }
 }
