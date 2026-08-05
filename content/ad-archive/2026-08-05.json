@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-05",
+  "day": 3,
+  "label": "Visit",
+  "destination": "https://increasingfaith.net/visit.html",
+  "button": "PLAN YOUR VISIT",
+  "copy": {
+    "headline": "You're one step closer to a deeper connection with God.",
+    "subhead": "Find out what we offer and when it's convenient for you.",
+    "hook": "Still thinking about visiting us, but not sure where to start?",
+    "body": "Join us in person on the first Saturday of every month at 12 Noon at 24301 Telegraph Rd in Southfield, MI. Or, catch our Hour of Power online weekdays at 8:15 AM. No pressure, just a space to grow and connect."
+  },
+  "caption": "Still thinking about visiting us, but not sure where to start?\n\n→ https://increasingfaith.net/visit.html\n\nJoin us in person on the first Saturday of every month at 12 Noon at 24301 Telegraph Rd in Southfield, MI. Or, catch our Hour of Power online weekdays at 8:15 AM. No pressure, just a space to grow and connect.\n\n#KingdomOfGod #IncreasingFaith #Southfield",
+  "hashtags": [
+    "#KingdomOfGod",
+    "#IncreasingFaith",
+    "#Southfield"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-08-05.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1487687283395249",
+    "mode": "photo"
+  },
+  "postedAt": "2026-08-05T18:23:11.615Z",
+  "testMode": false
+}
