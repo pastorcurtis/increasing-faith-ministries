@@ -436,8 +436,10 @@
     },
     {
       "file": "Jesus_never_preached_hell__why_that_matt_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:31Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:31Z",
+      "video_id": "1649497049859012",
+      "posted_at": "2026-08-05T16:00:38Z"
     },
     {
       "file": "It_s_already_done__be_persistent_0m02s_square.mp4",
@@ -747,8 +749,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 62,
-    "remaining": 62,
-    "last_updated": "2026-08-04T22:10:05Z"
+    "posted": 63,
+    "remaining": 61,
+    "last_updated": "2026-08-05T16:00:38Z"
   }
 }
