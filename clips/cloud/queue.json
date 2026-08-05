@@ -443,8 +443,10 @@
     },
     {
       "file": "It_s_already_done__be_persistent_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:31Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:31Z",
+      "video_id": "891044103664819",
+      "posted_at": "2026-08-05T22:11:19Z"
     },
     {
       "file": "It_s_already_done__God_has_already_done_0m02s_square.mp4",
@@ -749,8 +751,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 63,
-    "remaining": 61,
-    "last_updated": "2026-08-05T16:00:38Z"
+    "posted": 64,
+    "remaining": 60,
+    "last_updated": "2026-08-05T22:11:19Z"
   }
 }
