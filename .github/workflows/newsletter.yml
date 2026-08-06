@@ -110,7 +110,16 @@ jobs:
           git diff --staged --quiet || git commit -m "Add monthly newsletter for $(date +'%B %Y')"
 
       - name: Push changes to main
-        run: git push origin main
+        # Runs at 14:00 UTC on the 1st — the same window as Clip Poster and
+        # Daily Social Media, so all three can race for main. Rebase and retry.
+        run: |
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push origin main && exit 0
+            echo "Push attempt $attempt lost the race — retrying in 5s"
+            sleep 5
+          done
+          echo "::error::Could not push newsletter after 3 attempts"
+          exit 1
 
       # -- Send emails to subscribers --
       - name: Send newsletter to subscribers

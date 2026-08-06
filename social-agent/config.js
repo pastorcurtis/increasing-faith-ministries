@@ -169,6 +169,11 @@ module.exports = {
     temperature: 0.85, // Slightly higher for more creative, varied content
     maxRetries: 3,
     retryDelayMs: 3000,
+    // Ceiling on any single backoff wait. Groq's TPM window is 60s, so this
+    // must be comfortably above it or a rate-limited retry lands too early.
+    maxRetryDelayMs: 90000,
+    // Pause between per-platform generations to stay under Groq's tokens/min.
+    platformSpacingMs: 20000,
 
     // Provider chain — tried in order. Skip any entry whose env var is unset.
     // Add new providers by appending here; no code changes required.

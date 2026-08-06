@@ -57,9 +57,29 @@ function todayDateString() {
 // key env var is unset. Eliminates Groq as a single point of failure: when
 // Groq has an outage, we automatically fall through to OpenRouter.
 
+// A 429 from Groq/OpenRouter tells us exactly how long to wait — either in the
+// `retry-after` header or inside the message ("Please try again in 7.5s").
+// Reading that hint is the difference between a retry that works and three
+// retries that all burn inside the same rate-limit window.
+function parseRetryAfterMs(response, body) {
+  const header = response.headers.get('retry-after');
+  const headerSeconds = Number(header);
+  if (header && Number.isFinite(headerSeconds)) return headerSeconds * 1000;
+
+  const match = body.match(/try again in ([\d.]+)\s*(ms|s|m)\b/i);
+  if (!match) return null;
+  const value = Number(match[1]);
+  const unit = match[2].toLowerCase();
+  if (unit === 'ms') return value;
+  if (unit === 'm') return value * 60000;
+  return value * 1000;
+}
+
 async function callChatAPI({ messages, maxTokens, temperature, timeoutMs = 30000 }) {
   const providers = config.ai.providers || [];
   const errors = [];
+  // Longest wait any provider asked for, surfaced to the retry wrapper below.
+  let retryAfterMs = null;
 
   for (const provider of providers) {
     const apiKey = process.env[provider.envVar];
@@ -91,7 +111,11 @@ async function callChatAPI({ messages, maxTokens, temperature, timeoutMs = 30000
 
       if (!response.ok) {
         const errBody = await response.text();
-        throw new Error(`${provider.name} ${response.status}: ${errBody.slice(0, 200)}`);
+        const httpError = new Error(`${provider.name} ${response.status}: ${errBody.slice(0, 200)}`);
+        if (response.status === 429) {
+          httpError.retryAfterMs = parseRetryAfterMs(response, errBody);
+        }
+        throw httpError;
       }
 
       const data = await response.json();
@@ -110,10 +134,15 @@ async function callChatAPI({ messages, maxTokens, temperature, timeoutMs = 30000
         : err.message;
       console.warn(`  [ai] ${provider.name} failed: ${reason}`);
       errors.push(`${provider.name}: ${reason}`);
+      if (err.retryAfterMs) {
+        retryAfterMs = Math.max(retryAfterMs || 0, err.retryAfterMs);
+      }
     }
   }
 
-  throw new Error(`All AI providers failed.\n  - ${errors.join('\n  - ')}`);
+  const allFailed = new Error(`All AI providers failed.\n  - ${errors.join('\n  - ')}`);
+  if (retryAfterMs !== null) allFailed.retryAfterMs = retryAfterMs;
+  throw allFailed;
 }
 
 // ── AI Content Generation ──────────────────────────────
@@ -238,7 +267,15 @@ async function generateWithRetry(theme, platform) {
       lastError = err;
       console.error(`  [${platform}] Attempt ${attempt} failed: ${err.message}`);
       if (attempt < config.ai.maxRetries) {
-        await new Promise(r => setTimeout(r, config.ai.retryDelayMs));
+        // Rate limits are per-minute, so a fixed 3s delay retries inside the
+        // same window and fails again. Honor the provider's own wait hint
+        // (plus a 1s cushion); otherwise back off exponentially.
+        const wait = Math.min(
+          err.retryAfterMs ? err.retryAfterMs + 1000 : config.ai.retryDelayMs * 2 ** (attempt - 1),
+          config.ai.maxRetryDelayMs
+        );
+        console.error(`  [${platform}] Waiting ${Math.round(wait / 1000)}s before retry`);
+        await new Promise(r => setTimeout(r, wait));
       }
     }
   }
@@ -273,7 +310,13 @@ async function main() {
   const platforms = Object.keys(config.platforms);
   const results = {};
 
-  for (const platform of platforms) {
+  for (const [i, platform] of platforms.entries()) {
+    // Every prompt carries the full sermon corpus as voice examples, so three
+    // back-to-back calls blow past Groq's 6000 tokens/min. Spacing them out
+    // keeps us under the limit instead of relying on the retry to rescue us.
+    if (i > 0 && config.ai.platformSpacingMs) {
+      await new Promise(r => setTimeout(r, config.ai.platformSpacingMs));
+    }
     process.stdout.write(`  Generating ${platform}...`);
     try {
       const content = await generateWithRetry(theme, platform);

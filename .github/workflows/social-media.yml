@@ -21,7 +21,9 @@ permissions:
 jobs:
   generate-and-post:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Raised from 10: rate-limit backoff can now legitimately wait out Groq's
+    # 60s token window several times over before giving up.
+    timeout-minutes: 20
 
     steps:
       # -- Validate secrets early --
@@ -97,7 +99,16 @@ jobs:
           else
             DATE=$(date +%Y-%m-%d)
             git commit -m "Social media content for $DATE"
-            git push
+            # Clip Poster fires on the same 14:00 UTC cron and commits its queue
+            # state, so both jobs regularly race for the same ref. Rebase onto
+            # whatever landed first, and retry in case it lands mid-push.
+            for attempt in 1 2 3; do
+              git pull --rebase origin main && git push && exit 0
+              echo "Push attempt $attempt lost the race — retrying in 5s"
+              sleep 5
+            done
+            echo "::error::Could not push social archive after 3 attempts"
+            exit 1
           fi
 
       # -- Alert on failure --
