@@ -152,7 +152,9 @@ async function generateContent(theme, platform) {
 
   const systemPrompt = [
     `You are the social media voice for ${config.ministry.name}, led by ${config.ministry.pastor}.`,
-    config.brandVoice,
+    // Sampled, not the full corpus — keeps three platform calls inside the
+    // per-minute token budget and varies the cadence between posts.
+    config.buildBrandVoice(config.ai.fewShotExamples),
     `\nPlatform: ${platform.toUpperCase()}`,
     `Style: ${platformConfig.style}`,
     `Maximum length: ${platformConfig.maxLength} characters (this is the CONTENT only, not including hashtags or links).`,
@@ -171,7 +173,7 @@ async function generateContent(theme, platform) {
       { role: 'system', content: systemPrompt },
       { role: 'user', content: userPrompt },
     ],
-    maxTokens: config.ai.maxTokens,
+    maxTokens: platformConfig.maxTokens || config.ai.maxTokens,
     temperature: config.ai.temperature,
     timeoutMs: 30000,
   });
@@ -374,6 +376,22 @@ async function main() {
     }
   }
   console.log('\n' + '═'.repeat(60));
+
+  // Surface partial failures. Posting continues (a dead TikTok must never
+  // block the Facebook post), but the workflow reads this output and goes red
+  // at the very end — otherwise a missing platform passes as a green run.
+  const failedPlatforms = Object.entries(results)
+    .filter(([, r]) => r.error)
+    .map(([p]) => p);
+
+  if (failedPlatforms.length > 0) {
+    for (const platform of failedPlatforms) {
+      console.log(`::warning::Content generation failed for ${platform}: ${results[platform].error.split('\n')[0]}`);
+    }
+  }
+  if (process.env.GITHUB_OUTPUT) {
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `failed_platforms=${failedPlatforms.join(',')}\n`);
+  }
 
   // Save unless preview mode
   if (!preview) {

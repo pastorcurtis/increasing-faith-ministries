@@ -11,7 +11,15 @@ const path = require('path');
 function loadSermonCorpus() {
   try {
     const raw = fs.readFileSync(path.join(__dirname, 'sermon_corpus.txt'), 'utf-8');
-    return raw.split(/\n---\n/).slice(1).map(s => s.trim()).filter(Boolean);
+    // \r? matters: a Windows checkout gives CRLF, and an LF-only split silently
+    // yields zero examples — the voice training would vanish from every prompt
+    // with nothing in the logs to say so.
+    const examples = raw.split(/\r?\n---\r?\n/).slice(1).map(s => s.trim()).filter(Boolean);
+
+    if (examples.length === 0) {
+      console.warn('[config] sermon_corpus.txt parsed to 0 examples — check the "---" separators. Falling back to rules-only brand voice.');
+    }
+    return examples;
   } catch (e) {
     console.warn('[config] sermon_corpus.txt not found — using rules-only brand voice');
     return [];
@@ -33,14 +41,29 @@ const brandVoiceRules = [
   'Every post should feel like a CONVERSATION, not a broadcast. Invite the reader into dialogue.',
 ].join('\n');
 
-const brandVoiceWithExamples = sermonExamples.length === 0
-  ? brandVoiceRules
-  : [
-      brandVoiceRules,
-      '',
-      'VOICE EXAMPLES — real IFM sermon passages. Match this rhythm, direct address, and how scripture is applied immediately to the listener. Absorb the cadence; do NOT copy the wording:',
-      ...sermonExamples.map((ex, i) => `<example ${i + 1}>\n${ex}\n</example ${i + 1}>`),
-    ].join('\n');
+// Build the voice block from a rotating SAMPLE of the corpus rather than all
+// of it. Carrying all five examples (~1,100 tokens) in every prompt is what
+// pushed three platform generations over Groq's 6,000 tokens/min budget on
+// their own. Sampling also varies the cadence between platforms instead of
+// anchoring every post of the day to the same passages.
+function buildBrandVoice(count = sermonExamples.length) {
+  if (sermonExamples.length === 0) return brandVoiceRules;
+
+  const picked = count >= sermonExamples.length
+    ? sermonExamples
+    : [...sermonExamples].sort(() => 0.5 - Math.random()).slice(0, count);
+
+  return [
+    brandVoiceRules,
+    '',
+    'VOICE EXAMPLES — real IFM sermon passages. Match this rhythm, direct address, and how scripture is applied immediately to the listener. Absorb the cadence; do NOT copy the wording:',
+    ...picked.map((ex, i) => `<example ${i + 1}>\n${ex}\n</example ${i + 1}>`),
+  ].join('\n');
+}
+
+// Full-corpus version, kept for the website-ad pipeline (ad-config.js), which
+// makes a single call per run and is nowhere near the token ceiling.
+const brandVoiceWithExamples = buildBrandVoice();
 
 module.exports = {
   ministry: {
@@ -108,18 +131,24 @@ module.exports = {
   platforms: {
     facebook: {
       maxLength: 500,
+      // Output ceiling sized to maxLength (~3 chars/token) plus headroom for
+      // line breaks. The old shared 1024 reserved 4x what any post can use,
+      // and Groq counts requested output against the per-minute budget.
+      maxTokens: 250,
       style: 'Longer, conversational. Use line breaks for readability. Can be more detailed. End every post with a clear invitation for the reader to comment, share, or engage.',
       hashtagCount: 3,
       linkPlacement: 'end',
     },
     instagram: {
       maxLength: 400,
+      maxTokens: 220,
       style: 'Visual language, punchy lines. Use line breaks and spacing. Hashtags in a separate block at the end. End with an engagement prompt — a question or "double tap if..."',
       hashtagCount: 10,
       linkPlacement: 'bio_reference', // "Link in bio"
     },
     tiktok: {
       maxLength: 300,
+      maxTokens: 190,
       style: 'Casual but authoritative. Speak directly. Pattern-interrupt opening. End with a hook question or "comment below" prompt.',
       hashtagCount: 5,
       linkPlacement: 'bio_reference',
@@ -129,6 +158,9 @@ module.exports = {
   // Brand voice rules + sermon few-shot examples injected into every AI prompt.
   // See loadSermonCorpus() at top of file. Refresh examples via sermon_corpus.txt.
   brandVoice: brandVoiceWithExamples,
+
+  // Per-call sampled voice block — see buildBrandVoice() above.
+  buildBrandVoice,
 
   // Engagement hooks — randomly appended to clip posts for variety
   clipCaptions: [
@@ -165,15 +197,23 @@ module.exports = {
     // first entry in `providers` below to keep behavior consistent.
     model: 'llama-3.1-8b-instant',
     baseUrl: 'https://api.groq.com/openai/v1/chat/completions',
-    maxTokens: 1024,
+    // Fallback only — each platform sets its own maxTokens above.
+    maxTokens: 300,
     temperature: 0.85, // Slightly higher for more creative, varied content
+
+    // Sermon examples injected per prompt. The full corpus is 5 (~1,100
+    // tokens); 3 keeps the voice intact while leaving room under the
+    // per-minute token budget for all three platforms plus the pull quote.
+    fewShotExamples: 3,
     maxRetries: 3,
     retryDelayMs: 3000,
     // Ceiling on any single backoff wait. Groq's TPM window is 60s, so this
     // must be comfortably above it or a rate-limited retry lands too early.
     maxRetryDelayMs: 90000,
-    // Pause between per-platform generations to stay under Groq's tokens/min.
-    platformSpacingMs: 20000,
+    // Belt-and-braces pause between platform generations. With the token
+    // budget now fitting inside the limit on its own, this only smooths the
+    // burst rather than being load-bearing.
+    platformSpacingMs: 10000,
 
     // Provider chain — tried in order. Skip any entry whose env var is unset.
     // Add new providers by appending here; no code changes required.
@@ -183,6 +223,17 @@ module.exports = {
         url: 'https://api.groq.com/openai/v1/chat/completions',
         envVar: 'GROQ_API_KEY',
         model: 'llama-3.1-8b-instant',
+        extraHeaders: {},
+      },
+      {
+        // Same key, different model. Groq's 429 names the model it throttled
+        // ("Rate limit reached for model `llama-3.1-8b-instant`"), so a second
+        // model gives us another bucket to fall into — and covers the case
+        // where one model is degraded or retired without warning.
+        name: 'Groq (70b)',
+        url: 'https://api.groq.com/openai/v1/chat/completions',
+        envVar: 'GROQ_API_KEY',
+        model: 'llama-3.3-70b-versatile',
         extraHeaders: {},
       },
       {
