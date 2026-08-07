@@ -15,6 +15,8 @@
 #   6. Newsletter system is healthy
 #   7. Required secrets are configured
 #   8. Node.js dependencies install cleanly
+#   9. A daily post actually landed each day (archive files, not exit codes --
+#      a gate job can skip the poster and still conclude "success")
 #
 # Auto-fixes:
 #   - Re-enables disabled workflows
@@ -200,13 +202,30 @@ jobs:
             //                        every time diagnostics ran before the 14:00 post
             //                        landed. Fixed 2026-08-04, see issue #51.)
             //
-            //   social-media.yml  cron 14:00 UTC only
-            //                     -> 24h natural + ~2.5h delay = ~26.5h real max
-            //                     -> 30h. (Was 28h — only 1.5h of headroom, which is
-            //                        less than the delays we actually see.)
+            //   social-media.yml  crons 14:00 + 19:00 UTC (catch-up added 2026-08-05)
+            //                     -> gaps are 5h (day) and 19h (overnight)
+            //                     -> 30h. Tempting to tighten now that the catch-up
+            //                        shrank the natural gap, but DON'T: on 2026-08-06
+            //                        GitHub ran the 19:00 slot 5.5h late, which alone
+            //                        eats 24.5h. Keep the headroom.
+            //
+            //   website-ad.yml    crons 17:00 + 22:00 UTC (catch-up added 2026-08-06)
+            //                     -> same shape as social-media, so same 30h.
+            //                     -> Was ABSENT from this list entirely. On 2026-08-06
+            //                        all three posting workflows died on GitHub's
+            //                        "job was not acquired by Runner" incident; the
+            //                        other two self-healed, the ad lost the day, and
+            //                        nothing alerted because nothing was watching it.
+            //
+            // NOTE: this check is only a coarse LIVENESS probe — it proves a run
+            // happened, not that a post went out. Now that these workflows have gate
+            // jobs that can legitimately skip the posting job, a run can conclude
+            // "success" having posted nothing. The archive-gap check below is the
+            // one that catches a genuinely missed day.
             const targets = [
               { name: 'Post IFM Clips',     file: 'clip-poster.yml',  stale_hours: 26 },
-              { name: 'Daily Social Media', file: 'social-media.yml', stale_hours: 30 }
+              { name: 'Daily Social Media', file: 'social-media.yml', stale_hours: 30 },
+              { name: 'Daily Website Ad',   file: 'website-ad.yml',   stale_hours: 30 }
             ];
 
             const { data: workflows } = await github.rest.actions.listRepoWorkflows({
@@ -508,6 +527,123 @@ jobs:
             }
 
       # ================================================================
+      # CHECK 11: Daily post archives -- did a post actually happen?
+      # ================================================================
+      # Why this exists, and why CHECK 3 is not enough: CHECK 3 only asks
+      # whether a workflow RAN and concluded "success". Both daily posters now
+      # open with an idempotency gate job that decides whether today's post is
+      # already done and, if so, skips the posting job entirely. The run still
+      # concludes "success". A day with ZERO posts and a perfectly healthy day
+      # are therefore indistinguishable from the run list -- green either way.
+      #
+      # So this check looks at the ARTIFACT instead of the exit status. Both
+      # posters commit a <YYYY-MM-DD>.json into their archive directory as the
+      # last act of a real post, so a missing file is proof nothing went out
+      # that day, whatever the checkmarks say. Same lesson as the stale_days
+      # probe in CHECK 2: trust what the job wrote, not that it exited 0.
+      #
+      # Calibration -- why ONE missing day is only a warning:
+      # the real gaps we have observed were 2026-08-01 (run cancelled),
+      # 2026-08-04 (GitHub silently dropped the schedule), 2026-08-05 (run
+      # failed) and 2026-08-06 (GitHub's "job was not acquired by Runner"
+      # incident). Isolated days are lost to infrastructure we do not control
+      # and the next cron self-heals. Escalating every one of those to a
+      # Problem would train everyone to scroll past this alarm -- exactly the
+      # habit the persistence tracking further down exists to break. TWO OR
+      # MORE misses inside a 7-day window is no longer bad luck; that is a
+      # broken poster, and it escalates.
+      #
+      # Today is excluded from the window on purpose: the primary crons are
+      # 17:00 UTC (website ad) and 14:00 UTC (social), so for most of the day
+      # today's file is legitimately absent and would be a guaranteed false
+      # positive.
+      #
+      # The window is ALSO floored, per directory, at that directory's earliest
+      # existing entry. A date before a feature existed is not a missed post.
+      # The Daily Website Ad only shipped 2026-08-03, so an unfloored 7-day
+      # lookback would have reported 2026-07-31..08-03 as missed ads on this
+      # check's very first run -- a false alarm out of the gate, which is the
+      # exact regression the issue #51 note in CHECK 3 above warns about.
+      # The two directories are floored independently because social-posts has
+      # months of history while ad-archive has days.
+      - name: Check daily post archives
+        id: daily_posts
+        run: |
+          python3 << 'PYEOF'
+          import os, re
+          from datetime import datetime, timedelta, timezone
+
+          WINDOW_DAYS = 7   # complete UTC days to look back over (today excluded)
+          ESCALATE_AT = 2   # misses inside the window that turn warning -> problem
+
+          ARCHIVE_FILE = re.compile(r'^(\d{4}-\d{2}-\d{2})\.json$')
+
+          today = datetime.now(timezone.utc).date()
+          # ISO date strings sort and compare identically to real dates, so the
+          # whole comparison below stays in plain strings.
+          window = sorted((today - timedelta(days=n)).isoformat()
+                          for n in range(1, WINDOW_DAYS + 1))
+
+          # key -> (archive directory, workflow that writes it)
+          targets = {
+              'social': ('content/social-posts', 'Daily Social Media'),
+              'ad':     ('content/ad-archive',   'Daily Website Ad'),
+          }
+
+          status = 'ok'
+          out = {}
+
+          for key, (directory, label) in targets.items():
+              archived = set()
+              if os.path.isdir(directory):
+                  for name in os.listdir(directory):
+                      m = ARCHIVE_FILE.match(name)
+                      if m:
+                          archived.add(m.group(1))
+
+              # No entries at all -- directory absent, or present but empty.
+              # That is "not launched yet" (or a brand new feature), NOT seven
+              # missed posts. Report it as no-data and move on; an empty window
+              # (_window=0) tells the report to say so rather than alarm.
+              if not archived:
+                  out[key + '_missing'] = ''
+                  out[key + '_count'] = '0'
+                  out[key + '_window'] = '0'
+                  print("::notice::" + label + ": no archive entries under " + directory
+                        + " yet -- treating as not-yet-launched, not as missed posts.")
+                  continue
+
+              # Floor at the first day this directory ever recorded.
+              earliest = min(archived)
+              scanned = [d for d in window if d >= earliest]
+              missing = [d for d in scanned if d not in archived]
+
+              out[key + '_missing'] = ','.join(missing)
+              out[key + '_count'] = str(len(missing))
+              out[key + '_window'] = str(len(scanned))
+
+              if len(missing) >= ESCALATE_AT:
+                  status = 'critical'
+                  print("::error::" + label + ": no post archived on " + str(len(missing))
+                        + " of the last " + str(len(scanned)) + " eligible days ("
+                        + ', '.join(missing) + ")")
+              elif missing:
+                  if status == 'ok':
+                      status = 'warn'
+                  print("::warning::" + label + ": no post archived on " + missing[0])
+              else:
+                  print(label + ": all " + str(len(scanned)) + " eligible days accounted for"
+                        + " (archive starts " + earliest + ")")
+
+          out['status'] = status
+
+          # Single-line values only, so a plain key=value append is safe here.
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              for k, v in out.items():
+                  f.write(k + "=" + v + "\n")
+          PYEOF
+
+      # ================================================================
       # REPORT: Compile results and create issue if needed
       # ================================================================
       - name: Compile diagnostic report
@@ -525,6 +661,13 @@ jobs:
           QUEUE_REMAINING: ${{ steps.clip_queue.outputs.remaining }}
           QUEUE_DAYS: ${{ steps.clip_queue.outputs.days_left }}
           SCHED_HEALTH: ${{ steps.sched_health.outputs.results }}
+          DAILY_POST_STATUS: ${{ steps.daily_posts.outputs.status }}
+          SOCIAL_MISSING: ${{ steps.daily_posts.outputs.social_missing }}
+          SOCIAL_MISSING_COUNT: ${{ steps.daily_posts.outputs.social_count }}
+          SOCIAL_WINDOW: ${{ steps.daily_posts.outputs.social_window }}
+          AD_MISSING: ${{ steps.daily_posts.outputs.ad_missing }}
+          AD_MISSING_COUNT: ${{ steps.daily_posts.outputs.ad_count }}
+          AD_WINDOW: ${{ steps.daily_posts.outputs.ad_window }}
           FB_STATUS: ${{ steps.fb_token.outputs.status }}
           NL_STATUS: ${{ steps.last_run.outputs.status }}
           NL_DAYS: ${{ steps.last_run.outputs.days_since }}
@@ -629,6 +772,58 @@ jobs:
               elif status == 'never_run':
                   warnings.append(f"**{name}**: has never run yet")
 
+          # Daily post archives -- proof a post actually landed, per day.
+          # The block above only proves the workflow ran; a gate job can skip
+          # the posting job and still conclude success, so a silent zero-post
+          # day looks identical to a healthy one there. Here we count the
+          # <YYYY-MM-DD>.json files the posters commit. One gap in 7 days is a
+          # warning (GitHub infrastructure, self-heals); two or more is a
+          # broken poster and gets escalated to a problem.
+          DAILY_WINDOW = 7
+          daily_summary = []
+          for env_key, label in (('SOCIAL', 'Daily Social Media'),
+                                 ('AD', 'Daily Website Ad')):
+              raw = os.environ.get(f'{env_key}_MISSING', '').strip()
+
+              def _num(suffix):
+                  try:
+                      return int(os.environ.get(f'{env_key}_{suffix}', '0') or '0')
+                  except ValueError:
+                      return 0
+
+              miss_count = _num('MISSING_COUNT')
+              # Days actually eligible for scrutiny: the 7-day window floored at
+              # the archive's first ever entry, so a feature that shipped mid
+              # window is never blamed for the days before it existed.
+              scanned = _num('WINDOW')
+              miss_dates = [d for d in raw.split(',') if d]
+
+              # scanned == 0 means the archive is empty or absent -- not yet
+              # launched. Nothing to conclude, so say that and skip the alarms.
+              if scanned == 0:
+                  daily_summary.append(f"  - {label}: no archive data yet (not launched)")
+                  continue
+
+              if miss_count >= 2:
+                  problems.append(
+                      f"**{label}**: no post was archived on {miss_count} of the last "
+                      f"{scanned} eligible days ({', '.join(miss_dates)}). The workflow runs may "
+                      f"all look green -- its gate job can skip the posting job and still "
+                      f"conclude success -- so believe the archive, not the checkmarks."
+                  )
+              elif miss_count == 1:
+                  warnings.append(
+                      f"**{label}**: no post archived on {miss_dates[0]} "
+                      f"(1 missing day out of {scanned}). Isolated misses are usually GitHub "
+                      f"infrastructure and self-heal on the next cron; two or more means the "
+                      f"poster itself is broken."
+                  )
+
+              detail = f" (missing {', '.join(miss_dates)})" if miss_dates else ""
+              daily_summary.append(
+                  f"  - {label}: {scanned - miss_count}/{scanned} days posted{detail}"
+              )
+
           # Facebook token
           fb = os.environ.get('FB_STATUS', '')
           if fb == 'expired':
@@ -692,6 +887,11 @@ jobs:
           lines.append(f"- Scheduled workflows:")
           if sched_summary:
               lines.extend(sched_summary)
+          else:
+              lines.append("  - (no data)")
+          lines.append(f"- Daily posts archived (last {DAILY_WINDOW} complete UTC days):")
+          if daily_summary:
+              lines.extend(daily_summary)
           else:
               lines.append("  - (no data)")
           lines.append(f"- Facebook Token: {'Valid' if fb == 'ok' else fb}")
@@ -967,6 +1167,9 @@ jobs:
         if: steps.report.outputs.has_problems == 'false'
         env:
           QUEUE_REMAINING: ${{ steps.clip_queue.outputs.remaining }}
+          DAILY_POST_STATUS: ${{ steps.daily_posts.outputs.status }}
+          SOCIAL_MISSING_COUNT: ${{ steps.daily_posts.outputs.social_count }}
+          AD_MISSING_COUNT: ${{ steps.daily_posts.outputs.ad_count }}
         run: |
           echo "========================================"
           echo "  SYSTEM DIAGNOSTICS: ALL CLEAR"
@@ -974,6 +1177,10 @@ jobs:
           echo "  Workflows:      OK"
           echo "  Clip Queue:     OK ($QUEUE_REMAINING clips)"
           echo "  Clip Poster:    OK"
+          # Reported as a status word, not a flat OK: this step also runs when
+          # the only finding was a single missing post day, which is a warning
+          # and never sets has_problems. Printing "OK" there would hide it.
+          echo "  Daily Posts:    ${DAILY_POST_STATUS:-unknown} (missing days -- social: ${SOCIAL_MISSING_COUNT:-?}, ad: ${AD_MISSING_COUNT:-?})"
           echo "  Facebook Token: OK"
           echo "  Secrets:        OK"
           echo "  Content:        OK"
