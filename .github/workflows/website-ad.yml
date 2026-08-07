@@ -9,6 +9,13 @@ on:
     # 12 PM EST / 1 PM EDT (5 PM UTC) every day — sits between the morning
     # teaching post and the afternoon clip.
     - cron: '0 17 * * *'
+    # Catch-up pass. GitHub drops and delays scheduled runs under load: on
+    # 2026-08-06 this workflow failed with "job was not acquired by Runner of
+    # type hosted" and, having only one slot, lost the day outright. This run
+    # no-ops if today's ad already posted. 22:00 UTC keeps it clear of the
+    # 21:00 clip slot and safely inside the same UTC day — see the gate below
+    # for why crossing midnight UTC matters.
+    - cron: '0 22 * * *'
   workflow_dispatch:
     inputs:
       day_override:
@@ -27,8 +34,52 @@ permissions:
   issues: write
   contents: write
 
+# The gate reads state that only gets committed at the END of a run, so two
+# overlapping runs could both pass it and double-post. Serialize instead.
+concurrency:
+  group: website-ad
+  cancel-in-progress: false
+
 jobs:
+  # Decides whether there is anything to do. Keeps the catch-up cron from
+  # double-posting on days the 17:00 run already succeeded.
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      should_run: ${{ steps.check.outputs.should_run }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check whether today's ad already posted
+        id: check
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          # 10# forces base 10; bash reads a bare "08"/"09" as invalid octal.
+          HOUR=$((10#$(date -u +%H)))
+
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "Manual run — always proceed"
+            echo "should_run=true" >> $GITHUB_OUTPUT
+          elif [ -f "content/ad-archive/$TODAY.json" ]; then
+            echo "$TODAY ad already posted and archived — skipping"
+            echo "should_run=false" >> $GITHUB_OUTPUT
+          elif [ "$HOUR" -lt 14 ]; then
+            # ad.js reads BOTH the day-of-week rotation and the archive
+            # filename off the runner's UTC clock. A run delayed past midnight
+            # UTC would therefore post tomorrow's ad, file it under tomorrow's
+            # date, and gate off tomorrow's legitimate 17:00 run — turning one
+            # lost day into two. Bail out and let 17:00 handle it normally.
+            echo "Delayed past midnight UTC (hour $HOUR) — skipping to avoid posting the wrong day's ad"
+            echo "should_run=false" >> $GITHUB_OUTPUT
+          else
+            echo "No ad archived for $TODAY — proceeding"
+            echo "should_run=true" >> $GITHUB_OUTPUT
+          fi
+
   generate-and-post:
+    needs: gate
+    if: needs.gate.outputs.should_run == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -100,9 +151,18 @@ jobs:
           if git diff --staged --quiet; then
             echo "No new ad archive to commit"
           else
-            git commit -m "Website ad for $(date +%Y-%m-%d)"
-            git pull --rebase
-            git push
+            git commit -m "Website ad for $(date -u +%Y-%m-%d)"
+            # The 22:00 catch-up sits an hour from the 21:00 clip slot, which
+            # commits its own queue state, so the two can race for the ref.
+            # Rebase onto whatever landed first, and retry in case it lands
+            # mid-push. Same guard as social-media.yml and newsletter.yml.
+            for attempt in 1 2 3; do
+              git pull --rebase origin main && git push && exit 0
+              echo "Push attempt $attempt lost the race — retrying in 5s"
+              sleep 5
+            done
+            echo "::error::Could not push ad archive after 3 attempts"
+            exit 1
           fi
 
       - name: Create failure alert

@@ -24,6 +24,10 @@ concurrency:
 jobs:
   post-clip:
     runs-on: ubuntu-latest
+    # Video uploads to the Graph API retry with backoff; without a cap a hung
+    # upload would sit against GitHub's 6-hour default while holding the
+    # clip-poster concurrency group, blocking the next slot too.
+    timeout-minutes: 20
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
