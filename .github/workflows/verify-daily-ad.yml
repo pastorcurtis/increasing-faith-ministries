@@ -68,7 +68,12 @@ jobs:
           # gating off that day's legitimate 17:00 run.
           #
           # So: only act between 22:00 and 23:59 UTC. Outside that, stand down.
-          if [ "$HOUR" -lt 22 ]; then
+          #
+          # dry_run is exempt: it cannot dispatch or open issues, so letting it
+          # through is harmless and is the only way to exercise the detection
+          # path at an arbitrary hour. Without this, the interesting half of
+          # this workflow could not be tested until 23:15 UTC.
+          if [ "$HOUR" -lt 22 ] && [ "${{ inputs.dry_run }}" != "true" ]; then
             echo "in_window=false" >> $GITHUB_OUTPUT
             echo "posted=unknown" >> $GITHUB_OUTPUT
             echo "::warning::Started at ${HOUR}:00 UTC, outside the 22:00-23:59 window (delayed past midnight). Standing down rather than acting on the wrong day."
