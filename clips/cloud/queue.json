@@ -457,8 +457,10 @@
     },
     {
       "file": "In_My_Distress_I_Called_Upon_the_Lord_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:31Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:31Z",
+      "video_id": "1035556052551127",
+      "posted_at": "2026-08-07T14:51:03Z"
     },
     {
       "file": "In_My_Distress_I_Called_Upon_the_Lord_1_0m02s_square.mp4",
@@ -753,8 +755,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 65,
-    "remaining": 59,
-    "last_updated": "2026-08-07T01:00:37Z"
+    "posted": 66,
+    "remaining": 58,
+    "last_updated": "2026-08-07T14:51:03Z"
   }
 }
