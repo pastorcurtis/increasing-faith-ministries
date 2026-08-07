@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-07",
+  "day": 5,
+  "label": "Kingdom Report",
+  "destination": "https://increasingfaith.net/newsletter.html",
+  "button": "GET THE REPORT",
+  "copy": {
+    "headline": "There's a difference between news and Kingdom news.",
+    "subhead": "Stay informed without getting distracted.",
+    "hook": "Most Christians consume information like everyone else, but there's a better way.",
+    "body": "Get the Kingdom Report, a monthly collection of insights and analysis from Pastor Curtis and Pastor Tammy, cutting through the noise to help you stay focused on what matters most."
+  },
+  "caption": "Most Christians consume information like everyone else, but there's a better way.\n\n→ https://increasingfaith.net/newsletter.html\n\nGet the Kingdom Report, a monthly collection of insights and analysis from Pastor Curtis and Pastor Tammy, cutting through the noise to help you stay focused on what matters most.\n\n#KingdomOfGod #SpiritualGrowth #IncreasingFaith",
+  "hashtags": [
+    "#KingdomOfGod",
+    "#SpiritualGrowth",
+    "#IncreasingFaith"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-08-07.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1489495223214455",
+    "mode": "photo"
+  },
+  "postedAt": "2026-08-07T17:51:00.991Z",
+  "testMode": false
+}
