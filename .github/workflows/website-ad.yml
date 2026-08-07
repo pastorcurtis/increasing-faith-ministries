@@ -9,12 +9,21 @@ on:
     # 12 PM EST / 1 PM EDT (5 PM UTC) every day — sits between the morning
     # teaching post and the afternoon clip.
     - cron: '0 17 * * *'
-    # Catch-up pass. GitHub drops and delays scheduled runs under load: on
+    # Catch-up passes. GitHub drops and delays scheduled runs under load: on
     # 2026-08-06 this workflow failed with "job was not acquired by Runner of
-    # type hosted" and, having only one slot, lost the day outright. This run
-    # no-ops if today's ad already posted. 22:00 UTC keeps it clear of the
-    # 21:00 clip slot and safely inside the same UTC day — see the gate below
-    # for why crossing midnight UTC matters.
+    # type hosted" and, having only one slot, lost the day outright. These
+    # no-op if today's ad already posted, so extra slots cost nothing but a
+    # gate job.
+    #
+    # Two of them, not one, because that incident took out three workflows
+    # over a ~2.5h window and GitHub ran one slot 5.5h late the same day — a
+    # single retry 5h out could land inside a long enough outage and miss too.
+    #
+    # Both sit clear of the neighbouring posters (social catch-up 19:00, clip
+    # 21:00) and safely inside the same UTC day; see the gate below for why
+    # crossing midnight UTC matters. 22:00 is the last slot that can run
+    # without risking a post-midnight start.
+    - cron: '30 19 * * *'
     - cron: '0 22 * * *'
   workflow_dispatch:
     inputs:
