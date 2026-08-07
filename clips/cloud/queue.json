@@ -450,8 +450,10 @@
     },
     {
       "file": "It_s_already_done__God_has_already_done_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:31Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:31Z",
+      "video_id": "28142440965350271",
+      "posted_at": "2026-08-07T01:00:37Z"
     },
     {
       "file": "In_My_Distress_I_Called_Upon_the_Lord_0m02s_square.mp4",
@@ -751,8 +753,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 64,
-    "remaining": 60,
-    "last_updated": "2026-08-05T22:11:19Z"
+    "posted": 65,
+    "remaining": 59,
+    "last_updated": "2026-08-07T01:00:37Z"
   }
 }
