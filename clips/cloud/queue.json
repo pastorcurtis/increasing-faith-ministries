@@ -464,8 +464,10 @@
     },
     {
       "file": "In_My_Distress_I_Called_Upon_the_Lord_1_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:31Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:31Z",
+      "video_id": "1737807344154907",
+      "posted_at": "2026-08-07T21:37:02Z"
     },
     {
       "file": "If_you_re_hurting_someone_prayed_for_you_0m05s_square.mp4",
@@ -755,8 +757,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 66,
-    "remaining": 58,
-    "last_updated": "2026-08-07T14:51:03Z"
+    "posted": 67,
+    "remaining": 57,
+    "last_updated": "2026-08-07T21:37:02Z"
   }
 }
