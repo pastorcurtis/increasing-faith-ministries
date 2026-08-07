@@ -1,0 +1,253 @@
+name: Verify Daily Ad
+
+# Confirms the daily website ad ACTUALLY posted, and shouts if it did not.
+#
+# Why this exists as its own workflow rather than another catch-up cron:
+# website-ad.yml already gets three attempts (17:00 / 19:30 / 22:00 UTC), and
+# adding a fourth would still be silent when all four miss. On 2026-08-06 all
+# three of this repo's posting workflows died on a GitHub-side fault -- "The
+# job was not acquired by Runner of type hosted" -- which kills the job before
+# any step runs. Nothing executes, so the `if: failure()` alert steps never
+# fire and the repo raises nothing at all. The day was lost in total silence.
+#
+# So this asks the only question that matters: is today's ad archived? The
+# archive file is written as the last act of a real post, which makes it proof
+# in a way a green checkmark is not -- website-ad.yml's gate job can skip the
+# posting job entirely and still conclude success.
+#
+# Runs at 23:15 UTC: after all three attempts have had their chance, and
+# before midnight UTC rolls the date over.
+
+on:
+  schedule:
+    - cron: '15 23 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Report what would happen; do not dispatch or open issues'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  # actions: write is for the last-ditch dispatch below. See the honesty note
+  # in that step -- GitHub may refuse it, which is exactly why we verify.
+  actions: write
+  issues: write
+
+concurrency:
+  group: verify-daily-ad
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Did today's ad post?
+        id: check
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          # 10# forces base 10; bash reads a bare "08"/"09" as invalid octal.
+          HOUR=$((10#$(date -u +%H)))
+          echo "today=$TODAY" >> $GITHUB_OUTPUT
+
+          # Are we still in the window this check was designed for?
+          #
+          # This matters more than it looks. GitHub delays scheduled runs by
+          # hours under load -- it ran one of this repo's slots 5.5h late on
+          # 2026-08-06. If this 23:15 job actually starts after midnight UTC,
+          # then TODAY has rolled to a date whose 17:00/19:30/22:00 slots have
+          # not happened yet. Carrying on would (a) open an issue about a day
+          # that was never going to have posted yet, and worse (b) dispatch
+          # website-ad.yml, and a MANUAL dispatch always proceeds past that
+          # workflow's own midnight guard -- posting the wrong day's ad and
+          # gating off that day's legitimate 17:00 run.
+          #
+          # So: only act between 22:00 and 23:59 UTC. Outside that, stand down.
+          if [ "$HOUR" -lt 22 ]; then
+            echo "in_window=false" >> $GITHUB_OUTPUT
+            echo "posted=unknown" >> $GITHUB_OUTPUT
+            echo "::warning::Started at ${HOUR}:00 UTC, outside the 22:00-23:59 window (delayed past midnight). Standing down rather than acting on the wrong day."
+            exit 0
+          fi
+          echo "in_window=true" >> $GITHUB_OUTPUT
+
+          if [ -f "content/ad-archive/$TODAY.json" ]; then
+            echo "posted=true" >> $GITHUB_OUTPUT
+            echo "Ad for $TODAY is archived - it posted."
+          else
+            echo "posted=false" >> $GITHUB_OUTPUT
+            echo "::warning::No ad archived for $TODAY - investigating."
+          fi
+
+      # Distinguishes "never posted" from "posted but the archive push failed".
+      # Re-dispatching in the second case would double-post to the ministry
+      # page, which is worse than the miss we are trying to fix.
+      - name: Check whether it posted but failed to archive
+        id: orphan
+        if: steps.check.outputs.posted == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TODAY="${{ steps.check.outputs.today }}"
+          ORPHAN=false
+
+          for id in $(gh run list --workflow=website-ad.yml --limit 6 \
+                        --json databaseId,createdAt,conclusion \
+                        --jq ".[] | select(.createdAt | startswith(\"$TODAY\")) | select(.conclusion==\"success\") | .databaseId"); do
+            # ad.js:319 prints " ok (post <id>)" ONLY after the Graph API call
+            # comes back successful; the failure branch prints " FAILED: ...".
+            # Preview and test runs print "Preview mode" / "Test mode" instead,
+            # so neither can be mistaken for a real post.
+            #
+            # Do NOT tighten this to digits. The post id is "<pageId>_<postId>"
+            # and FACEBOOK_PAGE_ID is a secret, so Actions redacts the first
+            # half: the real line reads "ok (post ***_1487687283395249)".
+            # A [0-9_]+ pattern silently never matches, which would make this
+            # check always say "safe to retry" and double-post to the page.
+            if gh run view "$id" --log 2>/dev/null | grep -qE "ok \(post [^)]+\)"; then
+              echo "::error::Run $id posted the ad to Facebook but no archive entry exists for $TODAY."
+              ORPHAN=true
+              break
+            fi
+          done
+
+          echo "orphan=$ORPHAN" >> $GITHUB_OUTPUT
+          if [ "$ORPHAN" = "false" ]; then
+            echo "No evidence the ad reached Facebook today — safe to retry."
+          fi
+
+      # `posted` is 'unknown' when the run fell outside its window, so the
+      # 'false' comparisons below already stand it down. Do not relax them.
+      - name: Last-ditch retry
+        id: retry
+        if: steps.check.outputs.posted == 'false' && steps.orphan.outputs.orphan == 'false' && inputs.dry_run != true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BEFORE=$(gh run list --workflow=website-ad.yml --limit 1 --json databaseId --jq '.[0].databaseId')
+
+          # Honesty note: GitHub refuses to start new workflow runs from events
+          # raised with GITHUB_TOKEN, to stop workflows triggering themselves
+          # forever. This dispatch may therefore do nothing at all. That is
+          # tolerable ONLY because we verify a new run actually appeared rather
+          # than assuming -- a silent no-op here would recreate the exact
+          # failure this workflow exists to catch. If it never works, swap in a
+          # PAT with `actions: write` as ADMIN_DISPATCH_TOKEN.
+          gh workflow run website-ad.yml || echo "::warning::Dispatch call failed."
+
+          DISPATCHED=false
+          for i in $(seq 1 10); do
+            sleep 10
+            AFTER=$(gh run list --workflow=website-ad.yml --limit 1 --json databaseId --jq '.[0].databaseId')
+            if [ "$AFTER" != "$BEFORE" ]; then
+              echo "New run $AFTER started."
+              DISPATCHED=true
+              break
+            fi
+          done
+
+          if [ "$DISPATCHED" = "false" ]; then
+            echo "::warning::No new run appeared — GITHUB_TOKEN cannot dispatch here. Escalating instead."
+            echo "dispatched=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          echo "dispatched=true" >> $GITHUB_OUTPUT
+
+          # Wait it out, then re-check the ARCHIVE, not the run conclusion.
+          for i in $(seq 1 20); do
+            sleep 15
+            STATUS=$(gh run view "$AFTER" --json status --jq '.status')
+            [ "$STATUS" = "completed" ] && break
+          done
+
+          git fetch origin main --quiet
+          if git cat-file -e "origin/main:content/ad-archive/${{ steps.check.outputs.today }}.json" 2>/dev/null; then
+            echo "recovered=true" >> $GITHUB_OUTPUT
+            echo "Recovered — the ad posted on the retry."
+          else
+            echo "recovered=false" >> $GITHUB_OUTPUT
+            echo "::error::Retry ran but the ad is still not archived."
+          fi
+
+      - name: Raise the alarm
+        if: steps.check.outputs.posted == 'false' && steps.retry.outputs.recovered != 'true' && inputs.dry_run != true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TODAY="${{ steps.check.outputs.today }}"
+          TITLE="Website ad did not post - $TODAY"
+
+          # One issue per day, not one per run.
+          if gh issue list --state open --search "\"$TITLE\" in:title" --json title \
+               --jq '.[].title' | grep -qF "$TITLE"; then
+            echo "Issue already open for $TODAY."
+            exit 0
+          fi
+
+          if [ "${{ steps.orphan.outputs.orphan }}" = "true" ]; then
+            DIAG="A run today DID post the ad to Facebook, but the archive commit never landed. **Do not re-run the workflow** — the ad is probably already live and a retry would double-post. Check the Facebook page, then commit the missing archive entry by hand."
+          elif [ "${{ steps.retry.outputs.dispatched }}" = "false" ]; then
+            DIAG="No evidence the ad reached Facebook. The automatic retry could not start: GitHub blocks workflow dispatches made with \`GITHUB_TOKEN\`. Trigger \`Daily Website Ad\` manually from the Actions tab — but ONLY before 00:00 UTC, or it will post the wrong day's ad and gate off tomorrow's run."
+          else
+            DIAG="No evidence the ad reached Facebook, and an automatic retry also failed to produce an archive entry. Check the most recent \`Daily Website Ad\` run for the real error."
+          fi
+
+          # The heredoc below is indented to match this block scalar on
+          # purpose. YAML strips the common indentation before bash ever sees
+          # it, so EOF lands in column 0 as bash requires. Un-indenting it to
+          # column 0 here instead breaks OUT of the block scalar and makes the
+          # whole workflow file unparseable.
+          cat > /tmp/issue-body.md <<EOF
+          ## Daily website ad missing for $TODAY
+
+          \`content/ad-archive/$TODAY.json\` does not exist, so no ad went out today.
+
+          $DIAG
+
+          ### Why this check exists
+          A green workflow run does not prove a post happened. \`website-ad.yml\`'s
+          gate job can skip the posting job and still conclude success, and when
+          GitHub fails to hand out a runner at all, no step executes, so the
+          workflow's own failure alert never fires. The archive file is the only
+          reliable evidence.
+
+          ### Timing constraint
+          \`ad.js\` reads both the day-of-week ad rotation and the archive filename
+          off the runner's UTC clock. Any manual re-run after 00:00 UTC posts the
+          **wrong day's** ad and gates off that day's legitimate 17:00 run,
+          turning one lost day into two.
+
+          *Auto-generated by Verify Daily Ad - [run]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)*
+          EOF
+
+          gh issue create \
+            --title "$TITLE" \
+            --label "automated" \
+            --body-file /tmp/issue-body.md
+
+      - name: Summary
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            echo "### DRY RUN - detection only, nothing dispatched, no issue opened" >> $GITHUB_STEP_SUMMARY
+            echo "- in window (22:00-23:59 UTC): ${{ steps.check.outputs.in_window }}" >> $GITHUB_STEP_SUMMARY
+            echo "- ad archived for ${{ steps.check.outputs.today }}: ${{ steps.check.outputs.posted }}" >> $GITHUB_STEP_SUMMARY
+            echo "- posted to FB but unarchived: ${{ steps.orphan.outputs.orphan }}" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Live, this run would have dispatched a retry and opened an issue if still missing." >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ steps.check.outputs.in_window }}" = "false" ]; then
+            echo "### Stood down - started outside the 22:00-23:59 UTC window" >> $GITHUB_STEP_SUMMARY
+            echo "Acting after midnight UTC would target the wrong day. Left alone deliberately." >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ steps.check.outputs.posted }}" = "true" ]; then
+            echo "### Ad posted for ${{ steps.check.outputs.today }}" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "### No ad archived for ${{ steps.check.outputs.today }}" >> $GITHUB_STEP_SUMMARY
+            echo "- posted to FB but unarchived: ${{ steps.orphan.outputs.orphan }}" >> $GITHUB_STEP_SUMMARY
+            echo "- retry dispatched: ${{ steps.retry.outputs.dispatched }}" >> $GITHUB_STEP_SUMMARY
+            echo "- recovered: ${{ steps.retry.outputs.recovered }}" >> $GITHUB_STEP_SUMMARY
+          fi
