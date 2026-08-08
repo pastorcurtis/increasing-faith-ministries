@@ -478,8 +478,10 @@
     },
     {
       "file": "If_they_cut_social_media_how_will_our_me_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:31Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:31Z",
+      "video_id": "27588552284149409",
+      "posted_at": "2026-08-08T21:27:55Z"
     },
     {
       "file": "I_ve_Been_in_a_Cult__Here_s_What_I_Learn_0m02s_square.mp4",
@@ -759,8 +761,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 68,
-    "remaining": 56,
-    "last_updated": "2026-08-08T14:29:27Z"
+    "posted": 69,
+    "remaining": 55,
+    "last_updated": "2026-08-08T21:27:55Z"
   }
 }
