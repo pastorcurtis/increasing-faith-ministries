@@ -471,8 +471,10 @@
     },
     {
       "file": "If_you_re_hurting_someone_prayed_for_you_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:31Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:31Z",
+      "video_id": "1041144948537321",
+      "posted_at": "2026-08-08T14:29:27Z"
     },
     {
       "file": "If_they_cut_social_media_how_will_our_me_0m02s_square.mp4",
@@ -757,8 +759,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 67,
-    "remaining": 57,
-    "last_updated": "2026-08-07T21:37:02Z"
+    "posted": 68,
+    "remaining": 56,
+    "last_updated": "2026-08-08T14:29:27Z"
   }
 }
