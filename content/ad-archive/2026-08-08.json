@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-08",
+  "day": 6,
+  "label": "Give",
+  "destination": "https://increasingfaith.net/give.html",
+  "button": "SOW INTO THE WORK",
+  "copy": {
+    "headline": "Your investment matters",
+    "subhead": "Funding discipleship and Kingdom influence",
+    "hook": "As a partner in this ministry, you play a crucial role in spreading the Gospel",
+    "body": "Your financial support enables us to disciple believers and extend Kingdom influence. Consider sowing into this work today."
+  },
+  "caption": "As a partner in this ministry, you play a crucial role in spreading the Gospel\n\n→ https://increasingfaith.net/give.html\n\nYour financial support enables us to disciple believers and extend Kingdom influence. Consider sowing into this work today.\n\n#KingdomLiving #IFM #IncreasingFaith",
+  "hashtags": [
+    "#KingdomLiving",
+    "#IFM",
+    "#IncreasingFaith"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-08-08.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1490323166464994",
+    "mode": "photo"
+  },
+  "postedAt": "2026-08-08T17:32:57.297Z",
+  "testMode": false
+}
