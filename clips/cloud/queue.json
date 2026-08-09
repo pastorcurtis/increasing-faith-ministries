@@ -485,8 +485,10 @@
     },
     {
       "file": "I_ve_Been_in_a_Cult__Here_s_What_I_Learn_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:31Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:31Z",
+      "video_id": "4367922213424614",
+      "posted_at": "2026-08-09T14:32:05Z"
     },
     {
       "file": "I_m_friendly_but_I_won_t_be_your_girlfri_0m02s_square.mp4",
@@ -761,8 +763,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 69,
-    "remaining": 55,
-    "last_updated": "2026-08-08T21:27:55Z"
+    "posted": 70,
+    "remaining": 54,
+    "last_updated": "2026-08-09T14:32:05Z"
   }
 }
