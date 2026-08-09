@@ -1,0 +1,67 @@
+{
+  "date": "2026-08-09",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "Dear one, I see you in the midst of struggle. I see you fighting for every breath, every step, every heartbeat. But I want you to know that it's in these moments that you're being shaped, sharpened, and refined. Your faith is being tested, and it's being refined like gold in the fire. Don't be afraid of the process, because it's in the fire that you'll discover the strength and the beauty that's been in you all along. \n\n",
+      "hashtags": [
+        "#JesusIsLord",
+        "#IncreasingFaith",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "Dear one, I see you in the midst of struggle. I see you fighting for every breath, every step, every heartbeat. But I want you to know that it's in these moments that you're being shaped, sharpened, and refined. Your faith is being tested, and it's being refined like gold in the fire. Don't be afraid of the process, because it's in the fire that you'll discover the strength and the beauty that's been in you all along. \n\n\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#JesusIsLord #IncreasingFaith #KingdomCitizen",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-08-09.png",
+      "pullQuote": "It's in the fire that you'll discover the strength and the beauty that's been in you all along.",
+      "attribution": "Pastoral Word"
+    },
+    "instagram": {
+      "content": "You are not defined by your past. You are not limited by your current circumstances. You are a child of the King, and as such, you have the power to create a new tomorrow. Don't let yesterday's failures dictate your today. \n\nYou have a fresh start. You have a new beginning. And you have the wisdom of God to guide you. Don't waste it.\n\n",
+      "hashtags": [
+        "#Jesus",
+        "#KingdomOfGod",
+        "#JesusIsLord",
+        "#KingdomCitizen",
+        "#IFM",
+        "#Faith",
+        "#KingdomLiving",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "You are not defined by your past. You are not limited by your current circumstances. You are a child of the King, and as such, you have the power to create a new tomorrow. Don't let yesterday's failures dictate your today. \n\nYou have a fresh start. You have a new beginning. And you have the wisdom of God to guide you. Don't waste it.\n\n\n\nLearn more about our mission → Link in bio\n\n#Jesus #KingdomOfGod #JesusIsLord #KingdomCitizen #IFM #Faith #KingdomLiving #IncreasingFaith"
+    },
+    "tiktok": {
+      "content": "\"Listen, I want you to know that you're not just fighting against the enemy, you're fighting for your breakthrough. It's time to get to the root of what's been holding you back and start pulling it up by the roots. You're not just waiting on God to move, you're a co-laborer in His kingdom.",
+      "hashtags": [
+        "#JesusIsLord",
+        "#KingdomOfGod",
+        "#Faith",
+        "#IncreasingFaith",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "\"Listen, I want you to know that you're not just fighting against the enemy, you're fighting for your breakthrough. It's time to get to the root of what's been holding you back and start pulling it up by the roots. You're not just waiting on God to move, you're a co-laborer in His kingdom.\n\nLearn more about our mission → Link in bio\n\n#JesusIsLord #KingdomOfGod #Faith #IncreasingFaith #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-08-09T14:32:20.410Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1491030203060957",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-08-09T14:32:25.053Z",
+  "testMode": false
+}
