@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-09",
+  "day": 0,
+  "label": "Start Here",
+  "destination": "https://increasingfaith.net/",
+  "button": "START HERE",
+  "copy": {
+    "headline": "Most people look for answers in the wrong rooms.",
+    "subhead": "You've been searching for a place to belong.",
+    "hook": "You might be surprised what happens when you walk through a door that's been waiting for you.",
+    "body": "You don't have to keep circling. The front door to a deeper understanding of faith is right in front of you. Click the START HERE button to step into clarity and connection."
+  },
+  "caption": "You might be surprised what happens when you walk through a door that's been waiting for you.\n\n→ https://increasingfaith.net/\n\nYou don't have to keep circling. The front door to a deeper understanding of faith is right in front of you. Click the START HERE button to step into clarity and connection.\n\n#Jesus #KingdomOfGod #IncreasingFaith",
+  "hashtags": [
+    "#Jesus",
+    "#KingdomOfGod",
+    "#IncreasingFaith"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-08-09.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1491176386379672",
+    "mode": "photo"
+  },
+  "postedAt": "2026-08-09T17:33:43.091Z",
+  "testMode": false
+}
