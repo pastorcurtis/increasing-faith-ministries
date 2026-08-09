@@ -492,8 +492,10 @@
     },
     {
       "file": "I_m_friendly_but_I_won_t_be_your_girlfri_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:31Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:31Z",
+      "video_id": "905139232180580",
+      "posted_at": "2026-08-09T21:30:13Z"
     },
     {
       "file": "I_was_mad_at_God__He_still_kept_me_0m05s_square.mp4",
@@ -763,8 +765,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 70,
-    "remaining": 54,
-    "last_updated": "2026-08-09T14:32:05Z"
+    "posted": 71,
+    "remaining": 53,
+    "last_updated": "2026-08-09T21:30:13Z"
   }
 }
