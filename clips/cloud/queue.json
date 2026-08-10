@@ -506,8 +506,10 @@
     },
     {
       "file": "How_to_Pray_Don_t_Rehearse_the_Problem_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:32Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:32Z",
+      "video_id": "4190836494383544",
+      "posted_at": "2026-08-10T21:39:02Z"
     },
     {
       "file": "How_my_grandmother_taught_me_to_fight_ba_0m05s_square.mp4",
@@ -767,8 +769,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 72,
-    "remaining": 52,
-    "last_updated": "2026-08-10T14:56:04Z"
+    "posted": 73,
+    "remaining": 51,
+    "last_updated": "2026-08-10T21:39:02Z"
   }
 }
