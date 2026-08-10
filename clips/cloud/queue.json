@@ -499,8 +499,10 @@
     },
     {
       "file": "I_was_mad_at_God__He_still_kept_me_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:31Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:31Z",
+      "video_id": "2880825372251050",
+      "posted_at": "2026-08-10T14:56:04Z"
     },
     {
       "file": "How_to_Pray_Don_t_Rehearse_the_Problem_0m02s_square.mp4",
@@ -765,8 +767,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 71,
-    "remaining": 53,
-    "last_updated": "2026-08-09T21:30:13Z"
+    "posted": 72,
+    "remaining": 52,
+    "last_updated": "2026-08-10T14:56:04Z"
   }
 }
