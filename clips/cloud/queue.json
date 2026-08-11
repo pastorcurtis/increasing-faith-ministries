@@ -513,8 +513,10 @@
     },
     {
       "file": "How_my_grandmother_taught_me_to_fight_ba_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:32Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:32Z",
+      "video_id": "1020566737276222",
+      "posted_at": "2026-08-11T14:55:08Z"
     },
     {
       "file": "How_fasting_may_protect_your_body_from_d_0m02s_square.mp4",
@@ -769,8 +771,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 73,
-    "remaining": 51,
-    "last_updated": "2026-08-10T21:39:02Z"
+    "posted": 74,
+    "remaining": 50,
+    "last_updated": "2026-08-11T14:55:08Z"
   }
 }
