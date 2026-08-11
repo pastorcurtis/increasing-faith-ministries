@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-11",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "You've been carrying it for too long.",
+    "subhead": "Send your burden to those who pray with faith.",
+    "hook": "We don't just hear prayers, we pray over them.",
+    "body": "A real request goes to real people who will lift your concerns to God. No appointment, no membership, no performance required. Just send your request and let us pray for you."
+  },
+  "caption": "We don't just hear prayers, we pray over them.\n\n→ https://increasingfaith.net/prayer.html\n\nA real request goes to real people who will lift your concerns to God. No appointment, no membership, no performance required. Just send your request and let us pray for you.\n\n#PrayerFocus #IFM #KingdomOfGod",
+  "hashtags": [
+    "#PrayerFocus",
+    "#IFM",
+    "#KingdomOfGod"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-08-11.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1492909029539741",
+    "mode": "photo"
+  },
+  "postedAt": "2026-08-11T17:59:05.872Z",
+  "testMode": false
+}
