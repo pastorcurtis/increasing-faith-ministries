@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-12",
+  "day": 3,
+  "label": "Visit",
+  "destination": "https://increasingfaith.net/visit.html",
+  "button": "PLAN YOUR VISIT",
+  "copy": {
+    "headline": "You can experience the Kingdom right in your community.",
+    "subhead": "Join us in Southfield for a relaxed, authentic atmosphere.",
+    "hook": "Don't let uncertainty keep you from experiencing the power of faith.",
+    "body": "Our First Saturday service starts at 12 Noon at 24301 Telegraph in Southfield, MI. Or, join us online weekdays at 8:15 AM for our Hour of Power. Take the first step by planning your visit today and discover the difference for yourself."
+  },
+  "caption": "Don't let uncertainty keep you from experiencing the power of faith.\n\n→ https://increasingfaith.net/visit.html\n\nOur First Saturday service starts at 12 Noon at 24301 Telegraph in Southfield, MI. Or, join us online weekdays at 8:15 AM for our Hour of Power. Take the first step by planning your visit today and discover the difference for yourself.\n\n#Detroit #KingdomOfGod #IncreasingFaith",
+  "hashtags": [
+    "#Detroit",
+    "#KingdomOfGod",
+    "#IncreasingFaith"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-08-12.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1493898059440838",
+    "mode": "photo"
+  },
+  "postedAt": "2026-08-12T17:58:51.284Z",
+  "testMode": false
+}
