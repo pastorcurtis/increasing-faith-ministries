@@ -1,0 +1,67 @@
+{
+  "date": "2026-08-13",
+  "day": 4,
+  "theme": "Prayer Focus",
+  "themeType": "prayer_focus",
+  "targetPage": "https://increasingfaith.net/prayer.html",
+  "posts": {
+    "facebook": {
+      "content": "Family\n\nAs we focus on rebuilding our homes and strengthening our family bonds, let us pray for a revival of love and unity within our families. \n\nLord, I declare that every family connected to Increasing Faith Ministries will be filled with Your presence and Your love. Let Your Spirit bring correction and restoration to any broken relationships, and fill our homes with laughter, joy, and peace. I decree that every child will be raised with a strong sense of identity and purpose in Christ.\n\n",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#Intercession"
+      ],
+      "cta": "\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html",
+      "fullPost": "Family\n\nAs we focus on rebuilding our homes and strengthening our family bonds, let us pray for a revival of love and unity within our families. \n\nLord, I declare that every family connected to Increasing Faith Ministries will be filled with Your presence and Your love. Let Your Spirit bring correction and restoration to any broken relationships, and fill our homes with laughter, joy, and peace. I decree that every child will be raised with a strong sense of identity and purpose in Christ.\n\n\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html\n\n#IncreasingFaith #KingdomOfGod #Intercession",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-08-13.png",
+      "pullQuote": "Let Your Spirit bring correction and restoration to any broken relationships.",
+      "attribution": "Prayer Focus"
+    },
+    "instagram": {
+      "content": "Prayer Focus: Family\n\nMy family will be the salt and light that shines in our communities. We will be a force for change, bringing healing and hope to those around us.\n\nFather, we declare that our families are a sacred institution in the kingdom. We call forth the revelation of your love and purposes in our homes. Let your glory be revealed in the way we love and serve one another.\n\n",
+      "hashtags": [
+        "#KingdomPrayer",
+        "#KingdomLiving",
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#Intercession",
+        "#PrayerFocus",
+        "#IFM",
+        "#Prayer"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Prayer Focus: Family\n\nMy family will be the salt and light that shines in our communities. We will be a force for change, bringing healing and hope to those around us.\n\nFather, we declare that our families are a sacred institution in the kingdom. We call forth the revelation of your love and purposes in our homes. Let your glory be revealed in the way we love and serve one another.\n\n\n\nSubmit your prayer request → Link in bio\n\n#KingdomPrayer #KingdomLiving #IncreasingFaith #KingdomOfGod #Intercession #PrayerFocus #IFM #Prayer"
+    },
+    "tiktok": {
+      "content": "This week, our focus is on Family. We're seeing families torn apart by conflict, stress, and anxiety. Here's a prayer for restoration:\n\n\"Our Father, we decree Your peace and love over every family. Break down walls of division and fill hearts with forgiveness.",
+      "hashtags": [
+        "#KingdomPrayer",
+        "#Prayer",
+        "#Intercession",
+        "#KingdomLiving",
+        "#IFM"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "This week, our focus is on Family. We're seeing families torn apart by conflict, stress, and anxiety. Here's a prayer for restoration:\n\n\"Our Father, we decree Your peace and love over every family. Break down walls of division and fill hearts with forgiveness.\n\nSubmit your prayer request → Link in bio\n\n#KingdomPrayer #Prayer #Intercession #KingdomLiving #IFM"
+    }
+  },
+  "generatedAt": "2026-08-13T14:55:03.196Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1494652699365374",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-08-13T14:55:07.676Z",
+  "testMode": false
+}
