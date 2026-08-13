@@ -548,8 +548,10 @@
     },
     {
       "file": "How_I_know_the_voice_of_God_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:32Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:32Z",
+      "video_id": "1350301410634479",
+      "posted_at": "2026-08-13T21:42:26Z"
     },
     {
       "file": "How_I_apologized_to_my_daughter__and_wha_0m05s_square.mp4",
@@ -779,8 +781,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 78,
-    "remaining": 46,
-    "last_updated": "2026-08-13T14:54:50Z"
+    "posted": 79,
+    "remaining": 45,
+    "last_updated": "2026-08-13T21:42:26Z"
   }
 }
