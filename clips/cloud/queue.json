@@ -562,8 +562,10 @@
     },
     {
       "file": "Healing_requires_action_Hezekiah__the_f_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:32Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:32Z",
+      "video_id": "1588996859524631",
+      "posted_at": "2026-08-14T21:23:03Z"
     },
     {
       "file": "Good_Leaders_Say_Go_to_Counsel_Not_Just_0m05s_square.mp4",
@@ -783,8 +785,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 80,
-    "remaining": 44,
-    "last_updated": "2026-08-14T14:48:10Z"
+    "posted": 81,
+    "remaining": 43,
+    "last_updated": "2026-08-14T21:23:03Z"
   }
 }
