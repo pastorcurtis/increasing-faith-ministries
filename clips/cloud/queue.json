@@ -555,8 +555,10 @@
     },
     {
       "file": "How_I_apologized_to_my_daughter__and_wha_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:32Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:32Z",
+      "video_id": "1018338167740154",
+      "posted_at": "2026-08-14T14:48:10Z"
     },
     {
       "file": "Healing_requires_action_Hezekiah__the_f_0m05s_square.mp4",
@@ -781,8 +783,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 79,
-    "remaining": 45,
-    "last_updated": "2026-08-13T21:42:26Z"
+    "posted": 80,
+    "remaining": 44,
+    "last_updated": "2026-08-14T14:48:10Z"
   }
 }
