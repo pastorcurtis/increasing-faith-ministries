@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-14",
+  "day": 5,
+  "label": "Kingdom Report",
+  "destination": "https://increasingfaith.net/newsletter.html",
+  "button": "GET THE REPORT",
+  "copy": {
+    "headline": "The noise is everywhere. This is the signal you've been.",
+    "subhead": "Get monthly Kingdom intelligence delivered straight to your inbox.",
+    "hook": "Tired of drowning in social media noise? We're about to change that.",
+    "body": "The Kingdom Report is your monthly source for in-depth analysis of current events, spiritual insights, and practical advice from Pastor Curtis and Pastor Tammy Stephens. Stay ahead of the curve with our unique perspective on the world and the Kingdom of God."
+  },
+  "caption": "Tired of drowning in social media noise? We're about to change that.\n\n→ https://increasingfaith.net/newsletter.html\n\nThe Kingdom Report is your monthly source for in-depth analysis of current events, spiritual insights, and practical advice from Pastor Curtis and Pastor Tammy Stephens. Stay ahead of the curve with our unique perspective on the world and the Kingdom of God.\n\n#Discipleship #KingdomOfGod #IncreasingFaith",
+  "hashtags": [
+    "#Discipleship",
+    "#KingdomOfGod",
+    "#IncreasingFaith"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-08-14.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1495670955930215",
+    "mode": "photo"
+  },
+  "postedAt": "2026-08-14T17:54:49.449Z",
+  "testMode": false
+}
