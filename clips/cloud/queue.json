@@ -569,8 +569,10 @@
     },
     {
       "file": "Good_Leaders_Say_Go_to_Counsel_Not_Just_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:32Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:32Z",
+      "video_id": "4586135354997556",
+      "posted_at": "2026-08-15T14:19:28Z"
     },
     {
       "file": "God_s_thoughts_are_for_your_peace__not_p_0m05s_square.mp4",
@@ -785,8 +787,8 @@
   ],
   "stats": {
     "total": 124,
-    "posted": 81,
-    "remaining": 43,
-    "last_updated": "2026-08-14T21:23:03Z"
+    "posted": 82,
+    "remaining": 42,
+    "last_updated": "2026-08-15T14:19:28Z"
   }
 }
