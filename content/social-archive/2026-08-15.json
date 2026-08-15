@@ -1,0 +1,67 @@
+{
+  "date": "2026-08-15",
+  "day": 6,
+  "theme": "Worship Reminder",
+  "themeType": "event_reminder",
+  "targetPage": "https://increasingfaith.net/visit.html",
+  "posts": {
+    "facebook": {
+      "content": "It's your Pastor Curtis here, and I want to remind you to join us for worship this month. Every First Saturday, we gather in person at 24301 Telegraph in Southfield, Michigan, at 12 Noon. We'll lift our voices, receive healing, and be empowered for the battles ahead.\n\nBut it's not just once a month – we also gather daily online for our Hour of Power. Join us Monday through Friday at 8:15 AM on Facebook Live for a powerful dose of spiritual nourishment.\n\nWho's joining us for worship this week?",
+      "hashtags": [
+        "#JesusIsLord",
+        "#KingdomLiving",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html",
+      "fullPost": "It's your Pastor Curtis here, and I want to remind you to join us for worship this month. Every First Saturday, we gather in person at 24301 Telegraph in Southfield, Michigan, at 12 Noon. We'll lift our voices, receive healing, and be empowered for the battles ahead.\n\nBut it's not just once a month – we also gather daily online for our Hour of Power. Join us Monday through Friday at 8:15 AM on Facebook Live for a powerful dose of spiritual nourishment.\n\nWho's joining us for worship this week?\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html\n\n#JesusIsLord #KingdomLiving #KingdomOfGod",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-08-15.png",
+      "pullQuote": "We'll lift our voices, receive healing, and be empowered for the battles ahead.",
+      "attribution": "Worship Reminder"
+    },
+    "instagram": {
+      "content": "It's time to gather with our family \nIn Southfield, MI: First Saturdays, 12 Noon at 24301 Telegraph. Let's come together and encounter the presence of the Lord.\n\nAnd if you can't join us in person...\n\nJoin us online every Mon-Fri at 8:15 AM on Facebook Live for our Hour of Power. Your daily dose of faith and hope.\n\nWho's joining us tonight?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#KingdomCitizen",
+        "#JesusIsLord",
+        "#IFM",
+        "#KingdomLiving",
+        "#Faith",
+        "#Jesus"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "It's time to gather with our family \nIn Southfield, MI: First Saturdays, 12 Noon at 24301 Telegraph. Let's come together and encounter the presence of the Lord.\n\nAnd if you can't join us in person...\n\nJoin us online every Mon-Fri at 8:15 AM on Facebook Live for our Hour of Power. Your daily dose of faith and hope.\n\nWho's joining us tonight?\n\nJoin us for worship → Link in bio\n\n#KingdomOfGod #IncreasingFaith #KingdomCitizen #JesusIsLord #IFM #KingdomLiving #Faith #Jesus"
+    },
+    "tiktok": {
+      "content": "\"Hey friends, don't forget about our Monthly Worship Gathering this Saturday at 12 Noon at 24301 Telegraph in Southfield. Come be blessed, come be refreshed. And don't miss our daily Hour of Power Mon-Fri 8:15 AM on Facebook Live. Your soul needs it! Who's joining us?\"",
+      "hashtags": [
+        "#IFM",
+        "#IncreasingFaith",
+        "#JesusIsLord",
+        "#Jesus",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "\"Hey friends, don't forget about our Monthly Worship Gathering this Saturday at 12 Noon at 24301 Telegraph in Southfield. Come be blessed, come be refreshed. And don't miss our daily Hour of Power Mon-Fri 8:15 AM on Facebook Live. Your soul needs it! Who's joining us?\"\n\nJoin us for worship → Link in bio\n\n#IFM #IncreasingFaith #JesusIsLord #Jesus #KingdomOfGod"
+    }
+  },
+  "generatedAt": "2026-08-15T14:19:43.796Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1496448235852487",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-08-15T14:19:52.170Z",
+  "testMode": false
+}
