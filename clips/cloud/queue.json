@@ -597,8 +597,10 @@
     },
     {
       "file": "God_told_me__I_trusted_some_people_to_ge_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:32Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:32Z",
+      "video_id": "28308580402128911",
+      "posted_at": "2026-08-17T14:24:28Z"
     },
     {
       "file": "God_told_me_I_m_not_going_to_change_him_0m05s_square.mp4",
@@ -893,7 +895,8 @@
   ],
   "stats": {
     "total": 144,
-    "posted": 85,
-    "remaining": 59
+    "posted": 86,
+    "remaining": 58,
+    "last_updated": "2026-08-17T14:24:28Z"
   }
 }
