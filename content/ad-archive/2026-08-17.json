@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-17",
+  "day": 1,
+  "label": "Teachings",
+  "destination": "https://increasingfaith.net/teachings.html",
+  "button": "WATCH THE TEACHING",
+  "copy": {
+    "headline": "You went into this week empty. That was avoidable.",
+    "subhead": "The teaching library is free, and it is already waiting on you.",
+    "hook": "Monday exposes what you did not build on Sunday.",
+    "body": "Every teaching we have is sitting on the site right now — no cost, no login, no schedule to keep. The word you needed this morning was already there. Go get it before Tuesday looks the same."
+  },
+  "caption": "Monday exposes what you did not build on Sunday.\n\n→ https://increasingfaith.net/teachings.html\n\nEvery teaching we have is sitting on the site right now — no cost, no login, no schedule to keep. The word you needed this morning was already there. Go get it before Tuesday looks the same.\n\n#BibleTeaching #KingdomLiving #IFM",
+  "hashtags": [
+    "#BibleTeaching",
+    "#KingdomLiving",
+    "#IFM"
+  ],
+  "usedFallback": true,
+  "graphic": "ad-2026-08-17.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1498375052326472",
+    "mode": "photo"
+  },
+  "postedAt": "2026-08-17T17:28:05.946Z",
+  "testMode": false
+}
