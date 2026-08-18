@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-18",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "Your prayer request does not need an appointment.",
+    "subhead": "Send it now. Real people will pray over it by name.",
+    "hook": "Some of you are carrying something you have not said out loud to anyone.",
+    "body": "You do not have to be a member. You do not have to word it right. You do not have to explain why you waited this long. Send the request — we pray over every single one."
+  },
+  "caption": "Some of you are carrying something you have not said out loud to anyone.\n\n→ https://increasingfaith.net/prayer.html\n\nYou do not have to be a member. You do not have to word it right. You do not have to explain why you waited this long. Send the request — we pray over every single one.\n\n#KingdomOfGod #IFM #KingdomPrayer",
+  "hashtags": [
+    "#KingdomOfGod",
+    "#IFM",
+    "#KingdomPrayer"
+  ],
+  "usedFallback": true,
+  "graphic": "ad-2026-08-18.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1499242392239738",
+    "mode": "photo"
+  },
+  "postedAt": "2026-08-18T17:29:49.582Z",
+  "testMode": false
+}
