@@ -611,8 +611,10 @@
     },
     {
       "file": "God_still_loves_you__even_after_mistakes_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:32Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:32Z",
+      "video_id": "1963012151063085",
+      "posted_at": "2026-08-18T14:30:47Z"
     },
     {
       "file": "God_remains_faithful_even_when_we_fail_0m05s_square.mp4",
@@ -897,8 +899,8 @@
   ],
   "stats": {
     "total": 144,
-    "posted": 87,
-    "remaining": 57,
-    "last_updated": "2026-08-17T21:23:33Z"
+    "posted": 88,
+    "remaining": 56,
+    "last_updated": "2026-08-18T14:30:47Z"
   }
 }
