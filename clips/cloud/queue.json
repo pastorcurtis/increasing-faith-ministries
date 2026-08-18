@@ -618,8 +618,10 @@
     },
     {
       "file": "God_remains_faithful_even_when_we_fail_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "920916267159590",
+      "posted_at": "2026-08-18T21:21:53Z"
     },
     {
       "file": "God_is_speaking_to_the_next_generation_0m05s_square.mp4",
@@ -899,8 +901,8 @@
   ],
   "stats": {
     "total": 144,
-    "posted": 88,
-    "remaining": 56,
-    "last_updated": "2026-08-18T14:30:47Z"
+    "posted": 89,
+    "remaining": 55,
+    "last_updated": "2026-08-18T21:21:53Z"
   }
 }
