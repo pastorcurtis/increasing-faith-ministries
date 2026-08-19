@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-19",
+  "day": 3,
+  "label": "Visit",
+  "destination": "https://increasingfaith.net/visit.html",
+  "button": "PLAN YOUR VISIT",
+  "copy": {
+    "headline": "You have thought about coming. Here is how.",
+    "subhead": "First Saturday, 12 Noon — 24301 Telegraph, Southfield MI.",
+    "hook": "The hardest part of showing up is not knowing what showing up looks like.",
+    "body": "In person: First Saturday at 12 Noon, 24301 Telegraph, Southfield MI. Online: Hour of Power, weekday mornings at 8:15. That is it. No dress code to decode, no ritual to learn first. Come as you are and see."
+  },
+  "caption": "The hardest part of showing up is not knowing what showing up looks like.\n\n→ https://increasingfaith.net/visit.html\n\nIn person: First Saturday at 12 Noon, 24301 Telegraph, Southfield MI. Online: Hour of Power, weekday mornings at 8:15. That is it. No dress code to decode, no ritual to learn first. Come as you are and see.\n\n#KingdomLiving #IncreasingFaith #KingdomCommunity",
+  "hashtags": [
+    "#KingdomLiving",
+    "#IncreasingFaith",
+    "#KingdomCommunity"
+  ],
+  "usedFallback": true,
+  "graphic": "ad-2026-08-19.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1500130632150914",
+    "mode": "photo"
+  },
+  "postedAt": "2026-08-19T17:28:55.795Z",
+  "testMode": false
+}
