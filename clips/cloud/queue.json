@@ -639,8 +639,10 @@
     },
     {
       "file": "God_gives_instructions_on_how_to_create_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "1048602614451880",
+      "posted_at": "2026-08-20T14:33:43Z"
     },
     {
       "file": "God_gave_us_dominion__now_handle_it_0m05s_square.mp4",
@@ -905,8 +907,8 @@
   ],
   "stats": {
     "total": 144,
-    "posted": 91,
-    "remaining": 53,
-    "last_updated": "2026-08-19T21:23:06Z"
+    "posted": 92,
+    "remaining": 52,
+    "last_updated": "2026-08-20T14:33:43Z"
   }
 }
