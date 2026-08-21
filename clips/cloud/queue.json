@@ -660,8 +660,10 @@
     },
     {
       "file": "God_didn_t_tell_you_to_give_payroll_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "1953334952020784",
+      "posted_at": "2026-08-21T21:22:05Z"
     },
     {
       "file": "God_didn_t_give_us_the_spirit_of_fear__p_0m05s_square.mp4",
@@ -911,8 +913,8 @@
   ],
   "stats": {
     "total": 144,
-    "posted": 94,
-    "remaining": 50,
-    "last_updated": "2026-08-21T14:32:38Z"
+    "posted": 95,
+    "remaining": 49,
+    "last_updated": "2026-08-21T21:22:05Z"
   }
 }
