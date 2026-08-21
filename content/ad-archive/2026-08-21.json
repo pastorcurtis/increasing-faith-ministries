@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-21",
+  "day": 5,
+  "label": "Kingdom Report",
+  "destination": "https://increasingfaith.net/newsletter.html",
+  "button": "GET THE REPORT",
+  "copy": {
+    "headline": "Your feed is loud. Very little of it is signal.",
+    "subhead": "The Kingdom Report: monthly substance, straight to your inbox.",
+    "hook": "You do not need more content. You need something worth keeping.",
+    "body": "The Kingdom Report goes out monthly — teaching, insight, and what is actually happening in this ministry. No filler, no daily noise, nothing sold to you. Subscribe once and read something that holds up."
+  },
+  "caption": "You do not need more content. You need something worth keeping.\n\n→ https://increasingfaith.net/newsletter.html\n\nThe Kingdom Report goes out monthly — teaching, insight, and what is actually happening in this ministry. No filler, no daily noise, nothing sold to you. Subscribe once and read something that holds up.\n\n#KingdomTeaching #KingdomOfGod #SpiritualGrowth",
+  "hashtags": [
+    "#KingdomTeaching",
+    "#KingdomOfGod",
+    "#SpiritualGrowth"
+  ],
+  "usedFallback": true,
+  "graphic": "ad-2026-08-21.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1502059608624683",
+    "mode": "photo"
+  },
+  "postedAt": "2026-08-21T17:31:05.102Z",
+  "testMode": false
+}
