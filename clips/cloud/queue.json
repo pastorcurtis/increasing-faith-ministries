@@ -653,8 +653,10 @@
     },
     {
       "file": "God_doesn_t_sell_blessings__learn_to_hea_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "2716264432101898",
+      "posted_at": "2026-08-21T14:32:38Z"
     },
     {
       "file": "God_didn_t_tell_you_to_give_payroll_0m05s_square.mp4",
@@ -909,8 +911,8 @@
   ],
   "stats": {
     "total": 144,
-    "posted": 93,
-    "remaining": 51,
-    "last_updated": "2026-08-20T21:25:51Z"
+    "posted": 94,
+    "remaining": 50,
+    "last_updated": "2026-08-21T14:32:38Z"
   }
 }
