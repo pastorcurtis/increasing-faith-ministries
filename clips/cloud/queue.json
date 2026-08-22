@@ -674,8 +674,10 @@
     },
     {
       "file": "God_already_finished_your_life_promises_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "1779268623093932",
+      "posted_at": "2026-08-22T21:19:47Z"
     },
     {
       "file": "Go_to_God_first__don_t_take_counsel_from_0m05s_square.mp4",
@@ -915,8 +917,8 @@
   ],
   "stats": {
     "total": 144,
-    "posted": 96,
-    "remaining": 48,
-    "last_updated": "2026-08-22T14:18:40Z"
+    "posted": 97,
+    "remaining": 47,
+    "last_updated": "2026-08-22T21:19:47Z"
   }
 }
