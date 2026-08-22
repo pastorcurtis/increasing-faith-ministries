@@ -667,8 +667,10 @@
     },
     {
       "file": "God_didn_t_give_us_the_spirit_of_fear__p_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "1541871843799407",
+      "posted_at": "2026-08-22T14:18:40Z"
     },
     {
       "file": "God_already_finished_your_life_promises_0m05s_square.mp4",
@@ -913,8 +915,8 @@
   ],
   "stats": {
     "total": 144,
-    "posted": 95,
-    "remaining": 49,
-    "last_updated": "2026-08-21T21:22:05Z"
+    "posted": 96,
+    "remaining": 48,
+    "last_updated": "2026-08-22T14:18:40Z"
   }
 }
