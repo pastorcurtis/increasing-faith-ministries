@@ -688,8 +688,10 @@
     },
     {
       "file": "Give_from_Love_Not_Fear_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "1566803201891563",
+      "posted_at": "2026-08-23T21:19:12Z"
     },
     {
       "file": "Give_Me_Your_Last_Meal_A_Lesson_in_Faith_0m05s_square.mp4",
@@ -919,8 +921,8 @@
   ],
   "stats": {
     "total": 144,
-    "posted": 98,
-    "remaining": 46,
-    "last_updated": "2026-08-23T14:20:20Z"
+    "posted": 99,
+    "remaining": 45,
+    "last_updated": "2026-08-23T21:19:12Z"
   }
 }
