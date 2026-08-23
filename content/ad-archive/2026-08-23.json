@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-23",
+  "day": 0,
+  "label": "Start Here",
+  "destination": "https://increasingfaith.net/",
+  "button": "START HERE",
+  "copy": {
+    "headline": "You do not have to have it figured out to begin.",
+    "subhead": "Everything we teach, pray, and build starts in one place.",
+    "hook": "Some of you have been circling faith for years without a front door.",
+    "body": "This is the door. Teaching, prayer, community, and a clear path forward — all in one place, all open to you right now. You do not need credentials. You need a starting point."
+  },
+  "caption": "Some of you have been circling faith for years without a front door.\n\n→ https://increasingfaith.net/\n\nThis is the door. Teaching, prayer, community, and a clear path forward — all in one place, all open to you right now. You do not need credentials. You need a starting point.\n\n#IFM #KingdomOfGod #Jesus",
+  "hashtags": [
+    "#IFM",
+    "#KingdomOfGod",
+    "#Jesus"
+  ],
+  "usedFallback": true,
+  "graphic": "ad-2026-08-23.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1503820491781928",
+    "mode": "photo"
+  },
+  "postedAt": "2026-08-23T17:22:37.748Z",
+  "testMode": false
+}
