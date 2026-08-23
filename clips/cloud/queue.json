@@ -681,8 +681,10 @@
     },
     {
       "file": "Go_to_God_first__don_t_take_counsel_from_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "1083452737569036",
+      "posted_at": "2026-08-23T14:20:20Z"
     },
     {
       "file": "Give_from_Love_Not_Fear_0m02s_square.mp4",
@@ -917,8 +919,8 @@
   ],
   "stats": {
     "total": 144,
-    "posted": 97,
-    "remaining": 47,
-    "last_updated": "2026-08-22T21:19:47Z"
+    "posted": 98,
+    "remaining": 46,
+    "last_updated": "2026-08-23T14:20:20Z"
   }
 }
