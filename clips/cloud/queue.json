@@ -695,8 +695,10 @@
     },
     {
       "file": "Give_Me_Your_Last_Meal_A_Lesson_in_Faith_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "1389743399785507",
+      "posted_at": "2026-08-24T14:39:02Z"
     },
     {
       "file": "Fear_broken_promises_and_Black_resilienc_0m05s_square.mp4",
@@ -926,7 +928,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 99,
-    "remaining": 46
+    "posted": 100,
+    "remaining": 45,
+    "last_updated": "2026-08-24T14:39:02Z"
   }
 }
