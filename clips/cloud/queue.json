@@ -702,8 +702,10 @@
     },
     {
       "file": "Fear_broken_promises_and_Black_resilienc_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "1980626965984956",
+      "posted_at": "2026-08-24T21:26:27Z"
     },
     {
       "file": "Fast_by_feasting_on_the_Word_not_food_0m05s_square.mp4",
@@ -928,8 +930,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 100,
-    "remaining": 45,
-    "last_updated": "2026-08-24T14:39:02Z"
+    "posted": 101,
+    "remaining": 44,
+    "last_updated": "2026-08-24T21:26:27Z"
   }
 }
