@@ -2,7 +2,10 @@
  * newsletter-generator.js - AI-Powered Newsletter Content Generator
  *
  * Takes gathered content and generates a complete Kingdom-centered newsletter
- * using the Groq AI API (openai/gpt-oss-120b model).
+ * using a provider chain (Groq -> OpenRouter) defined in config.ai.providers.
+ *
+ * Had ONE provider and no fallback until 2026-08-25, so a Groq outage on the
+ * 1st of a month lost that month's newsletter outright.
  */
 
 require('dotenv').config();
@@ -11,66 +14,118 @@ const { format } = require('date-fns');
 const config = require('./config');
 
 // ---------------------------------------------------------------------------
-// Groq AI API Caller with retry logic
+// AI provider chain, with a retry wrapper
 // ---------------------------------------------------------------------------
 
-async function callGroqAI(systemPrompt, userPrompt) {
-  const apiKey = process.env.GROQ_API_KEY;
-  if (!apiKey) throw new Error('GROQ_API_KEY is not set. Check your .env file.');
+// Reasoning leaking in as PROSE, with no tags to strip. nemotron did exactly
+// this on 2026-08-25 -- an answer that opened "We need to produce a Facebook
+// post under 500 characters..." -- the model restating its own brief. Per-
+// provider settings are the real fix, but they are a promise about someone
+// else's defaults; this screens every provider the same way so a model swapped
+// in later inherits the protection without anyone remembering to add it.
+const REASONING_LEAK =
+  /^\s*(we|i|the user|okay|alright|first|let me|sure)\b[^.!?]{0,200}?\b(post|caption|output|character|hashtag|prompt|instruction|word count|response|newsletter|section|brief|headline|sentence|paragraph)s?\b/i;
 
-  let lastError;
-  for (let attempt = 1; attempt <= config.ai.maxRetries; attempt++) {
+// Tries each provider in config.ai.providers in order, skipping any whose API
+// key is unset. Throws only when every provider has failed.
+async function callProviderChain(systemPrompt, userPrompt) {
+  const providers = config.ai.providers || [];
+  const errors = [];
+
+  for (const provider of providers) {
+    const apiKey = process.env[provider.envVar];
+    if (!apiKey) {
+      errors.push(provider.name + ": " + provider.envVar + " not set");
+      continue;
+    }
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 60000);
+
     try {
-      // 30-second timeout to prevent indefinite hanging
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 30000);
-
-      const response = await fetch(config.ai.baseUrl, {
-        method: 'POST',
+      const response = await fetch(provider.url, {
+        method: "POST",
         signal: controller.signal,
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + apiKey,
-        },
-        body: JSON.stringify({
-          model: config.ai.model,
+        headers: Object.assign({
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + apiKey,
+        }, provider.extraHeaders || {}),
+        body: JSON.stringify(Object.assign({
+          model: provider.model,
           messages: [
-            { role: 'system', content: systemPrompt },
-            { role: 'user', content: userPrompt },
+            { role: "system", content: systemPrompt },
+            { role: "user", content: userPrompt },
           ],
           max_tokens: config.ai.maxTokens,
           temperature: config.ai.temperature,
-          ...(config.ai.reasoningEffort
-            ? { reasoning_effort: config.ai.reasoningEffort }
-            : {}),
-        }),
+        }, provider.extraBody || {})),
       });
-
-      clearTimeout(timeout);
 
       if (!response.ok) {
         const errorBody = await response.text();
-        throw new Error('Groq API ' + response.status + ': ' + errorBody);
+        throw new Error(provider.name + " " + response.status + ": " + errorBody.slice(0, 200));
       }
 
       const data = await response.json();
-      if (data.choices && data.choices[0] && data.choices[0].message) {
-        return data.choices[0].message.content.trim();
+      const raw = (data.choices && data.choices[0] && data.choices[0].message
+        ? data.choices[0].message.content : "") || "";
+      const content = raw
+        .replace(/<think>[\s\S]*?<\/think>/gi, "")
+        .replace(/<\/?think>/gi, "")
+        .trim();
+
+      if (!content) {
+        throw new Error(raw.trim()
+          ? provider.name + " returned only reasoning, no answer (raise maxTokens)"
+          : provider.name + " returned empty content");
       }
-      throw new Error('Unexpected API response structure');
+      if (REASONING_LEAK.test(content)) {
+        throw new Error(provider.name + " leaked reasoning into the reply instead of answering");
+      }
+
+      // Strip placeholder brackets the model copied out of the format
+      // examples -- "**[Colossians 2:2-3] (ESV)**" survived a dry run even
+      // after the system prompt was told not to emit them. An instruction is
+      // a request; this is a guarantee. Markdown links are left intact by
+      // requiring that the closing bracket NOT be followed by "(".
+      const cleaned = content.replace(/\[([^\]\n]{1,120})\](?!\()/g, "$1");
+
+      if (provider !== providers[0]) {
+        console.log("  [ai] Fallback provider succeeded: " + provider.name);
+      }
+      return cleaned;
+    } catch (error) {
+      const reason = error.name === "AbortError" ? "timeout after 60000ms" : error.message;
+      console.log("  [ai] " + provider.name + " failed: " + reason);
+      errors.push(provider.name + ": " + reason);
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  throw new Error("All AI providers failed." + String.fromCharCode(10) + "  - " + errors.join(String.fromCharCode(10) + "  - "));
+}
+
+// Retry wrapper. The chain above already fails over between providers, so a
+// retry here is for transient conditions that outlast the whole chain -- most
+// often every leg being rate-limited at once on the free tiers.
+async function callGroqAI(systemPrompt, userPrompt) {
+  let lastError;
+  for (let attempt = 1; attempt <= config.ai.maxRetries; attempt++) {
+    try {
+      return await callProviderChain(systemPrompt, userPrompt);
     } catch (error) {
       lastError = error;
-      console.log('  [RETRY ' + attempt + '/' + config.ai.maxRetries + '] ' + error.message);
+      console.log("  [RETRY " + attempt + "/" + config.ai.maxRetries + "] " + error.message);
       if (attempt < config.ai.maxRetries) {
-        // Use longer delay for rate limits (429), shorter for other errors
-        const isRateLimit = error.message.includes('429');
+        const isRateLimit = error.message.includes("429");
         const delay = isRateLimit ? 15000 : config.ai.retryDelayMs * attempt;
-        console.log('  Waiting ' + (delay / 1000) + 's before retry...');
+        console.log("  Waiting " + (delay / 1000) + "s before retry...");
         await new Promise((resolve) => setTimeout(resolve, delay));
       }
     }
   }
-  throw new Error('Groq API failed after ' + config.ai.maxRetries + ' attempts: ' + lastError.message);
+  throw new Error("AI generation failed after " + config.ai.maxRetries + " attempts: " + lastError.message);
 }
 
 // ---------------------------------------------------------------------------
@@ -103,6 +158,15 @@ function buildSystemPrompt() {
     "- The gospel is an announcement of Jesus' lordship, not just a ticket to heaven.",
     '- Write for mature disciples who want depth, not spiritual milk.',
     '- Be prophetic - speak truth to culture from a Kingdom perspective.',
+    // The per-section prompts show their shape with placeholders like
+    // "### [Headline]". Some models copy those brackets into the published
+    // text -- nemotron emitted "**[Colossians 2:2-3] (ESV)**" on the fallback
+    // path. Square brackets are format scaffolding, never content.
+    '',
+    'FORMATTING:',
+    '- NEVER use square brackets in your output. Where a format example shows',
+    '  something like [Headline] or [Story text], that is a placeholder telling',
+    '  you what belongs there -- write the real text, with no brackets around it.',
   ].join('\n');
 }
 

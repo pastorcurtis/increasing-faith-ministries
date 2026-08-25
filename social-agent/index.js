@@ -142,7 +142,7 @@ async function callChatAPI({ messages, maxTokens, temperature, timeoutMs = 30000
       //
       // A match falls through to the next provider rather than aborting, so the
       // worst case is a slower post, never a leaked one.
-      if (/^\s*(we|i|the user|okay|alright|first|let me|sure)\b[^.!?]{0,200}?\b(post|caption|output|character|hashtag|prompt|instruction|word count|response)\b/i.test(content)) {
+      if (/^\s*(we|i|the user|okay|alright|first|let me|sure)\b[^.!?]{0,200}?\b(post|caption|output|character|hashtag|prompt|instruction|word count|response|newsletter|section|brief|headline|sentence|paragraph)s?\b/i.test(content)) {
         throw new Error(`${provider.name} leaked reasoning into the reply instead of answering`);
       }
       if (!content) {

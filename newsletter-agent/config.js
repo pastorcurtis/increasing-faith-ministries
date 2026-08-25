@@ -111,6 +111,73 @@ const config = {
     // Retry settings for API calls
     maxRetries: 5,
     retryDelayMs: 2000,
+
+    // Provider chain -- tried in order, skipping any whose env var is unset.
+    // Mirrors social-agent/config.js. Kept as its own copy rather than imported
+    // because newsletter-agent is a separate package with its own node_modules;
+    // a cross-package require would couple their installs together.
+    //
+    // Until 2026-08-25 this agent had ONE provider and no fallback, so a Groq
+    // outage on the 1st of a month lost that month's newsletter outright -- and
+    // it carried the same retired Llama model that took the social agent down
+    // for 8 days, which nothing would have revealed until Sept 1.
+    //
+    // Four legs, THREE failure domains. Two Groq entries share a key and a
+    // vendor, so they cover a bad model or a busy bucket but NOT a Groq-wide
+    // outage; the OpenRouter legs are what actually survive that, and they are
+    // split across different upstreams so they do not share a rate-limit pool.
+    providers: [
+      {
+        name: 'Groq (gpt-oss-120b)',
+        url: 'https://api.groq.com/openai/v1/chat/completions',
+        envVar: 'GROQ_API_KEY',
+        model: 'openai/gpt-oss-120b',
+        extraHeaders: {},
+        // Reasoning models bill hidden thinking against max_tokens.
+        extraBody: { reasoning_effort: 'low' },
+      },
+      {
+        name: 'Groq (gpt-oss-20b)',
+        url: 'https://api.groq.com/openai/v1/chat/completions',
+        envVar: 'GROQ_API_KEY',
+        model: 'openai/gpt-oss-20b',
+        extraHeaders: {},
+        extraBody: { reasoning_effort: 'low' },
+      },
+      {
+        // Google AI Studio upstream. Instruction-tuned, so it cannot leak
+        // reasoning into the copy -- which is why it is ordered ahead of
+        // nemotron despite being the one rate-limited during testing.
+        name: 'OpenRouter (gemma)',
+        url: 'https://openrouter.ai/api/v1/chat/completions',
+        envVar: 'OPENROUTER_API_KEY',
+        model: 'google/gemma-4-31b-it:free',
+        extraHeaders: {
+          'HTTP-Referer': 'https://increasingfaith.net',
+          'X-Title': 'IFM Newsletter Agent',
+        },
+      },
+      {
+        // NVIDIA upstream -- a different rate-limit pool from the gemma leg.
+        //
+        // CAUTION: by default this model writes its deliberation as the answer
+        // itself ("We need to produce..."), in plain prose with no <think> tags
+        // to strip. Of the four documented suppressions, ONLY
+        // reasoning:{enabled:false} works -- include_reasoning:false,
+        // reasoning:{exclude:true} and reasoning_effort:'low' all still leak.
+        // Do not "simplify" this. newsletter-generator.js screens every reply
+        // as a backstop.
+        name: 'OpenRouter (nemotron)',
+        url: 'https://openrouter.ai/api/v1/chat/completions',
+        envVar: 'OPENROUTER_API_KEY',
+        model: 'nvidia/nemotron-3-super-120b-a12b:free',
+        extraHeaders: {
+          'HTTP-Referer': 'https://increasingfaith.net',
+          'X-Title': 'IFM Newsletter Agent',
+        },
+        extraBody: { reasoning: { enabled: false } },
+      },
+    ],
   },
 
   // ---------------------------------------------------------------------------

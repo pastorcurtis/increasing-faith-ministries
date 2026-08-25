@@ -16,6 +16,7 @@ require('dotenv').config();
 const { gatherContent } = require('./content-gatherer');
 const { generateNewsletter } = require('./newsletter-generator');
 const { publishNewsletter } = require('./publish');
+const config = require('./config');
 
 // ---------------------------------------------------------------------------
 // Parse Command Line Arguments
@@ -74,12 +75,21 @@ async function main() {
   console.log('  API:    Groq (openai/gpt-oss-120b)');
   console.log('======================================================');
 
-  // Verify API key is available
-  if (!process.env.GROQ_API_KEY) {
-    console.error('\nERROR: GROQ_API_KEY not found in environment.');
-    console.error('Create a .env file with your Groq API key.');
+  // Verify SOME provider is usable -- not that Groq specifically is.
+  // Requiring GROQ_API_KEY here would have defeated the fallback chain
+  // entirely: a revoked or rotated Groq key would stop the run before any
+  // other provider was ever tried. Same bug social-agent/index.js had.
+  const usable = (config.ai.providers || []).filter((p) => process.env[p.envVar]);
+  if (usable.length === 0) {
+    const names = [...new Set((config.ai.providers || []).map((p) => p.envVar))];
+    console.error('\nERROR: no AI provider key found in environment.');
+    console.error('Set at least one of: ' + names.join(', '));
     console.error('See .env.example for the template.');
     process.exit(1);
+  }
+  if (!process.env.GROQ_API_KEY) {
+    console.log('  [ai] GROQ_API_KEY unset -- running on fallback providers only ('
+      + usable.map((p) => p.name).join(', ') + ')');
   }
 
   try {
