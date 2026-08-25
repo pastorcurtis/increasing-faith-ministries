@@ -3,8 +3,8 @@
     "daily-social-media-no-post-was": {
       "first_seen": "2026-08-25T02:16:17.834913+00:00",
       "text": "**Daily Social Media**: no post was archived on 7 of the last 7 eligible days (2026-08-18, 2026-08-19, 2026-08-20, 2026-08-21, 2026-08-22, 2026-08-23, 2026-08-24). The workflow runs may all look green -- its gate job can skip the posting job and still conclude success -- so believe the archive, not the checkmarks.",
-      "detections": 3
+      "detections": 4
     }
   },
-  "last_run": "2026-08-25T02:43:32.636114+00:00"
+  "last_run": "2026-08-25T02:45:08.694377+00:00"
 }
