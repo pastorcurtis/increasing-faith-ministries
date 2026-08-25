@@ -287,6 +287,67 @@ jobs:
             --label "automated" \
             --body-file /tmp/issue-body.md
 
+      # Deliver the alarm to a human. The issue above is an audit trail; it is
+      # not a notification for someone who does not read GitHub. See
+      # .github/scripts/send-alert.js for why this exists.
+      - name: Email the missing-ad alarm
+        if: steps.check.outputs.posted == 'false' && steps.retry.outputs.recovered != 'true' && inputs.dry_run != true
+        continue-on-error: true
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          TODAY="${{ steps.check.outputs.today }}"
+          cat > /tmp/ad-alert.md <<ALERTEOF
+          No daily website ad was posted for $TODAY.
+
+          content/ad-archive/$TODAY.json does not exist, and the archive is
+          written as the last act of a real post -- so this is evidence, not a
+          guess. A green workflow run is not proof: the gate job can skip the
+          posting job and still conclude success.
+
+          Orphan check (did it post but fail to archive?): ${{ steps.orphan.outputs.orphan }}
+          Automatic retry dispatched: ${{ steps.retry.outputs.dispatched }}
+
+          IMPORTANT timing constraint: ad.js reads both the day-of-week ad
+          rotation and the archive filename off the UTC clock. Re-running this
+          manually after 00:00 UTC posts the WRONG day's ad and gates off that
+          day's legitimate 17:00 run, turning one lost day into two. Never fire
+          a make-up ad after about 20:00 ET.
+          ALERTEOF
+          node .github/scripts/send-alert.js \
+            --subject "IFM: daily website ad DID NOT POST - $TODAY" \
+            --body-file /tmp/ad-alert.md \
+            --url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+
+      # A posted ad is not automatically a good ad -- this is the case that ran
+      # silently for 8 days behind a green check.
+      - name: Email the fallback-copy warning
+        if: steps.quality.outputs.fallback == 'true' && inputs.dry_run != true
+        continue-on-error: true
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          TODAY="${{ steps.check.outputs.today }}"
+          cat > /tmp/ad-quality.md <<ALERTEOF
+          The daily website ad for $TODAY posted, but with STATIC FALLBACK COPY.
+
+          Nothing is broken on the page and there is nothing to re-run -- but
+          every AI provider failed, so the ad used hand-written canned text
+          instead of copy written for today.
+
+          This repeats silently every day until the provider chain is fixed.
+          It ran for 8 straight days in August behind green checkmarks, and the
+          archive recorded "usedFallback": true the whole time with nobody
+          reading it.
+
+          Check the latest Daily Website Ad run log for the provider errors.
+          A retired or renamed model appears as 404 model_not_found.
+          ALERTEOF
+          node .github/scripts/send-alert.js \
+            --subject "IFM: website ad posted with CANNED COPY - $TODAY" \
+            --body-file /tmp/ad-quality.md \
+            --url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+
       - name: Summary
         run: |
           if [ "${{ inputs.dry_run }}" = "true" ]; then

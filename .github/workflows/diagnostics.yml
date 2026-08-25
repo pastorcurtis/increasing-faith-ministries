@@ -30,6 +30,11 @@ on:
     # Every 3 days at 7:00 AM EST (12:00 UTC)
     - cron: '0 12 */3 * *'
   workflow_dispatch:
+    inputs:
+      test_alert:
+        description: 'Send a test alert email to prove the alarm path works, then continue normally'
+        type: boolean
+        default: false
 
 permissions:
   issues: write
@@ -55,6 +60,34 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      # An alarm you have never tested is a guess. The August outage was
+      # 8 days of alerts that fired correctly and reached nobody, so the
+      # delivery path deserves the same scepticism as the checks themselves.
+      # Run this workflow from the Actions tab with test_alert ticked to prove
+      # email still works, without waiting for something to break.
+      - name: Send test alert
+        if: inputs.test_alert
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          cat > /tmp/test-alert.md <<ALERTEOF
+          This is a test of the IFM automation alarm path, triggered by hand.
+
+          Nothing is wrong. This email proves that when something DOES break,
+          the alert can actually reach you -- rather than filing a GitHub issue
+          nobody reads, which is what happened for 8 days in August.
+
+          Alerts you will get automatically from now on:
+            - Daily social post failed
+            - Daily website ad did not post
+            - Daily website ad posted with canned fallback copy
+            - Diagnostics found a NEW problem (checked every 3 days)
+          ALERTEOF
+          node .github/scripts/send-alert.js \
+            --subject "IFM: alert path test - nothing is wrong" \
+            --body-file /tmp/test-alert.md \
+            --url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -1202,6 +1235,28 @@ jobs:
       # ================================================================
       # Close the tracking issue when everything actually recovers
       # ================================================================
+      # Deliver the report to a human when something NEWLY breaks.
+      #
+      # Gated on new_problem_count rather than has_problems on purpose. This
+      # workflow keeps one long-lived issue and updates it in place, so a
+      # known ongoing problem would otherwise email every 3 days until fixed
+      # and train exactly the reflex that made the August outage possible --
+      # an alert you have learned to ignore is worse than no alert, because it
+      # still feels like coverage. A problem that persists stays visible in the
+      # issue and in the report; email is reserved for "something changed for
+      # the worse". The daily social and ad alarms cover the acute cases.
+      - name: Email new problems
+        if: steps.report.outputs.has_problems == 'true' && steps.report.outputs.new_problem_count != '0'
+        continue-on-error: true
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          COUNT="${{ steps.report.outputs.new_problem_count }}"
+          node .github/scripts/send-alert.js \
+            --subject "IFM diagnostics: $COUNT new problem(s) found" \
+            --body-file /tmp/diag_report.md \
+            --url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+
       - name: Resolve diagnostic issue
         if: steps.report.outputs.has_problems == 'false'
         uses: actions/github-script@v7
