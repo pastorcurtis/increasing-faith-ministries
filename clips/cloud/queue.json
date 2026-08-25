@@ -709,8 +709,10 @@
     },
     {
       "file": "Fast_by_feasting_on_the_Word_not_food_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "1780149916521819",
+      "posted_at": "2026-08-25T14:42:01Z"
     },
     {
       "file": "Faithful_is_our_God_God_keeps_His_promis_0m02s_square.mp4",
@@ -930,8 +932,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 101,
-    "remaining": 44,
-    "last_updated": "2026-08-24T21:26:27Z"
+    "posted": 102,
+    "remaining": 43,
+    "last_updated": "2026-08-25T14:42:01Z"
   }
 }
