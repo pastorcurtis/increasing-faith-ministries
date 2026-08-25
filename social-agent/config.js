@@ -245,25 +245,50 @@ module.exports = {
         extraBody: { reasoning_effort: 'low' },
       },
       {
-        // Genuinely different vendor — the only leg that survives a Groq-wide
-        // retirement like 2026-08-17. Still needs OPENROUTER_API_KEY set.
-        name: 'OpenRouter',
+        // OpenRouter's free tier is a SHARED pool: a model that answers now can
+        // return 429 "temporarily rate-limited upstream" minutes later, and this
+        // is the leg we reach for precisely when everything else is down. So
+        // list more than one, chosen to route to DIFFERENT upstream providers
+        // (Google AI Studio vs NVIDIA) and therefore different buckets. That is
+        // 2026-08-17's lesson applied properly: two entries are only redundant
+        // if they can fail independently.
+        //
+        // gemma goes FIRST despite being the one that was rate-limited during
+        // testing, because it is instruction-tuned and structurally cannot leak
+        // reasoning into the post. Ordering by safety beats ordering by
+        // whichever happened to answer on the day.
+        name: 'OpenRouter (gemma)',
         url: 'https://openrouter.ai/api/v1/chat/completions',
         envVar: 'OPENROUTER_API_KEY',
-        // Was meta-llama/llama-3.3-70b-instruct:free, which OpenRouter had ALSO
-        // retired by 2026-08-25 -- so this leg was dead on arrival and would
-        // have failed alongside Groq even if the key had been set. Verified
-        // against OpenRouter's live /models endpoint, which is public and needs
-        // no auth: `curl https://openrouter.ai/api/v1/models`.
-        //
-        // gemma-4-31b-it is instruction-tuned, so it answers rather than
-        // thinking out loud, and it supports response_format -- which ad.js
-        // needs, because that path parses the reply as JSON.
         model: 'google/gemma-4-31b-it:free',
         extraHeaders: {
           'HTTP-Referer': 'https://increasingfaith.net',
           'X-Title': 'IFM Social Agent',
         },
+      },
+      {
+        // CAUTION, learned the hard way 2026-08-25: with default settings this
+        // model writes its deliberation as the post itself -- "We need to
+        // produce a Facebook post under 500 characters..." -- in plain prose
+        // with no <think> tags to strip. A forced-fallback preview caught it
+        // one step before it would have reached the ministry page.
+        //
+        // Of the four documented ways to suppress that, only ONE works here:
+        //   include_reasoning: false     -> still leaks
+        //   reasoning: { exclude: true } -> still leaks
+        //   reasoning_effort: 'low'      -> still leaks
+        //   reasoning: { enabled: false} -> clean
+        // Do not "simplify" this to one of the others. index.js also screens
+        // every provider's reply for prose-style leakage as a backstop.
+        name: 'OpenRouter (nemotron)',
+        url: 'https://openrouter.ai/api/v1/chat/completions',
+        envVar: 'OPENROUTER_API_KEY',
+        model: 'nvidia/nemotron-3-super-120b-a12b:free',
+        extraHeaders: {
+          'HTTP-Referer': 'https://increasingfaith.net',
+          'X-Title': 'IFM Social Agent',
+        },
+        extraBody: { reasoning: { enabled: false } },
       },
     ],
   },

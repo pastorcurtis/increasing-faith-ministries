@@ -122,8 +122,37 @@ async function callChatAPI({ messages, maxTokens, temperature, timeoutMs = 30000
       }
 
       const data = await response.json();
-      const content = data.choices?.[0]?.message?.content?.trim();
-      if (!content) throw new Error(`${provider.name} returned empty content`);
+      const raw = data.choices?.[0]?.message?.content ?? '';
+      // Some models write their chain-of-thought into `content` itself rather
+      // than a separate `reasoning` field -- Qwen-family models do this, and it
+      // is why one was rejected as a fallback here. If such a model ever ends
+      // up in the chain, this is the difference between a clean post and the
+      // ministry page publishing the model's private deliberation. Cheap
+      // insurance, so it guards every provider rather than a named few.
+      const content = raw.replace(/<think>[\s\S]*?<\/think>/gi, '')
+                         .replace(/<\/?think>/gi, '')
+                         .trim();
+      // Backstop against reasoning leaking in as PROSE, with no tags to strip.
+      // nemotron did exactly this on 2026-08-25: the "post" opened with "We
+      // need to produce a Facebook post under 500 characters..." -- the model
+      // restating its own brief, one preview run away from the ministry page.
+      // Per-provider settings are the real fix, but they are a promise about
+      // someone else's defaults; this screens every provider the same way, so a
+      // model swapped in later inherits the protection for free.
+      //
+      // A match falls through to the next provider rather than aborting, so the
+      // worst case is a slower post, never a leaked one.
+      if (/^\s*(we|i|the user|okay|alright|first|let me|sure)\b[^.!?]{0,200}?\b(post|caption|output|character|hashtag|prompt|instruction|word count|response)\b/i.test(content)) {
+        throw new Error(`${provider.name} leaked reasoning into the reply instead of answering`);
+      }
+      if (!content) {
+        // Distinguish the two ways this happens: a reasoning model that spent
+        // its whole max_tokens budget thinking (raise the ceiling), versus a
+        // genuinely empty reply.
+        throw new Error(raw.trim()
+          ? `${provider.name} returned only reasoning, no answer (raise maxTokens)`
+          : `${provider.name} returned empty content`);
+      }
 
       // Visible breadcrumb when we fall back — makes Groq outages obvious in logs
       if (provider !== providers[0]) {
@@ -301,10 +330,21 @@ async function main() {
   const dayIndex = args.indexOf('--day');
   const forceDay = dayIndex !== -1 ? args[dayIndex + 1] : undefined;
 
-  // Validate API key
-  if (!process.env.GROQ_API_KEY) {
-    console.error('ERROR: GROQ_API_KEY environment variable is required');
+  // Validate that SOME provider is usable -- not that Groq specifically is.
+  //
+  // This used to hard-require GROQ_API_KEY, which quietly defeated the entire
+  // fallback chain: if that key were ever revoked or rotated badly, the agent
+  // refused to start even with a perfectly good OpenRouter key sitting right
+  // there. A fallback that only works while the primary's credentials are
+  // healthy is not a fallback.
+  const usable = (config.ai.providers || []).filter((p) => process.env[p.envVar]);
+  if (usable.length === 0) {
+    const names = [...new Set((config.ai.providers || []).map((p) => p.envVar))];
+    console.error(`ERROR: no AI provider key set. Set at least one of: ${names.join(', ')}`);
     process.exit(1);
+  }
+  if (!process.env.GROQ_API_KEY) {
+    console.warn(`  [ai] GROQ_API_KEY unset -- running on fallback providers only (${usable.map((p) => p.name).join(', ')})`);
   }
 
   const day = getDayOfWeek(forceDay);
