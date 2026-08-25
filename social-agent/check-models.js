@@ -41,17 +41,36 @@ function collectTargets() {
     model: p.model,
   }));
 
-  // newsletter-agent is a SEPARATE agent with its own single-provider caller
-  // and no fallback chain. It had the same dead Groq model and would have
+  // newsletter-agent is a SEPARATE agent with its own caller and its own copy
+  // of the provider chain. It carried the same dead Groq model and would have
   // failed on 2026-09-01 unnoticed. Anything that calls a model belongs here.
+  //
+  // Read its `providers` array, not the legacy single `ai.model` field: when
+  // the newsletter gained a fallback chain, a check that only looked at
+  // ai.model kept reporting a tidy "all ok" while three of its four legs went
+  // entirely unwatched -- which is precisely how the OpenRouter leg rotted
+  // unnoticed in the first place. A monitor that covers part of a system and
+  // reports on all of it is worse than no monitor.
   try {
     const nl = require('../newsletter-agent/config');
-    targets.push({
-      where: 'newsletter-agent/config.js',
-      url: nl.ai.baseUrl,
-      envVar: 'GROQ_API_KEY',
-      model: nl.ai.model,
-    });
+    const nlProviders = nl.ai.providers || [];
+    if (nlProviders.length) {
+      for (const p of nlProviders) {
+        targets.push({
+          where: `newsletter-agent/config.js -> ${p.name}`,
+          url: p.url,
+          envVar: p.envVar,
+          model: p.model,
+        });
+      }
+    } else {
+      targets.push({
+        where: 'newsletter-agent/config.js',
+        url: nl.ai.baseUrl,
+        envVar: 'GROQ_API_KEY',
+        model: nl.ai.model,
+      });
+    }
   } catch (err) {
     console.warn(`  [warn] could not load newsletter-agent config: ${err.message}`);
   }
