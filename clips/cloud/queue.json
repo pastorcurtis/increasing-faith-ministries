@@ -716,8 +716,10 @@
     },
     {
       "file": "Faithful_is_our_God_God_keeps_His_promis_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "1788404052468666",
+      "posted_at": "2026-08-25T21:25:58Z"
     },
     {
       "file": "Faithful_is_He_God_Already_Did_It_0m05s_square.mp4",
@@ -932,8 +934,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 102,
-    "remaining": 43,
-    "last_updated": "2026-08-25T14:42:01Z"
+    "posted": 103,
+    "remaining": 42,
+    "last_updated": "2026-08-25T21:25:58Z"
   }
 }
