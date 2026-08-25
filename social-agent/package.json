@@ -10,7 +10,9 @@
     "ad": "node ad.js",
     "ad:preview": "node ad.js --preview",
     "ad:test": "node ad.js --test",
-    "ad:fallback": "node ad.js --preview --fallback"
+    "ad:fallback": "node ad.js --preview --fallback",
+    "test:scripture": "node test-scripture.js",
+    "test:scripture:live": "node test-scripture.js --live"
   },
   "dependencies": {
     "@napi-rs/canvas": "^1.0.0",

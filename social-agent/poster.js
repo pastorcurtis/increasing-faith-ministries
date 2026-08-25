@@ -17,6 +17,7 @@ const fetch = require('node-fetch');
 const FormData = require('form-data');
 const fs = require('fs');
 const path = require('path');
+const { verifyScripture } = require('./scripture');
 
 // -- Feed Sanitization ---
 //
@@ -125,34 +126,57 @@ async function postToFacebookPhoto(imagePath, caption) {
   }
 }
 
+// Everything that must be true of copy before it reaches the Page. Returns the
+// cleaned text on success. Shared by the live path and --test, so a dry run
+// exercises exactly the same gates the real post does.
+async function validateCopy(content) {
+  const notes = [];
+
+  // Placeholder debris means the generator handed us a template. Fail loudly
+  // instead of publishing it -- a missed day is recoverable, a
+  // fill-in-the-blank on the Page is not.
+  const placeholders = findPlaceholders(content);
+  if (placeholders.length > 0) {
+    return { ok: false, notes, error: `copy still contains ${placeholders.join(', ')}` };
+  }
+
+  const clean = sanitizeForFeed(content);
+  if (!clean) return { ok: false, notes, error: 'copy is empty after sanitizing' };
+  if (clean !== content) notes.push(`sanitized: ${content.length} -> ${clean.length} chars`);
+
+  // Verify any scripture citation against the real verse. Only a confirmed
+  // mismatch blocks -- an unverifiable reference is reported and allowed,
+  // because a dead lookup service must never take the Page offline.
+  const scripture = await verifyScripture(clean);
+  for (const u of scripture.unverifiable) {
+    notes.push(`could not verify ${u.ref} (${u.reason})`);
+  }
+  for (const r of scripture.results) {
+    if (r.verdict === 'ok') notes.push(`scripture OK: ${r.ref} (overlap ${r.score})`);
+  }
+  if (scripture.mismatches.length > 0) {
+    const detail = scripture.mismatches
+      .map(m => `${m.ref} (overlap ${m.score}) -- quoted "${m.quote}" but ${m.canonical} reads "${m.verse}"`)
+      .join('; ');
+    return { ok: false, notes, error: `misattributed scripture: ${detail}` };
+  }
+
+  return { ok: true, clean, notes };
+}
+
 async function postToFacebook(content, imagePath) {
   if (!process.env.FACEBOOK_PAGE_TOKEN || !process.env.FACEBOOK_PAGE_ID) {
     return { success: false, error: 'Missing FACEBOOK_PAGE_TOKEN or FACEBOOK_PAGE_ID' };
   }
 
-  // Check the raw text: placeholder debris means the generator handed us a
-  // template. Fail loudly instead of publishing it -- a missed day is
-  // recoverable, a fill-in-the-blank on the Page is not.
-  const placeholders = findPlaceholders(content);
-  if (placeholders.length > 0) {
-    return {
-      success: false,
-      error: `Refusing to post -- copy still contains ${placeholders.join(', ')}`,
-    };
-  }
-
-  const clean = sanitizeForFeed(content);
-  if (!clean) {
-    return { success: false, error: 'Refusing to post -- copy is empty after sanitizing' };
-  }
-  if (clean !== content) {
-    console.log(`  (sanitized: ${content.length} -> ${clean.length} chars)`);
-  }
+  const check = await validateCopy(content);
+  check.notes.forEach(n => console.log(`  ${n}`));
+  if (!check.ok) return { success: false, error: `Refusing to post -- ${check.error}` };
 
   if (imagePath && fs.existsSync(imagePath)) {
-    return postToFacebookPhoto(imagePath, clean);
+    return postToFacebookPhoto(imagePath, check.clean);
   }
-  return postToFacebookText(clean);
+  return postToFacebookText(check.clean);
 }
 
 // -- Main Pipeline ---
@@ -190,8 +214,17 @@ async function main() {
     const mode = hasGraphic ? 'PHOTO' : 'TEXT';
     console.log(`  Facebook (${mode}): ${fbContent.length} chars${hasGraphic ? ` + ${path.basename(graphicPath)}` : ''}`);
     if (testMode) {
-      console.log(`  -> [TEST] Would post to Facebook as ${mode}`);
-      results.facebook = { success: true, test: true, mode };
+      // A dry run that skipped validation would report a post as fine and then
+      // fail for real hours later, which is the whole failure pattern here.
+      const check = await validateCopy(fbContent);
+      check.notes.forEach(n => console.log(`  ${n}`));
+      if (check.ok) {
+        console.log(`  -> [TEST] Would post to Facebook as ${mode}`);
+        results.facebook = { success: true, test: true, mode };
+      } else {
+        console.error(`  -> [TEST] WOULD BLOCK: ${check.error}`);
+        results.facebook = { success: false, test: true, error: check.error };
+      }
     } else {
       const result = await postToFacebook(fbContent, hasGraphic ? graphicPath : null);
       results.facebook = result;
@@ -210,6 +243,12 @@ async function main() {
       console.log(`  ${manualText}`);
       if (manualPlaceholders.length > 0) {
         console.warn(`  WARNING: contains ${manualPlaceholders.join(', ')} -- edit before posting`);
+      }
+      // Pasted by hand, so a wrong verse here is just as public as on the Page.
+      // Warn rather than block: there is nothing to stop, only someone to tell.
+      const manualScripture = await verifyScripture(manualText);
+      for (const m of manualScripture.mismatches) {
+        console.warn(`  WARNING: ${m.ref} looks misattributed (overlap ${m.score}) -- ${m.canonical} reads "${m.verse}"`);
       }
       // `success` here only means the text was generated and printed. These
       // platforms need Business/Creator API access, so nothing is published;
@@ -252,4 +291,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { postToFacebook, sanitizeForFeed, findPlaceholders };
+module.exports = { postToFacebook, validateCopy, sanitizeForFeed, findPlaceholders };
