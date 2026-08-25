@@ -100,7 +100,12 @@ const config = {
   // ---------------------------------------------------------------------------
   ai: {
     baseUrl: 'https://api.groq.com/openai/v1/chat/completions',
-    model: 'llama-3.1-8b-instant',
+    // Groq retired the Llama chat lineup on 2026-08-17 (404 model_not_found).
+    // gpt-oss-120b is the current Groq-served replacement.
+    model: 'openai/gpt-oss-120b',
+    // gpt-oss is a reasoning model; 'low' keeps thinking tokens off the bill
+    // without touching the quality of the visible newsletter copy.
+    reasoningEffort: 'low',
     maxTokens: 4096,
     temperature: 0.7,
     // Retry settings for API calls

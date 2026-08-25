@@ -39,11 +39,25 @@ jobs:
           if [ "${{ github.event_name }}" != "schedule" ]; then
             echo "Manual run — always proceed"
             echo "should_run=true" >> $GITHUB_OUTPUT
-          elif [ -f "content/social-posts/$TODAY.json" ]; then
-            echo "$TODAY already generated and archived — skipping"
+          elif [ ! -f "content/social-posts/$TODAY.json" ]; then
+            echo "No archive entry for $TODAY — proceeding"
+            echo "should_run=true" >> $GITHUB_OUTPUT
+          # File existence alone is NOT proof a post went out. A run whose
+          # content generation fails still writes an archive entry, but one
+          # holding only {"error": ...} per platform. The old check tested
+          # `-f` and nothing more, so every failed 14:00 run left behind a
+          # file that told the 19:00 catch-up "already done" -- converting a
+          # recoverable one-day miss into an unbounded silent outage. That is
+          # exactly what happened 2026-08-17..24: Groq retired the Llama chat
+          # models, all 8 mornings failed, and all 8 catch-ups skipped.
+          #
+          # Facebook is the only platform this workflow actually posts to, so
+          # its generated copy is the thing that decides "already posted".
+          elif jq -e '.posts.facebook.content | strings | select(length > 0)'                  "content/social-posts/$TODAY.json" >/dev/null 2>&1; then
+            echo "$TODAY already generated and posted — skipping"
             echo "should_run=false" >> $GITHUB_OUTPUT
           else
-            echo "No archive entry for $TODAY — proceeding"
+            echo "::warning::Archive entry for $TODAY exists but holds no Facebook copy (failed run) — retrying."
             echo "should_run=true" >> $GITHUB_OUTPUT
           fi
 

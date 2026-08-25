@@ -105,6 +105,9 @@ async function callChatAPI({ messages, maxTokens, temperature, timeoutMs = 30000
           messages,
           max_tokens: maxTokens,
           temperature,
+          // Per-provider request knobs (e.g. reasoning_effort for gpt-oss).
+          // Spread last so a provider can override a default if it must.
+          ...(provider.extraBody || {}),
         }),
       });
       clearTimeout(timeout);
@@ -211,7 +214,13 @@ async function extractPullQuote(postText) {
         { role: 'system', content: systemPrompt },
         { role: 'user', content: userPrompt },
       ],
-      maxTokens: 80,
+      // Reasoning models (gpt-oss) bill their hidden thinking against
+      // max_tokens, and ~69 reasoning tokens against a ceiling of 80 left
+      // nothing for the answer — the call returned empty and only survived
+      // because the fallback leg caught it. The quote is hard-capped at 100
+      // chars below, so this ceiling is purely a budget guard, not a length
+      // control; give it room to think.
+      maxTokens: 400,
       temperature: 0.3,
       timeoutMs: 20000,
     });

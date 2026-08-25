@@ -71,7 +71,7 @@ async function main() {
   console.log('======================================================');
   console.log('  Target: ' + options.month + '/' + options.year);
   console.log('  Mode:   ' + (options.dryRun ? 'DRY RUN (no files saved)' : 'LIVE'));
-  console.log('  API:    Groq (llama-3.1-8b-instant)');
+  console.log('  API:    Groq (openai/gpt-oss-120b)');
   console.log('======================================================');
 
   // Verify API key is available

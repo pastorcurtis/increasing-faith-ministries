@@ -2,7 +2,7 @@
  * newsletter-generator.js - AI-Powered Newsletter Content Generator
  *
  * Takes gathered content and generates a complete Kingdom-centered newsletter
- * using the Groq AI API (llama-3.1-8b-instant model).
+ * using the Groq AI API (openai/gpt-oss-120b model).
  */
 
 require('dotenv').config();
@@ -40,6 +40,9 @@ async function callGroqAI(systemPrompt, userPrompt) {
           ],
           max_tokens: config.ai.maxTokens,
           temperature: config.ai.temperature,
+          ...(config.ai.reasoningEffort
+            ? { reasoning_effort: config.ai.reasoningEffort }
+            : {}),
         }),
       });
 

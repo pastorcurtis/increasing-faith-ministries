@@ -195,7 +195,7 @@ module.exports = {
   ai: {
     // Legacy single-provider fields (still read by some callers). Mirror the
     // first entry in `providers` below to keep behavior consistent.
-    model: 'llama-3.1-8b-instant',
+    model: 'openai/gpt-oss-120b',
     baseUrl: 'https://api.groq.com/openai/v1/chat/completions',
     // Fallback only — each platform sets its own maxTokens above.
     maxTokens: 300,
@@ -219,29 +219,37 @@ module.exports = {
     // Add new providers by appending here; no code changes required.
     providers: [
       {
-        name: 'Groq',
+        // Groq retired the entire Llama chat lineup (404 model_not_found) on
+        // 2026-08-17, which took out BOTH Groq legs at once — the old chain
+        // was redundant in model name only, not in vendor. gpt-oss is Groq's
+        // current OpenAI-weights family and is what the /models endpoint
+        // actually serves today.
+        name: 'Groq (gpt-oss-120b)',
         url: 'https://api.groq.com/openai/v1/chat/completions',
         envVar: 'GROQ_API_KEY',
-        model: 'llama-3.1-8b-instant',
+        model: 'openai/gpt-oss-120b',
         extraHeaders: {},
+        // gpt-oss is a reasoning model: it writes its thinking into a separate
+        // `reasoning` field that still bills against the 6,000 TPM free-tier
+        // budget. 'low' keeps the visible copy intact while holding the burn
+        // near the old 8B cost.
+        extraBody: { reasoning_effort: 'low' },
       },
       {
-        // Same key, different model. Groq's 429 names the model it throttled
-        // ("Rate limit reached for model `llama-3.1-8b-instant`"), so a second
-        // model gives us another bucket to fall into — and covers the case
-        // where one model is degraded or retired without warning.
-        name: 'Groq (70b)',
+        // Smaller sibling, separate rate-limit bucket. Same caveat re: reasoning.
+        name: 'Groq (gpt-oss-20b)',
         url: 'https://api.groq.com/openai/v1/chat/completions',
         envVar: 'GROQ_API_KEY',
-        model: 'llama-3.3-70b-versatile',
+        model: 'openai/gpt-oss-20b',
         extraHeaders: {},
+        extraBody: { reasoning_effort: 'low' },
       },
       {
+        // Genuinely different vendor — the only leg that survives a Groq-wide
+        // retirement like 2026-08-17. Still needs OPENROUTER_API_KEY set.
         name: 'OpenRouter',
         url: 'https://openrouter.ai/api/v1/chat/completions',
         envVar: 'OPENROUTER_API_KEY',
-        // Larger model on OpenRouter free tier — 70B vs Groq's 8B. Slower but
-        // higher quality, acceptable for an outage fallback.
         model: 'meta-llama/llama-3.3-70b-instruct:free',
         extraHeaders: {
           'HTTP-Referer': 'https://increasingfaith.net',
