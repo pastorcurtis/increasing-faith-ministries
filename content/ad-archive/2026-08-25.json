@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-25",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "You carry a prayer no one knows",
+    "subhead": "A real request reaches real hands, no form required",
+    "hook": "What you haven’t spoken yet deserves a faithful prayer.",
+    "body": "Send it now. Pastor Curtis and Pastor Tammy will lift it before the throne. No appointment, no membership—just a sincere cry heard by those who pray. Experience the Kingdom’s response."
+  },
+  "caption": "What you haven’t spoken yet deserves a faithful prayer.\n\n→ https://increasingfaith.net/prayer.html\n\nSend it now. Pastor Curtis and Pastor Tammy will lift it before the throne. No appointment, no membership—just a sincere cry heard by those who pray. Experience the Kingdom’s response.\n\n#IncreasingFaith #KingdomOfGod #KingdomLiving",
+  "hashtags": [
+    "#IncreasingFaith",
+    "#KingdomOfGod",
+    "#KingdomLiving"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-08-25.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1505632838267360",
+    "mode": "photo"
+  },
+  "postedAt": "2026-08-25T17:33:40.871Z",
+  "testMode": false
+}
