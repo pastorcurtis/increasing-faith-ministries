@@ -250,7 +250,16 @@ module.exports = {
         name: 'OpenRouter',
         url: 'https://openrouter.ai/api/v1/chat/completions',
         envVar: 'OPENROUTER_API_KEY',
-        model: 'meta-llama/llama-3.3-70b-instruct:free',
+        // Was meta-llama/llama-3.3-70b-instruct:free, which OpenRouter had ALSO
+        // retired by 2026-08-25 -- so this leg was dead on arrival and would
+        // have failed alongside Groq even if the key had been set. Verified
+        // against OpenRouter's live /models endpoint, which is public and needs
+        // no auth: `curl https://openrouter.ai/api/v1/models`.
+        //
+        // gemma-4-31b-it is instruction-tuned, so it answers rather than
+        // thinking out loud, and it supports response_format -- which ad.js
+        // needs, because that path parses the reply as JSON.
+        model: 'google/gemma-4-31b-it:free',
         extraHeaders: {
           'HTTP-Referer': 'https://increasingfaith.net',
           'X-Title': 'IFM Social Agent',

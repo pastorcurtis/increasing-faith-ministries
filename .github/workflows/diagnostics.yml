@@ -644,6 +644,64 @@ jobs:
           PYEOF
 
       # ================================================================
+      # CHECK 12: AI model preflight -- do the configured models still exist?
+      #
+      # Both 2026 outages were the same failure: a model name in a config file
+      # is a claim about someone else's product catalogue, and it rots on their
+      # schedule, without notice.
+      #
+      #   08-17  Groq deleted its entire Llama chat lineup. Both Groq legs died
+      #          together -- they shared a vendor, so they were never really
+      #          two -- the daily post stopped for 8 days, and the website ad
+      #          served canned copy behind a green check.
+      #   08-25  The OpenRouter leg, the designated insurance against exactly
+      #          that, turned out to name a model OpenRouter had ALSO retired.
+      #          Dead for an unknown stretch, and nothing could have revealed
+      #          it except calling the API.
+      #
+      # So call the API. Every 3 days, while the primary still works, so a
+      # retirement surfaces as a calm warning instead of an outage found 8 days
+      # late. OpenRouter's /models is public; Groq's needs the key.
+      # ================================================================
+
+      - name: Check AI models still exist
+        id: ai_models
+        continue-on-error: true
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          cd social-agent
+          # check-models.js exits 1 when a model is missing, which is the whole
+          # point -- do not let that abort the run before the report compiles.
+          node check-models.js --json > /tmp/ai-models.json || true
+          cat /tmp/ai-models.json
+
+          python3 << 'PYEOF'
+          import json, os
+
+          try:
+              with open('/tmp/ai-models.json') as f:
+                  data = json.load(f)
+          except Exception as e:
+              out = {'status': 'error', 'missing': '0', 'unchecked': '0',
+                     'detail': 'preflight produced no output: ' + str(e)}
+          else:
+              missing = [r for r in data['results'] if r['status'] == 'missing']
+              unchecked = [r for r in data['results'] if r['status'] == 'unchecked']
+              status = 'missing' if missing else ('unchecked' if unchecked else 'ok')
+              # Semicolons, not newlines: GITHUB_OUTPUT values are single-line
+              # here, and a multi-line value would need heredoc framing.
+              detail = '; '.join(r['model'] + ' (' + r['where'] + ')'
+                                 for r in missing + unchecked)
+              out = {'status': status, 'missing': str(len(missing)),
+                     'unchecked': str(len(unchecked)), 'detail': detail}
+
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              for k, v in out.items():
+                  f.write(k + "=" + v + "\n")
+          PYEOF
+      # ================================================================
       # REPORT: Compile results and create issue if needed
       # ================================================================
       - name: Compile diagnostic report
@@ -671,6 +729,10 @@ jobs:
           FB_STATUS: ${{ steps.fb_token.outputs.status }}
           NL_STATUS: ${{ steps.last_run.outputs.status }}
           NL_DAYS: ${{ steps.last_run.outputs.days_since }}
+          AI_MODEL_STATUS: ${{ steps.ai_models.outputs.status }}
+          AI_MODEL_MISSING: ${{ steps.ai_models.outputs.missing }}
+          AI_MODEL_UNCHECKED: ${{ steps.ai_models.outputs.unchecked }}
+          AI_MODEL_DETAIL: ${{ steps.ai_models.outputs.detail }}
         run: |
           python3 << 'PYEOF'
           import json, os
@@ -823,6 +885,30 @@ jobs:
               daily_summary.append(
                   f"  - {label}: {scanned - miss_count}/{scanned} days posted{detail}"
               )
+
+          # AI model preflight -- see CHECK 12 for why this is its own alarm.
+          # A missing model is a PROBLEM, not a warning: every call using it
+          # 404s, and the failure is invisible in the workflow's exit code
+          # because the agents catch it and archive the error instead.
+          ai_status = os.environ.get('AI_MODEL_STATUS', '')
+          ai_detail = os.environ.get('AI_MODEL_DETAIL', '').strip()
+          ai_missing = os.environ.get('AI_MODEL_MISSING', '0')
+          if ai_status == 'missing':
+              problems.append(
+                  f"{ai_missing} AI model(s) NO LONGER EXIST at the provider -- "
+                  f"content generation will 404: `{ai_detail}`. "
+                  "List what is actually served with "
+                  "`curl -H \"Authorization: Bearer $GROQ_API_KEY\" https://api.groq.com/openai/v1/models` "
+                  "or `curl https://openrouter.ai/api/v1/models`, then repoint the config."
+              )
+          elif ai_status == 'unchecked':
+              # Not a pass. It means we do not know, which is how the OpenRouter
+              # leg stayed dead without anyone noticing.
+              warnings.append(
+                  f"Could not verify some AI models (missing key or network): `{ai_detail}`"
+              )
+          elif ai_status == 'error':
+              warnings.append(f"AI model preflight did not run: {ai_detail}")
 
           # Facebook token
           fb = os.environ.get('FB_STATUS', '')
