@@ -140,29 +140,61 @@ async function generatePastoralMessage(content, monthName, year) {
 async function generateKingdomIntelligence(content, monthName, year) {
   console.log('  Generating: Kingdom Intelligence...');
   let newsContext = 'GATHERED NEWS ARTICLES FOR CONTEXT:\n';
-  const stories = content.topStories || [];
+  // Take the highest-scoring story from each distinct source before taking a
+  // second from any one of them. topStories is sorted purely by relevance and
+  // one outlet routinely owns the whole top slice -- with the briefs now bound
+  // to real articles, that would make the section three items from a single
+  // masthead. The old prompt got its variety by inventing it; this gets the
+  // same variety honestly.
+  const ranked = content.topStories || [];
+  const seenSources = new Set();
+  const firstPerSource = ranked.filter((a) => {
+    if (seenSources.has(a.source)) return false;
+    seenSources.add(a.source);
+    return true;
+  });
+  const stories = [...firstPerSource, ...ranked.filter((a) => !firstPerSource.includes(a))];
   if (stories.length > 0) {
     stories.forEach((story, i) => {
       newsContext += (i + 1) + '. ' + story.title + ' (' + story.source + ')\n';
       newsContext += '   ' + story.description + '\n\n';
     });
   } else {
-    newsContext += '(No specific articles gathered - generate based on known global Kingdom developments)\n';
+    // Do NOT invite the model to invent news here. This section publishes as
+    // "Kingdom Intelligence" to a real congregation; a brief with no source
+    // behind it is a fabricated news report, however plausible it reads. If
+    // the feeds gave us nothing, say nothing.
+    newsContext += '(NO ARTICLES GATHERED)\n';
   }
+
+  // The articles above are the SUBJECT of this section, not background colour.
+  // Before this was explicit, the requirements asked for '3 news briefs about
+  // the Kingdom advancing globally' plus a topic-diversity rule, while labelling
+  // the real stories as mere context. The model reasonably obeyed the
+  // requirements over the context and wrote generic composites matching no
+  // gathered article -- August 2026 shipped exactly that. Reporting the
+  // supplied stories, with attribution, is the whole job.
+  const haveStories = stories.length > 0;
 
   const prompt = [
     'Write the "Kingdom Intelligence" section for the ' + monthName + ' ' + year + ' newsletter.',
     '', newsContext,
     'Requirements:',
-    '- Write exactly 3 news briefs about the Kingdom of God advancing globally',
+    haveStories
+      ? '- Write one brief for each of the first 3 articles listed above, in that order'
+      : '- Output ONLY this line and nothing else: _No verified Kingdom news was gathered this month._',
+    '- CRITICAL: report ONLY what the listed articles say. Do not invent events,',
+    '  places, numbers, names, dates, or outcomes. If a detail is not in the',
+    '  article above, it does not belong in the brief.',
+    '- Every brief MUST end its story text with the source as (Source: [name])',
     '- Each brief should be 80-120 words',
     '- Each brief needs: a bold headline, the story, and a "Kingdom Perspective" sentence',
-    '- Cover diverse topics: missions, church growth, cultural influence, persecution/resilience, prayer movements',
     "- Frame every story through the lens of Jesus' lordship and Kingdom advancement",
+    '- The Kingdom Perspective is yours to write; the STORY is not.',
     '',
     'Format each brief as:',
     '### [Headline]',
-    '[Story text]',
+    '[Story text] (Source: [name])',
     '**Kingdom Perspective:** [One sentence connecting this to the bigger Kingdom picture]',
   ].join('\n');
 

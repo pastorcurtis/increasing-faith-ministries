@@ -144,7 +144,11 @@ const config = {
   sources: {
     rssFeeds: [
       { name: 'Christianity Today', url: 'https://www.christianitytoday.com/feed/' },
-      { name: 'Desiring God', url: 'https://www.desiringgod.org/feeds/all' },
+      // desiringgod.org serves 403 to this fetcher on every direct feed path
+      // (/feeds/all, /feeds/all.rss, /blog.rss all refuse). The FeedBurner
+      // mirror is the same content and answers 200. Dead since at least
+      // 2026-08 — it was 1 of 5 sources failing in silence.
+      { name: 'Desiring God', url: 'https://feeds.feedburner.com/DesiringGodBlog' },
       { name: 'The Gospel Coalition', url: 'https://www.thegospelcoalition.org/feed/' },
       { name: 'Mission Network News', url: 'https://www.mnnonline.org/feed/' },
       { name: 'International Christian Concern', url: 'https://www.persecution.org/feed/' },
