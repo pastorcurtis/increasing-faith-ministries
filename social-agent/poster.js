@@ -18,6 +18,57 @@ const FormData = require('form-data');
 const fs = require('fs');
 const path = require('path');
 
+// -- Feed Sanitization ---
+//
+// The model writes in markdown (**bold**) because that is how it was trained
+// to emphasize. The Graph API takes plain text and renders none of it, so the
+// asterisks publish literally. Every generator that reaches the Page goes
+// through postToFacebook() -- the social agent and ad.js both -- so cleaning
+// here means a future model swap inherits the protection for free.
+//
+// Distinct from sanitizeForGraphic() in index.js: that one flattens text to a
+// single line for image rendering. Feed posts must keep their line breaks.
+
+// Placeholder debris means the generator produced a template, not a post.
+// Publishing a fill-in-the-blank to the Page is worse than missing a day, so
+// these abort the post and let the workflow's failure alert reach a human.
+const PLACEHOLDER_PATTERNS = [
+  { re: /_{3,}/, label: 'fill-in-the-blank underscores' },
+  { re: /\{\{[^}]*\}\}/, label: 'unrendered {{template}} token' },
+  { re: /\[(?:INSERT|TODO|PLACEHOLDER|X{3,})\b[^\]]*\]/i, label: 'bracketed placeholder' },
+  { re: /\blorem ipsum\b/i, label: 'lorem ipsum filler' },
+];
+
+function findPlaceholders(text) {
+  return PLACEHOLDER_PATTERNS.filter(p => p.re.test(text)).map(p => p.label);
+}
+
+function sanitizeForFeed(text) {
+  return text
+    // Invisible characters the model emits: zero-width space/non-joiner/joiner,
+    // word joiner, BOM. They survive copy/paste and quietly break hashtag
+    // matching and search.
+    .replace(/[\u200B-\u200D\u2060\uFEFF]/g, '')
+    // Typographic spaces (no-break, narrow no-break, thin) -> plain space
+    .replace(/[\u00A0\u202F\u2009]/g, ' ')
+    // Non-breaking hyphen -> plain hyphen
+    .replace(/\u2011/g, '-')
+    // Markdown emphasis: keep the words, drop the markers
+    .replace(/\*\*\*([\s\S]+?)\*\*\*/g, '$1')
+    .replace(/\*\*([\s\S]+?)\*\*/g, '$1')
+    .replace(/(^|[\s(])\*(\S(?:[\s\S]*?\S)?)\*(?=[\s).,!?;:]|$)/g, '$1$2')
+    .replace(/(^|[\s(])_(\S(?:[\s\S]*?\S)?)_(?=[\s).,!?;:]|$)/g, '$1$2')
+    // Markdown headings and blockquote markers at line starts. Hashtags are
+    // safe: "#IFM" has no space after the #, so it never matches.
+    .replace(/^[ \t]*#{1,6}[ \t]+/gm, '')
+    .replace(/^[ \t]*>[ \t]?/gm, '')
+    // Trailing spaces left by markdown's two-space line-break convention
+    .replace(/[ \t]+$/gm, '')
+    // At most one blank line between paragraphs
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
 // -- Platform Posting Functions ---
 
 async function postToFacebookText(content) {
@@ -78,10 +129,30 @@ async function postToFacebook(content, imagePath) {
   if (!process.env.FACEBOOK_PAGE_TOKEN || !process.env.FACEBOOK_PAGE_ID) {
     return { success: false, error: 'Missing FACEBOOK_PAGE_TOKEN or FACEBOOK_PAGE_ID' };
   }
-  if (imagePath && fs.existsSync(imagePath)) {
-    return postToFacebookPhoto(imagePath, content);
+
+  // Check the raw text: placeholder debris means the generator handed us a
+  // template. Fail loudly instead of publishing it -- a missed day is
+  // recoverable, a fill-in-the-blank on the Page is not.
+  const placeholders = findPlaceholders(content);
+  if (placeholders.length > 0) {
+    return {
+      success: false,
+      error: `Refusing to post -- copy still contains ${placeholders.join(', ')}`,
+    };
   }
-  return postToFacebookText(content);
+
+  const clean = sanitizeForFeed(content);
+  if (!clean) {
+    return { success: false, error: 'Refusing to post -- copy is empty after sanitizing' };
+  }
+  if (clean !== content) {
+    console.log(`  (sanitized: ${content.length} -> ${clean.length} chars)`);
+  }
+
+  if (imagePath && fs.existsSync(imagePath)) {
+    return postToFacebookPhoto(imagePath, clean);
+  }
+  return postToFacebookText(clean);
 }
 
 // -- Main Pipeline ---
@@ -132,10 +203,18 @@ async function main() {
   // (These platforms require Business API or Creator tools for automated posting)
   for (const platform of ['instagram', 'tiktok']) {
     if (content.posts[platform] && !content.posts[platform].error) {
+      const manualText = sanitizeForFeed(content.posts[platform].fullPost);
+      const manualPlaceholders = findPlaceholders(content.posts[platform].fullPost);
       console.log(`\n  ${platform.toUpperCase()} (copy-ready):`);
       console.log('  ' + '-'.repeat(40));
-      console.log(`  ${content.posts[platform].fullPost}`);
-      results[platform] = { success: true, method: 'manual_copy' };
+      console.log(`  ${manualText}`);
+      if (manualPlaceholders.length > 0) {
+        console.warn(`  WARNING: contains ${manualPlaceholders.join(', ')} -- edit before posting`);
+      }
+      // `success` here only means the text was generated and printed. These
+      // platforms need Business/Creator API access, so nothing is published;
+      // `posted: false` keeps the archive honest about that.
+      results[platform] = { success: true, posted: false, method: 'manual_copy' };
     }
   }
 
@@ -173,4 +252,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { postToFacebook };
+module.exports = { postToFacebook, sanitizeForFeed, findPlaceholders };
