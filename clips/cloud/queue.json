@@ -723,8 +723,10 @@
     },
     {
       "file": "Faithful_is_He_God_Already_Did_It_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "1813980709954201",
+      "posted_at": "2026-08-26T14:41:47Z"
     },
     {
       "file": "Faith_that_moves_mountains_believe_and_r_0m05s_square.mp4",
@@ -934,8 +936,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 103,
-    "remaining": 42,
-    "last_updated": "2026-08-25T21:25:58Z"
+    "posted": 104,
+    "remaining": 41,
+    "last_updated": "2026-08-26T14:41:47Z"
   }
 }
