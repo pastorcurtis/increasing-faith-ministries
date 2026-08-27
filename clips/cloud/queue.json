@@ -737,8 +737,10 @@
     },
     {
       "file": "Ephatha_doors_and_opportunities_opening_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "1026851077003044",
+      "posted_at": "2026-08-27T23:35:05Z"
     },
     {
       "file": "Enter_your_closet_how_to_pray_privately_0m05s_square.mp4",
@@ -938,8 +940,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 105,
-    "remaining": 40,
-    "last_updated": "2026-08-27T00:27:10Z"
+    "posted": 106,
+    "remaining": 39,
+    "last_updated": "2026-08-27T23:35:05Z"
   }
 }
