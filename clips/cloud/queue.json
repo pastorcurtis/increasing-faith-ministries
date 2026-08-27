@@ -730,8 +730,10 @@
     },
     {
       "file": "Faith_that_moves_mountains_believe_and_r_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "1789552455736717",
+      "posted_at": "2026-08-27T00:27:10Z"
     },
     {
       "file": "Ephatha_doors_and_opportunities_opening_0m02s_square.mp4",
@@ -936,8 +938,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 104,
-    "remaining": 41,
-    "last_updated": "2026-08-26T14:41:47Z"
+    "posted": 105,
+    "remaining": 40,
+    "last_updated": "2026-08-27T00:27:10Z"
   }
 }
