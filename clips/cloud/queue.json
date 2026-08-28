@@ -751,8 +751,10 @@
     },
     {
       "file": "Emotional_Control_They_Don_t_Get_To_Tell_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "1039286678730744",
+      "posted_at": "2026-08-28T23:23:26Z"
     },
     {
       "file": "Emanate_God_s_love_don_t_preach_damnatio_0m02s_square.mp4",
@@ -942,8 +944,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 107,
-    "remaining": 38,
-    "last_updated": "2026-08-28T05:06:23Z"
+    "posted": 108,
+    "remaining": 37,
+    "last_updated": "2026-08-28T23:23:26Z"
   }
 }
