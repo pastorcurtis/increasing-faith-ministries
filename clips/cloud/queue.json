@@ -744,8 +744,10 @@
     },
     {
       "file": "Enter_your_closet_how_to_pray_privately_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "2971186149917112",
+      "posted_at": "2026-08-28T05:06:23Z"
     },
     {
       "file": "Emotional_Control_They_Don_t_Get_To_Tell_0m02s_square.mp4",
@@ -940,8 +942,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 106,
-    "remaining": 39,
-    "last_updated": "2026-08-27T23:35:05Z"
+    "posted": 107,
+    "remaining": 38,
+    "last_updated": "2026-08-28T05:06:23Z"
   }
 }
