@@ -1,0 +1,69 @@
+{
+  "date": "2026-08-28",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "Pastor Curtis just uncovered a biblical strategy the Kingdom is using right now—an unseen shift in spiritual authority that’s already reshaping cities across the nation. IFM’s latest Kingdom Report breaks down the scriptural source, the prophetic sign, and the practical step every believer must take today.  \n\nAre you ready to align with the authority God is releasing, or will you watch it pass you by?",
+      "hashtags": [
+        "#Jesus",
+        "#Faith",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "Pastor Curtis just uncovered a biblical strategy the Kingdom is using right now—an unseen shift in spiritual authority that’s already reshaping cities across the nation. IFM’s latest Kingdom Report breaks down the scriptural source, the prophetic sign, and the practical step every believer must take today.  \n\nAre you ready to align with the authority God is releasing, or will you watch it pass you by?\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#Jesus #Faith #KingdomCitizen",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-08-28.png",
+      "pullQuote": "Align with the authority God is releasing before it passes you by.",
+      "attribution": "Kingdom Intelligence"
+    },
+    "instagram": {
+      "content": "A kingdom‑level shift is coming: the new “Harvest Calendar” God revealed to Pastor Curtis will sync every believer’s prayer cycles with the seasonal outpouring He’s preparing. This isn’t a trend—it’s a divine schedule that will change how we receive and release.  \n\nAre you ready to align your calendar with Heaven’s timetable?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#KingdomCitizen",
+        "#IncreasingFaith",
+        "#IFM",
+        "#JesusIsLord",
+        "#KingdomLiving",
+        "#Faith",
+        "#Jesus"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "A kingdom‑level shift is coming: the new “Harvest Calendar” God revealed to Pastor Curtis will sync every believer’s prayer cycles with the seasonal outpouring He’s preparing. This isn’t a trend—it’s a divine schedule that will change how we receive and release.  \n\nAre you ready to align your calendar with Heaven’s timetable?\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomOfGod #KingdomCitizen #IncreasingFaith #IFM #JesusIsLord #KingdomLiving #Faith #Jesus"
+    },
+    "tiktok": {
+      "content": "The Kingdom Report reveals why the new Jerusalem decree is reshaping every marketplace contract—God’s law now overrides earthly terms. Pastor Curtis breaks down the legal weight for believers. How will this shift affect the business you run?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#Faith",
+        "#IFM",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The Kingdom Report reveals why the new Jerusalem decree is reshaping every marketplace contract—God’s law now overrides earthly terms. Pastor Curtis breaks down the legal weight for believers. How will this shift affect the business you run?\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomOfGod #IncreasingFaith #Faith #IFM #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-08-28T23:23:53.087Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1508595917971052",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-08-28T23:23:58.902Z",
+  "testMode": false
+}
