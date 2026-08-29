@@ -758,8 +758,10 @@
     },
     {
       "file": "Emanate_God_s_love_don_t_preach_damnatio_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:33Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:33Z",
+      "video_id": "1500775065407469",
+      "posted_at": "2026-08-29T03:04:49Z"
     },
     {
       "file": "Elijah_revives_a_boy__go_back_and_revive_0m05s_square.mp4",
@@ -944,8 +946,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 108,
-    "remaining": 37,
-    "last_updated": "2026-08-28T23:23:26Z"
+    "posted": 109,
+    "remaining": 36,
+    "last_updated": "2026-08-29T03:04:49Z"
   }
 }
