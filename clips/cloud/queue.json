@@ -772,8 +772,10 @@
     },
     {
       "file": "Don_t_tell_them_God_gives_tough_battles_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:34Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:34Z",
+      "video_id": "4013924882234374",
+      "posted_at": "2026-08-29T22:59:11Z"
     },
     {
       "file": "Don_t_swap_the_Holy_Spirit_for_a_leader_0m02s_square.mp4",
@@ -948,8 +950,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 110,
-    "remaining": 35,
-    "last_updated": "2026-08-29T17:29:59Z"
+    "posted": 111,
+    "remaining": 34,
+    "last_updated": "2026-08-29T22:59:11Z"
   }
 }
