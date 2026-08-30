@@ -779,8 +779,10 @@
     },
     {
       "file": "Don_t_swap_the_Holy_Spirit_for_a_leader_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:34Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:34Z",
+      "video_id": "2537999643346186",
+      "posted_at": "2026-08-30T17:54:04Z"
     },
     {
       "file": "Don_t_stop_at_one_job__expand_your_abili_0m05s_square.mp4",
@@ -950,8 +952,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 111,
-    "remaining": 34,
-    "last_updated": "2026-08-29T22:59:11Z"
+    "posted": 112,
+    "remaining": 33,
+    "last_updated": "2026-08-30T17:54:04Z"
   }
 }
