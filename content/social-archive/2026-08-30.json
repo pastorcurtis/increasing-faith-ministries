@@ -1,0 +1,69 @@
+{
+  "date": "2026-08-30",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "Beloved, the Lord says you are not defined by today’s setbacks but by the One who called you. Psalm 139:14 reminds us you are “fearfully and wonderfully made.” Walk forward with that truth; let His purpose overtake every doubt. I declare that God’s favor surrounds you now—step into it. What has God been showing you today that confirms His hand?",
+      "hashtags": [
+        "#JesusIsLord",
+        "#KingdomOfGod",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "Beloved, the Lord says you are not defined by today’s setbacks but by the One who called you. Psalm 139:14 reminds us you are “fearfully and wonderfully made.” Walk forward with that truth; let His purpose overtake every doubt. I declare that God’s favor surrounds you now—step into it. What has God been showing you today that confirms His hand?\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#JesusIsLord #KingdomOfGod #IncreasingFaith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-08-30.png",
+      "pullQuote": "You are not defined by today’s setbacks but by the One who called you",
+      "attribution": "Psalm 139:14"
+    },
+    "instagram": {
+      "content": "Brothers and sisters, the enemy wants you to settle for “good enough.” But Psalm 91 declares: *He who dwells in the secret place of the Most High will find refuge under His wings.* Take your seat in that place today. Declare that you will walk in divine provision, not in fear. What breakthrough has God already given you this week?",
+      "hashtags": [
+        "#Faith",
+        "#KingdomLiving",
+        "#JesusIsLord",
+        "#IFM",
+        "#KingdomCitizen",
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#Jesus"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "Brothers and sisters, the enemy wants you to settle for “good enough.” But Psalm 91 declares: *He who dwells in the secret place of the Most High will find refuge under His wings.* Take your seat in that place today. Declare that you will walk in divine provision, not in fear. What breakthrough has God already given you this week?\n\nLearn more about our mission → Link in bio\n\n#Faith #KingdomLiving #JesusIsLord #IFM #KingdomCitizen #IncreasingFaith #KingdomOfGod #Jesus"
+    },
+    "tiktok": {
+      "content": "Beloved, the Lord says you are seated with Christ in victory—no circumstance can displace that seat. Walk today in that authority; claim the peace He promises. I declare your breakthrough is now. How has God’s favor shown up for you today?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#KingdomCitizen",
+        "#Faith",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "Beloved, the Lord says you are seated with Christ in victory—no circumstance can displace that seat. Walk today in that authority; claim the peace He promises. I declare your breakthrough is now. How has God’s favor shown up for you today?\n\nLearn more about our mission → Link in bio\n\n#KingdomOfGod #IncreasingFaith #KingdomCitizen #Faith #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-08-30T17:54:14.053Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1510160211147956",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-08-30T17:54:21.185Z",
+  "testMode": false
+}
