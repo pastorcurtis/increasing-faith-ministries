@@ -1,0 +1,69 @@
+{
+  "date": "2026-08-31",
+  "day": 1,
+  "theme": "Kingdom Teaching",
+  "themeType": "kingdom_teaching",
+  "targetPage": "https://increasingfaith.net/teachings.html",
+  "posts": {
+    "facebook": {
+      "content": "The Kingdom’s economy is not “what I earn,” it’s “what He gives.” When we count our worth by salary or savings, we miss the promise of Philippians 4:19—“He will meet all your needs according to the riches of His glory.” Your identity shifts from self‑sustaining to God‑sustaining the moment you claim His provision as your source.  \n\nWhat need will you release to God today, trusting He will supply it?",
+      "hashtags": [
+        "#SpiritualGrowth",
+        "#KingdomTeaching",
+        "#IFM"
+      ],
+      "cta": "\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html",
+      "fullPost": "The Kingdom’s economy is not “what I earn,” it’s “what He gives.” When we count our worth by salary or savings, we miss the promise of Philippians 4:19—“He will meet all your needs according to the riches of His glory.” Your identity shifts from self‑sustaining to God‑sustaining the moment you claim His provision as your source.  \n\nWhat need will you release to God today, trusting He will supply it?\n\nWatch the full teaching\nhttps://increasingfaith.net/teachings.html\n\n#SpiritualGrowth #KingdomTeaching #IFM",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-08-31.png",
+      "pullQuote": "The Kingdom’s economy is not what I earn, it’s what He gives.",
+      "attribution": "Philippians 4:19"
+    },
+    "instagram": {
+      "content": "Your identity isn’t what the world labels you—it’s the royalty stamped on you by God. Heb 1:3 declares Christ “the exact representation of His being.” As His likeness, you inherit the throne of grace. \n\nIf you walked each day aware that the King has already crowned you, how would that change the decisions you make right now?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#SpiritualGrowth",
+        "#BibleTeaching",
+        "#IFM",
+        "#KingdomLiving",
+        "#Discipleship",
+        "#IncreasingFaith",
+        "#KingdomTeaching"
+      ],
+      "cta": "\n\nWatch the full teaching → Link in bio",
+      "fullPost": "Your identity isn’t what the world labels you—it’s the royalty stamped on you by God. Heb 1:3 declares Christ “the exact representation of His being.” As His likeness, you inherit the throne of grace. \n\nIf you walked each day aware that the King has already crowned you, how would that change the decisions you make right now?\n\nWatch the full teaching → Link in bio\n\n#KingdomOfGod #SpiritualGrowth #BibleTeaching #IFM #KingdomLiving #Discipleship #IncreasingFaith #KingdomTeaching"
+    },
+    "tiktok": {
+      "content": "Your worth isn’t measured by your bank balance, it’s stamped in Genesis 2:24—“One flesh.” When you view marriage as a Kingdom partnership, every decision becomes a joint offering, not a solo venture. How will you honor that unity today?",
+      "hashtags": [
+        "#KingdomLiving",
+        "#KingdomOfGod",
+        "#IFM",
+        "#KingdomTeaching",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nWatch the full teaching → Link in bio",
+      "fullPost": "Your worth isn’t measured by your bank balance, it’s stamped in Genesis 2:24—“One flesh.” When you view marriage as a Kingdom partnership, every decision becomes a joint offering, not a solo venture. How will you honor that unity today?\n\nWatch the full teaching → Link in bio\n\n#KingdomLiving #KingdomOfGod #IFM #KingdomTeaching #IncreasingFaith"
+    }
+  },
+  "generatedAt": "2026-08-31T19:16:33.276Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1511080264389284",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-08-31T19:16:39.716Z",
+  "testMode": false
+}
