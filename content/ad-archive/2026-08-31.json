@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-31",
+  "day": 1,
+  "label": "Teachings",
+  "destination": "https://increasingfaith.net/teachings.html",
+  "button": "WATCH THE TEACHING",
+  "copy": {
+    "headline": "Your week needs the Word you’re missing",
+    "subhead": "Free teachings from Pastor Curtis and Pastor Tammy await you",
+    "hook": "A hard work week starts with a Kingdom lesson, not a coffee.",
+    "body": "The library is already built. Every sermon is ready to stream. Click, press play, and let Scripture fuel the tasks ahead. Pastor Curtis and Pastor Tammy speak truth that steadies the grind."
+  },
+  "caption": "A hard work week starts with a Kingdom lesson, not a coffee.\n\n→ https://increasingfaith.net/teachings.html\n\nThe library is already built. Every sermon is ready to stream. Click, press play, and let Scripture fuel the tasks ahead. Pastor Curtis and Pastor Tammy speak truth that steadies the grind.\n\n#KingdomOfGod #Discipleship #IncreasingFaith",
+  "hashtags": [
+    "#KingdomOfGod",
+    "#Discipleship",
+    "#IncreasingFaith"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-08-31.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1511101594387151",
+    "mode": "photo"
+  },
+  "postedAt": "2026-08-31T19:54:30.410Z",
+  "testMode": false
+}
