@@ -240,15 +240,37 @@ async function main() {
   const testMode = args.includes('--test');
   const forceFallback = args.includes('--fallback');
   const dayIndex = args.indexOf('--day');
+  const dateIndex = args.indexOf('--date');
 
-  const day = dayIndex !== -1 ? parseInt(args[dayIndex + 1], 10) : new Date().getDay();
+  // The day this ad is FOR, which is not necessarily the day it runs on. Both
+  // the rotation and the archive key derive from this ONE value, so they can
+  // never disagree -- that split is what let a delayed run post tomorrow's
+  // creative under tomorrow's key and gate off tomorrow's real slot.
+  //
+  // 2026-08-27 and -28 were both lost to it: GitHub dropped every in-window
+  // slot, and the runs that did land after midnight UTC could only refuse.
+  const date = dateIndex !== -1 ? args[dateIndex + 1] : todayDateString();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || Number.isNaN(Date.parse(`${date}T12:00:00Z`))) {
+    // Fail loudly. Silently falling back to "now" would reintroduce exactly
+    // the wall-clock coupling this parameter exists to remove.
+    console.error(`ERROR: --date must be a valid YYYY-MM-DD, got "${date}"`);
+    process.exit(1);
+  }
+
+  // Noon UTC, not midnight: parsing at midnight leaves no headroom, so any
+  // offset slip lands in an adjacent day. This also fixes a latent split --
+  // it was `new Date().getDay()` (LOCAL) while the archive name came from
+  // toISOString() (UTC). Identical on a UTC runner, divergent near midnight
+  // on a machine in ET.
+  const day = dayIndex !== -1
+    ? parseInt(args[dayIndex + 1], 10)
+    : new Date(`${date}T12:00:00Z`).getUTCDay();
   const ad = adConfig.dailyAds[day];
   if (!ad) {
     console.error(`ERROR: No ad configured for day ${day}`);
     process.exit(1);
   }
 
-  const date = todayDateString();
   console.log(`\nIFM Website Ad — ${date}`);
   console.log(`  Day ${day}: ${ad.label}`);
   console.log(`  Destination: ${ad.page}\n`);

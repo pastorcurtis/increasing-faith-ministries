@@ -57,6 +57,9 @@ jobs:
     timeout-minutes: 5
     outputs:
       should_run: ${{ steps.check.outputs.should_run }}
+      # The day the ad is FOR. Not always today: a run delayed past midnight
+      # UTC makes up the day it missed rather than skipping it.
+      target: ${{ steps.check.outputs.target }}
     steps:
       - uses: actions/checkout@v4
 
@@ -64,26 +67,65 @@ jobs:
         id: check
         run: |
           TODAY=$(date -u +%Y-%m-%d)
+          YESTERDAY=$(date -u -d 'yesterday' +%Y-%m-%d)
           # 10# forces base 10; bash reads a bare "08"/"09" as invalid octal.
           HOUR=$((10#$(date -u +%H)))
 
-          if [ "${{ github.event_name }}" != "schedule" ]; then
-            echo "Manual run — always proceed"
-            echo "should_run=true" >> $GITHUB_OUTPUT
-          elif [ -f "content/ad-archive/$TODAY.json" ]; then
-            echo "$TODAY ad already posted and archived — skipping"
+          # A missing jq would make posted() answer "no" for every date, and
+          # the gate would post on a day that already went out -- a duplicate
+          # ad on the Page. A check that cannot run must be an ERROR, never an
+          # implicit no. (Same shape as the orphan-check regex that silently
+          # never matched: absence of a match is not evidence of absence.)
+          if ! command -v jq >/dev/null 2>&1; then
+            echo "::error::jq not found -- cannot distinguish a posted day from a failed one. Refusing to post."
             echo "should_run=false" >> $GITHUB_OUTPUT
-          elif [ "$HOUR" -lt 14 ]; then
-            # ad.js reads BOTH the day-of-week rotation and the archive
-            # filename off the runner's UTC clock. A run delayed past midnight
-            # UTC would therefore post tomorrow's ad, file it under tomorrow's
-            # date, and gate off tomorrow's legitimate 17:00 run — turning one
-            # lost day into two. Bail out and let 17:00 handle it normally.
-            echo "Delayed past midnight UTC (hour $HOUR) — skipping to avoid posting the wrong day's ad"
+            exit 1
+          fi
+
+          # ad.js writes an archive entry even when the POST fails, so testing
+          # -f only proves a run happened -- the same "existence is not
+          # success" trap that let a failed 14:00 social run tell its own
+          # catch-up the day was already done. Ask whether Facebook took it.
+          posted() {
+            [ -f "content/ad-archive/$1.json" ] &&               jq -e '.postingResult.success == true' "content/ad-archive/$1.json" >/dev/null 2>&1
+          }
+
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "Manual run -- proceeding for $TODAY"
+            echo "should_run=true" >> $GITHUB_OUTPUT
+            echo "target=$TODAY" >> $GITHUB_OUTPUT
+          elif [ "$HOUR" -ge 14 ]; then
+            # Normal in-window path.
+            if posted "$TODAY"; then
+              echo "$TODAY ad already posted and archived -- skipping"
+              echo "should_run=false" >> $GITHUB_OUTPUT
+            else
+              echo "No successful ad archived for $TODAY -- proceeding"
+              echo "should_run=true" >> $GITHUB_OUTPUT
+              echo "target=$TODAY" >> $GITHUB_OUTPUT
+            fi
+          elif [ "$HOUR" -ge 12 ]; then
+            # Recovery is allowed only EARLY. Past 12:00 UTC a make-up post
+            # would land within ~5h of today's own 17:00 slot and the Page
+            # would get two ads nearly back to back.
+            echo "Hour $HOUR is too close to today's 17:00 slot to make up $YESTERDAY -- skipping"
+            echo "should_run=false" >> $GITHUB_OUTPUT
+          elif posted "$YESTERDAY"; then
+            echo "$YESTERDAY already posted -- nothing to recover"
             echo "should_run=false" >> $GITHUB_OUTPUT
           else
-            echo "No ad archived for $TODAY — proceeding"
+            # Delayed past midnight UTC. This used to refuse outright, which
+            # was correct but terminal: on 2026-08-27 and -28 GitHub dropped
+            # every in-window slot, the only runs that landed were after
+            # midnight, and both days went unposted behind green checks.
+            #
+            # ad.js now takes an explicit --date, so the rotation and the
+            # archive key both follow the MISSED day. Today's 17:00 slot is
+            # untouched. Only ever ONE day back -- a two-day-old traffic ad
+            # is not worth a post.
+            echo "Recovering missed ad for $YESTERDAY (hour $HOUR)"
             echo "should_run=true" >> $GITHUB_OUTPUT
+            echo "target=$YESTERDAY" >> $GITHUB_OUTPUT
           fi
 
   generate-and-post:
@@ -139,6 +181,9 @@ jobs:
           if [ "${{ github.event.inputs.use_fallback }}" = "true" ]; then
             ARGS="$ARGS --fallback"
           fi
+          # Always explicit: the posting job must never re-derive the day
+          # from its own clock, which is the coupling this whole change removes.
+          ARGS="$ARGS --date ${{ needs.gate.outputs.target }}"
           node ad.js $ARGS
 
       # Always uploaded so the rendered ad can be reviewed even on a failed run.
