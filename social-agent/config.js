@@ -207,6 +207,10 @@ module.exports = {
     fewShotExamples: 3,
     maxRetries: 3,
     retryDelayMs: 3000,
+    // Wait between regenerations after a misattributed scripture. Short on
+    // purpose: nothing is rate-limiting us, so this only keeps back-to-back
+    // regenerations from stacking against the per-minute token budget.
+    scriptureRetryDelayMs: 2000,
     // Ceiling on any single backoff wait. Groq's TPM window is 60s, so this
     // must be comfortably above it or a rate-limited retry lands too early.
     maxRetryDelayMs: 90000,

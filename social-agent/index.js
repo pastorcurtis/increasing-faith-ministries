@@ -14,6 +14,7 @@ const fs = require('fs');
 const path = require('path');
 const config = require('./config');
 const { renderQuoteGraphic } = require('./graphic');
+const { verifyScripture } = require('./scripture');
 
 const BIBLE_BOOKS = '(?:Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|Samuel|Kings|Chronicles|Ezra|Nehemiah|Esther|Job|Psalms?|Proverbs|Ecclesiastes|Song|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|Corinthians|Galatians|Ephesians|Philippians|Colossians|Thessalonians|Timothy|Titus|Philemon|Hebrews|James|Peter|Jude|Revelation)';
 const SCRIPTURE_REGEX = new RegExp(`\\b(?:[123]\\s)?${BIBLE_BOOKS}\\s+\\d+:\\d+(?:-\\d+)?\\b`, 'i');
@@ -298,11 +299,39 @@ function pickAttribution(postText, themeLabel) {
 
 // ── Retry Wrapper ──────────────────────────────────────
 
-async function generateWithRetry(theme, platform) {
+async function generateWithRetry(theme, platform, deps = {}) {
+  // Injectable for tests, mirroring scripture.js's `fetcher`. Defaults are the
+  // real implementations, so the production path is unchanged.
+  const { generate = generateContent, verify = verifyScripture } = deps;
   let lastError;
   for (let attempt = 1; attempt <= config.ai.maxRetries; attempt++) {
     try {
-      return await generateContent(theme, platform);
+      const content = await generate(theme, platform);
+
+      // Check the citation HERE, not only at the publishing boundary.
+      // poster.js runs the same check and still refuses to post -- but by then
+      // the generator has exited and the day cannot be recovered. That is
+      // exactly what cost 2026-08-27: a misattributed Psalm 23 blocked the
+      // morning post, the 19:00 catch-up regenerated straight into the same
+      // failure, and no teaching post went out at all.
+      //
+      // A mismatch is raised as an error purely so it reuses the retry loop
+      // below rather than growing a second one. Only a confirmed mismatch
+      // retries; 'unverifiable' passes through, matching poster.js -- a dead
+      // lookup service must never cost a day either.
+      const { mismatches } = await verify(content);
+      if (mismatches.length > 0) {
+        const detail = mismatches
+          .map(m => `${m.ref} (overlap ${m.score})`)
+          .join('; ');
+        const err = new Error(`misattributed scripture: ${detail}`);
+        err.scriptureMismatch = true;
+        throw err;
+      }
+      if (attempt > 1) {
+        console.log(`  [${platform}] Clean citation on attempt ${attempt}`);
+      }
+      return content;
     } catch (err) {
       lastError = err;
       console.error(`  [${platform}] Attempt ${attempt} failed: ${err.message}`);
@@ -310,10 +339,15 @@ async function generateWithRetry(theme, platform) {
         // Rate limits are per-minute, so a fixed 3s delay retries inside the
         // same window and fails again. Honor the provider's own wait hint
         // (plus a 1s cushion); otherwise back off exponentially.
-        const wait = Math.min(
-          err.retryAfterMs ? err.retryAfterMs + 1000 : config.ai.retryDelayMs * 2 ** (attempt - 1),
-          config.ai.maxRetryDelayMs
-        );
+        // A misquote is not a rate limit: nothing is throttling us and the
+        // exponential backoff would only burn clock. Pause just enough to
+        // avoid stacking regenerations against the per-minute token budget.
+        const wait = err.scriptureMismatch
+          ? config.ai.scriptureRetryDelayMs
+          : Math.min(
+            err.retryAfterMs ? err.retryAfterMs + 1000 : config.ai.retryDelayMs * 2 ** (attempt - 1),
+            config.ai.maxRetryDelayMs
+          );
         console.error(`  [${platform}] Waiting ${Math.round(wait / 1000)}s before retry`);
         await new Promise(r => setTimeout(r, wait));
       }
