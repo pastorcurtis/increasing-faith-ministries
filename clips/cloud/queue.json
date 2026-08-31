@@ -793,8 +793,10 @@
     },
     {
       "file": "Don_t_pursue_someone_who_s_still_married_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:34Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:34Z",
+      "video_id": "1558827665340682",
+      "posted_at": "2026-08-31T19:49:46Z"
     },
     {
       "file": "Don_t_preach_damnation__love_people_into_0m02s_square.mp4",
@@ -954,8 +956,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 113,
-    "remaining": 32,
-    "last_updated": "2026-08-30T23:10:35Z"
+    "posted": 114,
+    "remaining": 31,
+    "last_updated": "2026-08-31T19:49:46Z"
   }
 }
