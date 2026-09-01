@@ -800,8 +800,10 @@
     },
     {
       "file": "Don_t_preach_damnation__love_people_into_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T01:53:34Z"
+      "posted": true,
+      "added_at": "2026-08-02T01:53:34Z",
+      "video_id": "1691943696274035",
+      "posted_at": "2026-09-01T00:23:11Z"
     },
     {
       "file": "Don_t_give_what_isn_t_yours_tithes_vs_bi_0m02s_square.mp4",
@@ -956,8 +958,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 114,
-    "remaining": 31,
-    "last_updated": "2026-08-31T19:49:46Z"
+    "posted": 115,
+    "remaining": 30,
+    "last_updated": "2026-09-01T00:23:11Z"
   }
 }
