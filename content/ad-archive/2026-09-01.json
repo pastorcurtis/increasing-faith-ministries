@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-01",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "You carry a prayer no one else hears",
+    "subhead": "Write it down, press send, and a pastor will lift it before the throne",
+    "hook": "What weight are you bearing that no one has spoken over?",
+    "body": "There is no signup, no agenda. Your request goes straight to Pastor Curtis and Pastor Tammy, who will pray for you with Kingdom authority. The prayer is real, the response is real. Press SEND YOUR REQUEST and be heard."
+  },
+  "caption": "What weight are you bearing that no one has spoken over?\n\n→ https://increasingfaith.net/prayer.html\n\nThere is no signup, no agenda. Your request goes straight to Pastor Curtis and Pastor Tammy, who will pray for you with Kingdom authority. The prayer is real, the response is real. Press SEND YOUR REQUEST and be heard.\n\n#Prayer #Intercession #KingdomOfGod",
+  "hashtags": [
+    "#Prayer",
+    "#Intercession",
+    "#KingdomOfGod"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-09-01.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1511989140965063",
+    "mode": "photo"
+  },
+  "postedAt": "2026-09-01T19:46:35.687Z",
+  "testMode": false
+}
