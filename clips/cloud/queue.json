@@ -821,8 +821,10 @@
     },
     {
       "file": "Don_t_come_with_just_the_problem__come_w_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-02T21:23:51"
+      "posted": true,
+      "added_at": "2026-08-02T21:23:51",
+      "video_id": "1453730013479742",
+      "posted_at": "2026-09-02T17:35:21Z"
     },
     {
       "file": "Don_t_chase_social_media__run_to_God_for_0m02s_square.mp4",
@@ -962,8 +964,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 117,
-    "remaining": 28,
-    "last_updated": "2026-09-01T23:00:24Z"
+    "posted": 118,
+    "remaining": 27,
+    "last_updated": "2026-09-02T17:35:21Z"
   }
 }
