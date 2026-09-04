@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-04",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "The Kingdom Report just uncovered a biblical strategy the Apostles used to break every spiritual stronghold—an approach Pastor Curtis is revealing this week that the enemy’s newest tactics can’t defeat. It’s the same authority that moved mountains in Acts, now applied to our daily battles.  \n\nAre you ready to wield that ancient power against the modern lies the enemy spreads?",
+      "hashtags": [
+        "#KingdomLiving",
+        "#KingdomCitizen",
+        "#IFM"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "The Kingdom Report just uncovered a biblical strategy the Apostles used to break every spiritual stronghold—an approach Pastor Curtis is revealing this week that the enemy’s newest tactics can’t defeat. It’s the same authority that moved mountains in Acts, now applied to our daily battles.  \n\nAre you ready to wield that ancient power against the modern lies the enemy spreads?\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#KingdomLiving #KingdomCitizen #IFM",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-09-04.png",
+      "pullQuote": "The same authority that moved mountains in Acts is now applied to our daily battles.",
+      "attribution": "Kingdom Intelligence"
+    },
+    "instagram": {
+      "content": "Kingdom intelligence just dropped. In the latest report we uncover the hidden “Kingdom Gate” in Acts 2:44‑47—how a simple fellowship practice is unlocking supernatural provision for churches today. Pastor Curtis reveals the exact steps to activate it now.  \n\nAre you ready to walk through the gate before the season closes?",
+      "hashtags": [
+        "#JesusIsLord",
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#Jesus",
+        "#IFM",
+        "#KingdomCitizen",
+        "#Faith",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "Kingdom intelligence just dropped. In the latest report we uncover the hidden “Kingdom Gate” in Acts 2:44‑47—how a simple fellowship practice is unlocking supernatural provision for churches today. Pastor Curtis reveals the exact steps to activate it now.  \n\nAre you ready to walk through the gate before the season closes?\n\nRead the full Kingdom Report → Link in bio\n\n#JesusIsLord #KingdomOfGod #IncreasingFaith #Jesus #IFM #KingdomCitizen #Faith #KingdomLiving"
+    },
+    "tiktok": {
+      "content": "The Kingdom Report reveals why the new “harvest law” in Acts 15 will shift every believer’s giving strategy this week. Pastor Curtis breaks the Scripture behind it—so you can align your resources before the shift hits. How will you adjust your stewardship now?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#Faith",
+        "#Jesus",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The Kingdom Report reveals why the new “harvest law” in Acts 15 will shift every believer’s giving strategy this week. Pastor Curtis breaks the Scripture behind it—so you can align your resources before the shift hits. How will you adjust your stewardship now?\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomOfGod #IncreasingFaith #Faith #Jesus #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-09-04T17:22:10.958Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1514704017360242",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-09-04T17:22:16.826Z",
+  "testMode": false
+}
