@@ -849,8 +849,10 @@
     },
     {
       "file": "Ask_for_Help_Open_Communication_and_Team_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-04T11:52:52"
+      "posted": true,
+      "added_at": "2026-08-04T11:52:52",
+      "video_id": "1755596302153444",
+      "posted_at": "2026-09-04T17:22:00Z"
     },
     {
       "file": "Anniversaries_as_opportunities_to_recomm_0m02s_square.mp4",
@@ -970,8 +972,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 121,
-    "remaining": 24,
-    "last_updated": "2026-09-03T22:58:25Z"
+    "posted": 122,
+    "remaining": 23,
+    "last_updated": "2026-09-04T17:22:00Z"
   }
 }
