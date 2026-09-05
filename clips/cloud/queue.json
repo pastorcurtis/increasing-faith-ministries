@@ -870,8 +870,10 @@
     },
     {
       "file": "Discovering_believer_s_authority_casting_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-16T21:24:37"
+      "posted": true,
+      "added_at": "2026-08-16T21:24:37",
+      "video_id": "1505992651286382",
+      "posted_at": "2026-09-05T22:38:21Z"
     },
     {
       "file": "Deconstructing_Religion_Don_t_Return_to_0m02s_square.mp4",
@@ -976,8 +978,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 124,
-    "remaining": 21,
-    "last_updated": "2026-09-05T16:31:43Z"
+    "posted": 125,
+    "remaining": 20,
+    "last_updated": "2026-09-05T22:38:21Z"
   }
 }
