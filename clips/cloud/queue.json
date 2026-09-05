@@ -863,8 +863,10 @@
     },
     {
       "file": "Discovering_identity_and_being_persisten_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-04T11:52:52"
+      "posted": true,
+      "added_at": "2026-08-04T11:52:52",
+      "video_id": "2037037530291935",
+      "posted_at": "2026-09-05T16:31:43Z"
     },
     {
       "file": "Discovering_believer_s_authority_casting_0m02s_square.mp4",
@@ -974,8 +976,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 123,
-    "remaining": 22,
-    "last_updated": "2026-09-04T22:46:38Z"
+    "posted": 124,
+    "remaining": 21,
+    "last_updated": "2026-09-05T16:31:43Z"
   }
 }
