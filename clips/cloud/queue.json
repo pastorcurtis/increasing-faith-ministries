@@ -884,8 +884,10 @@
     },
     {
       "file": "Cult_loyalty_run_like_a_cartel_or_mafia_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-16T21:24:37"
+      "posted": true,
+      "added_at": "2026-08-16T21:24:37",
+      "video_id": "1464834395693900",
+      "posted_at": "2026-09-06T22:41:17Z"
     },
     {
       "file": "Cialis_on_a_plane__a_cautionary_story_0m05s_square.mp4",
@@ -980,8 +982,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 126,
-    "remaining": 19,
-    "last_updated": "2026-09-06T16:41:54Z"
+    "posted": 127,
+    "remaining": 18,
+    "last_updated": "2026-09-06T22:41:17Z"
   }
 }
