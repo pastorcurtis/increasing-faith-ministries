@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-08",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "Your silent burden deserves a prayer heard",
+    "subhead": "No signup, no schedule—just a genuine request lifted by us",
+    "hook": "What you’ve kept hidden can now be lifted in prayer.",
+    "body": "Enter your request and our prayer team will stand with you. There is no appointment, no membership, no performance required—only honest intercession. Let the weight be released today."
+  },
+  "caption": "What you’ve kept hidden can now be lifted in prayer.\n\n→ https://increasingfaith.net/prayer.html\n\nEnter your request and our prayer team will stand with you. There is no appointment, no membership, no performance required—only honest intercession. Let the weight be released today.\n\n#IFM #KingdomOfGod #Intercession",
+  "hashtags": [
+    "#IFM",
+    "#KingdomOfGod",
+    "#Intercession"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-09-08.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1518287137001930",
+    "mode": "photo"
+  },
+  "postedAt": "2026-09-08T19:46:21.110Z",
+  "testMode": false
+}
