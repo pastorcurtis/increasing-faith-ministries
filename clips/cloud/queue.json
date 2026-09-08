@@ -912,8 +912,10 @@
     },
     {
       "file": "Built_on_silver_gold_and_precious_stone_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-16T21:24:37"
+      "posted": true,
+      "added_at": "2026-08-16T21:24:37",
+      "video_id": "1776459413784267",
+      "posted_at": "2026-09-08T23:11:28Z"
     },
     {
       "file": "Blessed_are_the_peacemakers__what_it_mea_0m02s_square.mp4",
@@ -988,8 +990,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 130,
-    "remaining": 15,
-    "last_updated": "2026-09-08T17:45:09Z"
+    "posted": 131,
+    "remaining": 14,
+    "last_updated": "2026-09-08T23:11:28Z"
   }
 }
