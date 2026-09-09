@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-09",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "Real talk: When the promises of Scripture feel distant and your prayers seem unanswered, what is the one Kingdom truth you cling to to keep moving forward? Share the verse or principle that anchors you in those moments. I’m listening—let’s discuss how we stand firm together.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#KingdomLiving",
+        "#RealTalk"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "Real talk: When the promises of Scripture feel distant and your prayers seem unanswered, what is the one Kingdom truth you cling to to keep moving forward? Share the verse or principle that anchors you in those moments. I’m listening—let’s discuss how we stand firm together.\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#KingdomOfGod #KingdomLiving #RealTalk",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-09-09.png",
+      "pullQuote": "When Scripture feels distant, cling to the Kingdom truth that moves you forward",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Unpopular opinion: The Kingdom isn’t built on relentless positivity, but on confronting the darkness head‑on because God’s light shines brightest there.  \n\nDo you agree that true Kingdom power comes from walking through the shadows, or do you think it lives only in comfort?",
+      "hashtags": [
+        "#KingdomMindset",
+        "#KingdomLiving",
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#KingdomConversation",
+        "#RealTalk",
+        "#FaithTalk"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Unpopular opinion: The Kingdom isn’t built on relentless positivity, but on confronting the darkness head‑on because God’s light shines brightest there.  \n\nDo you agree that true Kingdom power comes from walking through the shadows, or do you think it lives only in comfort?\n\nJoin our community → Link in bio\n\n#KingdomMindset #KingdomLiving #IFM #IncreasingFaith #KingdomOfGod #KingdomConversation #RealTalk #FaithTalk"
+    },
+    "tiktok": {
+      "content": "Unpopular opinion: The Kingdom isn’t a comfort zone; it’s a daily clash with the world’s values. If you’re waiting for peace before you step out, you’re missing the call. Agree or disagree—what’s your stance?",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#FaithTalk",
+        "#KingdomLiving",
+        "#KingdomOfGod",
+        "#IFM"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Unpopular opinion: The Kingdom isn’t a comfort zone; it’s a daily clash with the world’s values. If you’re waiting for peace before you step out, you’re missing the call. Agree or disagree—what’s your stance?\n\nJoin our community → Link in bio\n\n#IncreasingFaith #FaithTalk #KingdomLiving #KingdomOfGod #IFM"
+    }
+  },
+  "generatedAt": "2026-09-09T17:32:48.143Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1519114360252541",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-09-09T17:32:52.801Z",
+  "testMode": false
+}
