@@ -926,8 +926,10 @@
     },
     {
       "file": "Beware_of_false_prophets_judge_by_their_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-16T21:24:37"
+      "posted": true,
+      "added_at": "2026-08-16T21:24:37",
+      "video_id": "1104145395634696",
+      "posted_at": "2026-09-09T22:55:38Z"
     },
     {
       "file": "Behavior__Information_Control_How_Cults_0m02s_square.mp4",
@@ -992,8 +994,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 132,
-    "remaining": 13,
-    "last_updated": "2026-09-09T17:32:57Z"
+    "posted": 133,
+    "remaining": 12,
+    "last_updated": "2026-09-09T22:55:38Z"
   }
 }
