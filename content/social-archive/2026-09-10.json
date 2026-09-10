@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-10",
+  "day": 4,
+  "theme": "Prayer Focus",
+  "themeType": "prayer_focus",
+  "targetPage": "https://increasingfaith.net/prayer.html",
+  "posts": {
+    "facebook": {
+      "content": "Family – We are called to be a beacon of God’s covenant love in our homes.  \nLord, we declare that every household under our care walks in divine unity, forgiveness, and purpose.  The Spirit of peace reigns, every word spoken builds up, and every conflict dissolves by Your power.  We claim Your provision for each need and declare that our families reflect the Kingdom of Christ.  \n\nDrop a 🙏 if you stand with this, or share your own request below.",
+      "hashtags": [
+        "#IFM",
+        "#KingdomLiving",
+        "#KingdomPrayer"
+      ],
+      "cta": "\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html",
+      "fullPost": "Family – We are called to be a beacon of God’s covenant love in our homes.  \nLord, we declare that every household under our care walks in divine unity, forgiveness, and purpose.  The Spirit of peace reigns, every word spoken builds up, and every conflict dissolves by Your power.  We claim Your provision for each need and declare that our families reflect the Kingdom of Christ.  \n\nDrop a 🙏 if you stand with this, or share your own request below.\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html\n\n#IFM #KingdomLiving #KingdomPrayer",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-09-10.png",
+      "pullQuote": "We are called to be a beacon of God’s covenant love in our homes.",
+      "attribution": "Prayer Focus"
+    },
+    "instagram": {
+      "content": "Family – We stand on the promise that a godly household is a kingdom stronghold.  \nLord, we declare Your peace reigns in every home, that love‑filled words replace discord and Your provision overflows. Let each family member walk in the authority of Christ, reflecting His righteousness.  \n\nDrop a 🙏 if you stand with this, or share your own request below.",
+      "hashtags": [
+        "#IFM",
+        "#Prayer",
+        "#KingdomLiving",
+        "#IncreasingFaith",
+        "#PrayerFocus",
+        "#KingdomOfGod",
+        "#Intercession",
+        "#KingdomPrayer"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Family – We stand on the promise that a godly household is a kingdom stronghold.  \nLord, we declare Your peace reigns in every home, that love‑filled words replace discord and Your provision overflows. Let each family member walk in the authority of Christ, reflecting His righteousness.  \n\nDrop a 🙏 if you stand with this, or share your own request below.\n\nSubmit your prayer request → Link in bio\n\n#IFM #Prayer #KingdomLiving #IncreasingFaith #PrayerFocus #KingdomOfGod #Intercession #KingdomPrayer"
+    },
+    "tiktok": {
+      "content": "Family—break every generational chain of conflict. Lord, we declare Your peace reigns in every home; broken ties are restored, love overflows, and Your Spirit binds us tighter than blood.  \n\nDrop a 🙏 if you stand with this, or type your own need below.",
+      "hashtags": [
+        "#IFM",
+        "#PrayerFocus",
+        "#KingdomOfGod",
+        "#KingdomPrayer",
+        "#Prayer"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Family—break every generational chain of conflict. Lord, we declare Your peace reigns in every home; broken ties are restored, love overflows, and Your Spirit binds us tighter than blood.  \n\nDrop a 🙏 if you stand with this, or type your own need below.\n\nSubmit your prayer request → Link in bio\n\n#IFM #PrayerFocus #KingdomOfGod #KingdomPrayer #Prayer"
+    }
+  },
+  "generatedAt": "2026-09-10T17:29:15.075Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1520073696823274",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-09-10T17:29:22.573Z",
+  "testMode": false
+}
