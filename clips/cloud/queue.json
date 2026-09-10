@@ -940,8 +940,10 @@
     },
     {
       "file": "Back_in_college__it_s_not_too_late_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-16T21:24:37"
+      "posted": true,
+      "added_at": "2026-08-16T21:24:37",
+      "video_id": "1424142896314031",
+      "posted_at": "2026-09-10T22:56:05Z"
     },
     {
       "file": "At_sixty_I_went_back_to_college__and_gra_0m05s_square.mp4",
@@ -996,8 +998,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 134,
-    "remaining": 11,
-    "last_updated": "2026-09-10T17:28:58Z"
+    "posted": 135,
+    "remaining": 10,
+    "last_updated": "2026-09-10T22:56:05Z"
   }
 }
