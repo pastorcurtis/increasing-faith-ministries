@@ -933,8 +933,10 @@
     },
     {
       "file": "Behavior__Information_Control_How_Cults_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-16T21:24:37"
+      "posted": true,
+      "added_at": "2026-08-16T21:24:37",
+      "video_id": "1371635908454790",
+      "posted_at": "2026-09-10T17:28:58Z"
     },
     {
       "file": "Back_in_college__it_s_not_too_late_0m05s_square.mp4",
@@ -994,8 +996,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 133,
-    "remaining": 12,
-    "last_updated": "2026-09-09T22:55:38Z"
+    "posted": 134,
+    "remaining": 11,
+    "last_updated": "2026-09-10T17:28:58Z"
   }
 }
