@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-11",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "The Kingdom Report just uncovered a prophetic shift in the spiritual climate—Ezekiel 37 revives the promise of a national awakening that will ignite every believer’s destiny this season. Pastor Curtis breaks down the exact steps God is commanding us to take now, before the window closes.  \n\nAre you ready to position yourself in the rise before the move begins? Let’s discuss.",
+      "hashtags": [
+        "#Faith",
+        "#KingdomOfGod",
+        "#JesusIsLord"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "The Kingdom Report just uncovered a prophetic shift in the spiritual climate—Ezekiel 37 revives the promise of a national awakening that will ignite every believer’s destiny this season. Pastor Curtis breaks down the exact steps God is commanding us to take now, before the window closes.  \n\nAre you ready to position yourself in the rise before the move begins? Let’s discuss.\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#Faith #KingdomOfGod #JesusIsLord",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-09-11.png",
+      "pullQuote": "Pastor Curtis",
+      "attribution": "Kingdom Intelligence"
+    },
+    "instagram": {
+      "content": "The Kingdom Report just uncovered a biblical principle that flips the “networking” game—God’s covenant economy, where every favor you extend returns multiplied before you even ask. Pastor Curtis explains how this hidden law is already reshaping churches across the nation.  \n\nWhat favor are you ready to plant today, knowing the harvest is already promised?",
+      "hashtags": [
+        "#Jesus",
+        "#IFM",
+        "#KingdomOfGod",
+        "#JesusIsLord",
+        "#KingdomLiving",
+        "#IncreasingFaith",
+        "#KingdomCitizen",
+        "#Faith"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The Kingdom Report just uncovered a biblical principle that flips the “networking” game—God’s covenant economy, where every favor you extend returns multiplied before you even ask. Pastor Curtis explains how this hidden law is already reshaping churches across the nation.  \n\nWhat favor are you ready to plant today, knowing the harvest is already promised?\n\nRead the full Kingdom Report → Link in bio\n\n#Jesus #IFM #KingdomOfGod #JesusIsLord #KingdomLiving #IncreasingFaith #KingdomCitizen #Faith"
+    },
+    "tiktok": {
+      "content": "The Kingdom Report reveals why the new federal budget will open doors for Kingdom entrepreneurs—God’s provision is aligning with policy. Pastor Curtis explains the Scripture‑backed strategy to claim those resources now. How will you position your ministry to receive this divine opening?",
+      "hashtags": [
+        "#JesusIsLord",
+        "#Jesus",
+        "#Faith",
+        "#KingdomLiving",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The Kingdom Report reveals why the new federal budget will open doors for Kingdom entrepreneurs—God’s provision is aligning with policy. Pastor Curtis explains the Scripture‑backed strategy to claim those resources now. How will you position your ministry to receive this divine opening?\n\nRead the full Kingdom Report → Link in bio\n\n#JesusIsLord #Jesus #Faith #KingdomLiving #KingdomCitizen"
+    }
+  },
+  "generatedAt": "2026-09-11T17:30:35.021Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1520993716731272",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-09-11T17:30:39.217Z",
+  "testMode": false
+}
