@@ -954,8 +954,10 @@
     },
     {
       "file": "Angels_as_Covenant_Enforcers_How_Heaven_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-16T21:24:37"
+      "posted": true,
+      "added_at": "2026-08-16T21:24:37",
+      "video_id": "1549422699788453",
+      "posted_at": "2026-09-11T22:58:20Z"
     },
     {
       "file": "Agree_with_Your_Adversary_Quickly_to_Avo_0m02s_square.mp4",
@@ -1000,8 +1002,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 136,
-    "remaining": 9,
-    "last_updated": "2026-09-11T17:30:08Z"
+    "posted": 137,
+    "remaining": 8,
+    "last_updated": "2026-09-11T22:58:20Z"
   }
 }
