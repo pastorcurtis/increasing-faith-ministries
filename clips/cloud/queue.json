@@ -961,8 +961,10 @@
     },
     {
       "file": "Agree_with_Your_Adversary_Quickly_to_Avo_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-16T21:24:37"
+      "posted": true,
+      "added_at": "2026-08-16T21:24:37",
+      "video_id": "1083764067706076",
+      "posted_at": "2026-09-12T16:44:40Z"
     },
     {
       "file": "A_Heartfelt_Apology_Rebuilding_Family_Af_0m05s_square.mp4",
@@ -1002,8 +1004,8 @@
   ],
   "stats": {
     "total": 145,
-    "posted": 137,
-    "remaining": 8,
-    "last_updated": "2026-09-11T22:58:20Z"
+    "posted": 138,
+    "remaining": 7,
+    "last_updated": "2026-09-12T16:44:40Z"
   }
 }
