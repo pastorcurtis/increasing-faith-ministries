@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-12",
+  "day": 6,
+  "theme": "Worship Reminder",
+  "themeType": "event_reminder",
+  "targetPage": "https://increasingfaith.net/visit.html",
+  "posts": {
+    "facebook": {
+      "content": "We’re gathering for worship—your seat is waiting.  \nFirst Saturday of each month, 12 PM, 24301 Telegraph, Southfield.  \nAnd every weekday at 8:15 AM, join the Hour of Power on Facebook Live.  \n\nPastor Curtis and Pastor Tammy will lead the Word that moves heaven and earth.  \n\nWho’s coming with us this week? Tag a friend who needs this.",
+      "hashtags": [
+        "#KingdomCitizen",
+        "#IncreasingFaith",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html",
+      "fullPost": "We’re gathering for worship—your seat is waiting.  \nFirst Saturday of each month, 12 PM, 24301 Telegraph, Southfield.  \nAnd every weekday at 8:15 AM, join the Hour of Power on Facebook Live.  \n\nPastor Curtis and Pastor Tammy will lead the Word that moves heaven and earth.  \n\nWho’s coming with us this week? Tag a friend who needs this.\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html\n\n#KingdomCitizen #IncreasingFaith #KingdomOfGod",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-09-12.png",
+      "pullQuote": "Pastor Curtis and Pastor Tammy will lead the Word that moves heaven and earth.",
+      "attribution": "Worship Reminder"
+    },
+    "instagram": {
+      "content": "We gather where the Spirit dwells—first Saturday each month, 12 PM, 24301 Telegraph, Southfield. And every weekday at 8:15 AM, the Hour of Power streams live on Facebook. Come, lift your voice, let God’s presence fill you.  \n\nWill you join us this week? Tag a brother or sister who needs this word.",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#Faith",
+        "#KingdomOfGod",
+        "#JesusIsLord",
+        "#IFM",
+        "#Jesus",
+        "#KingdomCitizen",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "We gather where the Spirit dwells—first Saturday each month, 12 PM, 24301 Telegraph, Southfield. And every weekday at 8:15 AM, the Hour of Power streams live on Facebook. Come, lift your voice, let God’s presence fill you.  \n\nWill you join us this week? Tag a brother or sister who needs this word.\n\nJoin us for worship → Link in bio\n\n#IncreasingFaith #Faith #KingdomOfGod #JesusIsLord #IFM #Jesus #KingdomCitizen #KingdomLiving"
+    },
+    "tiktok": {
+      "content": "We gather where the Spirit moves—first Saturday each month at 12 noon, 24301 Telegraph, Southfield. And daily at 8:15 AM, the Hour of Power streams live on Facebook. Come as you are; worship is our inheritance. Who’s meeting us at the throne?",
+      "hashtags": [
+        "#JesusIsLord",
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#KingdomLiving",
+        "#Faith"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "We gather where the Spirit moves—first Saturday each month at 12 noon, 24301 Telegraph, Southfield. And daily at 8:15 AM, the Hour of Power streams live on Facebook. Come as you are; worship is our inheritance. Who’s meeting us at the throne?\n\nJoin us for worship → Link in bio\n\n#JesusIsLord #KingdomOfGod #IncreasingFaith #KingdomLiving #Faith"
+    }
+  },
+  "generatedAt": "2026-09-12T16:44:37.020Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1521846786645965",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-09-12T16:44:42.876Z",
+  "testMode": false
+}
