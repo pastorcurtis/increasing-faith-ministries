@@ -982,8 +982,10 @@
     },
     {
       "file": "Be_careful_who_you_bring_into_your_life_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-16T21:24:37"
+      "posted": true,
+      "added_at": "2026-08-16T21:24:37",
+      "video_id": "1789552599043946",
+      "posted_at": "2026-09-13T22:52:26Z"
     },
     {
       "file": "Addiction_Why_prayer_alone_can_be_danger_0m02s_square.mp4",
@@ -1018,8 +1020,8 @@
   ],
   "stats": {
     "total": 147,
-    "posted": 140,
-    "remaining": 7,
-    "last_updated": "2026-09-13T17:15:22Z"
+    "posted": 141,
+    "remaining": 6,
+    "last_updated": "2026-09-13T22:52:26Z"
   }
 }
