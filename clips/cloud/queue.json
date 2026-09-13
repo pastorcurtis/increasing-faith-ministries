@@ -975,8 +975,10 @@
     },
     {
       "file": "Bring_God_Scripture_not_just_your_proble_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-16T21:24:37"
+      "posted": true,
+      "added_at": "2026-08-16T21:24:37",
+      "video_id": "1461823805813676",
+      "posted_at": "2026-09-13T17:15:22Z"
     },
     {
       "file": "Be_careful_who_you_bring_into_your_life_0m05s_square.mp4",
@@ -1016,7 +1018,8 @@
   ],
   "stats": {
     "total": 147,
-    "posted": 139,
-    "remaining": 8
+    "posted": 140,
+    "remaining": 7,
+    "last_updated": "2026-09-13T17:15:22Z"
   }
 }
