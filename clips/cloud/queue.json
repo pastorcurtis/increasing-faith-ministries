@@ -996,8 +996,10 @@
     },
     {
       "file": "Break_Family_Curses_Health_Alcohol_and_L_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-16T21:24:37"
+      "posted": true,
+      "added_at": "2026-08-16T21:24:37",
+      "video_id": "1785453499329670",
+      "posted_at": "2026-09-14T23:41:13Z"
     },
     {
       "file": "Ask_God_specific_questions__Shall_I_purs_0m05s_square.mp4",
@@ -1022,8 +1024,8 @@
   ],
   "stats": {
     "total": 147,
-    "posted": 142,
-    "remaining": 5,
-    "last_updated": "2026-09-14T19:01:13Z"
+    "posted": 143,
+    "remaining": 4,
+    "last_updated": "2026-09-14T23:41:13Z"
   }
 }
