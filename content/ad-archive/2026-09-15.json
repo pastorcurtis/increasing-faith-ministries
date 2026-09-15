@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-15",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "You carry a prayer no one has heard yet",
+    "subhead": "A real request reaches real believers who will lift it in prayer",
+    "hook": "What weight are you holding that no one knows?",
+    "body": "Send your silent burden to a community that prays without agenda. No appointment, no membership, no performance—just believers standing in the gap for you. Click and let the prayer be heard."
+  },
+  "caption": "What weight are you holding that no one knows?\n\n→ https://increasingfaith.net/prayer.html\n\nSend your silent burden to a community that prays without agenda. No appointment, no membership, no performance—just believers standing in the gap for you. Click and let the prayer be heard.\n\n#Prayer #Intercession #KingdomLiving",
+  "hashtags": [
+    "#Prayer",
+    "#Intercession",
+    "#KingdomLiving"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-09-15.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1524697909694186",
+    "mode": "photo"
+  },
+  "postedAt": "2026-09-15T20:03:46.508Z",
+  "testMode": false
+}
