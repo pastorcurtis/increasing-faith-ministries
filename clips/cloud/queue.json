@@ -1003,8 +1003,10 @@
     },
     {
       "file": "Ask_God_specific_questions__Shall_I_purs_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-08-16T21:24:37"
+      "posted": true,
+      "added_at": "2026-08-16T21:24:37",
+      "video_id": "1059307436736595",
+      "posted_at": "2026-09-15T17:55:33Z"
     },
     {
       "file": "Addiction_in_marriage_more_than_prayer_0m05s_square.mp4",
@@ -1024,8 +1026,8 @@
   ],
   "stats": {
     "total": 147,
-    "posted": 143,
-    "remaining": 4,
-    "last_updated": "2026-09-14T23:41:13Z"
+    "posted": 144,
+    "remaining": 3,
+    "last_updated": "2026-09-15T17:55:33Z"
   }
 }
