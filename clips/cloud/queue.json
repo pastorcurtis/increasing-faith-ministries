@@ -1017,8 +1017,10 @@
     },
     {
       "file": "Can_I_Be_Myself_Authenticity_Over_Religi_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-13T06:16:16"
+      "posted": true,
+      "added_at": "2026-09-13T06:16:16",
+      "video_id": "1085949303827798",
+      "posted_at": "2026-09-16T17:57:42Z"
     },
     {
       "file": "Ask_These_Questions_Before_Marriage_Will_0m05s_square.mp4",
@@ -1028,8 +1030,8 @@
   ],
   "stats": {
     "total": 147,
-    "posted": 145,
-    "remaining": 2,
-    "last_updated": "2026-09-15T23:23:57Z"
+    "posted": 146,
+    "remaining": 1,
+    "last_updated": "2026-09-16T17:57:42Z"
   }
 }
