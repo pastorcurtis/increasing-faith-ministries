@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-18",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "The Kingdom Report just uncovered a biblical principle that turns every setback into a strategic advance—Paul’s “thorn” in 2 Cor 12:7 reframed as a divine appointment for Kingdom expansion. Pastor Curtis explains how that “thorn” is actually a launch pad for your greatest breakthrough.  \n\nWhat “thorn” in your life is God positioning for His next move?",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#Jesus"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "The Kingdom Report just uncovered a biblical principle that turns every setback into a strategic advance—Paul’s “thorn” in 2 Cor 12:7 reframed as a divine appointment for Kingdom expansion. Pastor Curtis explains how that “thorn” is actually a launch pad for your greatest breakthrough.  \n\nWhat “thorn” in your life is God positioning for His next move?\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#IncreasingFaith #KingdomOfGod #Jesus",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-09-18.png",
+      "pullQuote": "Paul’s thorn is a launch pad for your greatest breakthrough",
+      "attribution": "Kingdom Intelligence"
+    },
+    "instagram": {
+      "content": "The Kingdom Report reveals how the new “Kingdom Covenant” legislation will shift every city council into a spiritual partnership with the throne. Pastor Curtis uncovers the exact clause that forces local leaders to submit to divine authority—before the deadline hits.  \n\nWhat will you do when your municipality is called to answer to the King?",
+      "hashtags": [
+        "#Jesus",
+        "#IncreasingFaith",
+        "#JesusIsLord",
+        "#KingdomOfGod",
+        "#KingdomCitizen",
+        "#IFM",
+        "#Faith",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The Kingdom Report reveals how the new “Kingdom Covenant” legislation will shift every city council into a spiritual partnership with the throne. Pastor Curtis uncovers the exact clause that forces local leaders to submit to divine authority—before the deadline hits.  \n\nWhat will you do when your municipality is called to answer to the King?\n\nRead the full Kingdom Report → Link in bio\n\n#Jesus #IncreasingFaith #JesusIsLord #KingdomOfGod #KingdomCitizen #IFM #Faith #KingdomLiving"
+    },
+    "tiktok": {
+      "content": "The Kingdom Report just uncovered how a hidden 3‑day prayer cycle is unlocking unprecedented harvests in 12 cities—God’s calendar, not the world’s. Pastor Curtis will reveal the exact breakthrough prayer pattern. Are you ready to align your calendar with Heaven’s?",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#KingdomCitizen",
+        "#KingdomOfGod",
+        "#Faith",
+        "#Jesus"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The Kingdom Report just uncovered how a hidden 3‑day prayer cycle is unlocking unprecedented harvests in 12 cities—God’s calendar, not the world’s. Pastor Curtis will reveal the exact breakthrough prayer pattern. Are you ready to align your calendar with Heaven’s?\n\nRead the full Kingdom Report → Link in bio\n\n#IncreasingFaith #KingdomCitizen #KingdomOfGod #Faith #Jesus"
+    }
+  },
+  "generatedAt": "2026-09-18T17:30:25.382Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1527307419433235",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-09-18T17:30:30.079Z",
+  "testMode": false
+}
