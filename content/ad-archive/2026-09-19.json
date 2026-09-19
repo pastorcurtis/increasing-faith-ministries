@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-19",
+  "day": 6,
+  "label": "Give",
+  "destination": "https://increasingfaith.net/give.html",
+  "button": "SOW INTO THE WORK",
+  "copy": {
+    "headline": "Your partnership fuels Kingdom discipleship",
+    "subhead": "Invest in the work that multiplies truth and influence for Christ",
+    "hook": "Do you see yourself as a steward of the harvest?",
+    "body": "Pastor Curtis and Pastor Tammy lead a community that trains believers to live out Scripture. Your contribution supports training, outreach, and the spread of Kingdom values. When you sow, you join a lineage of faithful servants. Visit the page to partner."
+  },
+  "caption": "Do you see yourself as a steward of the harvest?\n\n→ https://increasingfaith.net/give.html\n\nPastor Curtis and Pastor Tammy lead a community that trains believers to live out Scripture. Your contribution supports training, outreach, and the spread of Kingdom values. When you sow, you join a lineage of faithful servants. Visit the page to partner.\n\n#IFM #IncreasingFaith #KingdomLiving",
+  "hashtags": [
+    "#IFM",
+    "#IncreasingFaith",
+    "#KingdomLiving"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-09-19.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1528289846001659",
+    "mode": "photo"
+  },
+  "postedAt": "2026-09-19T19:13:57.706Z",
+  "testMode": false
+}
