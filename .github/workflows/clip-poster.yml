@@ -12,6 +12,10 @@ on:
         description: 'Dry run (no actual post)'
         type: boolean
         default: false
+      test_alert:
+        description: 'Send a [TEST] queue alert email (pair with test_mode to avoid posting)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -60,6 +64,16 @@ jobs:
             exit 0
           fi
 
+          # How many clips are left BEFORE this run posts. The alert step
+          # below reads it, because a green run is not proof a clip went out.
+          REMAINING=$(python3 -c "
+          import json
+          with open('$QUEUE_FILE') as f:
+              queue = json.load(f)
+          print(sum(1 for c in queue['clips'] if not c.get('posted', False)))
+          ")
+          echo "remaining=$REMAINING" >> $GITHUB_OUTPUT
+
           # Find next unposted clip
           NEXT_CLIP=$(python3 -c "
           import json
@@ -76,6 +90,7 @@ jobs:
           if [ -z "$NEXT_CLIP" ]; then
             echo "All clips have been posted! Queue is empty."
             echo "has_clip=false" >> $GITHUB_OUTPUT
+            echo "queue_empty=true" >> $GITHUB_OUTPUT
             exit 0
           fi
 
@@ -267,3 +282,71 @@ jobs:
           print(f'Queue: {remaining} clips remaining')
           " 2>/dev/null || true
           fi
+
+      # Deliver the queue alarm to a human. From 2026-09-17 the queue sat empty
+      # for 5 slots while every run concluded green ("Queue is empty" exits 0).
+      # The weekly refill had been under-producing since mid-August, draining a
+      # 59-clip buffer, and nothing noticed. So this warns while there is still
+      # time to refill, not only after posts are lost.
+      #
+      # Only the first cron slot of the day emails, so a known-low queue sends
+      # one message a day, not two. An alert you learn to ignore is worse than
+      # none. continue-on-error: failing to deliver the alarm must never mask
+      # the problem it is about.
+      - name: Email the clip-queue alarm
+        if: >-
+          always() && steps.find-clip.outputs.remaining != '' &&
+          (inputs.test_alert == true ||
+           (inputs.test_mode != true &&
+            (github.event_name == 'workflow_dispatch' || github.event.schedule == '0 14 * * *')))
+        continue-on-error: true
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          REMAINING: ${{ steps.find-clip.outputs.remaining }}
+          POST_OUTCOME: ${{ steps.post.outcome }}
+          TEST_ALERT: ${{ inputs.test_alert }}
+        run: |
+          # Warn at 3 days (2 posts/day) or fewer left after this run.
+          LOW_WATER=6
+          LEFT=$REMAINING
+          if [ "$POST_OUTCOME" = "success" ]; then LEFT=$((REMAINING - 1)); fi
+
+          if [ "$TEST_ALERT" != "true" ] && [ "$LEFT" -gt "$LOW_WATER" ]; then
+            echo "Queue healthy: $LEFT clips left (warns at $LOW_WATER or fewer)."
+            exit 0
+          fi
+
+          PREFIX=""
+          if [ "$TEST_ALERT" = "true" ]; then PREFIX="[TEST] "; fi
+
+          if [ "$REMAINING" -eq 0 ]; then
+            SUBJECT="${PREFIX}IFM: clip queue EMPTY - no Facebook clip posted"
+            HEADLINE="The Facebook clip queue is EMPTY. No sermon clip was posted this slot, and none will post until the queue is refilled."
+          else
+            SUBJECT="${PREFIX}IFM: clip queue LOW - $LEFT clips left (~$((LEFT / 2)) days)"
+            HEADLINE="The Facebook clip queue is running low: $LEFT clips left, about $((LEFT / 2)) days at 2 posts a day."
+          fi
+
+          cat > /tmp/clip-alert.md <<ALERTEOF
+          $HEADLINE
+
+          To refill now (laptop plugged in and awake), in PowerShell:
+            Start-ScheduledTask -TaskName "IFM Weekly Clip Refill"
+
+          The refill runs Sunday 6:00 AM on the laptop. If the laptop is off or
+          asleep then, no clips get made that week. That is what emptied the
+          queue in September 2026: the refill missed two Sundays and came up
+          short on a third. Check clips/auto-refill.log in IFM-Assets/clip-exports.
+          ALERTEOF
+          node .github/scripts/send-alert.js \
+            --subject "$SUBJECT" \
+            --body-file /tmp/clip-alert.md \
+            --url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+
+      # Tell the truth in the Actions tab: a slot with nothing to post is a
+      # missed post, not a success. Runs last, after the alarm has gone out.
+      - name: Fail the run if the queue was empty
+        if: steps.find-clip.outputs.queue_empty == 'true' && inputs.test_mode != true
+        run: |
+          echo "::error::Clip queue is empty - no clip was posted. Run the IFM Weekly Clip Refill."
+          exit 1
