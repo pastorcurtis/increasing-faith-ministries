@@ -1031,8 +1031,10 @@
     },
     {
       "file": "Can_I_be_myself_Drop_the_religious_facad_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-19T13:04:07"
+      "posted": true,
+      "added_at": "2026-09-19T13:04:07",
+      "video_id": "2196869654225838",
+      "posted_at": "2026-09-19T22:39:56Z"
     },
     {
       "file": "Confession_brings_healing_honest_convers_0m05s_square.mp4",
@@ -1107,7 +1109,8 @@
   ],
   "stats": {
     "total": 162,
-    "posted": 147,
-    "remaining": 15
+    "posted": 148,
+    "remaining": 14,
+    "last_updated": "2026-09-19T22:39:56Z"
   }
 }
