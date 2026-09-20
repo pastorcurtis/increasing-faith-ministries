@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-20",
+  "day": 0,
+  "label": "Start Here",
+  "destination": "https://increasingfaith.net/",
+  "button": "START HERE",
+  "copy": {
+    "headline": "Your front door to the Kingdom is waiting",
+    "subhead": "Step through the portal Pastor Curtis and Pastor Tammy have built for true believers",
+    "hook": "Ever feel faith is a distant horizon?",
+    "body": "The site at Increasing Faith is that door. Pastor Curtis and Pastor Tammy lay the foundation with Scripture and authority. Walk in now and claim the Kingdom life you’ve been watching from the outside."
+  },
+  "caption": "Ever feel faith is a distant horizon?\n\n→ https://increasingfaith.net/\n\nThe site at Increasing Faith is that door. Pastor Curtis and Pastor Tammy lay the foundation with Scripture and authority. Walk in now and claim the Kingdom life you’ve been watching from the outside.\n\n#JesusIsLord #Faith #KingdomOfGod",
+  "hashtags": [
+    "#JesusIsLord",
+    "#Faith",
+    "#KingdomOfGod"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-09-20.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1529175715913072",
+    "mode": "photo"
+  },
+  "postedAt": "2026-09-20T19:17:38.643Z",
+  "testMode": false
+}
