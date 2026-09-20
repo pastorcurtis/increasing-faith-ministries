@@ -1045,8 +1045,10 @@
     },
     {
       "file": "Communication_is_key__make_time_to_talk_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-19T13:12:25"
+      "posted": true,
+      "added_at": "2026-09-19T13:12:25",
+      "video_id": "1400397581518493",
+      "posted_at": "2026-09-20T22:58:49Z"
     },
     {
       "file": "Choosing_loving_kindness_in_marriage_0m02s_square.mp4",
@@ -1111,8 +1113,8 @@
   ],
   "stats": {
     "total": 162,
-    "posted": 149,
-    "remaining": 13,
-    "last_updated": "2026-09-20T17:17:24Z"
+    "posted": 150,
+    "remaining": 12,
+    "last_updated": "2026-09-20T22:58:49Z"
   }
 }
