@@ -1052,8 +1052,10 @@
     },
     {
       "file": "Choosing_loving_kindness_in_marriage_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-19T13:12:25"
+      "posted": true,
+      "added_at": "2026-09-19T13:12:25",
+      "video_id": "1815445323203964",
+      "posted_at": "2026-09-21T19:02:53Z"
     },
     {
       "file": "Choice_You_Must_Choose_Loving_Kindness_0m02s_square.mp4",
@@ -1123,7 +1125,8 @@
   ],
   "stats": {
     "total": 164,
-    "posted": 150,
-    "remaining": 14
+    "posted": 151,
+    "remaining": 13,
+    "last_updated": "2026-09-21T19:02:53Z"
   }
 }
