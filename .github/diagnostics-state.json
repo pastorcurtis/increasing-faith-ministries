@@ -1,10 +1,4 @@
 {
-  "problems": {
-    "clip-queue-is-empty-facebook-posting": {
-      "first_seen": "2026-09-19T14:53:32.392159+00:00",
-      "text": "Clip queue is EMPTY -- Facebook posting has stopped! Run auto-refill locally.",
-      "detections": 1
-    }
-  },
-  "last_run": "2026-09-19T14:53:32.392159+00:00"
+  "problems": {},
+  "last_run": "2026-09-22T15:48:31.678173+00:00"
 }
