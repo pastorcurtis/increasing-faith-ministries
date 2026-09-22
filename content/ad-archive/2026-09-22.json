@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-22",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "You carry a prayer no one has heard yet",
+    "subhead": "A real request reaches real believers who will lift it before God",
+    "hook": "What if the burden you keep hidden could be lifted by a faithful prayer?",
+    "body": "There is no appointment, no membership, no performance required. Send your request and know that Pastor Curtis, Pastor Tammy, and the IFM prayer team will stand with you before the throne. Your silent need will be heard."
+  },
+  "caption": "What if the burden you keep hidden could be lifted by a faithful prayer?\n\n→ https://increasingfaith.net/prayer.html\n\nThere is no appointment, no membership, no performance required. Send your request and know that Pastor Curtis, Pastor Tammy, and the IFM prayer team will stand with you before the throne. Your silent need will be heard.\n\n#KingdomLiving #Prayer #Intercession",
+  "hashtags": [
+    "#KingdomLiving",
+    "#Prayer",
+    "#Intercession"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-09-22.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1530948482402462",
+    "mode": "photo"
+  },
+  "postedAt": "2026-09-22T20:02:05.234Z",
+  "testMode": false
+}
