@@ -1073,8 +1073,10 @@
     },
     {
       "file": "Give_Your_Partner_the_Benefit_of_the_Dou_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-19T13:33:05"
+      "posted": true,
+      "added_at": "2026-09-19T13:33:05",
+      "video_id": "945037101455948",
+      "posted_at": "2026-09-22T23:29:25Z"
     },
     {
       "file": "Freedom_in_Christ_climb_out_the_hole_run_0m05s_square.mp4",
@@ -1209,8 +1211,8 @@
   ],
   "stats": {
     "total": 180,
-    "posted": 153,
-    "remaining": 27,
-    "last_updated": "2026-09-22T17:55:57Z"
+    "posted": 154,
+    "remaining": 26,
+    "last_updated": "2026-09-22T23:29:25Z"
   }
 }
