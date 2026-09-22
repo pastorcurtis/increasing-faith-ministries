@@ -1066,8 +1066,10 @@
     },
     {
       "file": "Give_your_spouse_the_benefit_of_the_doub_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-19T13:33:05"
+      "posted": true,
+      "added_at": "2026-09-19T13:33:05",
+      "video_id": "1068330826093197",
+      "posted_at": "2026-09-22T17:55:57Z"
     },
     {
       "file": "Give_Your_Partner_the_Benefit_of_the_Dou_0m05s_square.mp4",
@@ -1207,7 +1209,8 @@
   ],
   "stats": {
     "total": 180,
-    "posted": 152,
-    "remaining": 28
+    "posted": 153,
+    "remaining": 27,
+    "last_updated": "2026-09-22T17:55:57Z"
   }
 }
