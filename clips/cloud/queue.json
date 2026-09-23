@@ -1087,8 +1087,10 @@
     },
     {
       "file": "Forgiveness_redefined_do_something_pleas_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-19T13:33:05"
+      "posted": true,
+      "added_at": "2026-09-19T13:33:05",
+      "video_id": "1711501549948045",
+      "posted_at": "2026-09-23T23:25:34Z"
     },
     {
       "file": "Faith_Needs_Strategy__The_Jericho_Exampl_0m05s_square.mp4",
@@ -1213,8 +1215,8 @@
   ],
   "stats": {
     "total": 180,
-    "posted": 155,
-    "remaining": 25,
-    "last_updated": "2026-09-23T18:15:15Z"
+    "posted": 156,
+    "remaining": 24,
+    "last_updated": "2026-09-23T23:25:34Z"
   }
 }
