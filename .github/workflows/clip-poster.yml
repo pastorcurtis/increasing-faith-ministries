@@ -64,28 +64,25 @@ jobs:
             exit 0
           fi
 
+          # Pick the next clip whose video actually exists on the release.
+          # Taking the first unposted clip blindly let one missing asset fail
+          # every run forever, with the low-queue alarm silent because the
+          # queue still looked full. See .github/scripts/pick_clip.py.
+          gh release view clip-queue --repo "$GITHUB_REPOSITORY" \
+            --json assets -q '.assets[].name' > /tmp/assets.txt
+          python3 .github/scripts/pick_clip.py "$QUEUE_FILE" /tmp/assets.txt > /tmp/pick.txt
+          NEXT_CLIP=$(sed -n 1p /tmp/pick.txt)
           # How many clips are left BEFORE this run posts. The alert step
           # below reads it, because a green run is not proof a clip went out.
-          REMAINING=$(python3 -c "
-          import json
-          with open('$QUEUE_FILE') as f:
-              queue = json.load(f)
-          print(sum(1 for c in queue['clips'] if not c.get('posted', False)))
-          ")
+          REMAINING=$(sed -n 2p /tmp/pick.txt)
+          MISSING=$(sed -n 3p /tmp/pick.txt)
           echo "remaining=$REMAINING" >> $GITHUB_OUTPUT
-
-          # Find next unposted clip
-          NEXT_CLIP=$(python3 -c "
-          import json
-          with open('$QUEUE_FILE') as f:
-              queue = json.load(f)
-          for clip in queue['clips']:
-              if not clip.get('posted', False):
-                  print(clip['file'])
-                  break
-          else:
-              print('')
-          ")
+          echo "missing=$MISSING" >> $GITHUB_OUTPUT
+          if [ -n "$MISSING" ]; then
+            # Almost always an already-posted clip whose queue update lost a
+            # push race. Skipped here and flagged in queue.json below.
+            echo "::warning::Skipping clips with no asset on clip-queue: $MISSING"
+          fi
 
           if [ -z "$NEXT_CLIP" ]; then
             echo "All clips have been posted! Queue is empty."
@@ -216,6 +213,10 @@ jobs:
           QUEUE_FILE = 'clips/cloud/queue.json'
           clip_file = '${{ steps.find-clip.outputs.clip_file }}'
           video_id = '${{ steps.post.outputs.video_id }}'
+          # Clips skipped for a missing asset. Flagging them keeps them out of
+          # the next pick and the remaining count, while leaving the entry in
+          # place so auto-refill's dedup still knows the sermon was clipped.
+          missing = set(filter(None, '${{ steps.find-clip.outputs.missing }}'.split(',')))
 
           with open(QUEUE_FILE) as f:
               queue = json.load(f)
@@ -225,15 +226,17 @@ jobs:
                   clip['posted'] = True
                   clip['video_id'] = video_id
                   clip['posted_at'] = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
-                  break
+              elif clip['file'] in missing:
+                  clip['missing_asset'] = True
 
           # Update stats
           posted = sum(1 for c in queue['clips'] if c.get('posted'))
           total = len(queue['clips'])
+          remaining = sum(1 for c in queue['clips'] if not c.get('posted') and not c.get('missing_asset'))
           queue['stats'] = {
               'total': total,
               'posted': posted,
-              'remaining': total - posted,
+              'remaining': remaining,
               'last_updated': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
           }
 
@@ -258,10 +261,17 @@ jobs:
           git add clips/cloud/queue.json
           git commit -m "Posted clip: ${CLIP_NAME}" || echo "Nothing to commit"
 
-          # Pull with rebase to incorporate any changes, then push
-          # Now safe because our changes are committed
-          git pull --rebase origin main
-          git push
+          # Pull with rebase to incorporate any changes, then push.
+          # Retried: social, newsletter and this workflow all push to main, and
+          # a single lost race used to leave a posted clip marked unposted with
+          # its asset already deleted, which is the stall pick_clip.py skips.
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push origin main && exit 0
+            echo "Push attempt $attempt lost the race - retrying in 5s"
+            sleep 5
+          done
+          echo "::error::Could not push queue.json after 3 attempts. The clip DID post; the next run will skip it (asset already deleted)."
+          exit 1
 
       - name: Summary
         if: always()
@@ -341,6 +351,36 @@ jobs:
           node .github/scripts/send-alert.js \
             --subject "$SUBJECT" \
             --body-file /tmp/clip-alert.md \
+            --url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+
+      # The queue alarm above only watches the COUNT. A run that fails with a
+      # healthy queue (expired Facebook token, Graph errors, a lost push) sent
+      # no email at all, only a red X nobody was looking at. Empty-queue runs
+      # are excluded because the alarm above already covers them.
+      - name: Email the failure alert
+        if: failure() && steps.find-clip.outputs.queue_empty != 'true' && inputs.test_mode != true
+        continue-on-error: true
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          POST_OUTCOME: ${{ steps.post.outcome }}
+          CLIP: ${{ steps.find-clip.outputs.clip_file }}
+        run: |
+          if [ "$POST_OUTCOME" = "success" ]; then
+            WHAT="The clip $CLIP DID post to Facebook, but saving the queue afterward failed. Nothing to re-post; the next run will skip it."
+          elif [ "$POST_OUTCOME" = "failure" ]; then
+            WHAT="Facebook refused the clip $CLIP after 3 attempts. No clip posted this slot. If the log says the token expired, the Page token needs renewing."
+          else
+            WHAT="The run failed before posting, so no clip went out this slot."
+          fi
+          cat > /tmp/clip-fail.md <<ALERTEOF
+          $WHAT
+
+          Open the run log (link below) and read the first red step. It names
+          the failing system.
+          ALERTEOF
+          node .github/scripts/send-alert.js \
+            --subject "IFM: sermon clip post FAILED - $(date +%Y-%m-%d)" \
+            --body-file /tmp/clip-fail.md \
             --url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
       # Tell the truth in the Actions tab: a slot with nothing to post is a
