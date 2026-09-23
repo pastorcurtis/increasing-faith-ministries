@@ -735,6 +735,82 @@ jobs:
                   f.write(k + "=" + v + "\n")
           PYEOF
       # ================================================================
+      # CHECK 13: TikTok weekly batch -- read the laptop's heartbeat.
+      #
+      # The TikTok scheduler runs on the laptop (Task Scheduler, Sun 7 AM),
+      # where nothing can email. Three outages hid there: Jul 26 (expired
+      # cookies, 4 weeks unnoticed), Sep 6 (task refused on battery), Sep 20
+      # (killed mid-run, 0xC000013A). Each run now pushes
+      # content/tiktok-status.json; this reads it. A laptop that is off can't
+      # alarm, but a heartbeat that stops arriving can be noticed from here.
+      # ================================================================
+
+      - name: Check TikTok batch heartbeat
+        id: tiktok
+        continue-on-error: true
+        run: |
+          python3 << 'PYEOF'
+          import json, os
+          from datetime import datetime, timezone, timedelta
+
+          now = datetime.now(timezone.utc)
+          problems, warnings = [], []
+          try:
+              with open('content/tiktok-status.json') as f:
+                  s = json.load(f)
+          except FileNotFoundError:
+              s = None
+              warnings.append('No TikTok heartbeat yet (content/tiktok-status.json missing).')
+          except Exception as e:
+              s = None
+              problems.append('TikTok heartbeat unreadable: ' + str(e))
+
+          def ts(v):
+              return datetime.fromisoformat(v) if v else None
+
+          if s:
+              started = ts(s.get('started_at'))
+              runway = ts(s.get('scheduled_through'))
+              outcome = s.get('outcome', '?')
+              if started and now - started > timedelta(days=8):
+                  problems.append('TikTok batch has not run since %s. The laptop was probably off or '
+                                  'asleep Sunday 7 AM, or the task was refused (check Get-ScheduledTaskInfo).'
+                                  % started.strftime('%b %d'))
+              if outcome == 'started' and started and now - started > timedelta(hours=6):
+                  problems.append('TikTok batch crashed or was killed mid-run (started %s, never finished).'
+                                  % started.strftime('%b %d %H:%M'))
+              elif outcome in ('failed', 'aborted', 'empty'):
+                  reason = s.get('reason') or '; '.join(
+                      f.get('clip', '?') + ': ' + f.get('reason', '?') for f in s.get('failures', [])[:3]) \
+                      or 'see clips/tiktok-run.log on the laptop'
+                  problems.append('TikTok batch %s -- scheduled %s clips (run of %s). %s'
+                                  % (outcome.upper(), s.get('scheduled', 0),
+                                     started.strftime('%b %d') if started else '?', reason))
+              elif outcome == 'partial':
+                  warnings.append('TikTok batch partial: scheduled %s, failed %s, unverified %s.'
+                                  % (s.get('scheduled'), s.get('failed'), s.get('unverified')))
+              # The number that decides whether TikTok is actually posting:
+              # the last publish time TikTok already has queued.
+              if runway is None or runway < now + timedelta(days=1):
+                  problems.append('TikTok has nothing scheduled after %s -- the account is (or is about to go) quiet.'
+                                  % (runway.strftime('%b %d %H:%M') if runway else 'unknown'))
+              avail = s.get('available')
+              if isinstance(avail, int) and avail < 14:
+                  warnings.append('TikTok clips running low: %d unposted (under 1 week).' % avail)
+              days = s.get('cookie_days_left')
+              if isinstance(days, int) and days <= 14:
+                  warnings.append('TikTok session cookies expire in %d days. Re-export soon.' % days)
+
+          status = 'problem' if problems else ('warn' if warnings else 'ok')
+          print(status, problems, warnings)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write('status=' + status + '\n')
+              # Single-line values; " || " separates items.
+              f.write('problems=' + ' || '.join(problems) + '\n')
+              f.write('warnings=' + ' || '.join(warnings) + '\n')
+          PYEOF
+
+      # ================================================================
       # REPORT: Compile results and create issue if needed
       # ================================================================
       - name: Compile diagnostic report
@@ -766,6 +842,8 @@ jobs:
           AI_MODEL_MISSING: ${{ steps.ai_models.outputs.missing }}
           AI_MODEL_UNCHECKED: ${{ steps.ai_models.outputs.unchecked }}
           AI_MODEL_DETAIL: ${{ steps.ai_models.outputs.detail }}
+          TIKTOK_PROBLEMS: ${{ steps.tiktok.outputs.problems }}
+          TIKTOK_WARNINGS: ${{ steps.tiktok.outputs.warnings }}
         run: |
           python3 << 'PYEOF'
           import json, os
@@ -784,6 +862,12 @@ jobs:
                       problems.append(f"**{wf['name']}** workflow: {wf['status']}")
           except:
               pass
+
+          # TikTok weekly batch (CHECK 13)
+          for p in filter(None, os.environ.get('TIKTOK_PROBLEMS', '').split(' || ')):
+              problems.append('**TikTok:** ' + p)
+          for w in filter(None, os.environ.get('TIKTOK_WARNINGS', '').split(' || ')):
+              warnings.append('TikTok: ' + w)
 
           # Clip queue
           q_status = os.environ.get('QUEUE_STATUS', '')
