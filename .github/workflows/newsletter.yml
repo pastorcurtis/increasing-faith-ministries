@@ -238,3 +238,38 @@ jobs:
                 assignees: ['pastorcurtis']
               });
             }
+
+      # -- Email the alert --
+      # The issues above are an audit trail, not a notification: five newsletter
+      # issues sat unread across five months. Same fix as the daily post
+      # (2026-08-25). This covers a failed run (including a section that stayed
+      # a template after every retry, which now stops the run BEFORE sending)
+      # and a failed send, which is continue-on-error and so never fails the job.
+      # continue-on-error here too: failing to deliver the alarm must never
+      # mask the problem the alarm was about.
+      - name: Email the failure alert
+        if: failure() || steps.send.outcome == 'failure'
+        continue-on-error: true
+        run: |
+          MONTH=$(date +'%B %Y')
+          if [ "${{ steps.generate.outcome }}" = "failure" ]; then
+            WHAT="The newsletter was NOT generated, so nothing was sent to subscribers."
+          elif [ "${{ steps.send.outcome }}" = "failure" ]; then
+            WHAT="The newsletter was generated and committed, but sending to subscribers FAILED."
+          else
+            WHAT="A step after generation failed. Check whether it was sent before re-running."
+          fi
+          cat > /tmp/alert.md <<ALERTEOF
+          $WHAT
+
+          If generation failed with "unfilled format placeholder" or
+          "fill-in-the-blank", the AI kept returning a template instead of
+          finished text on every retry. Holding it back was deliberate: a
+          template must never reach subscribers. Re-run from the Actions tab.
+
+          Otherwise read the run log first. It names the failing system.
+          ALERTEOF
+          node .github/scripts/send-alert.js \
+            --subject "IFM: monthly newsletter FAILED - $MONTH" \
+            --body-file /tmp/alert.md \
+            --url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"

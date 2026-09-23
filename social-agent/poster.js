@@ -33,16 +33,8 @@ const { verifyScripture } = require('./scripture');
 // Placeholder debris means the generator produced a template, not a post.
 // Publishing a fill-in-the-blank to the Page is worse than missing a day, so
 // these abort the post and let the workflow's failure alert reach a human.
-const PLACEHOLDER_PATTERNS = [
-  { re: /_{3,}/, label: 'fill-in-the-blank underscores' },
-  { re: /\{\{[^}]*\}\}/, label: 'unrendered {{template}} token' },
-  { re: /\[(?:INSERT|TODO|PLACEHOLDER|X{3,})\b[^\]]*\]/i, label: 'bracketed placeholder' },
-  { re: /\blorem ipsum\b/i, label: 'lorem ipsum filler' },
-];
-
-function findPlaceholders(text) {
-  return PLACEHOLDER_PATTERNS.filter(p => p.re.test(text)).map(p => p.label);
-}
+// The patterns live in placeholders.js so the newsletter shares them.
+const { findPlaceholders } = require('./placeholders');
 
 function sanitizeForFeed(text) {
   return text

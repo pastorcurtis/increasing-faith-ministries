@@ -12,6 +12,8 @@ require('dotenv').config();
 const fetch = require('node-fetch');
 const { format } = require('date-fns');
 const config = require('./config');
+// Dependency-free, so the cross-package require works in the newsletter workflow.
+const { findPlaceholders } = require('../social-agent/placeholders');
 
 // ---------------------------------------------------------------------------
 // AI provider chain, with a retry wrapper
@@ -83,17 +85,10 @@ async function callProviderChain(systemPrompt, userPrompt) {
         throw new Error(provider.name + " leaked reasoning into the reply instead of answering");
       }
 
-      // Strip placeholder brackets the model copied out of the format
-      // examples -- "**[Colossians 2:2-3] (ESV)**" survived a dry run even
-      // after the system prompt was told not to emit them. An instruction is
-      // a request; this is a guarantee. Markdown links are left intact by
-      // requiring that the closing bracket NOT be followed by "(".
-      const cleaned = content.replace(/\[([^\]\n]{1,120})\](?!\()/g, "$1");
-
       if (provider !== providers[0]) {
         console.log("  [ai] Fallback provider succeeded: " + provider.name);
       }
-      return cleaned;
+      return content;
     } catch (error) {
       const reason = error.name === "AbortError" ? "timeout after 60000ms" : error.message;
       console.log("  [ai] " + provider.name + " failed: " + reason);
@@ -106,20 +101,59 @@ async function callProviderChain(systemPrompt, userPrompt) {
   throw new Error("All AI providers failed." + String.fromCharCode(10) + "  - " + errors.join(String.fromCharCode(10) + "  - "));
 }
 
+// Format scaffolding the model echoed instead of filling in. The per-section
+// prompts show their shape with tokens like "[Headline]" and "[Full scripture
+// text]". The bracket stripper below would quietly turn an echoed "[Headline]"
+// into the word "Headline" and mail it to every subscriber, so this runs on the
+// RAW reply, before stripping. The token list comes from the prompt itself, so
+// a new section's placeholders are covered without editing this.
+function findDraftDefects(raw, userPrompt) {
+  const defects = findPlaceholders(raw);
+  const scaffold = [...new Set(userPrompt.match(/\[[^\]\n]+\]/g) || [])];
+  const echoed = scaffold.filter(token => raw.includes(token));
+  if (echoed.length > 0) defects.push('unfilled format placeholder ' + echoed.join(', '));
+  return defects;
+}
+
+// Strip placeholder brackets the model copied out of the format examples --
+// "**[Colossians 2:2-3] (ESV)**" survived a dry run even after the system
+// prompt was told not to emit them. An instruction is a request; this is a
+// guarantee. Markdown links are left intact by requiring that the closing
+// bracket NOT be followed by "(".
+function stripBrackets(text) {
+  return text.replace(/\[([^\]\n]{1,120})\](?!\()/g, "$1");
+}
+
 // Retry wrapper. The chain above already fails over between providers, so a
 // retry here is for transient conditions that outlast the whole chain -- most
 // often every leg being rate-limited at once on the free tiers.
-async function callGroqAI(systemPrompt, userPrompt) {
+//
+// It also regenerates a section that came back as a template. The social post
+// (2026-09-23) and the daily ad both had guards that could only refuse AFTER
+// generation had finished, which lost the day. Here the check runs inside the
+// loop, so a template costs one attempt. If every attempt is a template, this
+// throws: the run fails before the commit and send steps, so subscribers get
+// nothing rather than a fill-in-the-blank, and the failure alert fires.
+async function callGroqAI(systemPrompt, userPrompt, deps = {}) {
+  const { chain = callProviderChain, delayMs = config.ai.retryDelayMs } = deps;
   let lastError;
   for (let attempt = 1; attempt <= config.ai.maxRetries; attempt++) {
     try {
-      return await callProviderChain(systemPrompt, userPrompt);
+      const raw = await chain(systemPrompt, userPrompt);
+      const defects = findDraftDefects(raw, userPrompt);
+      if (defects.length > 0) {
+        const err = new Error("draft still contains " + defects.join("; "));
+        err.contentDefect = true;
+        throw err;
+      }
+      return stripBrackets(raw);
     } catch (error) {
       lastError = error;
       console.log("  [RETRY " + attempt + "/" + config.ai.maxRetries + "] " + error.message);
       if (attempt < config.ai.maxRetries) {
-        const isRateLimit = error.message.includes("429");
-        const delay = isRateLimit ? 15000 : config.ai.retryDelayMs * attempt;
+        // A bad draft is not a rate limit, so it skips the long 429 wait.
+        const isRateLimit = !error.contentDefect && error.message.includes("429");
+        const delay = error.contentDefect ? delayMs : isRateLimit ? 15000 : delayMs * attempt;
         console.log("  Waiting " + (delay / 1000) + "s before retry...");
         await new Promise((resolve) => setTimeout(resolve, delay));
       }
@@ -416,4 +450,4 @@ async function generateNewsletter(content, month, year) {
   return newsletter;
 }
 
-module.exports = { generateNewsletter };
+module.exports = { generateNewsletter, callGroqAI, findDraftDefects, stripBrackets };
