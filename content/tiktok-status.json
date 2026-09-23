@@ -1,13 +1,9 @@
 {
-  "outcome": "failed",
-  "started_at": "2026-09-21T12:39:44-04:00",
-  "finished_at": "2026-09-23T17:28:52.172480-04:00",
+  "outcome": "started",
+  "started_at": "2026-09-23T17:33:40.479833-04:00",
+  "finished_at": null,
   "scheduled_through": "2026-09-21T18:00:00-04:00",
   "cookie_days_left": 149,
-  "scheduled": 0,
-  "unverified": 0,
-  "failed": 1,
-  "failures": [],
-  "available": 180,
-  "note": "Seeded 2026-09-23 from clips/tiktok-run.log. Last real run 2026-09-21 12:39 ET: scheduled 0, failed 1. Per-clip reasons were not logged before this change."
+  "available": 81,
+  "planned": 14
 }
