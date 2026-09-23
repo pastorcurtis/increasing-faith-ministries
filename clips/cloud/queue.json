@@ -1080,8 +1080,10 @@
     },
     {
       "file": "Freedom_in_Christ_climb_out_the_hole_run_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-19T13:33:05"
+      "posted": true,
+      "added_at": "2026-09-19T13:33:05",
+      "video_id": "1034305279654081",
+      "posted_at": "2026-09-23T18:15:15Z"
     },
     {
       "file": "Forgiveness_redefined_do_something_pleas_0m05s_square.mp4",
@@ -1211,8 +1213,8 @@
   ],
   "stats": {
     "total": 180,
-    "posted": 154,
-    "remaining": 26,
-    "last_updated": "2026-09-22T23:29:25Z"
+    "posted": 155,
+    "remaining": 25,
+    "last_updated": "2026-09-23T18:15:15Z"
   }
 }
