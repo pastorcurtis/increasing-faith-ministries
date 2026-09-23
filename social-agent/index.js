@@ -15,6 +15,7 @@ const path = require('path');
 const config = require('./config');
 const { renderQuoteGraphic } = require('./graphic');
 const { verifyScripture } = require('./scripture');
+const { findPlaceholders } = require('./poster');
 
 const BIBLE_BOOKS = '(?:Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|Samuel|Kings|Chronicles|Ezra|Nehemiah|Esther|Job|Psalms?|Proverbs|Ecclesiastes|Song|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|Corinthians|Galatians|Ephesians|Philippians|Colossians|Thessalonians|Timothy|Titus|Philemon|Hebrews|James|Peter|Jude|Revelation)';
 const SCRIPTURE_REGEX = new RegExp(`\\b(?:[123]\\s)?${BIBLE_BOOKS}\\s+\\d+:\\d+(?:-\\d+)?\\b`, 'i');
@@ -319,17 +320,28 @@ async function generateWithRetry(theme, platform, deps = {}) {
       // below rather than growing a second one. Only a confirmed mismatch
       // retries; 'unverifiable' passes through, matching poster.js -- a dead
       // lookup service must never cost a day either.
+      // Same lesson, second guard: on 2026-09-23 the copy came back with
+      // fill-in-the-blank underscores. poster.js refused it (correctly), but the
+      // refusal happened after generation had exited, so the day was lost.
+      // Checking here turns a template into one extra attempt instead.
+      const placeholders = findPlaceholders(content);
+      if (placeholders.length > 0) {
+        const err = new Error(`copy still contains ${placeholders.join(', ')}`);
+        err.contentDefect = true;
+        throw err;
+      }
+
       const { mismatches } = await verify(content);
       if (mismatches.length > 0) {
         const detail = mismatches
           .map(m => `${m.ref} (overlap ${m.score})`)
           .join('; ');
         const err = new Error(`misattributed scripture: ${detail}`);
-        err.scriptureMismatch = true;
+        err.contentDefect = true;
         throw err;
       }
       if (attempt > 1) {
-        console.log(`  [${platform}] Clean citation on attempt ${attempt}`);
+        console.log(`  [${platform}] Clean copy on attempt ${attempt}`);
       }
       return content;
     } catch (err) {
@@ -339,10 +351,10 @@ async function generateWithRetry(theme, platform, deps = {}) {
         // Rate limits are per-minute, so a fixed 3s delay retries inside the
         // same window and fails again. Honor the provider's own wait hint
         // (plus a 1s cushion); otherwise back off exponentially.
-        // A misquote is not a rate limit: nothing is throttling us and the
+        // A bad draft is not a rate limit: nothing is throttling us and the
         // exponential backoff would only burn clock. Pause just enough to
         // avoid stacking regenerations against the per-minute token budget.
-        const wait = err.scriptureMismatch
+        const wait = err.contentDefect
           ? config.ai.scriptureRetryDelayMs
           : Math.min(
             err.retryAfterMs ? err.retryAfterMs + 1000 : config.ai.retryDelayMs * 2 ** (attempt - 1),

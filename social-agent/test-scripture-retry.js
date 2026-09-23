@@ -73,6 +73,22 @@ async function run() {
   await generateWithRetry({}, 'facebook', { generate: once, verify: noMismatch });
   check('unverifiable does not retry', unver === 1, `called ${unver}x`);
 
+  // 5. Fill-in-the-blank copy regenerates too (the 2026-09-23 failure).
+  const BLANK = 'This week, remember that God is ____ and His love never fails.';
+  let blankCalls = 0;
+  const templ = async () => { blankCalls++; return blankCalls === 1 ? BLANK : GOOD; };
+  const fixed = await generateWithRetry({}, 'facebook', { generate: templ, verify });
+  check('placeholder copy regenerates', blankCalls === 2, `called ${blankCalls}x`);
+  check('returns the filled-in copy', fixed === GOOD, `got: ${fixed}`);
+
+  // 6. A template that never goes away still fails closed.
+  let blankForever = 0, blankErr = null;
+  try {
+    await generateWithRetry({}, 'facebook', { generate: async () => { blankForever++; return BLANK; }, verify });
+  } catch (e) { blankErr = e; }
+  check('persistent placeholder throws', blankErr && /fill-in-the-blank/.test(blankErr.message), blankErr && blankErr.message);
+  check('placeholder exhausts every attempt', blankForever === config.ai.maxRetries, `called ${blankForever}x`);
+
   config.ai.scriptureRetryDelayMs = realDelay;
 
   console.log(`\n${passed} passed, ${failed} failed`);
