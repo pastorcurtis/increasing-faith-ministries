@@ -33,7 +33,8 @@ const path = require('path');
 const adConfig = require('./ad-config');
 const { renderAdGraphic } = require('./ad-graphic');
 const { callChatAPI, sanitizeForGraphic } = require('./index');
-const { postToFacebook } = require('./poster');
+const { postToFacebook, findPlaceholders } = require('./poster');
+const { verifyScripture } = require('./scripture');
 
 // ── Helpers ────────────────────────────────────────────
 
@@ -100,6 +101,35 @@ function looksTitleCased(headline) {
   if (words.length < 4) return false;
   const capped = words.filter(w => /^[A-Z]/.test(w)).length;
   return capped / words.length > 0.7;
+}
+
+// Publish-time guards, run at generation time too. postToFacebook() checks the
+// caption for placeholders and misquoted scripture -- but a refusal there comes
+// after the retry loop and the static fallback have both been passed, so the
+// ad is simply lost. That is the same defect that cost the teaching post on
+// 2026-08-27 (scripture) and 2026-09-23 (fill-in-the-blank underscores).
+//
+// This also covers a gap the caption check never could: the headline and
+// subhead are printed on the IMAGE, and postToFacebook() never sees them. A
+// "____" or a misquoted verse there would have gone out unchecked.
+//
+// Throwing reuses generateWithRetry(); if every attempt fails, main() ships the
+// static fallback copy and verify-daily-ad.yml emails about usedFallback.
+async function checkDraft(parsed, verify = verifyScripture) {
+  const text = [parsed.headline, parsed.subhead, parsed.hook, parsed.body].join('\n');
+
+  const placeholders = findPlaceholders(text);
+  if (placeholders.length > 0) {
+    throw new Error(`Draft still contains ${placeholders.join(', ')}`);
+  }
+
+  // Only a confirmed mismatch rejects; 'unverifiable' passes, so a dead
+  // lookup service can never cost the ad (same stance as poster.js).
+  const { mismatches } = await verify(text);
+  if (mismatches.length > 0) {
+    const detail = mismatches.map(m => `${m.ref} (overlap ${m.score})`).join('; ');
+    throw new Error(`Misattributed scripture: ${detail}`);
+  }
 }
 
 async function generateAdCopy(ad) {
@@ -183,6 +213,8 @@ async function generateAdCopy(ad) {
     }
   }
 
+  await checkDraft(parsed);
+
   const banned = findBannedTerms(parsed);
   if (banned.length) {
     throw new Error(`Marketing register rejected — banned terms: ${banned.join(', ')}`);
@@ -200,16 +232,18 @@ async function generateAdCopy(ad) {
   };
 }
 
-async function generateWithRetry(ad, attempts) {
+async function generateWithRetry(ad, attempts, deps = {}) {
+  // Injectable for tests; the default is the real generator.
+  const { generate = generateAdCopy, delayMs = adConfig.ai.retryDelayMs } = deps;
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt++) {
     try {
-      return await generateAdCopy(ad);
+      return await generate(ad);
     } catch (err) {
       lastError = err;
       console.error(`  Attempt ${attempt}/${attempts} failed: ${err.message}`);
       if (attempt < attempts) {
-        await new Promise(r => setTimeout(r, adConfig.ai.retryDelayMs));
+        await new Promise(r => setTimeout(r, delayMs));
       }
     }
   }
@@ -375,4 +409,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { main, generateAdCopy, buildCaption, findBannedTerms, looksTitleCased };
+module.exports = { main, generateAdCopy, generateWithRetry, checkDraft, buildCaption, findBannedTerms, looksTitleCased };
