@@ -1,4 +1,15 @@
 {
-  "problems": {},
-  "last_run": "2026-09-22T15:48:31.678173+00:00"
+  "problems": {
+    "tiktok-tiktok-batch-failed-scheduled-clips": {
+      "first_seen": "2026-09-23T21:30:23.579216+00:00",
+      "text": "**TikTok:** TikTok batch FAILED -- scheduled 0 clips (run of Sep 21). see clips/tiktok-run.log on the laptop",
+      "detections": 1
+    },
+    "tiktok-tiktok-has-nothing-scheduled-after": {
+      "first_seen": "2026-09-23T21:30:23.579216+00:00",
+      "text": "**TikTok:** TikTok has nothing scheduled after Sep 21 18:00 -- the account is (or is about to go) quiet.",
+      "detections": 1
+    }
+  },
+  "last_run": "2026-09-23T21:30:23.579216+00:00"
 }
