@@ -1,13 +1,15 @@
 {
-  "outcome": "failed",
-  "started_at": "2026-09-23T17:33:40.479833-04:00",
-  "finished_at": "2026-09-23T18:10:43.549255-04:00",
+  "outcome": "partial",
+  "started_at": "2026-09-23T17:33:40-04:00",
+  "finished_at": "2026-09-23T20:52:01.103534-04:00",
   "scheduled_through": "2026-09-21T18:00:00-04:00",
-  "cookie_days_left": 149,
-  "available": 67,
-  "planned": 14,
+  "submitted_through": "2026-09-30T18:00:00-04:00",
+  "cookie_days_left": 148,
   "scheduled": 0,
   "unverified": 14,
   "failed": 0,
-  "failures": []
+  "failures": [],
+  "available": 166,
+  "planned": 14,
+  "note": "Re-published 2026-09-23: the run itself wrote outcome failed because v1 counted unverified as zero."
 }
