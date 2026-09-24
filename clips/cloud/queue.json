@@ -1094,8 +1094,10 @@
     },
     {
       "file": "Faith_Needs_Strategy__The_Jericho_Exampl_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-19T13:33:05"
+      "posted": true,
+      "added_at": "2026-09-19T13:33:05",
+      "video_id": "1096136333008441",
+      "posted_at": "2026-09-24T18:10:51Z"
     },
     {
       "file": "Extend_grace_before_assuming_the_worst_0m02s_square.mp4",
@@ -1215,8 +1217,8 @@
   ],
   "stats": {
     "total": 180,
-    "posted": 156,
-    "remaining": 24,
-    "last_updated": "2026-09-23T23:25:34Z"
+    "posted": 157,
+    "remaining": 23,
+    "last_updated": "2026-09-24T18:10:51Z"
   }
 }
