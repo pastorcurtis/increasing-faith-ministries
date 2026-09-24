@@ -786,14 +786,23 @@ jobs:
                   problems.append('TikTok batch %s -- scheduled %s clips (run of %s). %s'
                                   % (outcome.upper(), s.get('scheduled', 0),
                                      started.strftime('%b %d') if started else '?', reason))
-              elif outcome == 'partial':
+              elif outcome == 'partial' and s.get('failed'):
                   warnings.append('TikTok batch partial: scheduled %s, failed %s, unverified %s.'
                                   % (s.get('scheduled'), s.get('failed'), s.get('unverified')))
               # The number that decides whether TikTok is actually posting:
               # the last publish time TikTok already has queued.
-              if runway is None or runway < now + timedelta(days=1):
+              # Unverified clips were submitted but not confirmed: TikTok
+              # throttles the content list the scheduler reads back. So only
+              # the SUBMITTED horizon running out is a problem; a short
+              # confirmed horizon is a "go look in TikTok Studio" warning.
+              submitted = ts(s.get('submitted_through')) or runway
+              if submitted is None or submitted < now + timedelta(days=1):
                   problems.append('TikTok has nothing scheduled after %s -- the account is (or is about to go) quiet.'
-                                  % (runway.strftime('%b %d %H:%M') if runway else 'unknown'))
+                                  % (submitted.strftime('%b %d %H:%M') if submitted else 'unknown'))
+              elif runway is None or runway < now + timedelta(days=1):
+                  warnings.append('TikTok posts are submitted through %s but UNCONFIRMED (confirmed only through %s). '
+                                  'Check TikTok Studio > Scheduled.'
+                                  % (submitted.strftime('%b %d'), runway.strftime('%b %d') if runway else 'none'))
               avail = s.get('available')
               if isinstance(avail, int) and avail < 14:
                   warnings.append('TikTok clips running low: %d unposted (under 1 week).' % avail)
