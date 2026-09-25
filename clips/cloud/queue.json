@@ -1108,8 +1108,10 @@
     },
     {
       "file": "Extend_grace__ask_why_before_assuming_th_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-19T13:33:05"
+      "posted": true,
+      "added_at": "2026-09-19T13:33:05",
+      "video_id": "2363485191146959",
+      "posted_at": "2026-09-25T18:13:28Z"
     },
     {
       "file": "Everything_you_need_isn_t_in_your_church_0m05s_square.mp4",
@@ -1219,8 +1221,8 @@
   ],
   "stats": {
     "total": 180,
-    "posted": 158,
-    "remaining": 22,
-    "last_updated": "2026-09-24T23:45:35Z"
+    "posted": 159,
+    "remaining": 21,
+    "last_updated": "2026-09-25T18:13:28Z"
   }
 }
