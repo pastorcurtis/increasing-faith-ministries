@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-25",
+  "day": 5,
+  "label": "Kingdom Report",
+  "destination": "https://increasingfaith.net/newsletter.html",
+  "button": "GET THE REPORT",
+  "copy": {
+    "headline": "The Kingdom report is signal, not noise",
+    "subhead": "Monthly intelligence from Pastor Curtis and Pastor Tammy, delivered straight to your inbox",
+    "hook": "Tired of endless fluff, receive the Kingdom’s real intelligence.",
+    "body": "Pastor Curtis and Pastor Tammy filter the world’s chatter and send you what matters for Kingdom living. Each month the report lands in your inbox with Scripture‑backed insight you can act on. What truth are you ready to claim?"
+  },
+  "caption": "Tired of endless fluff, receive the Kingdom’s real intelligence.\n\n→ https://increasingfaith.net/newsletter.html\n\nPastor Curtis and Pastor Tammy filter the world’s chatter and send you what matters for Kingdom living. Each month the report lands in your inbox with Scripture‑backed insight you can act on. What truth are you ready to claim?\n\n#KingdomTeaching #SpiritualGrowth #Discipleship",
+  "hashtags": [
+    "#KingdomTeaching",
+    "#SpiritualGrowth",
+    "#Discipleship"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-09-25.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1533907852106525",
+    "mode": "photo"
+  },
+  "postedAt": "2026-09-25T20:18:47.967Z",
+  "testMode": false
+}
