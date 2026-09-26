@@ -1122,8 +1122,10 @@
     },
     {
       "file": "Embrace_change_loving_kindness_builds_yo_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-19T13:33:05"
+      "posted": true,
+      "added_at": "2026-09-19T13:33:05",
+      "video_id": "1113446421627054",
+      "posted_at": "2026-09-26T17:36:30Z"
     },
     {
       "file": "Embrace_Change_Celebrate_Maturity_in_Mar_0m05s_square.mp4",
@@ -1223,8 +1225,8 @@
   ],
   "stats": {
     "total": 180,
-    "posted": 160,
-    "remaining": 20,
-    "last_updated": "2026-09-25T23:49:12Z"
+    "posted": 161,
+    "remaining": 19,
+    "last_updated": "2026-09-26T17:36:30Z"
   }
 }
