@@ -1143,8 +1143,10 @@
     },
     {
       "file": "Have_the_Uncomfortable_Conversations_wit_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-20T20:58:54"
+      "posted": true,
+      "added_at": "2026-09-20T20:58:54",
+      "video_id": "2674223256729997",
+      "posted_at": "2026-09-27T23:39:11Z"
     },
     {
       "file": "Keep_lines_of_communication__don_t_assum_0m02s_square.mp4",
@@ -1229,8 +1231,8 @@
   ],
   "stats": {
     "total": 180,
-    "posted": 163,
-    "remaining": 17,
-    "last_updated": "2026-09-27T18:02:34Z"
+    "posted": 164,
+    "remaining": 16,
+    "last_updated": "2026-09-27T23:39:11Z"
   }
 }
