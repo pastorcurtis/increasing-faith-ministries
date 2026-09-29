@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-29",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "Your hidden burden deserves a prayer from real believers",
+    "subhead": "No appointment, no membership—just a sincere request placed before God",
+    "hook": "What you’ve never voiced can now be lifted in prayer.",
+    "body": "We listen, we pray, we stand with you. Send your request and know a faithful heart will carry it before the throne. No performance, no strings—just the Kingdom’s assurance."
+  },
+  "caption": "What you’ve never voiced can now be lifted in prayer.\n\n→ https://increasingfaith.net/prayer.html\n\nWe listen, we pray, we stand with you. Send your request and know a faithful heart will carry it before the throne. No performance, no strings—just the Kingdom’s assurance.\n\n#Prayer #KingdomPrayer #IncreasingFaith",
+  "hashtags": [
+    "#Prayer",
+    "#KingdomPrayer",
+    "#IncreasingFaith"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-09-29.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1538187005011943",
+    "mode": "photo"
+  },
+  "postedAt": "2026-09-29T21:18:01.021Z",
+  "testMode": false
+}
