@@ -1164,8 +1164,10 @@
     },
     {
       "file": "If_five_dollars_gets_you_there_put_it_in_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-21T22:10:20"
+      "posted": true,
+      "added_at": "2026-09-21T22:10:20",
+      "video_id": "1575735357663287",
+      "posted_at": "2026-09-29T19:06:48Z"
     },
     {
       "file": "Hurting_people_hurt_people__choose_compa_0m05s_square.mp4",
@@ -1235,8 +1237,8 @@
   ],
   "stats": {
     "total": 180,
-    "posted": 166,
-    "remaining": 14,
-    "last_updated": "2026-09-29T00:49:41Z"
+    "posted": 167,
+    "remaining": 13,
+    "last_updated": "2026-09-29T19:06:48Z"
   }
 }
