@@ -1171,8 +1171,10 @@
     },
     {
       "file": "Hurting_people_hurt_people__choose_compa_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-21T22:10:20"
+      "posted": true,
+      "added_at": "2026-09-21T22:10:20",
+      "video_id": "1457253926296011",
+      "posted_at": "2026-09-30T00:03:42Z"
     },
     {
       "file": "How_to_identify_works_of_the_flesh_0m02s_square.mp4",
@@ -1237,8 +1239,8 @@
   ],
   "stats": {
     "total": 180,
-    "posted": 167,
-    "remaining": 13,
-    "last_updated": "2026-09-29T19:06:48Z"
+    "posted": 168,
+    "remaining": 12,
+    "last_updated": "2026-09-30T00:03:42Z"
   }
 }
