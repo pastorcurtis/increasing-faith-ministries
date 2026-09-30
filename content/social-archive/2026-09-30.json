@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-30",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "Unpopular opinion: The Kingdom doesn’t wait for us to feel “ready.” God calls us into service even when we’re still learning the steps. Do you agree that obedience precedes confidence, or do you believe we must first prove ourselves? Share your thoughts—let’s discuss how this shapes our daily walk.",
+      "hashtags": [
+        "#IFM",
+        "#KingdomConversation",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "Unpopular opinion: The Kingdom doesn’t wait for us to feel “ready.” God calls us into service even when we’re still learning the steps. Do you agree that obedience precedes confidence, or do you believe we must first prove ourselves? Share your thoughts—let’s discuss how this shapes our daily walk.\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#IFM #KingdomConversation #IncreasingFaith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-09-30.png",
+      "pullQuote": "Obedience precedes confidence.",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Unpopular opinion: The Kingdom thrives when we prioritize obedience over comfort, even when the world calls it “self‑care.”  \n\nDo you agree that true spiritual growth demands sacrifice, or do you think we should protect our peace first?",
+      "hashtags": [
+        "#FaithTalk",
+        "#KingdomLiving",
+        "#KingdomOfGod",
+        "#KingdomMindset",
+        "#KingdomConversation",
+        "#IncreasingFaith",
+        "#IFM",
+        "#RealTalk"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Unpopular opinion: The Kingdom thrives when we prioritize obedience over comfort, even when the world calls it “self‑care.”  \n\nDo you agree that true spiritual growth demands sacrifice, or do you think we should protect our peace first?\n\nJoin our community → Link in bio\n\n#FaithTalk #KingdomLiving #KingdomOfGod #KingdomMindset #KingdomConversation #IncreasingFaith #IFM #RealTalk"
+    },
+    "tiktok": {
+      "content": "Unpopular opinion: The Kingdom doesn’t wait for your perfect plan—it uses your brokenness to display His power. Do you agree that God’s best emerges from your mess, or do you think He only works through flawless effort? Share your truth.",
+      "hashtags": [
+        "#KingdomMindset",
+        "#RealTalk",
+        "#KingdomConversation",
+        "#KingdomLiving",
+        "#IFM"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Unpopular opinion: The Kingdom doesn’t wait for your perfect plan—it uses your brokenness to display His power. Do you agree that God’s best emerges from your mess, or do you think He only works through flawless effort? Share your truth.\n\nJoin our community → Link in bio\n\n#KingdomMindset #RealTalk #KingdomConversation #KingdomLiving #IFM"
+    }
+  },
+  "generatedAt": "2026-09-30T18:49:40.433Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1539101338253843",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-09-30T18:49:45.599Z",
+  "testMode": false
+}
