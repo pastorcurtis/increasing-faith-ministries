@@ -1185,8 +1185,10 @@
     },
     {
       "file": "How_prayer_saved_my_job_don_t_react_in_a_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-21T22:10:20"
+      "posted": true,
+      "added_at": "2026-09-21T22:10:20",
+      "video_id": "28278943825141006",
+      "posted_at": "2026-10-01T00:21:27Z"
     },
     {
       "file": "How_my_mother_quit_smoking_simple_willpo_0m05s_square.mp4",
@@ -1241,8 +1243,8 @@
   ],
   "stats": {
     "total": 180,
-    "posted": 169,
-    "remaining": 11,
-    "last_updated": "2026-09-30T18:49:24Z"
+    "posted": 170,
+    "remaining": 10,
+    "last_updated": "2026-10-01T00:21:27Z"
   }
 }
