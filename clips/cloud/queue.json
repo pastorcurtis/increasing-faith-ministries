@@ -1192,8 +1192,10 @@
     },
     {
       "file": "How_my_mother_quit_smoking_simple_willpo_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-21T22:10:20"
+      "posted": true,
+      "added_at": "2026-09-21T22:10:20",
+      "video_id": "2052375688738416",
+      "posted_at": "2026-10-01T19:16:05Z"
     },
     {
       "file": "How_Prayer_Saved_My_Life_0m02s_square.mp4",
@@ -1243,8 +1245,8 @@
   ],
   "stats": {
     "total": 180,
-    "posted": 170,
-    "remaining": 10,
-    "last_updated": "2026-10-01T00:21:27Z"
+    "posted": 171,
+    "remaining": 9,
+    "last_updated": "2026-10-01T19:16:05Z"
   }
 }
