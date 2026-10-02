@@ -1,0 +1,46 @@
+# =============================================================================
+# IFM Facebook Analytics Report
+# =============================================================================
+#
+# Pulls the last 30 days of Page + post + clip insights from the Graph API and
+# commits content/fb-analytics.md (readable) and content/fb-analytics.json.
+# Read-only against Facebook. Runs weekly, or on demand from the Actions tab.
+#
+# =============================================================================
+name: Facebook Analytics
+
+on:
+  schedule:
+    # Mondays 8:00 AM EST (13:00 UTC)
+    - cron: '0 13 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build report
+        env:
+          FB_TOKEN: ${{ secrets.FACEBOOK_PAGE_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+        run: python analytics/fb_report.py
+
+      - name: Commit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/fb-analytics.md content/fb-analytics.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Facebook analytics report"
+          git pull --rebase
+          git push
