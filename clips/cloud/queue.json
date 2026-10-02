@@ -1199,8 +1199,10 @@
     },
     {
       "file": "How_Prayer_Saved_My_Life_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-21T22:10:20"
+      "posted": true,
+      "added_at": "2026-09-21T22:10:20",
+      "video_id": "1664719518318536",
+      "posted_at": "2026-10-02T00:30:54Z"
     },
     {
       "file": "Healing_Declarations_for_Physical_Ailmen_0m02s_square.mp4",
@@ -1245,8 +1247,8 @@
   ],
   "stats": {
     "total": 180,
-    "posted": 171,
-    "remaining": 9,
-    "last_updated": "2026-10-01T19:16:05Z"
+    "posted": 172,
+    "remaining": 8,
+    "last_updated": "2026-10-02T00:30:54Z"
   }
 }
