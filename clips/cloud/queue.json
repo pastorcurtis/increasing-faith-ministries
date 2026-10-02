@@ -1206,8 +1206,10 @@
     },
     {
       "file": "Healing_Declarations_for_Physical_Ailmen_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-21T22:10:20"
+      "posted": true,
+      "added_at": "2026-09-21T22:10:20",
+      "video_id": "1475486298020158",
+      "posted_at": "2026-10-02T18:57:48Z"
     },
     {
       "file": "From_Attack_to_Deliverance_Peace_Is_Your_0m05s_square.mp4",
@@ -1397,7 +1399,8 @@
   ],
   "stats": {
     "total": 210,
-    "posted": 172,
-    "remaining": 38
+    "posted": 173,
+    "remaining": 37,
+    "last_updated": "2026-10-02T18:57:48Z"
   }
 }
