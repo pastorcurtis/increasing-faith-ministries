@@ -80,7 +80,8 @@ def insight(obj_id, edge, metric, **params):
 
 
 # ---------- 1. Page totals ----------
-page, err = get(PAGE, fields="name,followers_count,fan_count")
+page, err = get(PAGE, fields="name,followers_count,fan_count,"
+                 "instagram_business_account{username,followers_count,media_count}")
 if err:
     sys.exit(f"Cannot read the Page: {err}")
 
@@ -150,7 +151,10 @@ def n(v):
 L = [f"# IFM Facebook Report: last {DAYS} days",
      f"_Generated {generated}_", "",
      f"**{page.get('name')}**: {n(page.get('followers_count'))} followers · "
-     f"{n(page.get('fan_count'))} likes", "",
+     f"{n(page.get('fan_count'))} likes",
+     "Instagram: " + (f"@{ig['username']} linked ({n(ig.get('followers_count'))} followers, "
+                      f"{n(ig.get('media_count'))} posts)" if (ig := page.get("instagram_business_account"))
+                      else "no Instagram professional account linked to this Page"), "",
      "| Page metric (30-day total) | Value |", "|---|---|"]
 labels = {"page_impressions_unique": "People reached (daily unique, summed)",
           "page_post_engagements": "Post engagements",
