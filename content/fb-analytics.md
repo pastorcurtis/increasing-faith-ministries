@@ -1,7 +1,8 @@
 # IFM Facebook Report: last 30 days
-_Generated 2026-10-02 10:59 UTC_
+_Generated 2026-10-02 11:00 UTC_
 
 **Increasing Faith Ministries**: 1,424 followers · 1,424 likes
+Instagram: no Instagram professional account linked to this Page
 
 | Page metric (30-day total) | Value |
 |---|---|
