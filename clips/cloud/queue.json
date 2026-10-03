@@ -1227,8 +1227,10 @@
     },
     {
       "file": "Feeling_financial_pressure_Go_to_God_don_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-21T22:10:20"
+      "posted": true,
+      "added_at": "2026-09-21T22:10:20",
+      "video_id": "4175443266011373",
+      "posted_at": "2026-10-03T23:30:41Z"
     },
     {
       "file": "Faith__Hustle_Practical_steps_to_start_a_0m02s_square.mp4",
@@ -1403,8 +1405,8 @@
   ],
   "stats": {
     "total": 210,
-    "posted": 175,
-    "remaining": 35,
-    "last_updated": "2026-10-03T17:46:11Z"
+    "posted": 176,
+    "remaining": 34,
+    "last_updated": "2026-10-03T23:30:41Z"
   }
 }
