@@ -1213,8 +1213,10 @@
     },
     {
       "file": "From_Attack_to_Deliverance_Peace_Is_Your_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-21T22:10:20"
+      "posted": true,
+      "added_at": "2026-09-21T22:10:20",
+      "video_id": "2055905928384014",
+      "posted_at": "2026-10-03T00:09:24Z"
     },
     {
       "file": "Forgive_or_Go_How_Prayer_Healed_Our_Marr_0m05s_square.mp4",
@@ -1399,8 +1401,8 @@
   ],
   "stats": {
     "total": 210,
-    "posted": 173,
-    "remaining": 37,
-    "last_updated": "2026-10-02T18:57:48Z"
+    "posted": 174,
+    "remaining": 36,
+    "last_updated": "2026-10-03T00:09:24Z"
   }
 }
