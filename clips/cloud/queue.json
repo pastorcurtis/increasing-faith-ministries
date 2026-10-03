@@ -1220,8 +1220,10 @@
     },
     {
       "file": "Forgive_or_Go_How_Prayer_Healed_Our_Marr_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-21T22:10:20"
+      "posted": true,
+      "added_at": "2026-09-21T22:10:20",
+      "video_id": "1662578968829172",
+      "posted_at": "2026-10-03T17:46:11Z"
     },
     {
       "file": "Feeling_financial_pressure_Go_to_God_don_0m02s_square.mp4",
@@ -1401,8 +1403,8 @@
   ],
   "stats": {
     "total": 210,
-    "posted": 174,
-    "remaining": 36,
-    "last_updated": "2026-10-03T00:09:24Z"
+    "posted": 175,
+    "remaining": 35,
+    "last_updated": "2026-10-03T17:46:11Z"
   }
 }
