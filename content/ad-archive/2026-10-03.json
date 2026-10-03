@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-03",
+  "day": 6,
+  "label": "Give",
+  "destination": "https://increasingfaith.net/give.html",
+  "button": "SOW INTO THE WORK",
+  "copy": {
+    "headline": "Your partnership fuels Kingdom discipleship",
+    "subhead": "Every seed you place advances the work of Pastor Curtis and Pastor Tammy",
+    "hook": "What kingdom impact will your generosity create today?",
+    "body": "Giving at Increasing Faith Ministries is a covenant partnership, not a transaction. Your contribution equips disciples and expands our influence for Christ. Join Curtis and Tammy in stewarding the harvest that God has already prepared."
+  },
+  "caption": "What kingdom impact will your generosity create today?\n\n→ https://increasingfaith.net/give.html\n\nGiving at Increasing Faith Ministries is a covenant partnership, not a transaction. Your contribution equips disciples and expands our influence for Christ. Join Curtis and Tammy in stewarding the harvest that God has already prepared.\n\n#KingdomLiving #KingdomOfGod #IFM",
+  "hashtags": [
+    "#KingdomLiving",
+    "#KingdomOfGod",
+    "#IFM"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-10-03.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1542296014601042",
+    "mode": "photo"
+  },
+  "postedAt": "2026-10-03T19:42:15.882Z",
+  "testMode": false
+}
