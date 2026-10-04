@@ -1241,8 +1241,10 @@
     },
     {
       "file": "Don_t_play_with_God__come_to_Him_with_tr_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-21T22:10:20"
+      "posted": true,
+      "added_at": "2026-09-21T22:10:20",
+      "video_id": "1254792856833875",
+      "posted_at": "2026-10-04T23:49:28Z"
     },
     {
       "file": "Calm_strategic_prayer_beats_hollering_0m02s_square.mp4",
@@ -1407,8 +1409,8 @@
   ],
   "stats": {
     "total": 210,
-    "posted": 177,
-    "remaining": 33,
-    "last_updated": "2026-10-04T17:58:10Z"
+    "posted": 178,
+    "remaining": 32,
+    "last_updated": "2026-10-04T23:49:28Z"
   }
 }
