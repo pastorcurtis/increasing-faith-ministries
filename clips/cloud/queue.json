@@ -1248,8 +1248,10 @@
     },
     {
       "file": "Calm_strategic_prayer_beats_hollering_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-09-21T22:10:20"
+      "posted": true,
+      "added_at": "2026-09-21T22:10:20",
+      "video_id": "4067223133586257",
+      "posted_at": "2026-10-05T21:21:34Z"
     },
     {
       "file": "Call_unto_me_ask_and_receive_wisdom_0m05s_square.mp4",
@@ -1409,8 +1411,8 @@
   ],
   "stats": {
     "total": 210,
-    "posted": 178,
-    "remaining": 32,
-    "last_updated": "2026-10-04T23:49:28Z"
+    "posted": 179,
+    "remaining": 31,
+    "last_updated": "2026-10-05T21:21:34Z"
   }
 }
