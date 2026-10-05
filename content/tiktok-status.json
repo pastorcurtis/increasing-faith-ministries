@@ -1,19 +1,10 @@
 {
-  "outcome": "partial",
-  "started_at": "2026-10-01T21:43:56.533408-04:00",
-  "finished_at": "2026-10-01T22:20:04.734450-04:00",
-  "scheduled_through": "2026-09-21T18:00:00-04:00",
+  "outcome": "started",
+  "started_at": "2026-10-04T21:12:30.568096-04:00",
+  "finished_at": null,
+  "scheduled_through": "2026-10-08T18:00:00-04:00",
   "submitted_through": "2026-10-08T18:00:00-04:00",
-  "cookie_days_left": 140,
-  "available": 61,
-  "planned": 14,
-  "scheduled": 0,
-  "unverified": 13,
-  "failed": 1,
-  "failures": [
-    {
-      "clip": "God_gave_us_dominion__now_handle_it_0m05s_reel.mp4",
-      "reason": "Could not find file upload input on TikTok page"
-    }
-  ]
+  "cookie_days_left": 137,
+  "available": 77,
+  "planned": 7
 }
