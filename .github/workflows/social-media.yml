@@ -36,9 +36,20 @@ jobs:
         id: check
         run: |
           TODAY=$(date +%Y-%m-%d)
+          HOUR=$((10#$(date -u +%H)))
           if [ "${{ github.event_name }}" != "schedule" ]; then
             echo "Manual run — always proceed"
             echo "should_run=true" >> $GITHUB_OUTPUT
+          # Midnight-UTC guard (same rule as website-ad.yml). Both crons are
+          # 14:00 and 19:00 UTC, so any scheduled run that STARTS before 14:00
+          # is yesterday's slot that GitHub delayed past midnight. TODAY would
+          # already read as tomorrow, so it would post tomorrow's copy tonight
+          # and gate off tomorrow's real runs. 2026-10-06: the 10-05 catch-up
+          # started at 00:34 UTC, generated "10-06" content, failed, and sent
+          # a false "post did not go out today" email at 8:34 PM ET.
+          elif [ "$HOUR" -lt 14 ]; then
+            echo "Started at ${HOUR}:xx UTC — a previous day's slot delayed past midnight. Skipping."
+            echo "should_run=false" >> $GITHUB_OUTPUT
           elif [ ! -f "content/social-posts/$TODAY.json" ]; then
             echo "No archive entry for $TODAY — proceeding"
             echo "should_run=true" >> $GITHUB_OUTPUT
