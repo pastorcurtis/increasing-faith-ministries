@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-06",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "Your hidden need deserves a prayer from real people",
+    "subhead": "No appointment, no membership—just a sincere request and a faithful prayer",
+    "hook": "What you’ve never spoken aloud is waiting for a prayer that truly hears you.",
+    "body": "Send your request; Pastor Curtis and Pastor Tammy will lift it before the throne. No performance, no fee—just the Kingdom’s promise to answer. Experience the difference of prayer that is personal and real."
+  },
+  "caption": "What you’ve never spoken aloud is waiting for a prayer that truly hears you.\n\n→ https://increasingfaith.net/prayer.html\n\nSend your request; Pastor Curtis and Pastor Tammy will lift it before the throne. No performance, no fee—just the Kingdom’s promise to answer. Experience the difference of prayer that is personal and real.\n\n#KingdomOfGod #Prayer #IncreasingFaith",
+  "hashtags": [
+    "#KingdomOfGod",
+    "#Prayer",
+    "#IncreasingFaith"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-10-06.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1545294527634524",
+    "mode": "photo"
+  },
+  "postedAt": "2026-10-06T21:28:07.278Z",
+  "testMode": false
+}
