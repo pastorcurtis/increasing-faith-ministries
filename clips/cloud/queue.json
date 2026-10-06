@@ -1262,8 +1262,10 @@
     },
     {
       "file": "Loving_Kindness_Covering_for_Each_Other_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:20:24"
+      "posted": true,
+      "added_at": "2026-10-01T22:20:24",
+      "video_id": "1109742718209862",
+      "posted_at": "2026-10-06T19:17:57Z"
     },
     {
       "file": "Loving_Kindness_Is_a_Marathon__Stand_Bes_0m05s_square.mp4",
@@ -1413,8 +1415,8 @@
   ],
   "stats": {
     "total": 210,
-    "posted": 180,
-    "remaining": 30,
-    "last_updated": "2026-10-06T01:39:45Z"
+    "posted": 181,
+    "remaining": 29,
+    "last_updated": "2026-10-06T19:17:57Z"
   }
 }
