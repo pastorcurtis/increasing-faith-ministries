@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-07",
+  "day": 3,
+  "label": "Visit",
+  "destination": "https://increasingfaith.net/visit.html",
+  "button": "PLAN YOUR VISIT",
+  "copy": {
+    "headline": "Your first Sunday can be simple and welcoming",
+    "subhead": "Join us Saturday at 12 PM in Southfield or tune in online at 8:15 AM",
+    "hook": "Ever wonder what it feels like to sit in a place where Scripture meets real life?",
+    "body": "Pastor Curtis and Pastor Tammy greet every guest as family. The sanctuary is at 24301 Telegraph, Southfield, MI, doors open at 12 PM this Saturday. If you prefer your screen, the Hour of Power streams weekdays at 8:15 AM. Which setting will you choose to experience the Kingdom today?"
+  },
+  "caption": "Ever wonder what it feels like to sit in a place where Scripture meets real life?\n\n→ https://increasingfaith.net/visit.html\n\nPastor Curtis and Pastor Tammy greet every guest as family. The sanctuary is at 24301 Telegraph, Southfield, MI, doors open at 12 PM this Saturday. If you prefer your screen, the Hour of Power streams weekdays at 8:15 AM. Which setting will you choose to experience the Kingdom today?\n\n#IFM #Southfield #KingdomOfGod",
+  "hashtags": [
+    "#IFM",
+    "#Southfield",
+    "#KingdomOfGod"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-10-07.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1546221150875195",
+    "mode": "photo"
+  },
+  "postedAt": "2026-10-07T21:48:28.241Z",
+  "testMode": false
+}
