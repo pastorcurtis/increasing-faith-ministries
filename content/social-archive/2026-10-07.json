@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-07",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "Real talk: When the promises of Scripture feel distant and your prayers seem unanswered, what is the one truth you cling to that keeps you moving forward? Share the verse or principle that anchors you in that season. I’m listening—let’s discuss how the Kingdom steadies us when the world shakes.",
+      "hashtags": [
+        "#KingdomLiving",
+        "#IFM",
+        "#KingdomConversation"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "Real talk: When the promises of Scripture feel distant and your prayers seem unanswered, what is the one truth you cling to that keeps you moving forward? Share the verse or principle that anchors you in that season. I’m listening—let’s discuss how the Kingdom steadies us when the world shakes.\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#KingdomLiving #IFM #KingdomConversation",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-10-07.png",
+      "pullQuote": "The Kingdom steadies us when the world shakes",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Real talk: When the promises of God feel distant and your prayers seem unanswered, do you keep pressing forward in obedience or pause to reassess your heart?  \n\nWhich path are you walking today?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#FaithTalk",
+        "#RealTalk",
+        "#IncreasingFaith",
+        "#KingdomMindset",
+        "#IFM",
+        "#KingdomConversation",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Real talk: When the promises of God feel distant and your prayers seem unanswered, do you keep pressing forward in obedience or pause to reassess your heart?  \n\nWhich path are you walking today?\n\nJoin our community → Link in bio\n\n#KingdomOfGod #FaithTalk #RealTalk #IncreasingFaith #KingdomMindset #IFM #KingdomConversation #KingdomLiving"
+    },
+    "tiktok": {
+      "content": "Real talk: When the world tells you to compromise, do you silence that voice or speak the Kingdom truth louder? What’s the hardest sin of silence you’ve faced this week? Share your struggle; let’s pray it out together.",
+      "hashtags": [
+        "#RealTalk",
+        "#KingdomConversation",
+        "#KingdomMindset",
+        "#KingdomLiving",
+        "#IFM"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Real talk: When the world tells you to compromise, do you silence that voice or speak the Kingdom truth louder? What’s the hardest sin of silence you’ve faced this week? Share your struggle; let’s pray it out together.\n\nJoin our community → Link in bio\n\n#RealTalk #KingdomConversation #KingdomMindset #KingdomLiving #IFM"
+    }
+  },
+  "generatedAt": "2026-10-07T19:43:46.986Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1546155164215127",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-10-07T19:43:52.756Z",
+  "testMode": false
+}
