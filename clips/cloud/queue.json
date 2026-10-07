@@ -1276,8 +1276,10 @@
     },
     {
       "file": "Love_your_child_don_t_let_religion_push_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:20:24"
+      "posted": true,
+      "added_at": "2026-10-01T22:20:24",
+      "video_id": "1419170757020415",
+      "posted_at": "2026-10-07T19:43:35Z"
     },
     {
       "file": "Love_suffers_long__patience_through_addi_0m02s_square.mp4",
@@ -1417,8 +1419,8 @@
   ],
   "stats": {
     "total": 210,
-    "posted": 182,
-    "remaining": 28,
-    "last_updated": "2026-10-07T00:21:33Z"
+    "posted": 183,
+    "remaining": 27,
+    "last_updated": "2026-10-07T19:43:35Z"
   }
 }
