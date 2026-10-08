@@ -1283,8 +1283,10 @@
     },
     {
       "file": "Love_suffers_long__patience_through_addi_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:20:24"
+      "posted": true,
+      "added_at": "2026-10-01T22:20:24",
+      "video_id": "1479753330684263",
+      "posted_at": "2026-10-08T00:42:33Z"
     },
     {
       "file": "Love_Is_a_Choice_Not_Destiny_0m05s_square.mp4",
@@ -1419,8 +1421,8 @@
   ],
   "stats": {
     "total": 210,
-    "posted": 183,
-    "remaining": 27,
-    "last_updated": "2026-10-07T19:43:35Z"
+    "posted": 184,
+    "remaining": 26,
+    "last_updated": "2026-10-08T00:42:33Z"
   }
 }
