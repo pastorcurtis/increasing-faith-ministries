@@ -1,10 +1,23 @@
 {
-  "outcome": "started",
+  "outcome": "partial",
   "started_at": "2026-10-07T21:53:21.224559-04:00",
-  "finished_at": null,
+  "finished_at": "2026-10-07T22:24:35.430256-04:00",
   "scheduled_through": "2026-10-08T18:00:00-04:00",
-  "submitted_through": "2026-10-08T18:00:00-04:00",
+  "submitted_through": "2026-10-14T18:00:00-04:00",
   "cookie_days_left": 134,
-  "available": 79,
-  "planned": 13
+  "available": 68,
+  "planned": 13,
+  "scheduled": 0,
+  "unverified": 11,
+  "failed": 2,
+  "failures": [
+    {
+      "clip": "God_gave_us_dominion__now_handle_it_0m05s_reel.mp4",
+      "reason": "Could not find file upload input on TikTok page"
+    },
+    {
+      "clip": "God_s_Love_Isn_t_for_Sale__Receive_It_Fr_0m05s_reel.mp4",
+      "reason": "schedule picker raised: Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"Schedule\", exact=True).first\n -- refusing to post, it would publish immediately instead of on schedule. Debug screenshot saved as tiktok-debug.png"
+    }
+  ]
 }
