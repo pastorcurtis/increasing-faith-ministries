@@ -1290,8 +1290,10 @@
     },
     {
       "file": "Love_Is_a_Choice_Not_Destiny_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:20:24"
+      "posted": true,
+      "added_at": "2026-10-01T22:20:24",
+      "video_id": "1838584383804139",
+      "posted_at": "2026-10-08T19:39:38Z"
     },
     {
       "file": "Let_your_mama_go__show_love_and_kindness_0m02s_square.mp4",
@@ -1421,8 +1423,8 @@
   ],
   "stats": {
     "total": 210,
-    "posted": 184,
-    "remaining": 26,
-    "last_updated": "2026-10-08T00:42:33Z"
+    "posted": 185,
+    "remaining": 25,
+    "last_updated": "2026-10-08T19:39:38Z"
   }
 }
