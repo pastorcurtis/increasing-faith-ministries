@@ -1297,8 +1297,10 @@
     },
     {
       "file": "Let_your_mama_go__show_love_and_kindness_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:20:24"
+      "posted": true,
+      "added_at": "2026-10-01T22:20:24",
+      "video_id": "1976171243069518",
+      "posted_at": "2026-10-09T00:58:29Z"
     },
     {
       "file": "Let_Your_Life_Spring_Up_0m05s_square.mp4",
@@ -1423,8 +1425,8 @@
   ],
   "stats": {
     "total": 210,
-    "posted": 185,
-    "remaining": 25,
-    "last_updated": "2026-10-08T19:39:38Z"
+    "posted": 186,
+    "remaining": 24,
+    "last_updated": "2026-10-09T00:58:29Z"
   }
 }
