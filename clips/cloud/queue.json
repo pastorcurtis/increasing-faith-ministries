@@ -1304,8 +1304,10 @@
     },
     {
       "file": "Let_Your_Life_Spring_Up_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:20:24"
+      "posted": true,
+      "added_at": "2026-10-01T22:20:24",
+      "video_id": "1628854372253351",
+      "posted_at": "2026-10-09T19:15:03Z"
     },
     {
       "file": "How_my_mom_quit_30_years_of_smoking_with_0m02s_square.mp4",
@@ -1425,8 +1427,8 @@
   ],
   "stats": {
     "total": 210,
-    "posted": 186,
-    "remaining": 24,
-    "last_updated": "2026-10-09T00:58:29Z"
+    "posted": 187,
+    "remaining": 23,
+    "last_updated": "2026-10-09T19:15:03Z"
   }
 }
