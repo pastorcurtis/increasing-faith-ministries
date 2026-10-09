@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-09",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "Pastor Curtis just uncovered a prophetic pattern in the recent global elections—how the Kingdom’s agenda is silently shifting national policies toward true liberty. He’ll break down the Scripture that explains why this movement is inevitable and what it means for every believer’s mission.  \n\nAre you ready to align your strategy with the Kingdom’s next wave of influence?",
+      "hashtags": [
+        "#IFM",
+        "#JesusIsLord",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "Pastor Curtis just uncovered a prophetic pattern in the recent global elections—how the Kingdom’s agenda is silently shifting national policies toward true liberty. He’ll break down the Scripture that explains why this movement is inevitable and what it means for every believer’s mission.  \n\nAre you ready to align your strategy with the Kingdom’s next wave of influence?\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#IFM #JesusIsLord #KingdomCitizen",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-10-09.png",
+      "pullQuote": "The Kingdom’s agenda is silently shifting national policies toward true liberty",
+      "attribution": "Kingdom Intelligence"
+    },
+    "instagram": {
+      "content": "The Kingdom Report reveals how the new “City of Light” decree will shift every believer’s authority in local government—directly from Psalm 82:6, “I said, ‘You are gods.’” Pastor Curtis breaks down the legal‑spiritual steps you must claim this week.  \n\nWhat kingdom‑level change are you ready to activate in your city?",
+      "hashtags": [
+        "#Faith",
+        "#Jesus",
+        "#KingdomLiving",
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomCitizen",
+        "#JesusIsLord",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The Kingdom Report reveals how the new “City of Light” decree will shift every believer’s authority in local government—directly from Psalm 82:6, “I said, ‘You are gods.’” Pastor Curtis breaks down the legal‑spiritual steps you must claim this week.  \n\nWhat kingdom‑level change are you ready to activate in your city?\n\nRead the full Kingdom Report → Link in bio\n\n#Faith #Jesus #KingdomLiving #IFM #IncreasingFaith #KingdomCitizen #JesusIsLord #KingdomOfGod"
+    },
+    "tiktok": {
+      "content": "The Kingdom Report reveals how a new Jerusalem‑city ordinance is unlocking unprecedented divine favor for believers—see the scripture‑backed strategy Pastor Curtis just disclosed. Are you ready to align your household with this Kingdom breakthrough?",
+      "hashtags": [
+        "#Faith",
+        "#KingdomOfGod",
+        "#Jesus",
+        "#KingdomCitizen",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The Kingdom Report reveals how a new Jerusalem‑city ordinance is unlocking unprecedented divine favor for believers—see the scripture‑backed strategy Pastor Curtis just disclosed. Are you ready to align your household with this Kingdom breakthrough?\n\nRead the full Kingdom Report → Link in bio\n\n#Faith #KingdomOfGod #Jesus #KingdomCitizen #IncreasingFaith"
+    }
+  },
+  "generatedAt": "2026-10-09T19:15:18.990Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1548099044020739",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-10-09T19:15:22.443Z",
+  "testMode": false
+}
