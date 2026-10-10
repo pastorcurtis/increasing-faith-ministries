@@ -1318,8 +1318,10 @@
     },
     {
       "file": "How_loving_kindness_snapped_me_out_of_20_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:20:24"
+      "posted": true,
+      "added_at": "2026-10-01T22:20:24",
+      "video_id": "2157505291640631",
+      "posted_at": "2026-10-10T18:13:01Z"
     },
     {
       "file": "How_Sharing_an_Inheritance_Helped_Save_O_0m05s_square.mp4",
@@ -1429,8 +1431,8 @@
   ],
   "stats": {
     "total": 210,
-    "posted": 188,
-    "remaining": 22,
-    "last_updated": "2026-10-10T00:29:26Z"
+    "posted": 189,
+    "remaining": 21,
+    "last_updated": "2026-10-10T18:13:01Z"
   }
 }
