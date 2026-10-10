@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-10",
+  "day": 6,
+  "theme": "Worship Reminder",
+  "themeType": "event_reminder",
+  "targetPage": "https://increasingfaith.net/visit.html",
+  "posts": {
+    "facebook": {
+      "content": "We’re gathering for worship, and we want you right there with us.  \nFirst Saturday of each month, 12 PM, 24301 Telegraph, Southfield MI—come experience the presence together.  \nAnd every weekday, 8:15 AM, join the Hour of Power on Facebook Live for a fresh word to start your day.  \n\nThe invitation stands: step into the house, log in online, and let God move.  \n\nWho’s joining us today? Tag a friend who needs this.",
+      "hashtags": [
+        "#KingdomCitizen",
+        "#JesusIsLord",
+        "#Faith"
+      ],
+      "cta": "\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html",
+      "fullPost": "We’re gathering for worship, and we want you right there with us.  \nFirst Saturday of each month, 12 PM, 24301 Telegraph, Southfield MI—come experience the presence together.  \nAnd every weekday, 8:15 AM, join the Hour of Power on Facebook Live for a fresh word to start your day.  \n\nThe invitation stands: step into the house, log in online, and let God move.  \n\nWho’s joining us today? Tag a friend who needs this.\n\nJoin us for worship\nhttps://increasingfaith.net/visit.html\n\n#KingdomCitizen #JesusIsLord #Faith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-10-10.png",
+      "pullQuote": "The invitation stands: step into the house, log in online, and let God move",
+      "attribution": "Worship Reminder"
+    },
+    "instagram": {
+      "content": "We gather where the Spirit moves.  \nFirst Saturday each month, 12 PM, 24301 Telegraph, Southfield – sit, sing, receive.  \nEvery weekday, 8:15 AM, join the Hour of Power on Facebook Live and let God’s fire ignite your day.  \n\nWill you be there to lift His name together?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomLiving",
+        "#Faith",
+        "#Jesus",
+        "#JesusIsLord",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "We gather where the Spirit moves.  \nFirst Saturday each month, 12 PM, 24301 Telegraph, Southfield – sit, sing, receive.  \nEvery weekday, 8:15 AM, join the Hour of Power on Facebook Live and let God’s fire ignite your day.  \n\nWill you be there to lift His name together?\n\nJoin us for worship → Link in bio\n\n#KingdomOfGod #IncreasingFaith #IFM #KingdomLiving #Faith #Jesus #JesusIsLord #KingdomCitizen"
+    },
+    "tiktok": {
+      "content": "The Lord is gathering His people—today at 12 pm, First Saturday, 24301 Telegraph. And each morning at 8:15 am, the Hour of Power streams live. Come, receive His presence. Who will stand with us in worship?",
+      "hashtags": [
+        "#JesusIsLord",
+        "#KingdomLiving",
+        "#IFM",
+        "#Jesus",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nJoin us for worship → Link in bio",
+      "fullPost": "The Lord is gathering His people—today at 12 pm, First Saturday, 24301 Telegraph. And each morning at 8:15 am, the Hour of Power streams live. Come, receive His presence. Who will stand with us in worship?\n\nJoin us for worship → Link in bio\n\n#JesusIsLord #KingdomLiving #IFM #Jesus #IncreasingFaith"
+    }
+  },
+  "generatedAt": "2026-10-10T18:13:26.584Z"
+}
