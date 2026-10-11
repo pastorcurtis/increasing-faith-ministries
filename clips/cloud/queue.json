@@ -1332,8 +1332,10 @@
     },
     {
       "file": "Create_a_safe_space_talk_without_fear_in_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:20:24"
+      "posted": true,
+      "added_at": "2026-10-01T22:20:24",
+      "video_id": "1081378037863050",
+      "posted_at": "2026-10-11T18:36:25Z"
     },
     {
       "file": "Confession_brings_healing_honest_talks_t_0m02s_square.mp4",
@@ -1433,8 +1435,8 @@
   ],
   "stats": {
     "total": 210,
-    "posted": 190,
-    "remaining": 20,
-    "last_updated": "2026-10-11T00:05:26Z"
+    "posted": 191,
+    "remaining": 19,
+    "last_updated": "2026-10-11T18:36:25Z"
   }
 }
