@@ -1339,8 +1339,10 @@
     },
     {
       "file": "Confession_brings_healing_honest_talks_t_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:20:24"
+      "posted": true,
+      "added_at": "2026-10-01T22:20:24",
+      "video_id": "4309310156025719",
+      "posted_at": "2026-10-12T00:13:42Z"
     },
     {
       "file": "Christ_gives_the_ladder__climb_out_yours_0m02s_square.mp4",
@@ -1435,8 +1437,8 @@
   ],
   "stats": {
     "total": 210,
-    "posted": 191,
-    "remaining": 19,
-    "last_updated": "2026-10-11T18:36:25Z"
+    "posted": 192,
+    "remaining": 18,
+    "last_updated": "2026-10-12T00:13:42Z"
   }
 }
