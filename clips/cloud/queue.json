@@ -1346,8 +1346,10 @@
     },
     {
       "file": "Christ_gives_the_ladder__climb_out_yours_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:20:24"
+      "posted": true,
+      "added_at": "2026-10-01T22:20:24",
+      "video_id": "1615297866704086",
+      "posted_at": "2026-10-12T21:57:58Z"
     },
     {
       "file": "Beyond_prayer_treating_addiction_with_lo_0m05s_square.mp4",
@@ -1447,7 +1449,8 @@
   ],
   "stats": {
     "total": 212,
-    "posted": 192,
-    "remaining": 20
+    "posted": 193,
+    "remaining": 19,
+    "last_updated": "2026-10-12T21:57:58Z"
   }
 }
