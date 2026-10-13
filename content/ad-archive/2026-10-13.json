@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-13",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "You carry a prayer no one knows you’ve spoken",
+    "subhead": "Submit it here and real people at IFM will lift it before the throne",
+    "hook": "A silent request belongs in a prayer room, not a waiting list.",
+    "body": "What weight are you bearing that no one has heard? Send your request—no appointment, no membership, no performance required. Pastors Curtis and Tammy, and the prayer team, will stand with you in the presence of God."
+  },
+  "caption": "A silent request belongs in a prayer room, not a waiting list.\n\n→ https://increasingfaith.net/prayer.html\n\nWhat weight are you bearing that no one has heard? Send your request—no appointment, no membership, no performance required. Pastors Curtis and Tammy, and the prayer team, will stand with you in the presence of God.\n\n#KingdomLiving #PrayerFocus #KingdomOfGod",
+  "hashtags": [
+    "#KingdomLiving",
+    "#PrayerFocus",
+    "#KingdomOfGod"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-10-13.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1552135616950415",
+    "mode": "photo"
+  },
+  "postedAt": "2026-10-13T21:45:55.693Z",
+  "testMode": false
+}
