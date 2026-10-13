@@ -1360,8 +1360,10 @@
     },
     {
       "file": "When_Results_Tell_You_It_s_Time_to_Let_G_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:47:47"
+      "posted": true,
+      "added_at": "2026-10-01T22:47:47",
+      "video_id": "1093668730323518",
+      "posted_at": "2026-10-13T20:04:44Z"
     },
     {
       "file": "Men_check_your_PSA_catch_problems_early_0m02s_square.mp4",
@@ -1451,8 +1453,8 @@
   ],
   "stats": {
     "total": 212,
-    "posted": 194,
-    "remaining": 18,
-    "last_updated": "2026-10-13T02:24:54Z"
+    "posted": 195,
+    "remaining": 17,
+    "last_updated": "2026-10-13T20:04:44Z"
   }
 }
