@@ -1353,8 +1353,10 @@
     },
     {
       "file": "Beyond_prayer_treating_addiction_with_lo_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:20:24"
+      "posted": true,
+      "added_at": "2026-10-01T22:20:24",
+      "video_id": "1103842825719071",
+      "posted_at": "2026-10-13T02:24:54Z"
     },
     {
       "file": "When_Results_Tell_You_It_s_Time_to_Let_G_0m02s_square.mp4",
@@ -1449,8 +1451,8 @@
   ],
   "stats": {
     "total": 212,
-    "posted": 193,
-    "remaining": 19,
-    "last_updated": "2026-10-12T21:57:58Z"
+    "posted": 194,
+    "remaining": 18,
+    "last_updated": "2026-10-13T02:24:54Z"
   }
 }
