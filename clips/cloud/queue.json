@@ -1381,8 +1381,10 @@
     },
     {
       "file": "Prayer_and_the_promise_of_this_love_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:47:47"
+      "posted": true,
+      "added_at": "2026-10-01T22:47:47",
+      "video_id": "28521523867489706",
+      "posted_at": "2026-10-14T23:41:10Z"
     },
     {
       "file": "Women_get_mammograms_early_detection_sav_0m02s_square.mp4",
@@ -1457,8 +1459,8 @@
   ],
   "stats": {
     "total": 212,
-    "posted": 197,
-    "remaining": 15,
-    "last_updated": "2026-10-14T18:17:57Z"
+    "posted": 198,
+    "remaining": 14,
+    "last_updated": "2026-10-14T23:41:10Z"
   }
 }
