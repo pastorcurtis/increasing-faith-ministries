@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-14",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "Real talk: When the prayers feel heavy and the breakthrough seems distant, do you press on trusting God’s promise, or do you step back and wait for a sign? Pastor Curtis reminds us that the Kingdom advances in the waiting as surely as in the storm. Which path are you walking today? Share your heart below.",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#FaithTalk",
+        "#IFM"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "Real talk: When the prayers feel heavy and the breakthrough seems distant, do you press on trusting God’s promise, or do you step back and wait for a sign? Pastor Curtis reminds us that the Kingdom advances in the waiting as surely as in the storm. Which path are you walking today? Share your heart below.\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#IncreasingFaith #FaithTalk #IFM",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-10-14.png",
+      "pullQuote": "The Kingdom advances in the waiting as surely as in the storm.",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Unpopular opinion: The Kingdom thrives when we stop chasing signs and start obeying the Word, even when the world says it’s impossible. Do you agree, or are you still waiting for a miracle before you move?",
+      "hashtags": [
+        "#KingdomConversation",
+        "#KingdomLiving",
+        "#RealTalk",
+        "#IFM",
+        "#FaithTalk",
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#KingdomMindset"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Unpopular opinion: The Kingdom thrives when we stop chasing signs and start obeying the Word, even when the world says it’s impossible. Do you agree, or are you still waiting for a miracle before you move?\n\nJoin our community → Link in bio\n\n#KingdomConversation #KingdomLiving #RealTalk #IFM #FaithTalk #IncreasingFaith #KingdomOfGod #KingdomMindset"
+    },
+    "tiktok": {
+      "content": "Unpopular opinion: The Kingdom doesn’t thrive on comfort; it flourishes in the grind of obedience. If you’re waiting for a peaceful season before stepping out, you’re missing God’s fire. Agree or disagree—what’s your experience?",
+      "hashtags": [
+        "#KingdomLiving",
+        "#IFM",
+        "#KingdomConversation",
+        "#FaithTalk",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Unpopular opinion: The Kingdom doesn’t thrive on comfort; it flourishes in the grind of obedience. If you’re waiting for a peaceful season before stepping out, you’re missing God’s fire. Agree or disagree—what’s your experience?\n\nJoin our community → Link in bio\n\n#KingdomLiving #IFM #KingdomConversation #FaithTalk #KingdomOfGod"
+    }
+  },
+  "generatedAt": "2026-10-14T18:18:11.478Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1553016930195617",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-10-14T18:18:16.028Z",
+  "testMode": false
+}
