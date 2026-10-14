@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-14",
+  "day": 3,
+  "label": "Visit",
+  "destination": "https://increasingfaith.net/visit.html",
+  "button": "PLAN YOUR VISIT",
+  "copy": {
+    "headline": "Your seat is waiting at Southfield this Saturday",
+    "subhead": "Join Pastor Curtis and Pastor Tammy at 12 pm, 24301 Telegraph, or tune in online at 8:15 am.",
+    "hook": "Ever wondered what a real Kingdom gathering feels like?",
+    "body": "Come as you are. The first Saturday of each month we meet in person at 12 noon—no registration, just a door. If you prefer distance, the Hour of Power streams weekdays at 8:15 am. Choose the place, and let the Lord meet you there."
+  },
+  "caption": "Ever wondered what a real Kingdom gathering feels like?\n\n→ https://increasingfaith.net/visit.html\n\nCome as you are. The first Saturday of each month we meet in person at 12 noon—no registration, just a door. If you prefer distance, the Hour of Power streams weekdays at 8:15 am. Choose the place, and let the Lord meet you there.\n\n#KingdomLiving #IncreasingFaith #IFM",
+  "hashtags": [
+    "#KingdomLiving",
+    "#IncreasingFaith",
+    "#IFM"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-10-14.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1553104793520164",
+    "mode": "photo"
+  },
+  "postedAt": "2026-10-14T20:30:03.776Z",
+  "testMode": false
+}
