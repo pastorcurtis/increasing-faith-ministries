@@ -1409,8 +1409,10 @@
     },
     {
       "file": "Meditate_on_the_Word_for_prosperity_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:47:47"
+      "posted": true,
+      "added_at": "2026-10-01T22:47:47",
+      "video_id": "969114102911158",
+      "posted_at": "2026-10-16T23:14:41Z"
     },
     {
       "file": "She_Lost_Her_House_and_Nobody_Knew_0m02s_square.mp4",
@@ -1465,8 +1467,8 @@
   ],
   "stats": {
     "total": 212,
-    "posted": 201,
-    "remaining": 11,
-    "last_updated": "2026-10-16T17:47:56Z"
+    "posted": 202,
+    "remaining": 10,
+    "last_updated": "2026-10-16T23:14:41Z"
   }
 }
