@@ -1402,8 +1402,10 @@
     },
     {
       "file": "Some_Things_Must_Die_What_to_Let_Go_in_t_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:47:47"
+      "posted": true,
+      "added_at": "2026-10-01T22:47:47",
+      "video_id": "3168619030010677",
+      "posted_at": "2026-10-16T17:47:56Z"
     },
     {
       "file": "Meditate_on_the_Word_for_prosperity_0m02s_square.mp4",
@@ -1463,8 +1465,8 @@
   ],
   "stats": {
     "total": 212,
-    "posted": 200,
-    "remaining": 12,
-    "last_updated": "2026-10-15T23:32:37Z"
+    "posted": 201,
+    "remaining": 11,
+    "last_updated": "2026-10-16T17:47:56Z"
   }
 }
