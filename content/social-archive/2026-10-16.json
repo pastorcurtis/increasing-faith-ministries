@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-16",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "The Kingdom Report drops tomorrow with a breakthrough on how the “spiritual economy” is shifting—revealing the prophetic markers God placed in Revelation 13 that signal the next harvest surge. Pastor Curtis uncovers the exact timing and the authority you must claim now.  \n\nWhat kingdom breakthrough do you sense God is calling you to activate this season?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#Jesus",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "The Kingdom Report drops tomorrow with a breakthrough on how the “spiritual economy” is shifting—revealing the prophetic markers God placed in Revelation 13 that signal the next harvest surge. Pastor Curtis uncovers the exact timing and the authority you must claim now.  \n\nWhat kingdom breakthrough do you sense God is calling you to activate this season?\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#KingdomOfGod #Jesus #IncreasingFaith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-10-16.png",
+      "pullQuote": "Pastor Curtis uncovers the exact timing and the authority you must claim now.",
+      "attribution": "Kingdom Intelligence"
+    },
+    "instagram": {
+      "content": "The Kingdom Report reveals how the new “Kingdom Banking” law—passed behind closed doors—forces every believer to claim spiritual credit before the world can touch their finances. Pastor Curtis breaks the decree down line‑by‑line, showing the exact prayer strategy that unlocks divine provision now.  \n\nWhat debt is the Spirit calling you to cancel today?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#JesusIsLord",
+        "#Jesus",
+        "#Faith",
+        "#IFM",
+        "#KingdomCitizen",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The Kingdom Report reveals how the new “Kingdom Banking” law—passed behind closed doors—forces every believer to claim spiritual credit before the world can touch their finances. Pastor Curtis breaks the decree down line‑by‑line, showing the exact prayer strategy that unlocks divine provision now.  \n\nWhat debt is the Spirit calling you to cancel today?\n\nRead the full Kingdom Report → Link in bio\n\n#KingdomOfGod #IncreasingFaith #JesusIsLord #Jesus #Faith #IFM #KingdomCitizen #KingdomLiving"
+    },
+    "tiktok": {
+      "content": "The Kingdom Report reveals why the new Jerusalem prophecy is shifting our nation’s policy—God’s agenda is moving faster than any headline. Pastor Curtis uncovers the scriptural trigger behind this change. How will you align your steps with the coming Kingdom shift?",
+      "hashtags": [
+        "#JesusIsLord",
+        "#KingdomCitizen",
+        "#KingdomOfGod",
+        "#Jesus",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The Kingdom Report reveals why the new Jerusalem prophecy is shifting our nation’s policy—God’s agenda is moving faster than any headline. Pastor Curtis uncovers the scriptural trigger behind this change. How will you align your steps with the coming Kingdom shift?\n\nRead the full Kingdom Report → Link in bio\n\n#JesusIsLord #KingdomCitizen #KingdomOfGod #Jesus #IncreasingFaith"
+    }
+  },
+  "generatedAt": "2026-10-16T17:48:21.270Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1555114643319179",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-10-16T17:48:26.648Z",
+  "testMode": false
+}
