@@ -1416,8 +1416,10 @@
     },
     {
       "file": "She_Lost_Her_House_and_Nobody_Knew_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:47:47"
+      "posted": true,
+      "added_at": "2026-10-01T22:47:47",
+      "video_id": "1424739635746480",
+      "posted_at": "2026-10-17T16:49:59Z"
     },
     {
       "file": "What_wealth_is_truly_for_0m02s_square.mp4",
@@ -1467,8 +1469,8 @@
   ],
   "stats": {
     "total": 212,
-    "posted": 202,
-    "remaining": 10,
-    "last_updated": "2026-10-16T23:14:41Z"
+    "posted": 203,
+    "remaining": 9,
+    "last_updated": "2026-10-17T16:49:59Z"
   }
 }
