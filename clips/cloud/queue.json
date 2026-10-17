@@ -1423,8 +1423,10 @@
     },
     {
       "file": "What_wealth_is_truly_for_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:47:47"
+      "posted": true,
+      "added_at": "2026-10-01T22:47:47",
+      "video_id": "1171269658905484",
+      "posted_at": "2026-10-17T22:53:37Z"
     },
     {
       "file": "Leaders_Read_the_Room_and_Serve_the_Stru_0m02s_square.mp4",
@@ -1469,8 +1471,8 @@
   ],
   "stats": {
     "total": 212,
-    "posted": 203,
-    "remaining": 9,
-    "last_updated": "2026-10-17T16:49:59Z"
+    "posted": 204,
+    "remaining": 8,
+    "last_updated": "2026-10-17T22:53:37Z"
   }
 }
