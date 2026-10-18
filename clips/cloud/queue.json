@@ -1437,8 +1437,10 @@
     },
     {
       "file": "Can_You_Stand_the_Rain_Why_hard_seasons_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:47:47"
+      "posted": true,
+      "added_at": "2026-10-01T22:47:47",
+      "video_id": "1657103365815118",
+      "posted_at": "2026-10-18T22:46:14Z"
     },
     {
       "file": "Study_the_Bible_Stop_mimicking_church_tr_0m05s_square.mp4",
@@ -1483,7 +1485,8 @@
   ],
   "stats": {
     "total": 214,
-    "posted": 205,
-    "remaining": 9
+    "posted": 206,
+    "remaining": 8,
+    "last_updated": "2026-10-18T22:46:14Z"
   }
 }
