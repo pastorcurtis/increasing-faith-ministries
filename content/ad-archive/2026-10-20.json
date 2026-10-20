@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-20",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "You carry a prayer no one knows you’ve spoken",
+    "subhead": "Send it now and real people at IFM will lift it before the throne",
+    "hook": "What would happen if the weight you hide were handed to a praying community?",
+    "body": "There is no appointment, no membership, no performance required. Your request goes straight to pastors Curtis and Tammy and a team that prays with authority. Let the Kingdom hear what you have kept silent. Click to send your request."
+  },
+  "caption": "What would happen if the weight you hide were handed to a praying community?\n\n→ https://increasingfaith.net/prayer.html\n\nThere is no appointment, no membership, no performance required. Your request goes straight to pastors Curtis and Tammy and a team that prays with authority. Let the Kingdom hear what you have kept silent. Click to send your request.\n\n#Prayer #Intercession #IFM",
+  "hashtags": [
+    "#Prayer",
+    "#Intercession",
+    "#IFM"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-10-20.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1559192996244677",
+    "mode": "photo"
+  },
+  "postedAt": "2026-10-20T20:19:26.704Z",
+  "testMode": false
+}
