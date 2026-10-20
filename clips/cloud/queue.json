@@ -1458,8 +1458,10 @@
     },
     {
       "file": "Stop_the_Circus_Read_the_Room_Pastors_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:47:47"
+      "posted": true,
+      "added_at": "2026-10-01T22:47:47",
+      "video_id": "2184072026321741",
+      "posted_at": "2026-10-20T18:20:23Z"
     },
     {
       "file": "Know_the_seasons_wisdom_from_the_sons_of_0m05s_square.mp4",
@@ -1489,8 +1491,8 @@
   ],
   "stats": {
     "total": 214,
-    "posted": 208,
-    "remaining": 6,
-    "last_updated": "2026-10-20T00:06:28Z"
+    "posted": 209,
+    "remaining": 5,
+    "last_updated": "2026-10-20T18:20:23Z"
   }
 }
