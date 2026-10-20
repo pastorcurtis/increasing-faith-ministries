@@ -1451,8 +1451,10 @@
     },
     {
       "file": "Respect_Talent_Always_Pay_Your_Musicians_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-01T22:47:47"
+      "posted": true,
+      "added_at": "2026-10-01T22:47:47",
+      "video_id": "1171662819153590",
+      "posted_at": "2026-10-20T00:06:28Z"
     },
     {
       "file": "Stop_the_Circus_Read_the_Room_Pastors_0m02s_square.mp4",
@@ -1487,8 +1489,8 @@
   ],
   "stats": {
     "total": 214,
-    "posted": 207,
-    "remaining": 7,
-    "last_updated": "2026-10-19T19:38:49Z"
+    "posted": 208,
+    "remaining": 6,
+    "last_updated": "2026-10-20T00:06:28Z"
   }
 }
