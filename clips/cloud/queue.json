@@ -1472,8 +1472,10 @@
     },
     {
       "file": "Harvest_season_move_beyond_your_building_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-11T21:10:35"
+      "posted": true,
+      "added_at": "2026-10-11T21:10:35",
+      "video_id": "1021786334274541",
+      "posted_at": "2026-10-21T18:22:18Z"
     },
     {
       "file": "People_need_deodorant_not_decorations__r_0m02s_square.mp4",
@@ -1493,8 +1495,8 @@
   ],
   "stats": {
     "total": 214,
-    "posted": 210,
-    "remaining": 4,
-    "last_updated": "2026-10-20T23:36:53Z"
+    "posted": 211,
+    "remaining": 3,
+    "last_updated": "2026-10-21T18:22:18Z"
   }
 }
