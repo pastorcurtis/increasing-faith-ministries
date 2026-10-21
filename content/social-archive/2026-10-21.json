@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-21",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "Unpopular opinion: The Kingdom isn’t a future ticket — it’s the authority we claim today, even when the world tells us to wait. Do you agree that walking in Kingdom power now is essential, or do you think we must “earn” it first? Share your truth; let’s see where the Holy Spirit is moving in our hearts.",
+      "hashtags": [
+        "#FaithTalk",
+        "#KingdomOfGod",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "Unpopular opinion: The Kingdom isn’t a future ticket — it’s the authority we claim today, even when the world tells us to wait. Do you agree that walking in Kingdom power now is essential, or do you think we must “earn” it first? Share your truth; let’s see where the Holy Spirit is moving in our hearts.\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#FaithTalk #KingdomOfGod #IncreasingFaith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-10-21.png",
+      "pullQuote": "The Kingdom isn’t a future ticket—it’s the authority we claim today",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Real talk: When you feel God’s call to step out, the fear of failure whispers louder than the promise of provision. How have you chosen to obey when the Kingdom demanded risk over comfort? Share the moment you trusted His voice over your doubts.",
+      "hashtags": [
+        "#KingdomLiving",
+        "#KingdomOfGod",
+        "#RealTalk",
+        "#KingdomMindset",
+        "#FaithTalk",
+        "#IncreasingFaith",
+        "#KingdomConversation",
+        "#IFM"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Real talk: When you feel God’s call to step out, the fear of failure whispers louder than the promise of provision. How have you chosen to obey when the Kingdom demanded risk over comfort? Share the moment you trusted His voice over your doubts.\n\nJoin our community → Link in bio\n\n#KingdomLiving #KingdomOfGod #RealTalk #KingdomMindset #FaithTalk #IncreasingFaith #KingdomConversation #IFM"
+    },
+    "tiktok": {
+      "content": "Unpopular opinion: The Kingdom doesn’t wait for your perfect plan—it rewards obedience in the messy middle. If you’re still holding back for a “sign,” you’re missing what God’s already moving. Agree or disagree—what’s your truth?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#KingdomLiving",
+        "#IncreasingFaith",
+        "#KingdomConversation",
+        "#KingdomMindset"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Unpopular opinion: The Kingdom doesn’t wait for your perfect plan—it rewards obedience in the messy middle. If you’re still holding back for a “sign,” you’re missing what God’s already moving. Agree or disagree—what’s your truth?\n\nJoin our community → Link in bio\n\n#KingdomOfGod #KingdomLiving #IncreasingFaith #KingdomConversation #KingdomMindset"
+    }
+  },
+  "generatedAt": "2026-10-21T18:22:10.716Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1560111202819523",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-10-21T18:22:15.605Z",
+  "testMode": false
+}
