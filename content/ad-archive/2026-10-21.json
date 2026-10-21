@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-21",
+  "day": 3,
+  "label": "Visit",
+  "destination": "https://increasingfaith.net/visit.html",
+  "button": "PLAN YOUR VISIT",
+  "copy": {
+    "headline": "Your first step is a seat at 12 noon this Saturday",
+    "subhead": "Come to 24301 Telegraph, Southfield at 12 PM or join our 8:15 AM online Hour of Power",
+    "hook": "You’ve wondered about IFM—now you have a clear place and time to see it live.",
+    "body": "Pastor Curtis and Pastor Tammy welcome you to the First Saturday service, 12 noon, Southfield. If you prefer a screen, the Hour of Power streams weekdays at 8:15 AM. No registration, just come as you are and experience Kingdom truth."
+  },
+  "caption": "You’ve wondered about IFM—now you have a clear place and time to see it live.\n\n→ https://increasingfaith.net/visit.html\n\nPastor Curtis and Pastor Tammy welcome you to the First Saturday service, 12 noon, Southfield. If you prefer a screen, the Hour of Power streams weekdays at 8:15 AM. No registration, just come as you are and experience Kingdom truth.\n\n#IncreasingFaith #KingdomCommunity #KingdomOfGod",
+  "hashtags": [
+    "#IncreasingFaith",
+    "#KingdomCommunity",
+    "#KingdomOfGod"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-10-21.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1560191649478145",
+    "mode": "photo"
+  },
+  "postedAt": "2026-10-21T20:28:13.839Z",
+  "testMode": false
+}
