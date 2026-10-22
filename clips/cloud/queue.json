@@ -1493,8 +1493,10 @@
     },
     {
       "file": "You_are_the_doorkeeper_of_your_life__cho_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-18T13:49:56"
+      "posted": true,
+      "added_at": "2026-10-18T13:49:56",
+      "video_id": "1664911025072103",
+      "posted_at": "2026-10-22T23:52:59Z"
     },
     {
       "file": "A_Time_to_Speak_and_the_Harvest_of_Your_0m05s_square.mp4",
@@ -1659,8 +1661,8 @@
   ],
   "stats": {
     "total": 246,
-    "posted": 213,
-    "remaining": 33,
-    "last_updated": "2026-10-22T18:16:45Z"
+    "posted": 214,
+    "remaining": 32,
+    "last_updated": "2026-10-22T23:52:59Z"
   }
 }
