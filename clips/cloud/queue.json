@@ -1486,8 +1486,10 @@
     },
     {
       "file": "What_Death_Really_Means__A_Romans_5_Refr_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-18T06:06:30"
+      "posted": true,
+      "added_at": "2026-10-18T06:06:30",
+      "video_id": "1415813783955020",
+      "posted_at": "2026-10-22T18:16:45Z"
     },
     {
       "file": "You_are_the_doorkeeper_of_your_life__cho_0m02s_square.mp4",
@@ -1657,7 +1659,8 @@
   ],
   "stats": {
     "total": 246,
-    "posted": 212,
-    "remaining": 34
+    "posted": 213,
+    "remaining": 33,
+    "last_updated": "2026-10-22T18:16:45Z"
   }
 }
