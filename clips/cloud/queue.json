@@ -1507,8 +1507,10 @@
     },
     {
       "file": "You_re_Not_a_Sinner__You_re_a_New_Creati_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-21T22:03:39"
+      "posted": true,
+      "added_at": "2026-10-21T22:03:39",
+      "video_id": "3214135535443551",
+      "posted_at": "2026-10-23T23:44:42Z"
     },
     {
       "file": "Katargeo_your_sin_nature_rendered_idle_0m02s_square.mp4",
@@ -1663,8 +1665,8 @@
   ],
   "stats": {
     "total": 246,
-    "posted": 215,
-    "remaining": 31,
-    "last_updated": "2026-10-23T18:05:25Z"
+    "posted": 216,
+    "remaining": 30,
+    "last_updated": "2026-10-23T23:44:42Z"
   }
 }
