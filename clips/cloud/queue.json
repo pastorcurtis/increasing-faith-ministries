@@ -1500,8 +1500,10 @@
     },
     {
       "file": "A_Time_to_Speak_and_the_Harvest_of_Your_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-21T22:03:39"
+      "posted": true,
+      "added_at": "2026-10-21T22:03:39",
+      "video_id": "2308216399998524",
+      "posted_at": "2026-10-23T18:05:25Z"
     },
     {
       "file": "You_re_Not_a_Sinner__You_re_a_New_Creati_0m05s_square.mp4",
@@ -1661,8 +1663,8 @@
   ],
   "stats": {
     "total": 246,
-    "posted": 214,
-    "remaining": 32,
-    "last_updated": "2026-10-22T23:52:59Z"
+    "posted": 215,
+    "remaining": 31,
+    "last_updated": "2026-10-23T18:05:25Z"
   }
 }
