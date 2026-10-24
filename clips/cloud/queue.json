@@ -1521,8 +1521,10 @@
     },
     {
       "file": "Righteousness_is_by_faith__you_aren_t_a_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-21T22:03:39"
+      "posted": true,
+      "added_at": "2026-10-21T22:03:39",
+      "video_id": "1114932151256952",
+      "posted_at": "2026-10-24T22:53:29Z"
     },
     {
       "file": "Death__separation_from_God_Jesus_reconne_0m05s_square.mp4",
@@ -1667,8 +1669,8 @@
   ],
   "stats": {
     "total": 246,
-    "posted": 217,
-    "remaining": 29,
-    "last_updated": "2026-10-24T17:11:41Z"
+    "posted": 218,
+    "remaining": 28,
+    "last_updated": "2026-10-24T22:53:29Z"
   }
 }
