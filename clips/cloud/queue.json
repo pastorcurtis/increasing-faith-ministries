@@ -1535,8 +1535,10 @@
     },
     {
       "file": "Your_old_nature_crucified__meaning_of_de_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-21T22:03:39"
+      "posted": true,
+      "added_at": "2026-10-21T22:03:39",
+      "video_id": "2535460200273566",
+      "posted_at": "2026-10-25T23:00:53Z"
     },
     {
       "file": "God_Sees_You_As_If_You_Never_Sinned_0m02s_square.mp4",
@@ -1671,8 +1673,8 @@
   ],
   "stats": {
     "total": 246,
-    "posted": 219,
-    "remaining": 27,
-    "last_updated": "2026-10-25T17:23:46Z"
+    "posted": 220,
+    "remaining": 26,
+    "last_updated": "2026-10-25T23:00:53Z"
   }
 }
