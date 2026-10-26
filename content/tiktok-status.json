@@ -1,10 +1,14 @@
 {
-  "outcome": "started",
+  "outcome": "partial",
   "started_at": "2026-10-26T12:05:05.468657-04:00",
-  "finished_at": null,
+  "finished_at": "2026-10-26T12:41:13.472234-04:00",
   "scheduled_through": "2026-10-08T18:00:00-04:00",
-  "submitted_through": "2026-10-26T09:00:00-04:00",
+  "submitted_through": "2026-11-02T18:00:00-05:00",
   "cookie_days_left": 116,
-  "available": 102,
-  "planned": 14
+  "available": 88,
+  "planned": 14,
+  "scheduled": 0,
+  "unverified": 14,
+  "failed": 0,
+  "failures": []
 }
