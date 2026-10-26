@@ -1542,8 +1542,10 @@
     },
     {
       "file": "God_Sees_You_As_If_You_Never_Sinned_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-21T22:03:39"
+      "posted": true,
+      "added_at": "2026-10-21T22:03:39",
+      "video_id": "3443798049138886",
+      "posted_at": "2026-10-26T19:44:04Z"
     },
     {
       "file": "Don_t_live_as_a_sinner__you_are_righteou_0m05s_square.mp4",
@@ -1753,7 +1755,8 @@
   ],
   "stats": {
     "total": 262,
-    "posted": 220,
-    "remaining": 42
+    "posted": 221,
+    "remaining": 41,
+    "last_updated": "2026-10-26T19:44:04Z"
   }
 }
