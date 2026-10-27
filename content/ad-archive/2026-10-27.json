@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-27",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "You have a burden you haven't spoken aloud",
+    "subhead": "A real prayer request reaches real people who will lift it before God",
+    "hook": "What are you holding back from the One who hears every whisper?",
+    "body": "No appointment, no membership, no performance needed. Send your request and know a prayer team at Increasing Faith Ministries is already interceding. Let the weight be laid down now."
+  },
+  "caption": "What are you holding back from the One who hears every whisper?\n\n→ https://increasingfaith.net/prayer.html\n\nNo appointment, no membership, no performance needed. Send your request and know a prayer team at Increasing Faith Ministries is already interceding. Let the weight be laid down now.\n\n#KingdomPrayer #PrayerFocus #Intercession",
+  "hashtags": [
+    "#KingdomPrayer",
+    "#PrayerFocus",
+    "#Intercession"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-10-27.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1566375775526399",
+    "mode": "photo"
+  },
+  "postedAt": "2026-10-27T21:08:42.511Z",
+  "testMode": false
+}
