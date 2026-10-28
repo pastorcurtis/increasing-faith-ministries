@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-28",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "Real talk: When the prayers feel silent and the weight of the day crushes you, where do you anchor your hope? Do you turn to the Word, to the community, or to a quiet place in the presence of God? Share the step you took that kept you moving forward.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "Real talk: When the prayers feel silent and the weight of the day crushes you, where do you anchor your hope? Do you turn to the Word, to the community, or to a quiet place in the presence of God? Share the step you took that kept you moving forward.\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#KingdomOfGod #IncreasingFaith #KingdomLiving",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-10-28.png",
+      "pullQuote": "Real talk: When the prayers feel silent and the weight of the day crushes you, where do you anchor.",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Unpopular opinion: The Kingdom isn’t a future promise — it’s a present authority we claim daily. If you’re still waiting for “the right season,” you’re missing the throne you already sit on. Agree or disagree? Share your truth below.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#KingdomLiving",
+        "#KingdomMindset",
+        "#KingdomConversation",
+        "#FaithTalk",
+        "#IFM",
+        "#RealTalk"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Unpopular opinion: The Kingdom isn’t a future promise — it’s a present authority we claim daily. If you’re still waiting for “the right season,” you’re missing the throne you already sit on. Agree or disagree? Share your truth below.\n\nJoin our community → Link in bio\n\n#KingdomOfGod #IncreasingFaith #KingdomLiving #KingdomMindset #KingdomConversation #FaithTalk #IFM #RealTalk"
+    },
+    "tiktok": {
+      "content": "Unpopular opinion: The Kingdom isn’t about feeling blessed; it’s about obeying God’s word even when the world says “no.” Do you agree that obedience outweighs comfort, or do you still chase the “blessing” feeling? Share your truth.",
+      "hashtags": [
+        "#FaithTalk",
+        "#IFM",
+        "#KingdomOfGod",
+        "#KingdomConversation",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Unpopular opinion: The Kingdom isn’t about feeling blessed; it’s about obeying God’s word even when the world says “no.” Do you agree that obedience outweighs comfort, or do you still chase the “blessing” feeling? Share your truth.\n\nJoin our community → Link in bio\n\n#FaithTalk #IFM #KingdomOfGod #KingdomConversation #IncreasingFaith"
+    }
+  },
+  "generatedAt": "2026-10-28T19:19:45.869Z"
+}
