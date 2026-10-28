@@ -1570,8 +1570,10 @@
     },
     {
       "file": "Religion_information_won_t_yield_kingdom_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-21T22:03:39"
+      "posted": true,
+      "added_at": "2026-10-21T22:03:39",
+      "video_id": "2635614953549716",
+      "posted_at": "2026-10-28T19:19:19Z"
     },
     {
       "file": "Mindset_determines_your_victory_level_0m02s_square.mp4",
@@ -1761,8 +1763,8 @@
   ],
   "stats": {
     "total": 262,
-    "posted": 224,
-    "remaining": 38,
-    "last_updated": "2026-10-28T00:14:47Z"
+    "posted": 225,
+    "remaining": 37,
+    "last_updated": "2026-10-28T19:19:19Z"
   }
 }
