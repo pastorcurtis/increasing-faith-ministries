@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-28",
+  "day": 3,
+  "label": "Visit",
+  "destination": "https://increasingfaith.net/visit.html",
+  "button": "PLAN YOUR VISIT",
+  "copy": {
+    "headline": "Your seat is waiting at 12 noon this Saturday",
+    "subhead": "Join Pastor Curtis and Pastor Tammy in Southfield or stream at 8:15 am weekdays",
+    "hook": "Ever wondered what a true Kingdom gathering feels like?",
+    "body": "Come to 24301 Telegraph, Southfield, MI at 12 pm this Saturday and experience the message that changes direction. Prefer your living room? The Hour of Power streams weekdays at 8:15 am. Which setting will you choose to hear the voice that guides your steps?"
+  },
+  "caption": "Ever wondered what a true Kingdom gathering feels like?\n\n→ https://increasingfaith.net/visit.html\n\nCome to 24301 Telegraph, Southfield, MI at 12 pm this Saturday and experience the message that changes direction. Prefer your living room? The Hour of Power streams weekdays at 8:15 am. Which setting will you choose to hear the voice that guides your steps?\n\n#IncreasingFaith #KingdomLiving #KingdomOfGod",
+  "hashtags": [
+    "#IncreasingFaith",
+    "#KingdomLiving",
+    "#KingdomOfGod"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-10-28.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1567571065406870",
+    "mode": "photo"
+  },
+  "postedAt": "2026-10-28T21:31:39.380Z",
+  "testMode": false
+}
