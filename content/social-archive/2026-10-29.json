@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-29",
+  "day": 4,
+  "theme": "Prayer Focus",
+  "themeType": "prayer_focus",
+  "targetPage": "https://increasingfaith.net/prayer.html",
+  "posts": {
+    "facebook": {
+      "content": "Family — Our homes are under attack, yet the Kingdom calls us to stand firm in love and truth.  \n\nLord, we declare Your authority over every household.  We bind any spirit of division and release the peace of Christ that surpasses understanding.  Let Your Word be the foundation, and let each member walk in the purpose You have placed upon them.  May Your covenant love reign in every conversation and decision.  \n\nIf you stand with this declaration, drop a 🙏.  Share your own prayer need below.",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#PrayerFocus",
+        "#Intercession"
+      ],
+      "cta": "\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html",
+      "fullPost": "Family — Our homes are under attack, yet the Kingdom calls us to stand firm in love and truth.  \n\nLord, we declare Your authority over every household.  We bind any spirit of division and release the peace of Christ that surpasses understanding.  Let Your Word be the foundation, and let each member walk in the purpose You have placed upon them.  May Your covenant love reign in every conversation and decision.  \n\nIf you stand with this declaration, drop a 🙏.  Share your own prayer need below.\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html\n\n#IncreasingFaith #PrayerFocus #Intercession",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-10-29.png",
+      "pullQuote": "Our homes are under attack, yet the Kingdom calls us to stand firm in love and truth",
+      "attribution": "Prayer Focus"
+    },
+    "instagram": {
+      "content": "Family – We stand on the promise that the household of God is protected and prospered. Father, we declare Your peace over every marriage, parent‑child bond, and generation. We speak restoration where division dwells and provision where need persists. Your love reigns in our homes.  \n\nDrop a 🙏 if you stand in agreement, or share your own request below.",
+      "hashtags": [
+        "#KingdomLiving",
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomPrayer",
+        "#Intercession",
+        "#PrayerFocus",
+        "#Prayer",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Family – We stand on the promise that the household of God is protected and prospered. Father, we declare Your peace over every marriage, parent‑child bond, and generation. We speak restoration where division dwells and provision where need persists. Your love reigns in our homes.  \n\nDrop a 🙏 if you stand in agreement, or share your own request below.\n\nSubmit your prayer request → Link in bio\n\n#KingdomLiving #IFM #IncreasingFaith #KingdomPrayer #Intercession #PrayerFocus #Prayer #KingdomOfGod"
+    },
+    "tiktok": {
+      "content": "Family – God is calling us to unity and protection. Father, we declare Your peace covering every home, reconciliation flowing where discord lives, and Your provision meeting every need. Stand in agreement—drop 🙏 or share your request below.",
+      "hashtags": [
+        "#KingdomPrayer",
+        "#IFM",
+        "#KingdomOfGod",
+        "#KingdomLiving",
+        "#PrayerFocus"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Family – God is calling us to unity and protection. Father, we declare Your peace covering every home, reconciliation flowing where discord lives, and Your provision meeting every need. Stand in agreement—drop 🙏 or share your request below.\n\nSubmit your prayer request → Link in bio\n\n#KingdomPrayer #IFM #KingdomOfGod #KingdomLiving #PrayerFocus"
+    }
+  },
+  "generatedAt": "2026-10-29T19:24:57.277Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1568713751959268",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-10-29T19:25:02.042Z",
+  "testMode": false
+}
