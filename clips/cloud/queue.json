@@ -1577,8 +1577,10 @@
     },
     {
       "file": "Mindset_determines_your_victory_level_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-21T22:03:39"
+      "posted": true,
+      "added_at": "2026-10-21T22:03:39",
+      "video_id": "4494988184163791",
+      "posted_at": "2026-10-29T00:36:05Z"
     },
     {
       "file": "We_ve_been_taught_enjoying_life_is_a_sin_0m02s_square.mp4",
@@ -1763,8 +1765,8 @@
   ],
   "stats": {
     "total": 262,
-    "posted": 225,
-    "remaining": 37,
-    "last_updated": "2026-10-28T19:19:19Z"
+    "posted": 226,
+    "remaining": 36,
+    "last_updated": "2026-10-29T00:36:05Z"
   }
 }
