@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-30",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "The Kingdom Report reveals a hidden shift in the spiritual marketplace: a new decree from the throne that will unlock divine provision for every believer who aligns his business with Kingdom principles. Pastor Curtis breaks down the scripture behind this release and shows how you can position yourself now to receive the breakthrough.  \n\nAre you ready to claim the authority God has placed over your finances?",
+      "hashtags": [
+        "#KingdomCitizen",
+        "#IncreasingFaith",
+        "#Faith"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "The Kingdom Report reveals a hidden shift in the spiritual marketplace: a new decree from the throne that will unlock divine provision for every believer who aligns his business with Kingdom principles. Pastor Curtis breaks down the scripture behind this release and shows how you can position yourself now to receive the breakthrough.  \n\nAre you ready to claim the authority God has placed over your finances?\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#KingdomCitizen #IncreasingFaith #Faith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-10-30.png",
+      "pullQuote": "Unlock divine provision for every believer who aligns his business with Kingdom principles",
+      "attribution": "Kingdom Intelligence"
+    },
+    "instagram": {
+      "content": "The Kingdom Report drops a revelation you won’t hear elsewhere: a prophetic briefing on the upcoming shift in Jerusalem’s spiritual climate and the strategic move God is making for the body of Christ. This insight rewrites how we align our prayers and outreach.  \n\nWhat kingdom move are you ready to activate right now?",
+      "hashtags": [
+        "#Jesus",
+        "#KingdomCitizen",
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#JesusIsLord",
+        "#Faith",
+        "#IFM",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The Kingdom Report drops a revelation you won’t hear elsewhere: a prophetic briefing on the upcoming shift in Jerusalem’s spiritual climate and the strategic move God is making for the body of Christ. This insight rewrites how we align our prayers and outreach.  \n\nWhat kingdom move are you ready to activate right now?\n\nRead the full Kingdom Report → Link in bio\n\n#Jesus #KingdomCitizen #IncreasingFaith #KingdomOfGod #JesusIsLord #Faith #IFM #KingdomLiving"
+    },
+    "tiktok": {
+      "content": "The Kingdom Report reveals how a hidden covenant in Jeremiah 31 is unlocking breakthrough provision for believers this week. Pastor Curtis will unpack the exact steps to activate that promise now. Are you ready to claim the harvest before the season passes?",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#Jesus",
+        "#Faith",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The Kingdom Report reveals how a hidden covenant in Jeremiah 31 is unlocking breakthrough provision for believers this week. Pastor Curtis will unpack the exact steps to activate that promise now. Are you ready to claim the harvest before the season passes?\n\nRead the full Kingdom Report → Link in bio\n\n#IncreasingFaith #KingdomOfGod #Jesus #Faith #KingdomCitizen"
+    }
+  },
+  "generatedAt": "2026-10-30T18:59:02.728Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1569866391844004",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-10-30T18:59:08.330Z",
+  "testMode": false
+}
