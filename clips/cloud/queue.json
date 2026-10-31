@@ -1612,8 +1612,10 @@
     },
     {
       "file": "When_2020_Wasn_t_a_Time_to_Be_Celebrated_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-22T06:34:20"
+      "posted": true,
+      "added_at": "2026-10-22T06:34:20",
+      "video_id": "4508588916107826",
+      "posted_at": "2026-10-31T18:09:37Z"
     },
     {
       "file": "When_faith_becomes_spiritual_psychosis_0m05s_square.mp4",
@@ -1773,8 +1775,8 @@
   ],
   "stats": {
     "total": 262,
-    "posted": 230,
-    "remaining": 32,
-    "last_updated": "2026-10-31T00:22:22Z"
+    "posted": 231,
+    "remaining": 31,
+    "last_updated": "2026-10-31T18:09:37Z"
   }
 }
