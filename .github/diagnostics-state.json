@@ -3,8 +3,8 @@
     "ai-model-s-no-longer-exist": {
       "first_seen": "2026-10-28T17:29:04.463612+00:00",
       "text": "2 AI model(s) NO LONGER EXIST at the provider -- content generation will 404: `nvidia/nemotron-3-super-120b-a12b:free (social-agent/config.js -> OpenRouter (nemotron)); nvidia/nemotron-3-super-120b-a12b:free (newsletter-agent/config.js -> OpenRouter (nemotron))`. List what is actually served with `curl -H \"Authorization: Bearer $GROQ_API_KEY\" https://api.groq.com/openai/v1/models` or `curl https://openrouter.ai/api/v1/models`, then repoint the config.",
-      "detections": 1
+      "detections": 2
     }
   },
-  "last_run": "2026-10-28T17:29:04.463612+00:00"
+  "last_run": "2026-10-31T16:22:57.475368+00:00"
 }
