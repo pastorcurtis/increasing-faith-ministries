@@ -1619,8 +1619,10 @@
     },
     {
       "file": "When_faith_becomes_spiritual_psychosis_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-22T06:34:20"
+      "posted": true,
+      "added_at": "2026-10-22T06:34:20",
+      "video_id": "1076141408579249",
+      "posted_at": "2026-10-31T23:56:52Z"
     },
     {
       "file": "The_ship_named_Jesus__colonized_Jesus_re_0m02s_square.mp4",
@@ -1775,8 +1777,8 @@
   ],
   "stats": {
     "total": 262,
-    "posted": 231,
-    "remaining": 31,
-    "last_updated": "2026-10-31T18:09:37Z"
+    "posted": 232,
+    "remaining": 30,
+    "last_updated": "2026-10-31T23:56:52Z"
   }
 }
