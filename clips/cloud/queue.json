@@ -1605,8 +1605,10 @@
     },
     {
       "file": "Reject_the_filthy_rag_lie_1_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-21T22:03:39"
+      "posted": true,
+      "added_at": "2026-10-21T22:03:39",
+      "video_id": "1109133251731848",
+      "posted_at": "2026-10-31T00:22:22Z"
     },
     {
       "file": "When_2020_Wasn_t_a_Time_to_Be_Celebrated_0m02s_square.mp4",
@@ -1771,8 +1773,8 @@
   ],
   "stats": {
     "total": 262,
-    "posted": 229,
-    "remaining": 33,
-    "last_updated": "2026-10-30T18:58:45Z"
+    "posted": 230,
+    "remaining": 32,
+    "last_updated": "2026-10-31T00:22:22Z"
   }
 }
