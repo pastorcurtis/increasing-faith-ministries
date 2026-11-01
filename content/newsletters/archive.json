@@ -1,5 +1,14 @@
 [
   {
+    "dateKey": "2026-11",
+    "title": "The Kingdom Report",
+    "dateString": "November 2026",
+    "theme": "Kingdom Gratitude",
+    "generatedAt": "2026-11-01T18:38:27.215Z",
+    "jsonFile": "2026-11.json",
+    "htmlFile": "2026-11.html"
+  },
+  {
     "dateKey": "2026-10",
     "title": "The Kingdom Report",
     "dateString": "October 2026",
