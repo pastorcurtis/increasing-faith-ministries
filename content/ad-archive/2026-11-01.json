@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-01",
+  "day": 0,
+  "label": "Start Here",
+  "destination": "https://increasingfaith.net/",
+  "button": "START HERE",
+  "copy": {
+    "headline": "Your front door to the Kingdom has finally opened",
+    "subhead": "Step through the portal Pastor Curtis and Pastor Tammy built for real believers",
+    "hook": "Are you tired of circling faith without a doorway?",
+    "body": "Enter a place where the Word is spoken with authority and the Kingdom moves. Pastor Curtis and Pastor Tammy welcome you to a community that answers the call you’ve felt. Click to walk through the door you’ve been seeking."
+  },
+  "caption": "Are you tired of circling faith without a doorway?\n\n→ https://increasingfaith.net/\n\nEnter a place where the Word is spoken with authority and the Kingdom moves. Pastor Curtis and Pastor Tammy welcome you to a community that answers the call you’ve felt. Click to walk through the door you’ve been seeking.\n\n#Jesus #KingdomLiving #IFM",
+  "hashtags": [
+    "#Jesus",
+    "#KingdomLiving",
+    "#IFM"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-11-01.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1572163084947668",
+    "mode": "photo"
+  },
+  "postedAt": "2026-11-01T20:58:57.580Z",
+  "testMode": false
+}
