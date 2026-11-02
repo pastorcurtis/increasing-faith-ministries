@@ -1633,8 +1633,10 @@
     },
     {
       "file": "Wake_up_Are_you_in_spiritual_psychosis_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-22T06:34:20"
+      "posted": true,
+      "added_at": "2026-10-22T06:34:20",
+      "video_id": "1381501137396786",
+      "posted_at": "2026-11-02T00:14:46Z"
     },
     {
       "file": "Pastor_told_security_to_shoot__a_dangero_0m05s_square.mp4",
@@ -1779,8 +1781,8 @@
   ],
   "stats": {
     "total": 262,
-    "posted": 233,
-    "remaining": 29,
-    "last_updated": "2026-11-01T18:44:40Z"
+    "posted": 234,
+    "remaining": 28,
+    "last_updated": "2026-11-02T00:14:46Z"
   }
 }
