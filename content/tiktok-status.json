@@ -1,10 +1,71 @@
 {
-  "outcome": "started",
+  "outcome": "failed",
   "started_at": "2026-11-02T00:07:59.877613-05:00",
-  "finished_at": null,
+  "finished_at": "2026-11-03T11:30:36.549554-05:00",
   "scheduled_through": "2026-10-08T18:00:00-04:00",
   "submitted_through": "2026-11-02T18:00:00-05:00",
-  "cookie_days_left": 109,
+  "cookie_days_left": 108,
   "available": 88,
-  "planned": 14
+  "planned": 14,
+  "scheduled": 0,
+  "unverified": 0,
+  "failed": 14,
+  "failures": [
+    {
+      "clip": "How_to_Pray_Don_t_Rehearse_the_Problem_0m02s_reel.mp4",
+      "reason": "schedule picker raised: Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"input.TUXTextInputCore-input\") to be visible\n -- refusing to post, it would publish immediately instead of on schedule. Debug screenshot saved as tiktok-debug.png"
+    },
+    {
+      "clip": "How_to_identify_works_of_the_flesh_0m02s_reel.mp4",
+      "reason": "Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.tiktok.com/creator#/upload?scene=creator_center\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "clip": "Hurting_people_hurt_people__choose_compa_0m05s_reel.mp4",
+      "reason": "schedule picker raised: Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"input.TUXTextInputCore-input\") to be visible\n -- refusing to post, it would publish immediately instead of on schedule. Debug screenshot saved as tiktok-debug.png"
+    },
+    {
+      "clip": "I_m_friendly_but_I_won_t_be_your_girlfri_0m02s_reel.mp4",
+      "reason": "schedule picker raised: Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"input.TUXTextInputCore-input\") to be visible\n -- refusing to post, it would publish immediately instead of on schedule. Debug screenshot saved as tiktok-debug.png"
+    },
+    {
+      "clip": "I_ve_Been_in_a_Cult__Here_s_What_I_Learn_0m02s_reel.mp4",
+      "reason": "schedule picker raised: Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"input.TUXTextInputCore-input\") to be visible\n -- refusing to post, it would publish immediately instead of on schedule. Debug screenshot saved as tiktok-debug.png"
+    },
+    {
+      "clip": "I_was_mad_at_God__He_still_kept_me_0m05s_reel.mp4",
+      "reason": "schedule picker raised: Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"input.TUXTextInputCore-input\") to be visible\n -- refusing to post, it would publish immediately instead of on schedule. Debug screenshot saved as tiktok-debug.png"
+    },
+    {
+      "clip": "If_five_dollars_gets_you_there_put_it_in_0m02s_reel.mp4",
+      "reason": "schedule picker raised: Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"input.TUXTextInputCore-input\") to be visible\n -- refusing to post, it would publish immediately instead of on schedule. Debug screenshot saved as tiktok-debug.png"
+    },
+    {
+      "clip": "If_they_cut_social_media_how_will_our_me_0m02s_reel.mp4",
+      "reason": "schedule picker raised: Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"input.TUXTextInputCore-input\") to be visible\n -- refusing to post, it would publish immediately instead of on schedule. Debug screenshot saved as tiktok-debug.png"
+    },
+    {
+      "clip": "If_you_re_hurting_someone_prayed_for_you_0m05s_reel.mp4",
+      "reason": "schedule picker raised: Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"input.TUXTextInputCore-input\") to be visible\n -- refusing to post, it would publish immediately instead of on schedule. Debug screenshot saved as tiktok-debug.png"
+    },
+    {
+      "clip": "Imagine_forty_years__how_people_change_0m02s_reel.mp4",
+      "reason": "schedule picker raised: Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"input.TUXTextInputCore-input\") to be visible\n -- refusing to post, it would publish immediately instead of on schedule. Debug screenshot saved as tiktok-debug.png"
+    },
+    {
+      "clip": "In_My_Distress_I_Called_Upon_the_Lord_0m02s_reel.mp4",
+      "reason": "schedule picker raised: Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"input.TUXTextInputCore-input\") to be visible\n -- refusing to post, it would publish immediately instead of on schedule. Debug screenshot saved as tiktok-debug.png"
+    },
+    {
+      "clip": "In_My_Distress_I_Called_Upon_the_Lord_1_0m02s_reel.mp4",
+      "reason": "schedule picker raised: Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"input.TUXTextInputCore-input\") to be visible\n -- refusing to post, it would publish immediately instead of on schedule. Debug screenshot saved as tiktok-debug.png"
+    },
+    {
+      "clip": "It_s_already_done__God_has_already_done_0m02s_reel.mp4",
+      "reason": "schedule picker raised: Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"input.TUXTextInputCore-input\") to be visible\n -- refusing to post, it would publish immediately instead of on schedule. Debug screenshot saved as tiktok-debug.png"
+    },
+    {
+      "clip": "It_s_already_done__be_persistent_0m02s_reel.mp4",
+      "reason": "schedule picker raised: Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"input.TUXTextInputCore-input\") to be visible\n -- refusing to post, it would publish immediately instead of on schedule. Debug screenshot saved as tiktok-debug.png"
+    }
+  ]
 }
