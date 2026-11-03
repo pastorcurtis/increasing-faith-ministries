@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-03",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "You carry a prayer no one has heard yet",
+    "subhead": "A real request reaches real ministers who will pray over it now",
+    "hook": "What you haven’t spoken aloud can still be lifted to the throne.",
+    "body": "No appointment, no membership, no performance required. Send your request and Pastor Curtis and Pastor Tammy will join the prayer. Expect a Kingdom response, not a form."
+  },
+  "caption": "What you haven’t spoken aloud can still be lifted to the throne.\n\n→ https://increasingfaith.net/prayer.html\n\nNo appointment, no membership, no performance required. Send your request and Pastor Curtis and Pastor Tammy will join the prayer. Expect a Kingdom response, not a form.\n\n#KingdomOfGod #Intercession #Prayer",
+  "hashtags": [
+    "#KingdomOfGod",
+    "#Intercession",
+    "#Prayer"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-11-03.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1574404794723497",
+    "mode": "photo"
+  },
+  "postedAt": "2026-11-03T22:13:39.848Z",
+  "testMode": false
+}
