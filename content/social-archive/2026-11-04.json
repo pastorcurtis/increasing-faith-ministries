@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-04",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "Unpopular opinion: The Kingdom thrives when we prioritize obedience over feeling. If you’re waiting for a “good vibe” before you step out, the harvest is slipping away. Do you agree that obedience must precede comfort, or do you think the Spirit moves us first? Share your thoughts below.",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#KingdomLiving",
+        "#KingdomMindset"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "Unpopular opinion: The Kingdom thrives when we prioritize obedience over feeling. If you’re waiting for a “good vibe” before you step out, the harvest is slipping away. Do you agree that obedience must precede comfort, or do you think the Spirit moves us first? Share your thoughts below.\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#IncreasingFaith #KingdomLiving #KingdomMindset",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-11-04.png",
+      "pullQuote": "The Kingdom thrives when we prioritize obedience over feeling",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Unpopular opinion: The Kingdom thrives when we stop seeking comfort and start embracing conflict for Christ’s cause. Comfort keeps the spirit dormant; conflict ignites divine growth. Do you agree that true Kingdom power is forged in the fire, not the pillow?",
+      "hashtags": [
+        "#KingdomConversation",
+        "#KingdomMindset",
+        "#IncreasingFaith",
+        "#KingdomLiving",
+        "#FaithTalk",
+        "#KingdomOfGod",
+        "#RealTalk",
+        "#IFM"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Unpopular opinion: The Kingdom thrives when we stop seeking comfort and start embracing conflict for Christ’s cause. Comfort keeps the spirit dormant; conflict ignites divine growth. Do you agree that true Kingdom power is forged in the fire, not the pillow?\n\nJoin our community → Link in bio\n\n#KingdomConversation #KingdomMindset #IncreasingFaith #KingdomLiving #FaithTalk #KingdomOfGod #RealTalk #IFM"
+    },
+    "tiktok": {
+      "content": "Unpopular opinion: The Kingdom isn’t a “feel‑good” club—it’s a call to radical obedience even when it costs comfort. Do you agree that true worship demands sacrifice, or do you think God’s promises exempt us from hard work? Your thoughts matter.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#RealTalk",
+        "#KingdomLiving",
+        "#IncreasingFaith",
+        "#KingdomConversation"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Unpopular opinion: The Kingdom isn’t a “feel‑good” club—it’s a call to radical obedience even when it costs comfort. Do you agree that true worship demands sacrifice, or do you think God’s promises exempt us from hard work? Your thoughts matter.\n\nJoin our community → Link in bio\n\n#KingdomOfGod #RealTalk #KingdomLiving #IncreasingFaith #KingdomConversation"
+    }
+  },
+  "generatedAt": "2026-11-04T20:39:56.293Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1575441457953164",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-11-04T20:40:02.174Z",
+  "testMode": false
+}
