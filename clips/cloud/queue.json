@@ -1661,8 +1661,10 @@
     },
     {
       "file": "Priests_went_first__here_s_what_the_Bibl_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-22T06:34:20"
+      "posted": true,
+      "added_at": "2026-10-22T06:34:20",
+      "video_id": "1660092652290997",
+      "posted_at": "2026-11-04T01:02:07Z"
     },
     {
       "file": "Before_I_Formed_You__You_Were_Known_0m02s_square.mp4",
@@ -1867,8 +1869,8 @@
   ],
   "stats": {
     "total": 278,
-    "posted": 237,
-    "remaining": 41,
-    "last_updated": "2026-11-03T20:24:43Z"
+    "posted": 238,
+    "remaining": 40,
+    "last_updated": "2026-11-04T01:02:07Z"
   }
 }
