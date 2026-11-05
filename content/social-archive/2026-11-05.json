@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-05",
+  "day": 4,
+  "theme": "Prayer Focus",
+  "themeType": "prayer_focus",
+  "targetPage": "https://increasingfaith.net/prayer.html",
+  "posts": {
+    "facebook": {
+      "content": "Family—We declare that every home under God’s hand will be a stronghold of love, truth, and peace. Father, empower each spouse to lead with grace, each child to walk in obedience, and every heart to reflect Christ’s character. Break every pattern of division and bind us together with your unshakable covenant.\n\nDrop a 🙏 if you stand with this, or share your own request below.",
+      "hashtags": [
+        "#PrayerFocus",
+        "#KingdomOfGod",
+        "#Prayer"
+      ],
+      "cta": "\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html",
+      "fullPost": "Family—We declare that every home under God’s hand will be a stronghold of love, truth, and peace. Father, empower each spouse to lead with grace, each child to walk in obedience, and every heart to reflect Christ’s character. Break every pattern of division and bind us together with your unshakable covenant.\n\nDrop a 🙏 if you stand with this, or share your own request below.\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html\n\n#PrayerFocus #KingdomOfGod #Prayer",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-11-05.png",
+      "pullQuote": "Every home under God’s hand will be a stronghold of love, truth, and peace",
+      "attribution": "Prayer Focus"
+    },
+    "instagram": {
+      "content": "Family—our foundation is under attack. We declare that every household in our city walks in divine unity, protected by the blood of Jesus, and that love reigns over discord. Father, empower each spouse to reflect Christ’s headship, grant our children wisdom, and seal every home with Your peace.  \n\nDrop a 🙏 if you stand in agreement, or share your own request below.",
+      "hashtags": [
+        "#KingdomPrayer",
+        "#IFM",
+        "#KingdomOfGod",
+        "#Prayer",
+        "#Intercession",
+        "#PrayerFocus",
+        "#KingdomLiving",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Family—our foundation is under attack. We declare that every household in our city walks in divine unity, protected by the blood of Jesus, and that love reigns over discord. Father, empower each spouse to reflect Christ’s headship, grant our children wisdom, and seal every home with Your peace.  \n\nDrop a 🙏 if you stand in agreement, or share your own request below.\n\nSubmit your prayer request → Link in bio\n\n#KingdomPrayer #IFM #KingdomOfGod #Prayer #Intercession #PrayerFocus #KingdomLiving #IncreasingFaith"
+    },
+    "tiktok": {
+      "content": "Family—today we claim divine unity. Father, we declare every household under Your peace, love binding hearts tighter than any conflict. May Your wisdom guide every decision, and Your joy overflow in every meal. Drop 🙏 if you stand with us, or share your need below.",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#KingdomLiving",
+        "#Intercession",
+        "#KingdomOfGod",
+        "#KingdomPrayer"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Family—today we claim divine unity. Father, we declare every household under Your peace, love binding hearts tighter than any conflict. May Your wisdom guide every decision, and Your joy overflow in every meal. Drop 🙏 if you stand with us, or share your need below.\n\nSubmit your prayer request → Link in bio\n\n#IncreasingFaith #KingdomLiving #Intercession #KingdomOfGod #KingdomPrayer"
+    }
+  },
+  "generatedAt": "2026-11-05T20:56:05.024Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1576551691175474",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-11-05T20:56:09.214Z",
+  "testMode": false
+}
