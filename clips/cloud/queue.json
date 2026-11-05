@@ -1682,8 +1682,10 @@
     },
     {
       "file": "The_colonizer_s_Jesus_how_religion_was_u_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-22T06:34:20"
+      "posted": true,
+      "added_at": "2026-10-22T06:34:20",
+      "video_id": "2347275512712450",
+      "posted_at": "2026-11-05T20:55:39Z"
     },
     {
       "file": "How_the_System_Killed_Uplifting_Rap_0m05s_square.mp4",
@@ -1873,8 +1875,8 @@
   ],
   "stats": {
     "total": 278,
-    "posted": 240,
-    "remaining": 38,
-    "last_updated": "2026-11-05T01:16:52Z"
+    "posted": 241,
+    "remaining": 37,
+    "last_updated": "2026-11-05T20:55:39Z"
   }
 }
