@@ -1689,8 +1689,10 @@
     },
     {
       "file": "How_the_System_Killed_Uplifting_Rap_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-22T06:34:20"
+      "posted": true,
+      "added_at": "2026-10-22T06:34:20",
+      "video_id": "1437513188535517",
+      "posted_at": "2026-11-06T01:22:13Z"
     },
     {
       "file": "The_new_thing_may_look_like_a_wilderness_0m05s_square.mp4",
@@ -1875,8 +1877,8 @@
   ],
   "stats": {
     "total": 278,
-    "posted": 241,
-    "remaining": 37,
-    "last_updated": "2026-11-05T20:55:39Z"
+    "posted": 242,
+    "remaining": 36,
+    "last_updated": "2026-11-06T01:22:13Z"
   }
 }
