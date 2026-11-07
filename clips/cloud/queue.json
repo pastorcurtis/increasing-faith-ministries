@@ -1710,8 +1710,10 @@
     },
     {
       "file": "Behold_God_is_doing_a_new_thing_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-22T06:34:20"
+      "posted": true,
+      "added_at": "2026-10-22T06:34:20",
+      "video_id": "1663232818712941",
+      "posted_at": "2026-11-07T18:27:50Z"
     },
     {
       "file": "Manna_s_Over__Prepare_Your_Own_Victuals_0m02s_square.mp4",
@@ -1881,8 +1883,8 @@
   ],
   "stats": {
     "total": 278,
-    "posted": 244,
-    "remaining": 34,
-    "last_updated": "2026-11-07T00:37:01Z"
+    "posted": 245,
+    "remaining": 33,
+    "last_updated": "2026-11-07T18:27:50Z"
   }
 }
