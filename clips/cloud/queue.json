@@ -1724,8 +1724,10 @@
     },
     {
       "file": "Prayer_is_a_Relationship_Not_a_Ritual_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-26T12:03:15"
+      "posted": true,
+      "added_at": "2026-10-26T12:03:15",
+      "video_id": "29157668790583856",
+      "posted_at": "2026-11-08T18:38:40Z"
     },
     {
       "file": "Overcoming_Anxiety_Prayer_That_Heals_0m02s_square.mp4",
@@ -1885,8 +1887,8 @@
   ],
   "stats": {
     "total": 278,
-    "posted": 246,
-    "remaining": 32,
-    "last_updated": "2026-11-08T00:11:19Z"
+    "posted": 247,
+    "remaining": 31,
+    "last_updated": "2026-11-08T18:38:40Z"
   }
 }
