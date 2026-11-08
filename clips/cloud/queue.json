@@ -1717,8 +1717,10 @@
     },
     {
       "file": "Manna_s_Over__Prepare_Your_Own_Victuals_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-22T06:34:20"
+      "posted": true,
+      "added_at": "2026-10-22T06:34:20",
+      "video_id": "1390577999550830",
+      "posted_at": "2026-11-08T00:11:19Z"
     },
     {
       "file": "Prayer_is_a_Relationship_Not_a_Ritual_0m02s_square.mp4",
@@ -1883,8 +1885,8 @@
   ],
   "stats": {
     "total": 278,
-    "posted": 245,
-    "remaining": 33,
-    "last_updated": "2026-11-07T18:27:50Z"
+    "posted": 246,
+    "remaining": 32,
+    "last_updated": "2026-11-08T00:11:19Z"
   }
 }
