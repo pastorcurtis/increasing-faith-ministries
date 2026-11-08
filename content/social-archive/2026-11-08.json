@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-08",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "Brothers and sisters, the Lord has placed a purpose in the fire you’re walking through. Psalm 23:4 tells us He “comforts us in the midst of the valley” and His rod and staff protect us. Stand firm, knowing the Shepherd goes before you, turning every trial into testimony. Declare today: I will trust His hand and move forward in victory. What has God already turned into triumph in your life? Share below.",
+      "hashtags": [
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "Brothers and sisters, the Lord has placed a purpose in the fire you’re walking through. Psalm 23:4 tells us He “comforts us in the midst of the valley” and His rod and staff protect us. Stand firm, knowing the Shepherd goes before you, turning every trial into testimony. Declare today: I will trust His hand and move forward in victory. What has God already turned into triumph in your life? Share below.\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#IncreasingFaith #KingdomOfGod #KingdomCitizen",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-11-08.png",
+      "pullQuote": "Stand firm, knowing the Shepherd goes before you, turning every trial into testimony.",
+      "attribution": "Psalm 23:4"
+    },
+    "instagram": {
+      "content": "Brothers and sisters, the Lord says, “Be still, and know that I am God” (Ps 46:10). In the rush of today, pause. Let His presence settle your heart. He is already moving your breakthrough; you only need to stand firm in faith.  \n\nDeclare: I will walk in the authority of the Almighty today.  \n\nWhat piece of His peace have you felt this morning?",
+      "hashtags": [
+        "#IFM",
+        "#IncreasingFaith",
+        "#Jesus",
+        "#KingdomCitizen",
+        "#JesusIsLord",
+        "#KingdomOfGod",
+        "#Faith",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "Brothers and sisters, the Lord says, “Be still, and know that I am God” (Ps 46:10). In the rush of today, pause. Let His presence settle your heart. He is already moving your breakthrough; you only need to stand firm in faith.  \n\nDeclare: I will walk in the authority of the Almighty today.  \n\nWhat piece of His peace have you felt this morning?\n\nLearn more about our mission → Link in bio\n\n#IFM #IncreasingFaith #Jesus #KingdomCitizen #JesusIsLord #KingdomOfGod #Faith #KingdomLiving"
+    },
+    "tiktok": {
+      "content": "Brother, the Lord says you are seated with Him in victory. Walk today confident that every step you take aligns with His kingdom agenda. Declare: “My authority is rooted in Christ, and I will prevail.” How has God already shown His favor this week?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#KingdomCitizen",
+        "#IncreasingFaith",
+        "#Jesus",
+        "#Faith"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "Brother, the Lord says you are seated with Him in victory. Walk today confident that every step you take aligns with His kingdom agenda. Declare: “My authority is rooted in Christ, and I will prevail.” How has God already shown His favor this week?\n\nLearn more about our mission → Link in bio\n\n#KingdomOfGod #KingdomCitizen #IncreasingFaith #Jesus #Faith"
+    }
+  },
+  "generatedAt": "2026-11-08T18:39:05.545Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1579903817506928",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-11-08T18:39:11.769Z",
+  "testMode": false
+}
