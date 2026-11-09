@@ -1731,8 +1731,10 @@
     },
     {
       "file": "Overcoming_Anxiety_Prayer_That_Heals_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-26T12:03:15"
+      "posted": true,
+      "added_at": "2026-10-26T12:03:15",
+      "video_id": "2524661481349030",
+      "posted_at": "2026-11-09T00:32:15Z"
     },
     {
       "file": "Make_Life_a_Prayer_Talk_to_God_Anytime_0m02s_square.mp4",
@@ -1887,8 +1889,8 @@
   ],
   "stats": {
     "total": 278,
-    "posted": 247,
-    "remaining": 31,
-    "last_updated": "2026-11-08T18:38:40Z"
+    "posted": 248,
+    "remaining": 30,
+    "last_updated": "2026-11-09T00:32:15Z"
   }
 }
