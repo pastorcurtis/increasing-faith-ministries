@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-10",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "You carry a prayer no one else hears",
+    "subhead": "A real request reaches real believers who will pray for you now",
+    "hook": "What if the weight you bear could be lifted without a formality?",
+    "body": "Send your request and know that pastors Curtis and Tammy, along with the IFM prayer team, will lift it before God. No appointment, no membership, no performance—just honest prayer. Experience the Kingdom's response today."
+  },
+  "caption": "What if the weight you bear could be lifted without a formality?\n\n→ https://increasingfaith.net/prayer.html\n\nSend your request and know that pastors Curtis and Tammy, along with the IFM prayer team, will lift it before God. No appointment, no membership, no performance—just honest prayer. Experience the Kingdom's response today.\n\n#PrayerFocus #KingdomLiving #Intercession",
+  "hashtags": [
+    "#PrayerFocus",
+    "#KingdomLiving",
+    "#Intercession"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-11-10.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1582270390603604",
+    "mode": "photo"
+  },
+  "postedAt": "2026-11-10T22:10:34.010Z",
+  "testMode": false
+}
