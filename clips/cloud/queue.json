@@ -1752,8 +1752,10 @@
     },
     {
       "file": "Loving_kindness_in_action__No__we_re_goi_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-26T12:03:15"
+      "posted": true,
+      "added_at": "2026-10-26T12:03:15",
+      "video_id": "2723425371405566",
+      "posted_at": "2026-11-10T20:42:10Z"
     },
     {
       "file": "When_it_s_medical_not_spiritual_hormones_0m05s_square.mp4",
@@ -1893,8 +1895,8 @@
   ],
   "stats": {
     "total": 278,
-    "posted": 250,
-    "remaining": 28,
-    "last_updated": "2026-11-10T03:09:37Z"
+    "posted": 251,
+    "remaining": 27,
+    "last_updated": "2026-11-10T20:42:10Z"
   }
 }
