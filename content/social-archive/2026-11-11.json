@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-11",
+  "day": 3,
+  "theme": "Kingdom Conversation",
+  "themeType": "engagement_question",
+  "targetPage": "https://increasingfaith.net/community.html",
+  "posts": {
+    "facebook": {
+      "content": "Unpopular opinion: The Kingdom doesn’t wait for us to “feel ready” before we step into our destiny—obedience now releases God’s promise faster than any preparation. Do you agree that waiting on feelings delays divine breakthrough, or do you see value in the pause? Share your conviction; let’s discuss how we’re choosing action over comfort.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#KingdomConversation"
+      ],
+      "cta": "\n\nJoin our community\nhttps://increasingfaith.net/community.html",
+      "fullPost": "Unpopular opinion: The Kingdom doesn’t wait for us to “feel ready” before we step into our destiny—obedience now releases God’s promise faster than any preparation. Do you agree that waiting on feelings delays divine breakthrough, or do you see value in the pause? Share your conviction; let’s discuss how we’re choosing action over comfort.\n\nJoin our community\nhttps://increasingfaith.net/community.html\n\n#KingdomOfGod #IncreasingFaith #KingdomConversation",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-11-11.png",
+      "pullQuote": "Obedience now releases God’s promise faster than any preparation",
+      "attribution": "Kingdom Conversation"
+    },
+    "instagram": {
+      "content": "Unpopular opinion: The Kingdom expects us to prioritize obedience over comfort, even when the world tells us to “rest” from the call.  \n\nDo you agree that true spiritual growth begins when we step out of ease and into God‑ordained pressure?  \n\nShare your truth below.",
+      "hashtags": [
+        "#KingdomMindset",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomLiving",
+        "#KingdomConversation",
+        "#FaithTalk",
+        "#KingdomOfGod",
+        "#RealTalk"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Unpopular opinion: The Kingdom expects us to prioritize obedience over comfort, even when the world tells us to “rest” from the call.  \n\nDo you agree that true spiritual growth begins when we step out of ease and into God‑ordained pressure?  \n\nShare your truth below.\n\nJoin our community → Link in bio\n\n#KingdomMindset #IncreasingFaith #IFM #KingdomLiving #KingdomConversation #FaithTalk #KingdomOfGod #RealTalk"
+    },
+    "tiktok": {
+      "content": "Real talk: When the world tells you success is measured by wealth, does your heart still hear the Kingdom’s call to give? How do you guard your identity when the paycheck feels louder than the prayer? Share your truth below.",
+      "hashtags": [
+        "#KingdomConversation",
+        "#KingdomMindset",
+        "#KingdomLiving",
+        "#IFM",
+        "#RealTalk"
+      ],
+      "cta": "\n\nJoin our community → Link in bio",
+      "fullPost": "Real talk: When the world tells you success is measured by wealth, does your heart still hear the Kingdom’s call to give? How do you guard your identity when the paycheck feels louder than the prayer? Share your truth below.\n\nJoin our community → Link in bio\n\n#KingdomConversation #KingdomMindset #KingdomLiving #IFM #RealTalk"
+    }
+  },
+  "generatedAt": "2026-11-11T21:03:20.975Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1583366640493979",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-11-11T21:03:25.157Z",
+  "testMode": false
+}
