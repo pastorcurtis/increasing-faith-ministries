@@ -1759,8 +1759,10 @@
     },
     {
       "file": "When_it_s_medical_not_spiritual_hormones_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-26T12:03:15"
+      "posted": true,
+      "added_at": "2026-10-26T12:03:15",
+      "video_id": "2082886089029467",
+      "posted_at": "2026-11-11T00:59:45Z"
     },
     {
       "file": "Loving_kindness_how_to_support_an_addict_0m02s_square.mp4",
@@ -1895,8 +1897,8 @@
   ],
   "stats": {
     "total": 278,
-    "posted": 251,
-    "remaining": 27,
-    "last_updated": "2026-11-10T20:42:10Z"
+    "posted": 252,
+    "remaining": 26,
+    "last_updated": "2026-11-11T00:59:45Z"
   }
 }
