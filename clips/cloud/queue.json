@@ -1766,8 +1766,10 @@
     },
     {
       "file": "Loving_kindness_how_to_support_an_addict_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-26T12:03:15"
+      "posted": true,
+      "added_at": "2026-10-26T12:03:15",
+      "video_id": "1731354425176699",
+      "posted_at": "2026-11-11T21:02:57Z"
     },
     {
       "file": "What_Does_It_Mean_to_Manifest__Works_of_0m02s_square.mp4",
@@ -1897,8 +1899,8 @@
   ],
   "stats": {
     "total": 278,
-    "posted": 252,
-    "remaining": 26,
-    "last_updated": "2026-11-11T00:59:45Z"
+    "posted": 253,
+    "remaining": 25,
+    "last_updated": "2026-11-11T21:02:57Z"
   }
 }
