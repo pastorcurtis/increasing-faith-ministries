@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-11",
+  "day": 3,
+  "label": "Visit",
+  "destination": "https://increasingfaith.net/visit.html",
+  "button": "PLAN YOUR VISIT",
+  "copy": {
+    "headline": "Your first step is a Sunday at 12 noon in Southfield",
+    "subhead": "Join Pastor Curtis and Pastor Tammy live or online and see the Kingdom at work",
+    "hook": "Ever wondered what a real Kingdom gathering feels like?",
+    "body": "Come to our First Saturday service at 12 p.m. at 24301 Telegraph, Southfield, MI. If you prefer your couch, tune into the Hour of Power weekdays at 8:15 a.m. online. Pastor Curtis and Pastor Tammy will greet you and show you how the Word lives today. Click to plan your visit."
+  },
+  "caption": "Ever wondered what a real Kingdom gathering feels like?\n\n→ https://increasingfaith.net/visit.html\n\nCome to our First Saturday service at 12 p.m. at 24301 Telegraph, Southfield, MI. If you prefer your couch, tune into the Hour of Power weekdays at 8:15 a.m. online. Pastor Curtis and Pastor Tammy will greet you and show you how the Word lives today. Click to plan your visit.\n\n#Detroit #KingdomOfGod #IncreasingFaith",
+  "hashtags": [
+    "#Detroit",
+    "#KingdomOfGod",
+    "#IncreasingFaith"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-11-11.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1583460633817913",
+    "mode": "photo"
+  },
+  "postedAt": "2026-11-11T23:21:07.737Z",
+  "testMode": false
+}
