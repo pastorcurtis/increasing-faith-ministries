@@ -1773,8 +1773,10 @@
     },
     {
       "file": "What_Does_It_Mean_to_Manifest__Works_of_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-26T12:03:15"
+      "posted": true,
+      "added_at": "2026-10-26T12:03:15",
+      "video_id": "1504080775113012",
+      "posted_at": "2026-11-12T02:06:49Z"
     },
     {
       "file": "You_Can_t_Inherit_the_Kingdom_While_Livi_0m02s_square.mp4",
@@ -1899,8 +1901,8 @@
   ],
   "stats": {
     "total": 278,
-    "posted": 253,
-    "remaining": 25,
-    "last_updated": "2026-11-11T21:02:57Z"
+    "posted": 254,
+    "remaining": 24,
+    "last_updated": "2026-11-12T02:06:49Z"
   }
 }
