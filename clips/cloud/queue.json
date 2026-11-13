@@ -1794,8 +1794,10 @@
     },
     {
       "file": "Tribulation_comes__be_of_good_cheer_and_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-26T12:03:15"
+      "posted": true,
+      "added_at": "2026-10-26T12:03:15",
+      "video_id": "3358600500999105",
+      "posted_at": "2026-11-13T20:45:25Z"
     },
     {
       "file": "Stop_looking_for_miracles__prophesy_to_y_0m02s_square.mp4",
@@ -1905,8 +1907,8 @@
   ],
   "stats": {
     "total": 278,
-    "posted": 256,
-    "remaining": 22,
-    "last_updated": "2026-11-13T01:40:25Z"
+    "posted": 257,
+    "remaining": 21,
+    "last_updated": "2026-11-13T20:45:25Z"
   }
 }
