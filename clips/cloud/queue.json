@@ -1787,8 +1787,10 @@
     },
     {
       "file": "Why_some_solutions_require_help_outside_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-26T12:03:15"
+      "posted": true,
+      "added_at": "2026-10-26T12:03:15",
+      "video_id": "1133625676035956",
+      "posted_at": "2026-11-13T01:40:25Z"
     },
     {
       "file": "Tribulation_comes__be_of_good_cheer_and_0m02s_square.mp4",
@@ -1903,8 +1905,8 @@
   ],
   "stats": {
     "total": 278,
-    "posted": 255,
-    "remaining": 23,
-    "last_updated": "2026-11-12T21:17:41Z"
+    "posted": 256,
+    "remaining": 22,
+    "last_updated": "2026-11-13T01:40:25Z"
   }
 }
