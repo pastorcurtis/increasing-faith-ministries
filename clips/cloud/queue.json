@@ -1808,8 +1808,10 @@
     },
     {
       "file": "God_hears_the_righteous__He_delivers_and_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-26T12:03:15"
+      "posted": true,
+      "added_at": "2026-10-26T12:03:15",
+      "video_id": "1856071032054285",
+      "posted_at": "2026-11-14T18:56:37Z"
     },
     {
       "file": "Troubled_on_every_side_yet_not_distresse_0m02s_square.mp4",
@@ -1909,8 +1911,8 @@
   ],
   "stats": {
     "total": 278,
-    "posted": 258,
-    "remaining": 20,
-    "last_updated": "2026-11-14T01:17:18Z"
+    "posted": 259,
+    "remaining": 19,
+    "last_updated": "2026-11-14T18:56:37Z"
   }
 }
