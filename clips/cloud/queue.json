@@ -1815,8 +1815,10 @@
     },
     {
       "file": "Troubled_on_every_side_yet_not_distresse_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-10-26T12:03:15"
+      "posted": true,
+      "added_at": "2026-10-26T12:03:15",
+      "video_id": "2197673017854324",
+      "posted_at": "2026-11-15T00:45:15Z"
     },
     {
       "file": "Don_t_argue_go_to_God_and_encourage_your_0m02s_square.mp4",
@@ -1911,8 +1913,8 @@
   ],
   "stats": {
     "total": 278,
-    "posted": 259,
-    "remaining": 19,
-    "last_updated": "2026-11-14T18:56:37Z"
+    "posted": 260,
+    "remaining": 18,
+    "last_updated": "2026-11-15T00:45:15Z"
   }
 }
