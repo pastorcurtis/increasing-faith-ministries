@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-15",
+  "day": 0,
+  "theme": "Pastoral Word",
+  "themeType": "pastoral_word",
+  "targetPage": "https://increasingfaith.net/about.html",
+  "posts": {
+    "facebook": {
+      "content": "Beloved, the Lord has placed you exactly where you are for a purpose. He says in Jeremiah 29:11, “I know the plans I have for you,”—plans to prosper, not to harm, to give you hope and a future. Stand firm in that promise; let His peace anchor your steps today.  \n\nDeclare: I walk in the destiny God has ordained for me.  \n\nWhat has God revealed to you this week about His plan for your life?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#Faith",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html",
+      "fullPost": "Beloved, the Lord has placed you exactly where you are for a purpose. He says in Jeremiah 29:11, “I know the plans I have for you,”—plans to prosper, not to harm, to give you hope and a future. Stand firm in that promise; let His peace anchor your steps today.  \n\nDeclare: I walk in the destiny God has ordained for me.  \n\nWhat has God revealed to you this week about His plan for your life?\n\nLearn more about our mission\nhttps://increasingfaith.net/about.html\n\n#KingdomOfGod #Faith #IncreasingFaith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-11-15.png",
+      "pullQuote": "Stand firm in that promise; let His peace anchor your steps today",
+      "attribution": "Jeremiah 29:11"
+    },
+    "instagram": {
+      "content": "Brother, sister, the Lord says: “I have set you on a high and holy place” (Psalm 91:1). Stand firm in that truth today—your identity is sealed, your purpose secured. Declare over your life, “I walk in victory, because God’s hand guides me.” What breakthrough has God already begun for you? Share below.",
+      "hashtags": [
+        "#KingdomLiving",
+        "#Faith",
+        "#IFM",
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#KingdomCitizen",
+        "#JesusIsLord",
+        "#Jesus"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "Brother, sister, the Lord says: “I have set you on a high and holy place” (Psalm 91:1). Stand firm in that truth today—your identity is sealed, your purpose secured. Declare over your life, “I walk in victory, because God’s hand guides me.” What breakthrough has God already begun for you? Share below.\n\nLearn more about our mission → Link in bio\n\n#KingdomLiving #Faith #IFM #KingdomOfGod #IncreasingFaith #KingdomCitizen #JesusIsLord #Jesus"
+    },
+    "tiktok": {
+      "content": "My brother, my sister—God has placed a purpose in your chest. When the night feels heavy, remember Psalm 23:4: He leads you through the darkest valley, His rod and staff your comfort. Rise now, claim His peace, and walk in that authority. How has He steadied you today?",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#KingdomCitizen",
+        "#JesusIsLord",
+        "#Jesus"
+      ],
+      "cta": "\n\nLearn more about our mission → Link in bio",
+      "fullPost": "My brother, my sister—God has placed a purpose in your chest. When the night feels heavy, remember Psalm 23:4: He leads you through the darkest valley, His rod and staff your comfort. Rise now, claim His peace, and walk in that authority. How has He steadied you today?\n\nLearn more about our mission → Link in bio\n\n#KingdomOfGod #IncreasingFaith #KingdomCitizen #JesusIsLord #Jesus"
+    }
+  },
+  "generatedAt": "2026-11-15T19:32:43.584Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1587943880036255",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-11-15T19:32:48.177Z",
+  "testMode": false
+}
