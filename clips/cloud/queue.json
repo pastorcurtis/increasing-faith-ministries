@@ -1836,8 +1836,10 @@
     },
     {
       "file": "Why_forgiveness_is_the_relationship_life_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-11-03T11:30:42"
+      "posted": true,
+      "added_at": "2026-11-03T11:30:42",
+      "video_id": "2261270978127419",
+      "posted_at": "2026-11-16T23:11:33Z"
     },
     {
       "file": "Waking_at_3AM_It_s_Probably_Hormones_Not_0m02s_square.mp4",
@@ -1997,7 +1999,8 @@
   ],
   "stats": {
     "total": 294,
-    "posted": 262,
-    "remaining": 32
+    "posted": 263,
+    "remaining": 31,
+    "last_updated": "2026-11-16T23:11:33Z"
   }
 }
