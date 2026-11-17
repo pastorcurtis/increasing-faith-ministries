@@ -1843,8 +1843,10 @@
     },
     {
       "file": "Waking_at_3AM_It_s_Probably_Hormones_Not_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-11-03T11:30:42"
+      "posted": true,
+      "added_at": "2026-11-03T11:30:42",
+      "video_id": "993104630529780",
+      "posted_at": "2026-11-17T03:23:38Z"
     },
     {
       "file": "Loving_kindness_is_a_marathon_not_a_spri_0m02s_square.mp4",
@@ -1999,8 +2001,8 @@
   ],
   "stats": {
     "total": 294,
-    "posted": 263,
-    "remaining": 31,
-    "last_updated": "2026-11-16T23:11:33Z"
+    "posted": 264,
+    "remaining": 30,
+    "last_updated": "2026-11-17T03:23:38Z"
   }
 }
