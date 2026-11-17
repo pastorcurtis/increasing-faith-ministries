@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-17",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "You carry a prayer no one knows you’ve spoken",
+    "subhead": "A real request reaches real believers who will lift it before the throne",
+    "hook": "What if the weight you bear could be placed in the hands of a praying community?",
+    "body": "There is no form to fill, no membership to claim. Pastor Curtis and Pastor Tammy lead a network that takes your silent need and brings it before God. Send your request now and join a fellowship that actually prays for you."
+  },
+  "caption": "What if the weight you bear could be placed in the hands of a praying community?\n\n→ https://increasingfaith.net/prayer.html\n\nThere is no form to fill, no membership to claim. Pastor Curtis and Pastor Tammy lead a network that takes your silent need and brings it before God. Send your request now and join a fellowship that actually prays for you.\n\n#KingdomOfGod #PrayerFocus #IncreasingFaith",
+  "hashtags": [
+    "#KingdomOfGod",
+    "#PrayerFocus",
+    "#IncreasingFaith"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-11-17.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1590238889806754",
+    "mode": "photo"
+  },
+  "postedAt": "2026-11-17T23:46:26.730Z",
+  "testMode": false
+}
