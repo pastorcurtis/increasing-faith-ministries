@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-19",
+  "day": 4,
+  "theme": "Prayer Focus",
+  "themeType": "prayer_focus",
+  "targetPage": "https://increasingfaith.net/prayer.html",
+  "posts": {
+    "facebook": {
+      "content": "Family – We stand in a season where discord threatens the home. Lord, we declare Your peace reigning over every household. We speak unity where division dwells, love that covers all offenses, and provision that meets every need. Your Spirit fortifies each marriage, parent, child, and sibling. If you stand with us, drop a 🙏. Share a prayer need below, and we’ll lift it together.",
+      "hashtags": [
+        "#KingdomOfGod",
+        "#PrayerFocus",
+        "#IncreasingFaith"
+      ],
+      "cta": "\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html",
+      "fullPost": "Family – We stand in a season where discord threatens the home. Lord, we declare Your peace reigning over every household. We speak unity where division dwells, love that covers all offenses, and provision that meets every need. Your Spirit fortifies each marriage, parent, child, and sibling. If you stand with us, drop a 🙏. Share a prayer need below, and we’ll lift it together.\n\nSubmit your prayer request\nhttps://increasingfaith.net/prayer.html\n\n#KingdomOfGod #PrayerFocus #IncreasingFaith",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-11-19.png",
+      "pullQuote": "We declare Your peace reigning over every household.",
+      "attribution": "Prayer Focus"
+    },
+    "instagram": {
+      "content": "Family – We’re standing in a season where division threatens the home.  \nLord, we declare Your peace reigning over every heart in our households. We command strife to break and love to flood every conversation. Your provision, protection, and purpose are activated now.  \n\nDrop 🙏 if you stand with us, or share your own need below.",
+      "hashtags": [
+        "#Intercession",
+        "#Prayer",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomOfGod",
+        "#KingdomPrayer",
+        "#KingdomLiving",
+        "#PrayerFocus"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Family – We’re standing in a season where division threatens the home.  \nLord, we declare Your peace reigning over every heart in our households. We command strife to break and love to flood every conversation. Your provision, protection, and purpose are activated now.  \n\nDrop 🙏 if you stand with us, or share your own need below.\n\nSubmit your prayer request → Link in bio\n\n#Intercession #Prayer #IncreasingFaith #IFM #KingdomOfGod #KingdomPrayer #KingdomLiving #PrayerFocus"
+    },
+    "tiktok": {
+      "content": "Family—today our homes are under attack by fear and division. We declare the Lord’s peace reigns; each heart is guarded, every word builds up, and love multiplies like seed. Father, seal our households with Your covenant fire. Drop 🙏 if you stand, or share your need.",
+      "hashtags": [
+        "#Intercession",
+        "#KingdomOfGod",
+        "#IncreasingFaith",
+        "#IFM",
+        "#KingdomLiving"
+      ],
+      "cta": "\n\nSubmit your prayer request → Link in bio",
+      "fullPost": "Family—today our homes are under attack by fear and division. We declare the Lord’s peace reigns; each heart is guarded, every word builds up, and love multiplies like seed. Father, seal our households with Your covenant fire. Drop 🙏 if you stand, or share your need.\n\nSubmit your prayer request → Link in bio\n\n#Intercession #KingdomOfGod #IncreasingFaith #IFM #KingdomLiving"
+    }
+  },
+  "generatedAt": "2026-11-19T21:58:35.375Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1592271682936808",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-11-19T21:58:39.176Z",
+  "testMode": false
+}
