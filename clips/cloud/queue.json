@@ -1878,8 +1878,10 @@
     },
     {
       "file": "Loving-kindness_how_to_support_an_addict_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-11-03T11:30:42"
+      "posted": true,
+      "added_at": "2026-11-03T11:30:42",
+      "video_id": "1083980381337813",
+      "posted_at": "2026-11-19T21:58:00Z"
     },
     {
       "file": "What_Love_Suffereth_Long_Means_in_Real_R_0m02s_square.mp4",
@@ -2009,8 +2011,8 @@
   ],
   "stats": {
     "total": 294,
-    "posted": 268,
-    "remaining": 26,
-    "last_updated": "2026-11-19T02:15:45Z"
+    "posted": 269,
+    "remaining": 25,
+    "last_updated": "2026-11-19T21:58:00Z"
   }
 }
