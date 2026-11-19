@@ -1871,8 +1871,10 @@
     },
     {
       "file": "Pray_for_strategy_to_control_the_flesh_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-11-03T11:30:42"
+      "posted": true,
+      "added_at": "2026-11-03T11:30:42",
+      "video_id": "1686863369891939",
+      "posted_at": "2026-11-19T02:15:45Z"
     },
     {
       "file": "Loving-kindness_how_to_support_an_addict_0m02s_square.mp4",
@@ -2007,8 +2009,8 @@
   ],
   "stats": {
     "total": 294,
-    "posted": 267,
-    "remaining": 27,
-    "last_updated": "2026-11-18T21:42:15Z"
+    "posted": 268,
+    "remaining": 26,
+    "last_updated": "2026-11-19T02:15:45Z"
   }
 }
