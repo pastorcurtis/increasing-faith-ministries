@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-20",
+  "day": 5,
+  "theme": "Kingdom Intelligence",
+  "themeType": "newsletter_teaser",
+  "targetPage": "https://increasingfaith.net/newsletter.html",
+  "posts": {
+    "facebook": {
+      "content": "Pastor Curtis just uncovered a biblical strategy the Kingdom is using right now—a hidden principle from Daniel 2 that’s unlocking new harvests for believers in 2024. Tammy will reveal how that same pattern is appearing in global events and what it means for your prayer agenda. If you miss this, you’ll be walking blind while the harvest rolls in. What breakthrough are you ready to claim when the mystery is revealed?",
+      "hashtags": [
+        "#IFM",
+        "#Faith",
+        "#KingdomCitizen"
+      ],
+      "cta": "\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html",
+      "fullPost": "Pastor Curtis just uncovered a biblical strategy the Kingdom is using right now—a hidden principle from Daniel 2 that’s unlocking new harvests for believers in 2024. Tammy will reveal how that same pattern is appearing in global events and what it means for your prayer agenda. If you miss this, you’ll be walking blind while the harvest rolls in. What breakthrough are you ready to claim when the mystery is revealed?\n\nRead the full Kingdom Report\nhttps://increasingfaith.net/newsletter.html\n\n#IFM #Faith #KingdomCitizen",
+      "graphicPath": "/home/runner/work/increasing-faith-ministries/increasing-faith-ministries/social-agent/output/2026-11-20.png",
+      "pullQuote": "The Kingdom is using a hidden Daniel 2 principle to unlock new harvests.",
+      "attribution": "Kingdom Intelligence"
+    },
+    "instagram": {
+      "content": "The Kingdom Report just uncovered a prophetic shift: the new “Harvest Law” chapter reveals how every prayer aligns with a divine calendar, unlocking breakthrough before the season changes. Pastor Curtis explains the exact moment you must step out to claim it.  \n\nAre you ready to position yourself before the breakthrough window opens?",
+      "hashtags": [
+        "#Jesus",
+        "#JesusIsLord",
+        "#Faith",
+        "#KingdomLiving",
+        "#IFM",
+        "#IncreasingFaith",
+        "#KingdomCitizen",
+        "#KingdomOfGod"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The Kingdom Report just uncovered a prophetic shift: the new “Harvest Law” chapter reveals how every prayer aligns with a divine calendar, unlocking breakthrough before the season changes. Pastor Curtis explains the exact moment you must step out to claim it.  \n\nAre you ready to position yourself before the breakthrough window opens?\n\nRead the full Kingdom Report → Link in bio\n\n#Jesus #JesusIsLord #Faith #KingdomLiving #IFM #IncreasingFaith #KingdomCitizen #KingdomOfGod"
+    },
+    "tiktok": {
+      "content": "The Kingdom Report reveals why the new “spiritual economy” bill will shift every believer’s provision—God’s promise of overflow is now backed by legislation. How will you position yourself to receive what He’s already ordained? What’s your next step?",
+      "hashtags": [
+        "#JesusIsLord",
+        "#IncreasingFaith",
+        "#KingdomOfGod",
+        "#Faith",
+        "#IFM"
+      ],
+      "cta": "\n\nRead the full Kingdom Report → Link in bio",
+      "fullPost": "The Kingdom Report reveals why the new “spiritual economy” bill will shift every believer’s provision—God’s promise of overflow is now backed by legislation. How will you position yourself to receive what He’s already ordained? What’s your next step?\n\nRead the full Kingdom Report → Link in bio\n\n#JesusIsLord #IncreasingFaith #KingdomOfGod #Faith #IFM"
+    }
+  },
+  "generatedAt": "2026-11-20T21:40:32.187Z",
+  "postingResults": {
+    "facebook": {
+      "success": true,
+      "postId": "93332671526_1593357312828245",
+      "mode": "photo"
+    },
+    "instagram": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    },
+    "tiktok": {
+      "success": true,
+      "posted": false,
+      "method": "manual_copy"
+    }
+  },
+  "postedAt": "2026-11-20T21:40:38.252Z",
+  "testMode": false
+}
