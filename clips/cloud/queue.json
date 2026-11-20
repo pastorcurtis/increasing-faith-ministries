@@ -1885,8 +1885,10 @@
     },
     {
       "file": "What_Love_Suffereth_Long_Means_in_Real_R_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-11-03T11:30:42"
+      "posted": true,
+      "added_at": "2026-11-03T11:30:42",
+      "video_id": "1776395293468333",
+      "posted_at": "2026-11-20T02:00:27Z"
     },
     {
       "file": "Money_and_loving_kindness_in_marriage_0m02s_square.mp4",
@@ -2011,8 +2013,8 @@
   ],
   "stats": {
     "total": 294,
-    "posted": 269,
-    "remaining": 25,
-    "last_updated": "2026-11-19T21:58:00Z"
+    "posted": 270,
+    "remaining": 24,
+    "last_updated": "2026-11-20T02:00:27Z"
   }
 }
