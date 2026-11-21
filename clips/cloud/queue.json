@@ -1906,8 +1906,10 @@
     },
     {
       "file": "Not_magic__David_s_strategy_to_recover_w_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-11-03T11:30:42"
+      "posted": true,
+      "added_at": "2026-11-03T11:30:42",
+      "video_id": "1144789231798303",
+      "posted_at": "2026-11-21T20:21:50Z"
     },
     {
       "file": "Prayer_is_Not_a_Magic_Wand__It_s_Strateg_0m02s_square.mp4",
@@ -2017,8 +2019,8 @@
   ],
   "stats": {
     "total": 294,
-    "posted": 272,
-    "remaining": 22,
-    "last_updated": "2026-11-21T01:58:02Z"
+    "posted": 273,
+    "remaining": 21,
+    "last_updated": "2026-11-21T20:21:50Z"
   }
 }
