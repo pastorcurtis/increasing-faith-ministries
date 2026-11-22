@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-22",
+  "day": 0,
+  "label": "Start Here",
+  "destination": "https://increasingfaith.net/",
+  "button": "START HERE",
+  "copy": {
+    "headline": "Your front door to the Kingdom is waiting",
+    "subhead": "Step through the portal where truth meets daily life",
+    "hook": "Ever feel faith is just a distant circle?",
+    "body": "Pastor Curtis and Pastor Tammy have built a place where Scripture becomes your daily residence. One click puts you inside the house of the Most High. Walk through now and claim your seat."
+  },
+  "caption": "Ever feel faith is just a distant circle?\n\n→ https://increasingfaith.net/\n\nPastor Curtis and Pastor Tammy have built a place where Scripture becomes your daily residence. One click puts you inside the house of the Most High. Walk through now and claim your seat.\n\n#KingdomLiving #KingdomOfGod #JesusIsLord",
+  "hashtags": [
+    "#KingdomLiving",
+    "#KingdomOfGod",
+    "#JesusIsLord"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-11-22.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1595659685931341",
+    "mode": "photo"
+  },
+  "postedAt": "2026-11-22T22:20:16.652Z",
+  "testMode": false
+}
