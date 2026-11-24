@@ -1948,8 +1948,10 @@
     },
     {
       "file": "You_can_t_have_that_relationship_with_an_0m05s_square.mp4",
-      "posted": false,
-      "added_at": "2026-11-16T11:27:19"
+      "posted": true,
+      "added_at": "2026-11-16T11:27:19",
+      "video_id": "1932853314345511",
+      "posted_at": "2026-11-24T23:24:12Z"
     },
     {
       "file": "Say_I_m_not_trying_to_argue__how_to_be_h_0m05s_square.mp4",
@@ -2029,8 +2031,8 @@
   ],
   "stats": {
     "total": 294,
-    "posted": 278,
-    "remaining": 16,
-    "last_updated": "2026-11-24T05:07:54Z"
+    "posted": 279,
+    "remaining": 15,
+    "last_updated": "2026-11-24T23:24:12Z"
   }
 }
