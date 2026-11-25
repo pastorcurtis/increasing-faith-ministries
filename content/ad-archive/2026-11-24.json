@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-24",
+  "day": 2,
+  "label": "Prayer",
+  "destination": "https://increasingfaith.net/prayer.html",
+  "button": "SEND YOUR REQUEST",
+  "copy": {
+    "headline": "Your hidden burden deserves a prayerful ear",
+    "subhead": "No signup, no agenda—just real people lifting your exact request to God",
+    "hook": "What you’ve never spoken aloud can now be heard in prayer.",
+    "body": "Send the weight you carry to pastors Curtis and Tammy. They will place your request before the throne, no formality, no performance. Expect a faithful prayer, not a promise. Let the Kingdom hear you."
+  },
+  "caption": "What you’ve never spoken aloud can now be heard in prayer.\n\n→ https://increasingfaith.net/prayer.html\n\nSend the weight you carry to pastors Curtis and Tammy. They will place your request before the throne, no formality, no performance. Expect a faithful prayer, not a promise. Let the Kingdom hear you.\n\n#Intercession #IFM #KingdomLiving",
+  "hashtags": [
+    "#Intercession",
+    "#IFM",
+    "#KingdomLiving"
+  ],
+  "usedFallback": false,
+  "graphic": "ad-2026-11-24.png",
+  "postingResult": {
+    "success": true,
+    "postId": "93332671526_1598072332356743",
+    "mode": "photo"
+  },
+  "postedAt": "2026-11-25T01:16:56.420Z",
+  "testMode": false
+}
