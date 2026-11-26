@@ -1976,8 +1976,10 @@
     },
     {
       "file": "Respect_stop_embarrassing_your_spouse_pu_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-11-16T11:27:19"
+      "posted": true,
+      "added_at": "2026-11-16T11:27:19",
+      "video_id": "1834858435307272",
+      "posted_at": "2026-11-26T22:47:47Z"
     },
     {
       "file": "The_Antidote_to_Growing_Apart_0m02s_square.mp4",
@@ -2037,8 +2039,8 @@
   ],
   "stats": {
     "total": 294,
-    "posted": 282,
-    "remaining": 12,
-    "last_updated": "2026-11-26T03:21:57Z"
+    "posted": 283,
+    "remaining": 11,
+    "last_updated": "2026-11-26T22:47:47Z"
   }
 }
