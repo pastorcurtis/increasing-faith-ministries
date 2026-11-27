@@ -1990,8 +1990,10 @@
     },
     {
       "file": "Say_it__You_hurt_my_feelings__then_liste_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-11-16T11:27:19"
+      "posted": true,
+      "added_at": "2026-11-16T11:27:19",
+      "video_id": "2603072476842613",
+      "posted_at": "2026-11-27T22:28:44Z"
     },
     {
       "file": "Teamwork_taking_up_the_slack_in_marriage_0m02s_square.mp4",
@@ -2041,8 +2043,8 @@
   ],
   "stats": {
     "total": 294,
-    "posted": 284,
-    "remaining": 10,
-    "last_updated": "2026-11-27T03:28:44Z"
+    "posted": 285,
+    "remaining": 9,
+    "last_updated": "2026-11-27T22:28:44Z"
   }
 }
