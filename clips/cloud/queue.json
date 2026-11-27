@@ -1983,8 +1983,10 @@
     },
     {
       "file": "The_Antidote_to_Growing_Apart_0m02s_square.mp4",
-      "posted": false,
-      "added_at": "2026-11-16T11:27:19"
+      "posted": true,
+      "added_at": "2026-11-16T11:27:19",
+      "video_id": "1473843844884705",
+      "posted_at": "2026-11-27T03:28:44Z"
     },
     {
       "file": "Say_it__You_hurt_my_feelings__then_liste_0m02s_square.mp4",
@@ -2039,8 +2041,8 @@
   ],
   "stats": {
     "total": 294,
-    "posted": 283,
-    "remaining": 11,
-    "last_updated": "2026-11-26T22:47:47Z"
+    "posted": 284,
+    "remaining": 10,
+    "last_updated": "2026-11-27T03:28:44Z"
   }
 }
